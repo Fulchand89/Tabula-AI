@@ -4,54 +4,52 @@ import React, { useState, useMemo } from 'react';
 
 const DIRECTORY_RESOURCES = [
   // Full Curriculum Packages
-  { id: 1,  name: 'Bookshark',                    category: 'Full Curriculum Packages', description: 'Literature-based secular homeschool curriculum using living books. Complete packages with instructor guides and schedules. Parent reads aloud daily.',                                                          tags: ['Parent-Led'], philosophies: ['Charlotte Mason', 'Classical'],     faithTradition: 'Secular only', isFree: false, isNew: true  },
-  { id: 2,  name: 'Time4Learning',                category: 'Full Curriculum Packages', description: 'Online curriculum for PreK–12. Animated lessons, automatic grading, and progress reports. Child works independently on the computer.',                                                                      tags: ['Virtual'],    philosophies: ['Traditional'],                    faithTradition: 'Secular only', isFree: false, isNew: false },
-  { id: 3,  name: 'Outschool',                    category: 'Full Curriculum Packages', description: 'Live and on-demand classes taught by independent teachers. Wide variety of subjects and grade levels.',                                                                                                         tags: ['Virtual'],    philosophies: ['Traditional', 'Eclectic'],         faithTradition: 'Secular only', isFree: false, isNew: true  },
-  { id: 4,  name: 'Sonlight',                     category: 'Full Curriculum Packages', description: 'Literature-rich Christian curriculum built around daily read-alouds with the parent. Complete instructor guides included.',                                                                                     tags: ['Parent-Led'], philosophies: ['Charlotte Mason', 'Classical'],     faithTradition: 'Christian',    isFree: false, isNew: false },
-  { id: 5,  name: "My Father's World",            category: 'Full Curriculum Packages', description: 'Bible-based unit study curriculum. Parent-led daily lessons integrating all subjects around one theme.',                                                                                                        tags: ['Parent-Led'], philosophies: ['Unit Studies'],                    faithTradition: 'Christian',    isFree: false, isNew: false },
-  { id: 6,  name: 'The Good and the Beautiful',   category: 'Full Curriculum Packages', description: 'Beautiful curriculum with parent-led lessons and some independent student workbook time. Strong language arts and nature study.',                                                                               tags: ['Both'],       philosophies: ['Charlotte Mason', 'Classical'],     faithTradition: 'Christian',    isFree: false, isNew: false },
-  { id: 7,  name: 'Masterbooks',                  category: 'Full Curriculum Packages', description: 'Conversational textbook-style curriculum. Mix of independent reading and parent discussion. Very affordable.',                                                                                                   tags: ['Both'],       philosophies: ['Traditional', 'Classical'],         faithTradition: 'Christian',    isFree: false, isNew: false },
-  { id: 8,  name: 'Timberdoodle',                 category: 'Full Curriculum Packages', description: 'Kits combining hands-on manipulatives and independent workbooks. Mix of parent-led and self-directed activities.',                                                                                               tags: ['Both'],       philosophies: ['Charlotte Mason', 'Eclectic'],      faithTradition: 'Secular only', isFree: false, isNew: false },
-  { id: 9,  name: 'Abeka',                        category: 'Full Curriculum Packages', description: 'Traditional Christian textbook curriculum. Video school option allows child to watch recorded classroom lessons independently.',                                                                                  tags: ['Both'],       philosophies: ['Traditional'],                    faithTradition: 'Christian',    isFree: false, isNew: false },
-  { id: 10, name: 'Bob Jones University Press (BJU)', category: 'Full Curriculum Packages', description: 'Academically rigorous Christian curriculum with full video school option — child watches recorded classroom teachers for each subject.',                                                                    tags: ['Virtual'],    philosophies: ['Traditional'],                    faithTradition: 'Christian',    isFree: false, isNew: false },
-  { id: 11, name: 'Veritas Press',                category: 'Full Curriculum Packages', description: 'Classical Christian curriculum. Self-paced online option available alongside traditional parent-led materials.',                                                                                                 tags: ['Both'],       philosophies: ['Classical'],                      faithTradition: 'Christian',    isFree: false, isNew: false },
+  { id: 1, name: 'Bookshark', category: 'Full Curriculum Packages', description: 'Literature-based secular homeschool curriculum using living books. Complete packages with instructor guides and schedules. Parent reads aloud daily.', tags: ['Parent-Led'], philosophies: ['Charlotte Mason', 'Classical'], faithTradition: 'Secular only', isFree: false, isNew: true },
+  { id: 2, name: 'Time4Learning', category: 'Full Curriculum Packages', description: 'Online curriculum for PreK–12. Animated lessons, automatic grading, and progress reports. Child works independently on the computer.', tags: ['Virtual'], philosophies: ['Traditional'], faithTradition: 'Secular only', isFree: false, isNew: false },
+  { id: 3, name: 'Outschool', category: 'Full Curriculum Packages', description: 'Live and on-demand classes taught by independent teachers. Wide variety of subjects and grade levels.', tags: ['Virtual'], philosophies: ['Traditional', 'Eclectic'], faithTradition: 'Secular only', isFree: false, isNew: true },
+  { id: 4, name: 'Sonlight', category: 'Full Curriculum Packages', description: 'Literature-rich Christian curriculum built around daily read-alouds with the parent. Complete instructor guides included.', tags: ['Parent-Led'], philosophies: ['Charlotte Mason', 'Classical'], faithTradition: 'Christian', isFree: false, isNew: false },
+  { id: 5, name: "My Father's World", category: 'Full Curriculum Packages', description: 'Bible-based unit study curriculum. Parent-led daily lessons integrating all subjects around one theme.', tags: ['Parent-Led'], philosophies: ['Unit Studies'], faithTradition: 'Christian', isFree: false, isNew: false },
+  { id: 6, name: 'The Good and the Beautiful', category: 'Full Curriculum Packages', description: 'Beautiful curriculum with parent-led lessons and some independent student workbook time. Strong language arts and nature study.', tags: ['Both'], philosophies: ['Charlotte Mason', 'Classical'], faithTradition: 'Christian', isFree: false, isNew: false },
+  { id: 7, name: 'Masterbooks', category: 'Full Curriculum Packages', description: 'Conversational textbook-style curriculum. Mix of independent reading and parent discussion. Very affordable.', tags: ['Both'], philosophies: ['Traditional', 'Classical'], faithTradition: 'Christian', isFree: false, isNew: false },
+  { id: 8, name: 'Timberdoodle', category: 'Full Curriculum Packages', description: 'Kits combining hands-on manipulatives and independent workbooks. Mix of parent-led and self-directed activities.', tags: ['Both'], philosophies: ['Charlotte Mason', 'Eclectic'], faithTradition: 'Secular only', isFree: false, isNew: false },
+  { id: 9, name: 'Abeka', category: 'Full Curriculum Packages', description: 'Traditional Christian textbook curriculum. Video school option allows child to watch recorded classroom lessons independently.', tags: ['Both'], philosophies: ['Traditional'], faithTradition: 'Christian', isFree: false, isNew: false },
+  { id: 10, name: 'Bob Jones University Press (BJU)', category: 'Full Curriculum Packages', description: 'Academically rigorous Christian curriculum with full video school option — child watches recorded classroom teachers for each subject.', tags: ['Virtual'], philosophies: ['Traditional'], faithTradition: 'Christian', isFree: false, isNew: false },
+  { id: 11, name: 'Veritas Press', category: 'Full Curriculum Packages', description: 'Classical Christian curriculum. Self-paced online option available alongside traditional parent-led materials.', tags: ['Both'], philosophies: ['Classical'], faithTradition: 'Christian', isFree: false, isNew: false },
   // Virtual Learning
-  { id: 12, name: 'Time4Learning',                category: 'Virtual Learning', description: 'Complete online PreK–12 curriculum. Animated, self-paced lessons in all subjects with automatic scheduling. Child works fully independently.',                                                                         tags: ['Virtual'],    philosophies: ['Traditional'],                    faithTradition: 'Secular only', isFree: false, isNew: false },
-  { id: 13, name: 'Outschool',                    category: 'Virtual Learning', description: 'Live small-group video classes on every subject taught by independent teachers. Flexible scheduling. Pay per class.',                                                                                                    tags: ['Virtual'],    philosophies: ['Eclectic'],                       faithTradition: 'Secular only', isFree: false, isNew: false },
-  { id: 14, name: 'Khan Academy',                 category: 'Virtual Learning', description: 'Free practice exercises, instructional videos, and a personalized learning dashboard. Covers math, science, history, and more.',                                                                                        tags: ['Virtual'],    philosophies: ['Traditional'],                    faithTradition: 'Secular only', isFree: true,  isNew: false },
-  { id: 15, name: 'Mystery Science',              category: 'Virtual Learning', description: 'Open-and-go science lessons with minimal prep. Video-led lessons followed by hands-on activities.',                                                                                                                      tags: ['Virtual'],    philosophies: ['Traditional', 'Charlotte Mason'],  faithTradition: 'Secular only', isFree: false, isNew: false },
+  { id: 12, name: 'Time4Learning', category: 'Virtual Learning', description: 'Complete online PreK–12 curriculum. Animated, self-paced lessons in all subjects with automatic scheduling. Child works fully independently.', tags: ['Virtual'], philosophies: ['Traditional'], faithTradition: 'Secular only', isFree: false, isNew: false },
+  { id: 13, name: 'Outschool', category: 'Virtual Learning', description: 'Live small-group video classes on every subject taught by independent teachers. Flexible scheduling. Pay per class.', tags: ['Virtual'], philosophies: ['Eclectic'], faithTradition: 'Secular only', isFree: false, isNew: false },
+  { id: 14, name: 'Khan Academy', category: 'Virtual Learning', description: 'Free practice exercises, instructional videos, and a personalized learning dashboard. Covers math, science, history, and more.', tags: ['Virtual'], philosophies: ['Traditional'], faithTradition: 'Secular only', isFree: true, isNew: false },
+  { id: 15, name: 'Mystery Science', category: 'Virtual Learning', description: 'Open-and-go science lessons with minimal prep. Video-led lessons followed by hands-on activities.', tags: ['Virtual'], philosophies: ['Traditional', 'Charlotte Mason'], faithTradition: 'Secular only', isFree: false, isNew: false },
 ];
 
-const PHILOSOPHY_OPTIONS  = ['All', 'Classical', 'Charlotte Mason', 'Montessori', 'Traditional', 'Unit Studies', 'Eclectic'];
-const FAITH_OPTIONS        = ['All', 'Secular only', 'Christian', 'Catholic', 'Jewish', 'Islamic', 'Hindu', 'Buddhist', 'LDS'];
+const PHILOSOPHY_OPTIONS = ['All', 'Classical', 'Charlotte Mason', 'Montessori', 'Traditional', 'Unit Studies', 'Eclectic'];
+const FAITH_OPTIONS = ['All', 'Secular only', 'Christian', 'Catholic', 'Jewish', 'Islamic', 'Hindu', 'Buddhist', 'LDS'];
 const LEARNING_STYLE_OPTIONS = ['All', 'Virtual', 'Parent-Led', 'Both'];
 
 // ─── Private sub-components ───────────────────────────────────────────────────
 
 function FilterChip({ label, active, onClick }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`rounded-full px-3 py-1 text-[11.5px] font-semibold transition-all cursor-pointer border ${
-        active
-          ? 'bg-[#1b6b50] text-white border-[#1b6b50] shadow-sm'
-          : 'bg-white text-[#37474c] border-[#ddd6c8] hover:border-[#1b6b50] hover:text-[#1b6b50]'
+  return (<button
+    type="button"
+    onClick={onClick}
+    className={`rounded-full px-3 py-1 text-[11.5px] font-semibold transition-all cursor-pointer border ${active
+        ? 'bg-[#1b6b50] text-white border-[#1b6b50] shadow-sm hover:bg-[#14553f] active:scale-[0.99]'
+        : 'bg-white text-[#37474c] border-[#ddd6c8] hover:border-[#1b6b50] hover:text-[#1b6b50] hover:bg-[#f7faf8] active:scale-[0.99]'
       }`}
-    >
-      {label}
-    </button>
+  >
+    {label}
+  </button>
   );
 }
 
 function TagBadge({ label }) {
   const colors = {
-    'Virtual':    'bg-[#e8f5ff] text-[#1565c0] border-[#bcd8f5]',
+    'Virtual': 'bg-[#e8f5ff] text-[#1565c0] border-[#bcd8f5]',
     'Parent-Led': 'bg-[#f0faf5] text-[#1b6b50] border-[#b2ddc8]',
-    'Both':       'bg-[#fdf5e6] text-[#b06904] border-[#f0d8a0]',
-    'Free':       'bg-[#f0faf5] text-[#1b6b50] border-[#b2ddc8]',
-    'Christian':  'bg-[#f5f0fb] text-[#6d28d9] border-[#ddd0f5]',
-    'Catholic':   'bg-[#f5f0fb] text-[#6d28d9] border-[#ddd0f5]',
+    'Both': 'bg-[#fdf5e6] text-[#b06904] border-[#f0d8a0]',
+    'Free': 'bg-[#f0faf5] text-[#1b6b50] border-[#b2ddc8]',
+    'Christian': 'bg-[#f5f0fb] text-[#6d28d9] border-[#ddd0f5]',
+    'Catholic': 'bg-[#f5f0fb] text-[#6d28d9] border-[#ddd0f5]',
   };
   const cls = colors[label] ?? 'bg-[#f5f0e8] text-[#526068] border-[#ddd6c8]';
   return (
@@ -134,7 +132,7 @@ function EmptyState({ onClear }) {
 
 export default function ResourceDirectoryView({ searchQuery, onSearchChange }) {
   const [learningStyle, setLearningStyle] = useState('All');
-  const [philosophy,    setPhilosophy]    = useState('All');
+  const [philosophy, setPhilosophy] = useState('All');
   const [faithTradition, setFaithTradition] = useState('All');
   const [freeOnly, setFreeOnly] = useState(false);
 
@@ -150,7 +148,7 @@ export default function ResourceDirectoryView({ searchQuery, onSearchChange }) {
           return false;
       }
       if (learningStyle !== 'All' && !r.tags.includes(learningStyle)) return false;
-      if (philosophy    !== 'All' && !r.philosophies.includes(philosophy)) return false;
+      if (philosophy !== 'All' && !r.philosophies.includes(philosophy)) return false;
       if (faithTradition !== 'All' && r.faithTradition !== faithTradition) return false;
       if (freeOnly && !r.isFree) return false;
       return true;
@@ -248,11 +246,10 @@ export default function ResourceDirectoryView({ searchQuery, onSearchChange }) {
           <button
             type="button"
             onClick={() => setFreeOnly((v) => !v)}
-            className={`flex items-center gap-1.5 rounded-full border px-3 py-1 text-[11.5px] font-semibold transition-all cursor-pointer ${
-              freeOnly
+            className={`flex items-center gap-1.5 rounded-full border px-3 py-1 text-[11.5px] font-semibold transition-all cursor-pointer ${freeOnly
                 ? 'bg-[#1b6b50] text-white border-[#1b6b50]'
                 : 'bg-white text-[#37474c] border-[#ddd6c8] hover:border-[#1b6b50]'
-            }`}
+              }`}
           >
             <span className={freeOnly ? 'text-white' : 'text-[#1b6b50]'}>✓</span>
             Free only

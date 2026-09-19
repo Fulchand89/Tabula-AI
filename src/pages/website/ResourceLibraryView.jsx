@@ -77,7 +77,7 @@ export default function ResourceLibraryView({ onBackToHome, onUpgradeClick }) {
             onClick={() => handleTabChange('directory')}
             className={`flex-1 rounded-xl py-2.5 text-xs font-semibold transition-all cursor-pointer ${
               isDirectory
-                ? 'bg-white text-[#172b30] shadow-sm border border-[#e9e2d5]'
+                ? 'bg-[#bf643e] text-white shadow-sm'
                 : 'text-[#526068] hover:text-[#172b30]'
             }`}
           >
