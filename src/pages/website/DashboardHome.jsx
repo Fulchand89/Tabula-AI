@@ -1,7 +1,81 @@
 import React, { useState } from 'react';
 
+const WEEK_DAYS = [
+  { 
+    day: 'Mon', 
+    date: 14, 
+    fullDate: 'Mon, Apr 14', 
+    lessons: [
+      { name: 'Math', count: '1 lesson', color: 'bg-[#1b6b50]' },
+      { name: 'Language Arts', count: '1 lesson', color: 'bg-[#1e293b]' },
+      { name: 'Reading', count: '1 lesson', color: 'bg-[#558273]' },
+    ]
+  },
+  { 
+    day: 'Tue', 
+    date: 15, 
+    fullDate: 'Tue, Apr 15', 
+    lessons: [
+      { name: 'Math', count: '3 lessons', color: 'bg-[#1b6b50]' },
+      { name: 'Language Arts', count: '4 lessons', color: 'bg-[#1e293b]' },
+      { name: 'Science', count: '2 lessons', color: 'bg-[#2d7a70]' },
+      { name: 'History', count: '1 lesson', color: 'bg-[#bf7634]' },
+      { name: 'Art & Music', count: '1 lesson', color: 'bg-[#3e8a6f]' },
+    ]
+  },
+  { 
+    day: 'Wed', 
+    date: 16, 
+    fullDate: 'Wed, Apr 16', 
+    lessons: [
+      { name: 'Math', count: '2 lessons', color: 'bg-[#1b6b50]' },
+      { name: 'Writing', count: '1 lesson', color: 'bg-[#e5a93c]' },
+      { name: 'Language Arts', count: '2 lessons', color: 'bg-[#1e293b]' },
+      { name: 'History', count: '1 lesson', color: 'bg-[#bf7634]' },
+    ]
+  },
+  { 
+    day: 'Thu', 
+    date: 17, 
+    fullDate: 'Thu, Apr 17', 
+    lessons: [
+      { name: 'Reading', count: '2 lessons', color: 'bg-[#558273]' },
+      { name: 'History', count: '1 lesson', color: 'bg-[#bf7634]' },
+      { name: 'Science', count: '2 lessons', color: 'bg-[#2d7a70]' },
+    ]
+  },
+  { 
+    day: 'Fri', 
+    date: 18, 
+    fullDate: 'Fri, Apr 18', 
+    lessons: [
+      { name: 'Review', count: '1 lesson', color: 'bg-[#ba704f]' },
+      { name: 'Art & Music', count: '2 lessons', color: 'bg-[#3e8a6f]' },
+      { name: 'Math', count: '1 lesson', color: 'bg-[#1b6b50]' },
+    ]
+  },
+  { 
+    day: 'Sat', 
+    date: 19, 
+    fullDate: 'Sat, Apr 19', 
+    lessons: [
+      { name: 'Nature Walk', count: 'Outdoor', color: 'bg-[#276e48]' },
+      { name: 'Library Visit', count: 'Free reading', color: 'bg-[#558273]' },
+    ]
+  },
+  { 
+    day: 'Sun', 
+    date: 20, 
+    fullDate: 'Sun, Apr 20', 
+    lessons: [
+      { name: 'Read-Aloud & Rest', count: 'Quiet time', color: 'bg-[#70587c]' },
+    ]
+  },
+];
+
 export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudents, onNavigateToCoach, onNavigateToPlanner }) {
   const [activeStep, setActiveStep] = useState(1);
+  const [selectedDayDate, setSelectedDayDate] = useState(15);
   const [coachQuestion, setCoachQuestion] = useState('');
   const [coachAnswer, setCoachAnswer] = useState(null);
 
@@ -33,15 +107,17 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
     setCoachQuestion('');
   };
 
+  const currentSelectedDayObj = WEEK_DAYS.find(d => d.date === selectedDayDate) || WEEK_DAYS[1];
+
   // Schedule Timeline Card matching screenshot exactly
   const renderScheduleCard = (key) => (
     <div key={key} className="rounded-2xl border border-[#ebdcca] bg-white p-3.5 shadow-2xs">
       <div className="mb-3 flex items-center justify-between">
         <h3 className="font-serif text-[15px] font-bold text-[#172b30]">
-          Today's Schedule
+          Schedule
         </h3>
         <span className="text-[11px] font-semibold text-[#ba633f]">
-          Tue, Apr 15
+          {currentSelectedDayObj.fullDate}
         </span>
       </div>
 
@@ -578,87 +654,83 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                     Apr 14 – Apr 20
                   </span>
                   <div className="flex items-center gap-1 text-[11px] text-[#637278]">
-                    <button className="hover:text-[#172b30] cursor-pointer">‹</button>
-                    <button className="hover:text-[#172b30] cursor-pointer">›</button>
+                    <button 
+                      type="button"
+                      onClick={() => {
+                        const currentIndex = WEEK_DAYS.findIndex(d => d.date === selectedDayDate);
+                        const prevIndex = (currentIndex - 1 + WEEK_DAYS.length) % WEEK_DAYS.length;
+                        setSelectedDayDate(WEEK_DAYS[prevIndex].date);
+                      }}
+                      className="hover:text-[#172b30] cursor-pointer p-0.5"
+                      aria-label="Previous day"
+                    >
+                      ‹
+                    </button>
+                    <button 
+                      type="button"
+                      onClick={() => {
+                        const currentIndex = WEEK_DAYS.findIndex(d => d.date === selectedDayDate);
+                        const nextIndex = (currentIndex + 1) % WEEK_DAYS.length;
+                        setSelectedDayDate(WEEK_DAYS[nextIndex].date);
+                      }}
+                      className="hover:text-[#172b30] cursor-pointer p-0.5"
+                      aria-label="Next day"
+                    >
+                      ›
+                    </button>
                   </div>
                 </div>
               </div>
 
-              {/* Calendar Days Row */}
+              {/* Calendar Days Row - Every day is clickable */}
               <div className="mb-3 grid grid-cols-7 gap-0.5 text-center">
-                <div>
-                  <span className="block text-[9px] text-[#798790]">Mon</span>
-                  <span className="text-[11px] font-semibold text-[#172b30]">14</span>
-                </div>
-                <div className="flex flex-col items-center">
-                  <span className="block text-[9px] text-[#798790]">Tue</span>
-                  <span className="flex h-5 w-5 items-center justify-center rounded-md bg-[#1b6b50] text-[10px] font-bold text-white">
-                    15
-                  </span>
-                </div>
-                <div>
-                  <span className="block text-[9px] text-[#798790]">Wed</span>
-                  <span className="text-[11px] font-semibold text-[#172b30]">16</span>
-                </div>
-                <div>
-                  <span className="block text-[9px] text-[#798790]">Thu</span>
-                  <span className="text-[11px] font-semibold text-[#172b30]">17</span>
-                </div>
-                <div>
-                  <span className="block text-[9px] text-[#798790]">Fri</span>
-                  <span className="text-[11px] font-semibold text-[#172b30]">18</span>
-                </div>
-                <div>
-                  <span className="block text-[9px] text-[#798790]">Sat</span>
-                  <span className="text-[11px] font-semibold text-[#172b30]">19</span>
-                </div>
-                <div>
-                  <span className="block text-[9px] text-[#798790]">Sun</span>
-                  <span className="text-[11px] font-semibold text-[#172b30]">20</span>
-                </div>
+                {WEEK_DAYS.map((d) => {
+                  const isSelected = selectedDayDate === d.date;
+                  return (
+                    <button
+                      key={d.day}
+                      type="button"
+                      onClick={() => setSelectedDayDate(d.date)}
+                      className={`flex flex-col items-center py-1 px-0.5 rounded-lg transition-all cursor-pointer ${
+                        isSelected
+                          ? 'bg-[#edf5f0]'
+                          : 'hover:bg-[#faf5eb]'
+                      }`}
+                    >
+                      <span className={`block text-[9px] mb-0.5 transition-colors ${
+                        isSelected ? 'font-bold text-[#1b6b50]' : 'text-[#798790]'
+                      }`}>
+                        {d.day}
+                      </span>
+                      {isSelected ? (
+                        <span className="flex h-5 w-5 items-center justify-center rounded-md bg-[#1b6b50] text-[10px] font-bold text-white shadow-2xs">
+                          {d.date}
+                        </span>
+                      ) : (
+                        <span className="flex h-5 w-5 items-center justify-center text-[11px] font-semibold text-[#172b30] hover:text-[#1b6b50]">
+                          {d.date}
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
               </div>
 
-              {/* Subject Stats */}
+              {/* Subject Stats for Selected Day */}
               <div className="space-y-1.5 border-t border-[#f0eae0] pt-2.5">
-                <div className="flex items-center justify-between text-[11px]">
-                  <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-[#1b6b50]" />
-                    <span className="font-semibold text-[#172b30]">Math</span>
-                  </div>
-                  <span className="text-[#637278]">3 lessons</span>
-                </div>
-
-                <div className="flex items-center justify-between text-[11px]">
-                  <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-[#1e293b]" />
-                    <span className="font-semibold text-[#172b30]">Language Arts</span>
-                  </div>
-                  <span className="text-[#637278]">4 lessons</span>
-                </div>
-
-                <div className="flex items-center justify-between text-[11px]">
-                  <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-[#2d7a70]" />
-                    <span className="font-semibold text-[#172b30]">Science</span>
-                  </div>
-                  <span className="text-[#637278]">2 lessons</span>
-                </div>
-
-                <div className="flex items-center justify-between text-[11px]">
-                  <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-[#bf7634]" />
-                    <span className="font-semibold text-[#172b30]">History</span>
-                  </div>
-                  <span className="text-[#637278]">1 lesson</span>
-                </div>
-
-                <div className="flex items-center justify-between text-[11px]">
-                  <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-[#3e8a6f]" />
-                    <span className="font-semibold text-[#172b30]">Art & Music</span>
-                  </div>
-                  <span className="text-[#637278]">1 lesson</span>
-                </div>
+                {currentSelectedDayObj.lessons.length > 0 ? (
+                  currentSelectedDayObj.lessons.map((lesson, idx) => (
+                    <div key={idx} className="flex items-center justify-between text-[11px]">
+                      <div className="flex items-center gap-2">
+                        <span className={`h-2 w-2 rounded-full ${lesson.color}`} />
+                        <span className="font-semibold text-[#172b30]">{lesson.name}</span>
+                      </div>
+                      <span className="text-[#637278]">{lesson.count}</span>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-[10.5px] text-[#8d9b9f] text-center py-1">No lessons scheduled for this day</p>
+                )}
               </div>
 
               {/* Open Planner button */}
