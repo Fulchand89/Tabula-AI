@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudents, onNavigateToCoach, onNavigateToPlanner }) {
+  const [activeStep, setActiveStep] = useState(1);
   const [coachQuestion, setCoachQuestion] = useState('');
   const [coachAnswer, setCoachAnswer] = useState(null);
 
@@ -266,34 +267,49 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
               </div>
             </div>
 
-            {/* Section: GETTING STARTED (1 of 4 done) */}
+            {/* Section: GETTING STARTED (Interactive Steps) */}
             <div>
               <div className="mb-1.5 flex items-center justify-between">
                 <span className="text-[10px] font-bold tracking-wider text-[#3d4b50] uppercase">
                   GETTING STARTED
                 </span>
                 <span className="text-[10.5px] font-semibold text-[#ba633f]">
-                  1 of 4 done
+                  {activeStep} of 4 done
                 </span>
               </div>
 
-              {/* Progress Bar (25%) */}
+              {/* Progress Bar */}
               <div className="mb-2.5 h-1.5 w-full overflow-hidden rounded-full bg-[#e3ded4]">
-                <div className="h-full w-1/4 rounded-full bg-[#1b6b50]" />
+                <div 
+                  className="h-full rounded-full bg-[#1b6b50] transition-all duration-300"
+                  style={{ width: `${(activeStep / 4) * 100}%` }}
+                />
               </div>
 
               {/* 4 Steps */}
               <div className="space-y-2">
-                {/* Step 1: Add your students (done) */}
+                {/* Step 1: Add your students */}
                 <div 
-                  onClick={onNavigateToStudents}
-                  className="flex cursor-pointer items-center justify-between rounded-xl border border-[#b8dbc7] bg-[#edf5f0] p-2.5 shadow-2xs transition-all hover:bg-[#e4f1e8]"
+                  onClick={() => setActiveStep(1)}
+                  className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${
+                    activeStep === 1
+                      ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                      : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                  }`}
                 >
                   <div className="flex items-center gap-2.5 min-w-0">
-                    <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#1b6b50] text-[10px] font-bold text-white">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
+                    <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${
+                      activeStep === 1
+                        ? 'bg-[#1b6b50] text-white'
+                        : 'border border-[#d5cbbe] text-[#526068]'
+                    }`}>
+                      {activeStep === 1 ? (
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      ) : (
+                        '1'
+                      )}
                     </div>
                     <div className="min-w-0">
                       <h4 className="text-[11.5px] font-bold text-[#172b30] truncate">
@@ -304,14 +320,42 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                       </p>
                     </div>
                   </div>
-                  <span className="text-xs text-[#798790] pl-1 shrink-0">›</span>
+                  <span 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveStep(1);
+                      onNavigateToStudents?.();
+                    }}
+                    className={`text-xs pl-1 shrink-0 transition-colors ${
+                      activeStep === 1 ? 'text-[#1b6b50] font-bold' : 'text-[#798790]'
+                    }`}
+                  >
+                    ›
+                  </span>
                 </div>
 
                 {/* Step 2: Enter your curriculum */}
-                <div className="flex items-center justify-between rounded-xl border border-[#ebdcca] bg-white p-2.5 shadow-2xs">
+                <div 
+                  onClick={() => setActiveStep(2)}
+                  className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${
+                    activeStep === 2
+                      ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                      : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                  }`}
+                >
                   <div className="flex items-center gap-2.5 min-w-0">
-                    <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#d5cbbe] text-[10.5px] font-bold text-[#526068]">
-                      2
+                    <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${
+                      activeStep === 2
+                        ? 'bg-[#1b6b50] text-white'
+                        : 'border border-[#d5cbbe] text-[#526068]'
+                    }`}>
+                      {activeStep === 2 ? (
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      ) : (
+                        '2'
+                      )}
                     </div>
                     <div className="min-w-0">
                       <h4 className="text-[11.5px] font-bold text-[#172b30] truncate">
@@ -324,7 +368,11 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                   </div>
                   <button
                     type="button"
-                    onClick={onOpenAddCurriculum}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveStep(2);
+                      onOpenAddCurriculum?.();
+                    }}
                     className="shrink-0 rounded-md bg-[#1b6b50] px-2 py-1 text-[10px] font-semibold text-white shadow-2xs hover:bg-[#14553f] transition-colors cursor-pointer"
                   >
                     Add curriculum →
@@ -333,12 +381,26 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
 
                 {/* Step 3: Build your weekly plan */}
                 <div 
-                  onClick={onNavigateToPlanner}
-                  className="flex cursor-pointer items-center justify-between rounded-xl border border-[#ebdcca] bg-white p-2.5 shadow-2xs hover:bg-[#faf6ee] transition-colors"
+                  onClick={() => setActiveStep(3)}
+                  className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${
+                    activeStep === 3
+                      ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                      : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                  }`}
                 >
                   <div className="flex items-center gap-2.5 min-w-0">
-                    <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#d5cbbe] text-[10.5px] font-bold text-[#526068]">
-                      3
+                    <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${
+                      activeStep === 3
+                        ? 'bg-[#1b6b50] text-white'
+                        : 'border border-[#d5cbbe] text-[#526068]'
+                    }`}>
+                      {activeStep === 3 ? (
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      ) : (
+                        '3'
+                      )}
                     </div>
                     <div className="min-w-0">
                       <h4 className="text-[11.5px] font-bold text-[#172b30] truncate">
@@ -349,17 +411,42 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                       </p>
                     </div>
                   </div>
-                  <span className="text-xs text-[#798790] pl-1 shrink-0">›</span>
+                  <span 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveStep(3);
+                      onNavigateToPlanner?.();
+                    }}
+                    className={`text-xs pl-1 shrink-0 transition-colors ${
+                      activeStep === 3 ? 'text-[#1b6b50] font-bold' : 'text-[#798790]'
+                    }`}
+                  >
+                    ›
+                  </span>
                 </div>
 
                 {/* Step 4: Ask the AI coach */}
                 <div 
-                  onClick={onNavigateToCoach}
-                  className="flex cursor-pointer items-center justify-between rounded-xl border border-[#ebdcca] bg-white p-2.5 shadow-2xs hover:bg-[#faf6ee] transition-colors"
+                  onClick={() => setActiveStep(4)}
+                  className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${
+                    activeStep === 4
+                      ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                      : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                  }`}
                 >
                   <div className="flex items-center gap-2.5 min-w-0">
-                    <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#d5cbbe] text-[10.5px] font-bold text-[#526068]">
-                      4
+                    <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${
+                      activeStep === 4
+                        ? 'bg-[#1b6b50] text-white'
+                        : 'border border-[#d5cbbe] text-[#526068]'
+                    }`}>
+                      {activeStep === 4 ? (
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      ) : (
+                        '4'
+                      )}
                     </div>
                     <div className="min-w-0">
                       <h4 className="text-[11.5px] font-bold text-[#172b30] truncate">
@@ -370,7 +457,18 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                       </p>
                     </div>
                   </div>
-                  <span className="text-xs text-[#798790] pl-1 shrink-0">›</span>
+                  <span 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveStep(4);
+                      onNavigateToCoach?.();
+                    }}
+                    className={`text-xs pl-1 shrink-0 transition-colors ${
+                      activeStep === 4 ? 'text-[#1b6b50] font-bold' : 'text-[#798790]'
+                    }`}
+                  >
+                    ›
+                  </span>
                 </div>
               </div>
             </div>
