@@ -96,6 +96,8 @@ export default function AppShell({ onNavigateToLanding }) {
             onUpgradeClick={() => setActiveNav('account')}
             onOpenLessonDetail={() => setActiveNav('lesson-detail')}
             onToggleFamilyUnits={() => setActiveNav('planner-family')}
+            onViewCompleteWeek={() => setActiveNav('planner-complete')}
+            onNextWeek={() => setActiveNav('planner-week2')}
           />
         )}
 
@@ -103,6 +105,7 @@ export default function AppShell({ onNavigateToLanding }) {
           <PlannerWeekCompleteView 
             onBackToHome={() => setActiveNav('home')}
             onUpgradeClick={() => setActiveNav('account')}
+            onPrevWeek={() => setActiveNav('planner')}
             onNextWeek={() => setActiveNav('planner-week2')}
             onOpenLessonDetail={() => setActiveNav('lesson-detail')}
             onToggleFamilyUnits={() => setActiveNav('planner-family')}
@@ -115,7 +118,8 @@ export default function AppShell({ onNavigateToLanding }) {
             onUpgradeClick={() => setActiveNav('account')}
             onToggleFamilyUnits={() => setActiveNav('planner-family')}
             onCopySchedule={() => setActiveNav('planner-schedule')}
-            onStartFresh={() => setActiveNav('planner-blank')}
+            onStartFresh={() => setActiveNav('planner')}
+            onPrevWeek={() => setActiveNav('planner-complete')}
           />
         )}
 

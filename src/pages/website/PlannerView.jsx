@@ -33,6 +33,9 @@ export default function PlannerView({
   onUpgradeClick,
   onOpenLessonDetail,
   onToggleFamilyUnits,
+  onViewCompleteWeek,
+  onPrevWeek,
+  onNextWeek,
 }) {
   // Mode: 'individual' vs 'family'
   const [plannerMode, setPlannerMode] = useState('individual');
@@ -161,6 +164,9 @@ export default function PlannerView({
           selectedStudent={selectedStudent}
           onStudentChange={setSelectedStudent}
           onToggleFamilyUnits={onToggleFamilyUnits}
+          onViewCompleteWeek={onViewCompleteWeek}
+          onPrevWeek={onPrevWeek}
+          onNextWeek={onNextWeek}
         />
 
         {/* 3. 5-Day Cards (MON, TUE, WED, THU, FRI) */}

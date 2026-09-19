@@ -15,6 +15,9 @@ export default function PlannerWeekNav({
   selectedStudent = 'student-1',
   onStudentChange,
   onToggleFamilyUnits,
+  onViewCompleteWeek,
+  onPrevWeek,
+  onNextWeek,
 }) {
   const handleFamilyClick = () => {
     onModeChange?.('family');
@@ -23,14 +26,51 @@ export default function PlannerWeekNav({
 
   return (
     <div className="space-y-3.5">
-      {/* ── Week 1 Title & Subtitle ── */}
-      <div>
-        <h2 className="font-serif text-[22px] sm:text-[24px] font-bold text-[#16272b] tracking-tight leading-tight">
-          Week {weekNumber}
-        </h2>
-        <p className="mt-0.5 text-xs text-[#526068] font-medium">
-          {weekSubtitle}
-        </p>
+      {/* ── Week 1 Title & Subtitle + Week Navigation Controls ── */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="font-serif text-[22px] sm:text-[24px] font-bold text-[#16272b] tracking-tight leading-tight">
+            Week {weekNumber}
+          </h2>
+          <p className="mt-0.5 text-xs text-[#526068] font-medium">
+            {weekSubtitle}
+          </p>
+        </div>
+
+        {/* Controls: Week Complete Button & Arrows */}
+        <div className="flex items-center gap-1.5">
+          {onViewCompleteWeek && (
+            <button
+              type="button"
+              onClick={onViewCompleteWeek}
+              className="flex items-center gap-1 rounded-lg border border-[#c2decb] bg-[#eef7f1] px-2.5 py-1 text-[11px] font-bold text-[#185842] hover:bg-[#e2f2e7] transition-colors shadow-2xs cursor-pointer"
+              title="View completed week"
+            >
+              <span>Week Complete</span>
+              <span>›</span>
+            </button>
+          )}
+          {onPrevWeek && (
+            <button
+              type="button"
+              onClick={onPrevWeek}
+              className="flex h-7 w-7 items-center justify-center rounded-lg border border-[#d5cbbe] bg-white text-xs font-bold text-[#16272b] hover:bg-[#faf5eb] transition-colors shadow-2xs cursor-pointer"
+              aria-label="Previous week"
+            >
+              ‹
+            </button>
+          )}
+          {(onNextWeek || onViewCompleteWeek) && (
+            <button
+              type="button"
+              onClick={onNextWeek || onViewCompleteWeek}
+              className="flex h-7 w-7 items-center justify-center rounded-lg border border-[#d5cbbe] bg-white text-xs font-bold text-[#16272b] hover:bg-[#faf5eb] transition-colors shadow-2xs cursor-pointer"
+              aria-label="Next week"
+            >
+              ›
+            </button>
+          )}
+        </div>
       </div>
 
       {/* ── Segmented Toggle (Individual vs Family Units) ── */}

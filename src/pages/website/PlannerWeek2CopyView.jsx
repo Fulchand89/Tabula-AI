@@ -35,7 +35,8 @@ export default function PlannerWeek2CopyView({
   onUpgradeClick, 
   onToggleFamilyUnits, 
   onCopySchedule, 
-  onStartFresh 
+  onStartFresh,
+  onPrevWeek,
 }) {
   const [plannerMode, setPlannerMode] = useState('individual');
   const [selectedStudent, setSelectedStudent] = useState('student-1');
@@ -72,9 +73,9 @@ export default function PlannerWeek2CopyView({
       <div className="mb-4 flex items-center gap-2.5">
         <button
           type="button"
-          onClick={onBackToHome}
+          onClick={onPrevWeek || onBackToHome}
           className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#d5cbbe] bg-white text-[#1e282d] hover:bg-[#faf5eb] transition-colors shadow-2xs cursor-pointer"
-          aria-label="Go back to Home"
+          aria-label="Go back"
         >
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <line x1="19" y1="12" x2="5" y2="12" />

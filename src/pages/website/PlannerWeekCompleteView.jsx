@@ -76,6 +76,7 @@ const COMPLETED_DAYS_DATA = [
 export default function PlannerWeekCompleteView({ 
   onBackToHome, 
   onUpgradeClick, 
+  onPrevWeek,
   onNextWeek, 
   onOpenLessonDetail,
   onToggleFamilyUnits
@@ -215,7 +216,7 @@ export default function PlannerWeekCompleteView({
 
           <button
             type="button"
-            onClick={() => setWeekNumber(prev => Math.max(1, prev - 1))}
+            onClick={() => onPrevWeek ? onPrevWeek() : setWeekNumber(prev => Math.max(1, prev - 1))}
             className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#d5cbbe] bg-white text-xs font-semibold text-[#1e282d] hover:bg-[#faf5eb] transition-colors shadow-2xs cursor-pointer"
             aria-label="Previous week"
           >
@@ -224,7 +225,7 @@ export default function PlannerWeekCompleteView({
 
           <button
             type="button"
-            onClick={() => setWeekNumber(prev => prev + 1)}
+            onClick={() => onNextWeek ? onNextWeek() : setWeekNumber(prev => prev + 1)}
             className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#d5cbbe] bg-white text-xs font-semibold text-[#1e282d] hover:bg-[#faf5eb] transition-colors shadow-2xs cursor-pointer"
             aria-label="Next week"
           >
