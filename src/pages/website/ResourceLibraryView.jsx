@@ -22,6 +22,9 @@ export default function ResourceLibraryView({ onBackToHome, onUpgradeClick }) {
   const isDirectory = activeTab === 'directory';
 
   const handleTabChange = (tab) => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
     setActiveTab(tab);
     setSearchQuery(''); // reset search when switching tabs
   };

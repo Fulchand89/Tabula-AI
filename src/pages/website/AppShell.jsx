@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DashboardHome from './DashboardHome';
 import StudentsView from './StudentsView';
 import StudentDetailView from './StudentDetailView';
@@ -31,6 +31,21 @@ export default function AppShell({ onNavigateToLanding }) {
     }
     return 'home'; // Default to Home/Dashboard page
   });
+
+  const handleNavigate = (navKey) => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    setActiveNav(navKey);
+  };
+
+  // Scroll to top immediately whenever activeNav changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [activeNav]);
+
   const [selectedStudent, setSelectedStudent] = useState({
     id: 1,
     name: 'Student Name',
@@ -54,9 +69,9 @@ export default function AppShell({ onNavigateToLanding }) {
             ================================================================ */}
         {activeNav !== 'lesson-detail' && activeNav !== 'account' && (
           <Header 
-            onLogoClick={() => setActiveNav('home')}
-            onAccountClick={() => setActiveNav('account')}
-            onPrivacyClick={() => setActiveNav('privacy')}
+            onLogoClick={() => handleNavigate('home')}
+            onAccountClick={() => handleNavigate('account')}
+            onPrivacyClick={() => handleNavigate('privacy')}
           />
         )}
 
@@ -67,18 +82,18 @@ export default function AppShell({ onNavigateToLanding }) {
         {activeNav === 'home' && (
           <DashboardHome 
             onOpenAddCurriculum={() => setIsCurriculumModalOpen(true)}
-            onNavigateToStudents={() => setActiveNav('students')}
-            onNavigateToCoach={() => setActiveNav('coach')}
-            onNavigateToPlanner={() => setActiveNav('planner')}
+            onNavigateToStudents={() => handleNavigate('students')}
+            onNavigateToCoach={() => handleNavigate('coach')}
+            onNavigateToPlanner={() => handleNavigate('planner')}
           />
         )}
 
         {activeNav === 'students' && (
           <StudentsView 
-            onBackToHome={() => setActiveNav('home')}
+            onBackToHome={() => handleNavigate('home')}
             onSelectStudent={(student) => {
               setSelectedStudent(student);
-              setActiveNav('student-detail');
+              handleNavigate('student-detail');
             }}
           />
         )}
@@ -86,109 +101,109 @@ export default function AppShell({ onNavigateToLanding }) {
         {activeNav === 'student-detail' && (
           <StudentDetailView
             student={selectedStudent}
-            onBack={() => setActiveNav('students')}
+            onBack={() => handleNavigate('students')}
           />
         )}
 
         {activeNav === 'planner' && (
           <PlannerView 
-            onBackToHome={() => setActiveNav('home')}
-            onUpgradeClick={() => setActiveNav('account')}
-            onOpenLessonDetail={() => setActiveNav('lesson-detail')}
-            onToggleFamilyUnits={() => setActiveNav('planner-family')}
-            onViewCompleteWeek={() => setActiveNav('planner-complete')}
-            onNextWeek={() => setActiveNav('planner-week2')}
+            onBackToHome={() => handleNavigate('home')}
+            onUpgradeClick={() => handleNavigate('account')}
+            onOpenLessonDetail={() => handleNavigate('lesson-detail')}
+            onToggleFamilyUnits={() => handleNavigate('planner-family')}
+            onViewCompleteWeek={() => handleNavigate('planner-complete')}
+            onNextWeek={() => handleNavigate('planner-week2')}
           />
         )}
 
         {activeNav === 'planner-complete' && (
           <PlannerWeekCompleteView 
-            onBackToHome={() => setActiveNav('home')}
-            onUpgradeClick={() => setActiveNav('account')}
-            onPrevWeek={() => setActiveNav('planner')}
-            onNextWeek={() => setActiveNav('planner-week2')}
-            onOpenLessonDetail={() => setActiveNav('lesson-detail')}
-            onToggleFamilyUnits={() => setActiveNav('planner-family')}
+            onBackToHome={() => handleNavigate('home')}
+            onUpgradeClick={() => handleNavigate('account')}
+            onPrevWeek={() => handleNavigate('planner')}
+            onNextWeek={() => handleNavigate('planner-week2')}
+            onOpenLessonDetail={() => handleNavigate('lesson-detail')}
+            onToggleFamilyUnits={() => handleNavigate('planner-family')}
           />
         )}
 
         {(activeNav === 'planner-week2' || activeNav === 'week-2') && (
           <PlannerWeek2CopyView 
-            onBackToHome={() => setActiveNav('home')}
-            onUpgradeClick={() => setActiveNav('account')}
-            onToggleFamilyUnits={() => setActiveNav('planner-family')}
-            onCopySchedule={() => setActiveNav('planner-schedule')}
-            onStartFresh={() => setActiveNav('planner')}
-            onPrevWeek={() => setActiveNav('planner-complete')}
+            onBackToHome={() => handleNavigate('home')}
+            onUpgradeClick={() => handleNavigate('account')}
+            onToggleFamilyUnits={() => handleNavigate('planner-family')}
+            onCopySchedule={() => handleNavigate('planner-schedule')}
+            onStartFresh={() => handleNavigate('planner')}
+            onPrevWeek={() => handleNavigate('planner-complete')}
           />
         )}
 
         {(activeNav === 'planner-family' || activeNav === 'family-units') && (
           <PlannerFamilyUnitsView 
-            onBackToHome={() => setActiveNav('home')}
-            onUpgradeClick={() => setActiveNav('account')}
-            onToggleIndividual={() => setActiveNav('planner')}
+            onBackToHome={() => handleNavigate('home')}
+            onUpgradeClick={() => handleNavigate('account')}
+            onToggleIndividual={() => handleNavigate('planner')}
             onEditStudentPlan={(studentId) => {
               setSelectedStudent({ 
                 id: studentId, 
                 name: studentId === 2 ? 'Student 2' : 'Student', 
                 details: studentId === 2 ? '11th Grade' : '10th Grade' 
               });
-              setActiveNav('student-detail');
+              handleNavigate('student-detail');
             }}
-            onNavigateToCoach={() => setActiveNav('coach')}
+            onNavigateToCoach={() => handleNavigate('coach')}
           />
         )}
 
         {activeNav === 'planner-schedule' && (
           <PlannerScheduleView 
-            onBackToHome={() => setActiveNav('home')}
-            onUpgradeClick={() => setActiveNav('account')}
-            onOpenLessonDetail={() => setActiveNav('lesson-detail')}
-            onToggleFamilyUnits={() => setActiveNav('planner-family')}
+            onBackToHome={() => handleNavigate('home')}
+            onUpgradeClick={() => handleNavigate('account')}
+            onOpenLessonDetail={() => handleNavigate('lesson-detail')}
+            onToggleFamilyUnits={() => handleNavigate('planner-family')}
           />
         )}
 
         {activeNav === 'planner-blank' && (
           <PlannerView 
-            onBackToHome={() => setActiveNav('home')}
-            onUpgradeClick={() => setActiveNav('account')}
-            onToggleFamilyUnits={() => setActiveNav('planner-family')}
+            onBackToHome={() => handleNavigate('home')}
+            onUpgradeClick={() => handleNavigate('account')}
+            onToggleFamilyUnits={() => handleNavigate('planner-family')}
           />
         )}
 
         {activeNav === 'lesson-detail' && (
           <PlannerLessonDetailView 
-            onCancel={() => setActiveNav('planner')}
+            onCancel={() => handleNavigate('planner')}
             onAddCurriculum={(data) => {
-              setActiveNav('planner');
+              handleNavigate('planner');
             }}
           />
         )}
 
         {activeNav === 'account' && (
           <AccountMembershipView 
-            onBackToHome={() => setActiveNav('home')}
+            onBackToHome={() => handleNavigate('home')}
           />
         )}
 
         {activeNav === 'privacy' && (
           <PrivacySettingsView 
-            onBackToHome={() => setActiveNav('home')}
+            onBackToHome={() => handleNavigate('home')}
           />
         )}
 
         {activeNav === 'coach' && (
           <CoachView 
-            onBackToHome={() => setActiveNav('home')}
-            onUpgradeClick={() => setActiveNav('account')}
+            onBackToHome={() => handleNavigate('home')}
+            onUpgradeClick={() => handleNavigate('account')}
           />
         )}
 
         {activeNav === 'resources' && (
           <ResourceLibraryView
-            onBackToHome={() => setActiveNav('home')}
-            onUpgradeClick={() => setActiveNav('account')}
+            onBackToHome={() => handleNavigate('home')}
+            onUpgradeClick={() => handleNavigate('account')}
           />
         )}
       </main>
@@ -199,7 +214,7 @@ export default function AppShell({ onNavigateToLanding }) {
       {activeNav !== 'lesson-detail' && (
         <Footer 
           activeNav={activeNav}
-          onNavigate={(navKey) => setActiveNav(navKey)}
+          onNavigate={(navKey) => handleNavigate(navKey)}
         />
       )}
       </div>

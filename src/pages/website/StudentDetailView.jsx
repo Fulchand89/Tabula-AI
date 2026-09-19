@@ -162,7 +162,12 @@ export default function StudentDetailView({ student, onBack }) {
       {/* Back + Student Name (with Active Sub-Page Name appended) + Grade */}
       <div className="mb-4 flex items-center gap-2.5">
         <button
-          onClick={onBack}
+          onClick={() => {
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+            onBack?.();
+          }}
           className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#d5cbbe] bg-white text-[#1e282d] hover:bg-[#faf5eb] transition-colors shadow-2xs cursor-pointer"
           aria-label="Go back"
         >
@@ -186,7 +191,12 @@ export default function StudentDetailView({ student, onBack }) {
         {tabs.map((tab) => (
           <button
             key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+              document.documentElement.scrollTop = 0;
+              document.body.scrollTop = 0;
+              setActiveTab(tab.id);
+            }}
             className={`flex-1 rounded-full py-1.5 text-xs font-bold transition-all cursor-pointer ${
               activeTab === tab.id
                 ? 'bg-gradient-to-r from-[#147948] to-[#126a3f] text-white shadow-xs'

@@ -16,13 +16,20 @@ export default function Footer({
 }) {
   const isStudentsActive = activeNav === 'students' || activeNav === 'student-detail';
 
+  const handleClick = (navKey) => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    onNavigate?.(navKey);
+  };
+
   return (
     <nav className={`w-full border-t border-[#e8ded0] bg-[#faf7f0] py-2.5 sm:py-3 mt-auto transition-all ${className}`}>
       <div className="flex w-full items-center justify-between px-6 sm:px-10 transition-all">
         {/* 1. Home */}
         <button 
           type="button"
-          onClick={() => onNavigate?.('home')}
+          onClick={() => handleClick('home')}
           className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${
             activeNav === 'home' ? 'text-[#156c47] font-bold' : 'text-[#203136] hover:text-[#156c47]'
           }`}
@@ -43,7 +50,7 @@ export default function Footer({
         {/* 2. Students */}
         <button 
           type="button"
-          onClick={() => onNavigate?.('student-detail')}
+          onClick={() => handleClick('student-detail')}
           className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${
             isStudentsActive ? 'text-[#156c47]' : 'text-[#203136] hover:text-[#156c47]'
           }`}
@@ -64,7 +71,7 @@ export default function Footer({
         {/* 3. Planner */}
         <button 
           type="button"
-          onClick={() => onNavigate?.('planner')}
+          onClick={() => handleClick('planner')}
           className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${
             activeNav === 'planner' ? 'text-[#156c47]' : 'text-[#203136] hover:text-[#156c47]'
           }`}
@@ -92,7 +99,7 @@ export default function Footer({
         {/* 4. Coach */}
         <button 
           type="button"
-          onClick={() => onNavigate?.('coach')}
+          onClick={() => handleClick('coach')}
           className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${
             activeNav === 'coach' ? 'text-[#156c47]' : 'text-[#203136] hover:text-[#156c47]'
           }`}
@@ -113,7 +120,7 @@ export default function Footer({
         {/* 5. Resources */}
         <button 
           type="button"
-          onClick={() => onNavigate?.('resources')}
+          onClick={() => handleClick('resources')}
           className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${
             activeNav === 'resources' ? 'text-[#156c47]' : 'text-[#203136] hover:text-[#156c47]'
           }`}

@@ -47,10 +47,16 @@ export default function LandingPage({ onGoToApp }) {
   };
 
   const openSignup = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
     setShowSignup(true);
   };
 
   const handleProceedToCheckout = (name) => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
     setUserName(name);
     setShowSignup(false);
     setIsCheckoutOpen(true);
@@ -86,7 +92,12 @@ export default function LandingPage({ onGoToApp }) {
   if (showSignup) {
     return (
       <SignupPage
-        onBackToLanding={() => setShowSignup(false)}
+        onBackToLanding={() => {
+          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
+          setShowSignup(false);
+        }}
         onProceedToCheckout={handleProceedToCheckout}
       />
     );
@@ -97,10 +108,16 @@ export default function LandingPage({ onGoToApp }) {
       <TrialCheckoutPage
         userName={userName}
         onCompleteTrial={() => {
+          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
           setIsCheckoutOpen(false);
           onGoToApp?.();
         }}
         onBack={() => {
+          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
           setIsCheckoutOpen(false);
           setShowSignup(true);
         }}

@@ -10,16 +10,28 @@ function App() {
 
   useEffect(() => {
     const handleLocationChange = () => {
-      setCurrentPath(window.location.pathname)
-    }
-    window.addEventListener('popstate', handleLocationChange)
-    return () => window.removeEventListener('popstate', handleLocationChange)
-  }, [])
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener('popstate', handleLocationChange);
+    return () => window.removeEventListener('popstate', handleLocationChange);
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [currentPath]);
 
   const navigateTo = (path) => {
-    window.history.pushState({}, '', path)
-    setCurrentPath(path)
-  }
+    window.history.pushState({}, '', path);
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    setCurrentPath(path);
+  };
 
   // If path is /checkout, render Tabula Trial Checkout Page matching screenshot
   if (currentPath === '/checkout' || currentPath.startsWith('/checkout') || currentPath === '/trial-checkout') {
