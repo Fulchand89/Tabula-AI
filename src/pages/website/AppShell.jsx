@@ -32,10 +32,15 @@ export default function AppShell({ onNavigateToLanding }) {
     return 'home'; // Default to Home/Dashboard page
   });
 
+  const [previousNav, setPreviousNav] = useState('home');
+
   const handleNavigate = (navKey) => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
+    if (activeNav !== navKey && navKey === 'account') {
+      setPreviousNav(activeNav);
+    }
     setActiveNav(navKey);
   };
 
@@ -92,6 +97,7 @@ export default function AppShell({ onNavigateToLanding }) {
         {activeNav === 'students' && (
           <StudentsView 
             onBackToHome={() => handleNavigate('home')}
+            onUpgradeClick={() => handleNavigate('account')}
             onSelectStudent={(student, initialTab = 'curriculum') => {
               setSelectedStudent(student);
               setStudentInitialTab(initialTab);
@@ -105,6 +111,7 @@ export default function AppShell({ onNavigateToLanding }) {
             student={selectedStudent}
             initialTab={studentInitialTab}
             onBack={() => handleNavigate('students')}
+            onUpgradeClick={() => handleNavigate('account')}
           />
         )}
 
@@ -187,7 +194,7 @@ export default function AppShell({ onNavigateToLanding }) {
 
         {activeNav === 'account' && (
           <AccountMembershipView 
-            onBackToHome={() => handleNavigate('home')}
+            onBackToHome={() => handleNavigate(previousNav || 'home')}
           />
         )}
 

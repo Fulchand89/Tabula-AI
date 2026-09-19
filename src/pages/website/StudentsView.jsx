@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function StudentsView({ onBackToHome, onSelectStudent }) {
+export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeClick }) {
   const [students, setStudents] = useState([
     {
       id: 1,
@@ -127,7 +127,11 @@ export default function StudentsView({ onBackToHome, onSelectStudent }) {
         <span className="text-[11px] font-semibold text-[#bf643e]">
           Free trial — 14 days left
         </span>
-        <button className="rounded-md border border-[#d5cbbe] bg-white px-2.5 py-0.5 text-[10.5px] font-semibold text-[#1e282d] hover:bg-[#faf5eb] transition-colors cursor-pointer">
+        <button 
+          type="button"
+          onClick={onUpgradeClick}
+          className="rounded-md border border-[#d5cbbe] bg-white px-2.5 py-0.5 text-[10.5px] font-semibold text-[#1e282d] hover:bg-[#faf5eb] transition-colors cursor-pointer shadow-2xs"
+        >
           Upgrade →
         </button>
       </div>

@@ -74,7 +74,7 @@ const PORTFOLIO_SUBJECTS = [
   'Other',
 ];
 
-export default function StudentDetailView({ student, initialTab = 'curriculum', onBack }) {
+export default function StudentDetailView({ student, initialTab = 'curriculum', onBack, onUpgradeClick }) {
   const [activeTab, setActiveTab] = useState(initialTab || 'curriculum'); // Default to Curriculum tab
 
   useEffect(() => {
@@ -161,7 +161,11 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
         <span className="text-[11px] font-semibold text-[#b9613b]">
           Free trial — 14 days left
         </span>
-        <button className="rounded-md border border-[#bac7bf] bg-white/70 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#184635] hover:bg-white transition-colors shadow-2xs cursor-pointer">
+        <button 
+          type="button"
+          onClick={onUpgradeClick}
+          className="rounded-md border border-[#bac7bf] bg-white/70 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#184635] hover:bg-white transition-colors shadow-2xs cursor-pointer"
+        >
           Upgrade →
         </button>
       </div>
