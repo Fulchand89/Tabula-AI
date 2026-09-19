@@ -164,22 +164,22 @@ export default function AddCurriculumModal({
   const isEditing = Boolean(editItem);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4 backdrop-blur-xs">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-3.5 sm:p-4 backdrop-blur-xs">
       <div 
-        className="relative w-full max-w-[500px] rounded-2xl border border-[#e9e2d5] bg-[#faf6ee] p-6 shadow-2xl transition-all max-h-[90vh] overflow-y-auto"
+        className="relative w-full max-w-[480px] rounded-2xl border border-[#e9e2d5] bg-[#faf6ee] p-4 sm:p-5 shadow-2xl transition-all max-h-[92vh] overflow-y-auto no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
         onClick={(e) => e.stopPropagation()}
         role="dialog"
       >
         {/* Top Handle Bar */}
-        <div className="mx-auto mb-3 h-1.5 w-14 rounded-full bg-[#bf643e]" />
+        <div className="mx-auto mb-2.5 h-1 w-12 rounded-full bg-[#bf643e]" />
 
         {/* Close Button */}
         <button 
           onClick={onClose}
-          className="absolute top-5 right-5 flex h-7 w-7 items-center justify-center rounded-full text-xl text-[#1e282d] hover:bg-[#e9e2d5]/60 transition-colors cursor-pointer"
+          className="absolute top-4 right-4 flex h-7 w-7 items-center justify-center rounded-full text-xl text-[#1e282d] hover:bg-[#e9e2d5]/60 transition-colors cursor-pointer"
           aria-label="Close"
         >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="12" cy="12" r="10" />
             <line x1="15" y1="9" x2="9" y2="15" />
             <line x1="9" y1="9" x2="15" y2="15" />
@@ -187,8 +187,8 @@ export default function AddCurriculumModal({
         </button>
 
         {/* Icon */}
-        <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-[#d7e7dc] text-[#1b6b50]">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <div className="mx-auto mb-2 flex h-11 w-11 items-center justify-center rounded-full bg-[#d7e7dc] text-[#1b6b50]">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
             <rect x="4" y="2" width="16" height="20" rx="2" />
             <line x1="8" y1="6" x2="16" y2="6" />
             <line x1="16" y1="14" x2="16" y2="18" />
@@ -198,26 +198,26 @@ export default function AddCurriculumModal({
 
         {/* Header Text */}
         <div className="text-center">
-          <h2 className="font-serif text-xl font-bold tracking-tight text-[#172b30] uppercase">
+          <h2 className="font-serif text-lg sm:text-xl font-bold tracking-tight text-[#172b30] uppercase">
             {isEditing ? `EDIT ${cleanSubject} CURRICULUM` : `ADD ${cleanSubject} CURRICULUM`}
           </h2>
-          <p className="mt-1 text-xs text-[#526068]">
+          <p className="mt-0.5 text-[11px] text-[#526068]">
             {isEditing
               ? 'Update the curriculum details below.'
               : 'Add a curriculum resource for this subject. You can add multiple.'}
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="mt-5 space-y-4">
+        <form onSubmit={handleSubmit} className="mt-3.5 space-y-3">
           {/* CURRICULUM TITLE * */}
           <div>
-            <label className="block text-[11px] font-bold tracking-wider text-[#1e282d] uppercase">
+            <label className="block text-[10.5px] font-bold tracking-wider text-[#1e282d] uppercase">
               CURRICULUM TITLE *
             </label>
             <input 
               type="text"
               required
-              className="mt-1.5 w-full rounded-xl border border-[#e2d8cb] bg-white px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
+              className="mt-1 w-full rounded-xl border border-[#e2d8cb] bg-white px-3 py-2 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
               placeholder={`e.g. ${commonChoices[0] || 'Curriculum Title'}`}
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -226,10 +226,10 @@ export default function AddCurriculumModal({
 
           {/* COMMON CHOICES */}
           <div>
-            <label className="block text-[11px] font-bold tracking-wider text-[#1e282d] uppercase">
+            <label className="block text-[10.5px] font-bold tracking-wider text-[#1e282d] uppercase">
               COMMON CHOICES:
             </label>
-            <div className="mt-2 flex flex-wrap gap-2">
+            <div className="mt-1.5 flex flex-wrap gap-1.5">
               {commonChoices.map((choice) => {
                 const isSelected = selectedChoice === choice || title === choice;
                 return (
@@ -237,7 +237,7 @@ export default function AddCurriculumModal({
                     type="button"
                     key={choice}
                     onClick={() => handleSelectChoice(choice)}
-                    className={`rounded-full px-3 py-1.5 text-xs font-medium transition-all cursor-pointer ${
+                    className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-all cursor-pointer ${
                       isSelected
                         ? 'bg-[#1b6b50] text-white'
                         : 'border border-[#e2d8cb] bg-white text-[#33444a] hover:bg-[#faf6ee]'
@@ -252,12 +252,12 @@ export default function AddCurriculumModal({
 
           {/* PACING / WHERE YOU ARE (OPTIONAL) */}
           <div>
-            <label className="block text-[11px] font-bold tracking-wider text-[#1e282d] uppercase">
+            <label className="block text-[10.5px] font-bold tracking-wider text-[#1e282d] uppercase">
               PACING / WHERE YOU ARE (OPTIONAL)
             </label>
             <input 
               type="text"
-              className="mt-1.5 w-full rounded-xl border border-[#e2d8cb] bg-white px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
+              className="mt-1 w-full rounded-xl border border-[#e2d8cb] bg-white px-3 py-2 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
               placeholder="e.g. Lesson 45, Chapter 3, Week 12 of 36"
               value={pacing}
               onChange={(e) => setPacing(e.target.value)}
@@ -266,12 +266,12 @@ export default function AddCurriculumModal({
 
           {/* NOTES (OPTIONAL) */}
           <div>
-            <label className="block text-[11px] font-bold tracking-wider text-[#1e282d] uppercase">
+            <label className="block text-[10.5px] font-bold tracking-wider text-[#1e282d] uppercase">
               NOTES (OPTIONAL)
             </label>
             <textarea 
-              rows={3}
-              className="mt-1.5 w-full resize-none rounded-xl border border-[#e2d8cb] bg-white px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
+              rows={2}
+              className="mt-1 w-full resize-none rounded-xl border border-[#e2d8cb] bg-white px-3 py-2 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
               placeholder="Any context about how you use this curriculum, modifications you make, etc."
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
@@ -279,17 +279,17 @@ export default function AddCurriculumModal({
           </div>
 
           {/* Action Buttons */}
-          <div className="mt-6 flex items-center gap-3 pt-2">
+          <div className="mt-4 flex items-center gap-2.5 pt-1">
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 rounded-xl border border-[#d5cbbe] bg-white py-2.5 text-xs font-semibold text-[#1e282d] hover:bg-[#faf5eb] transition-colors cursor-pointer"
+              className="flex-1 rounded-xl border border-[#d5cbbe] bg-white py-2 text-xs font-semibold text-[#1e282d] hover:bg-[#faf5eb] transition-colors cursor-pointer"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="flex-1 rounded-xl bg-[#1b6b50] py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-[#14553f] transition-colors cursor-pointer"
+              className="flex-1 rounded-xl bg-[#1b6b50] py-2 text-xs font-semibold text-white shadow-sm hover:bg-[#14553f] transition-colors cursor-pointer"
             >
               {isEditing ? 'Save Changes →' : 'Add Curriculum →'}
             </button>

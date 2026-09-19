@@ -34,3 +34,11 @@ body {
   color: #1e282d;
   -webkit-font-smoothing: antialiased;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
