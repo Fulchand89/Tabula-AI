@@ -90,7 +90,16 @@ export default function AppShell({ onNavigateToLanding }) {
           />
         )}
 
-        {(activeNav === 'planner' || activeNav === 'planner-complete') && (
+        {activeNav === 'planner' && (
+          <PlannerView 
+            onBackToHome={() => setActiveNav('home')}
+            onUpgradeClick={() => setActiveNav('account')}
+            onOpenLessonDetail={() => setActiveNav('lesson-detail')}
+            onToggleFamilyUnits={() => setActiveNav('planner-family')}
+          />
+        )}
+
+        {activeNav === 'planner-complete' && (
           <PlannerWeekCompleteView 
             onBackToHome={() => setActiveNav('home')}
             onUpgradeClick={() => setActiveNav('account')}
