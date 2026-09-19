@@ -1,29 +1,156 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default function AddCurriculumModal({ isOpen, onClose, onAddCurriculum }) {
-  const [title, setTitle] = useState('');
-  const [selectedChoice, setSelectedChoice] = useState('Singapore Math');
-  const [pacing, setPacing] = useState('');
-  const [notes, setNotes] = useState('');
-
-  if (!isOpen) return null;
-
-  const commonChoices = [
+const COMMON_CHOICES_BY_SUBJECT = {
+  Math: [
     'Singapore Math',
     'Saxon Math',
     'Math-U-See',
     'RightStart Mathematics',
     'Math Mammoth',
-    'Beast Academy'
-  ];
+    'Beast Academy',
+  ],
+  Phonic: [
+    'All About Reading',
+    'Explode the Code',
+    'Teach Your Child to Read',
+    'Logic of English',
+    'Hooked on Phonics',
+  ],
+  Phonics: [
+    'All About Reading',
+    'Explode the Code',
+    'Teach Your Child to Read',
+    'Logic of English',
+    'Hooked on Phonics',
+  ],
+  Writing: [
+    'Writing With Ease',
+    'IEW (Institute for Excellence in Writing)',
+    'WriteShop',
+    'Brave Writer',
+    'Essentials in Writing',
+  ],
+  'Language Arts': [
+    'First Language Lessons',
+    'Grammar Island (MCT)',
+    'Shurley English',
+    'Easy Grammar',
+    'Fix It! Grammar',
+  ],
+  History: [
+    'Story of the World',
+    'Beautiful Feet Books',
+    'Mystery of History',
+    'Curiosity Chronicles',
+    'History Quest',
+  ],
+  Science: [
+    'Building Foundations of Scientific Understanding',
+    'Real Science-4-Kids',
+    'Apologia Science',
+    'Science Mom',
+    'Mystery Science',
+  ],
+  'Bible / Character': [
+    'Leading Little Ones to God',
+    'The Jesus Storybook Bible',
+    'Character First Education',
+    'Wise Words',
+  ],
+  'AI & Coding': [
+    'Scratch Coding',
+    'Code.org',
+    'Python for Kids',
+    'Swift Playgrounds',
+  ],
+  'Classical Languages': [
+    'Song School Latin',
+    'Minimus Latin',
+    'Visual Latin',
+    'Henle Latin',
+  ],
+  'Foreign Language': [
+    'Spanish for Children',
+    'TalkBox.Mom',
+    'Duolingo Homeschool',
+    'Rosetta Stone',
+  ],
+  'Logic / Thinking': [
+    'Mind Benders',
+    'Building Thinking Skills',
+    'The Fallacy Detective',
+    'Logic Safari',
+  ],
+  Art: [
+    'Artistic Pursuits',
+    'Draw Write Now',
+    'Meet the Masters',
+    'Home Art Studio',
+  ],
+  Music: [
+    'SQUILT Music',
+    'Hoffman Academy Piano',
+    'Zeeok Music Appreciation',
+    'Composer Studies',
+  ],
+  'Physical Education': [
+    'Outdoor Track & Field',
+    'Gymnastics & Movement',
+    'Swimming & Water Safety',
+    'Youth Martial Arts',
+  ],
+  Other: [
+    'Life Skills & Cooking',
+    'Public Speaking',
+    'Gardening & Botany',
+  ],
+};
+
+export default function AddCurriculumModal({
+  isOpen,
+  onClose,
+  onAddCurriculum,
+  editItem = null,
+  subjectName = 'Math',
+}) {
+  const cleanSubject = subjectName.replace(/^\+\s*/, '').trim() || 'Math';
+  const commonChoices =
+    COMMON_CHOICES_BY_SUBJECT[cleanSubject] ||
+    COMMON_CHOICES_BY_SUBJECT[cleanSubject.toLowerCase()] ||
+    COMMON_CHOICES_BY_SUBJECT.Math;
+
+  const [title, setTitle] = useState('');
+  const [selectedChoice, setSelectedChoice] = useState('');
+  const [pacing, setPacing] = useState('');
+  const [notes, setNotes] = useState('');
+
+  useEffect(() => {
+    if (editItem) {
+      setTitle(editItem.title || '');
+      setPacing(editItem.pacing || '');
+      setNotes(editItem.notes || '');
+      setSelectedChoice(editItem.title || '');
+    } else {
+      setTitle('');
+      setPacing('');
+      setNotes('');
+      setSelectedChoice(commonChoices[0] || '');
+    }
+  }, [editItem, isOpen, cleanSubject]);
+
+  if (!isOpen) return null;
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const finalTitle = title.trim() || selectedChoice;
+    if (!finalTitle) return;
+
     if (onAddCurriculum) {
       onAddCurriculum({
-        title: title || selectedChoice,
-        pacing,
-        notes
+        id: editItem?.id || `curr-${Date.now()}`,
+        title: finalTitle,
+        pacing: pacing.trim(),
+        notes: notes.trim(),
       });
     }
     onClose();
@@ -31,15 +158,15 @@ export default function AddCurriculumModal({ isOpen, onClose, onAddCurriculum })
 
   const handleSelectChoice = (choice) => {
     setSelectedChoice(choice);
-    if (!title) {
-      setTitle(choice);
-    }
+    setTitle(choice);
   };
+
+  const isEditing = Boolean(editItem);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4 backdrop-blur-xs">
       <div 
-        className="relative w-full max-w-[500px] rounded-2xl border border-[#e9e2d5] bg-[#faf6ee] p-6 shadow-2xl transition-all"
+        className="relative w-full max-w-[500px] rounded-2xl border border-[#e9e2d5] bg-[#faf6ee] p-6 shadow-2xl transition-all max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
         role="dialog"
       >
@@ -49,7 +176,7 @@ export default function AddCurriculumModal({ isOpen, onClose, onAddCurriculum })
         {/* Close Button */}
         <button 
           onClick={onClose}
-          className="absolute top-5 right-5 flex h-7 w-7 items-center justify-center rounded-full text-xl text-[#1e282d] hover:bg-[#e9e2d5]/60 transition-colors"
+          className="absolute top-5 right-5 flex h-7 w-7 items-center justify-center rounded-full text-xl text-[#1e282d] hover:bg-[#e9e2d5]/60 transition-colors cursor-pointer"
           aria-label="Close"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -59,7 +186,7 @@ export default function AddCurriculumModal({ isOpen, onClose, onAddCurriculum })
           </svg>
         </button>
 
-        {/* Calculator Icon */}
+        {/* Icon */}
         <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-[#d7e7dc] text-[#1b6b50]">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
             <rect x="4" y="2" width="16" height="20" rx="2" />
@@ -71,11 +198,13 @@ export default function AddCurriculumModal({ isOpen, onClose, onAddCurriculum })
 
         {/* Header Text */}
         <div className="text-center">
-          <h2 className="font-serif text-xl font-bold tracking-tight text-[#172b30]">
-            ADD MATH CURRICULUM
+          <h2 className="font-serif text-xl font-bold tracking-tight text-[#172b30] uppercase">
+            {isEditing ? `EDIT ${cleanSubject} CURRICULUM` : `ADD ${cleanSubject} CURRICULUM`}
           </h2>
           <p className="mt-1 text-xs text-[#526068]">
-            Add a curriculum resource for this subject. You can add multiple.
+            {isEditing
+              ? 'Update the curriculum details below.'
+              : 'Add a curriculum resource for this subject. You can add multiple.'}
           </p>
         </div>
 
@@ -89,7 +218,7 @@ export default function AddCurriculumModal({ isOpen, onClose, onAddCurriculum })
               type="text"
               required
               className="mt-1.5 w-full rounded-xl border border-[#e2d8cb] bg-white px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
-              placeholder="e.g. Saxon Math 2, Story of the World Vol. 1"
+              placeholder={`e.g. ${commonChoices[0] || 'Curriculum Title'}`}
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
@@ -102,13 +231,13 @@ export default function AddCurriculumModal({ isOpen, onClose, onAddCurriculum })
             </label>
             <div className="mt-2 flex flex-wrap gap-2">
               {commonChoices.map((choice) => {
-                const isSelected = selectedChoice === choice;
+                const isSelected = selectedChoice === choice || title === choice;
                 return (
                   <button
                     type="button"
                     key={choice}
                     onClick={() => handleSelectChoice(choice)}
-                    className={`rounded-full px-3 py-1.5 text-xs font-medium transition-all ${
+                    className={`rounded-full px-3 py-1.5 text-xs font-medium transition-all cursor-pointer ${
                       isSelected
                         ? 'bg-[#1b6b50] text-white'
                         : 'border border-[#e2d8cb] bg-white text-[#33444a] hover:bg-[#faf6ee]'
@@ -154,15 +283,15 @@ export default function AddCurriculumModal({ isOpen, onClose, onAddCurriculum })
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 rounded-xl border border-[#d5cbbe] bg-white py-2.5 text-xs font-semibold text-[#1e282d] hover:bg-[#faf5eb] transition-colors"
+              className="flex-1 rounded-xl border border-[#d5cbbe] bg-white py-2.5 text-xs font-semibold text-[#1e282d] hover:bg-[#faf5eb] transition-colors cursor-pointer"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="flex-1 rounded-xl bg-[#1b6b50] py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-[#14553f] transition-colors"
+              className="flex-1 rounded-xl bg-[#1b6b50] py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-[#14553f] transition-colors cursor-pointer"
             >
-              Add Curriculum →
+              {isEditing ? 'Save Changes →' : 'Add Curriculum →'}
             </button>
           </div>
         </form>
