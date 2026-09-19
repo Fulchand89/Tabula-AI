@@ -141,11 +141,11 @@ export default function LandingPage({ onGoToApp }) {
             </div>
           </div>
 
-          <h1 className="font-serif text-xl sm:text-2xl font-semibold leading-snug tracking-tight text-[#ba633f]">
+          <h1 className="font-serif text-2xl sm:text-[28px] font-semibold leading-snug tracking-tight text-[#ba633f]">
             Your AI homeschool planning coach
           </h1>
 
-          <p className="mt-2 text-xs sm:text-[12.5px] leading-relaxed text-[#526068]">
+          <p className="mt-2 text-sm sm:text-[15px] leading-relaxed text-[#526068]">
             You choose the curriculum. Tabula helps you<br />
             implement it - week by week, child by child
           </p>
@@ -153,14 +153,14 @@ export default function LandingPage({ onGoToApp }) {
           <div className="mt-4">
             <button
               onClick={openSignup}
-              className="inline-flex items-center gap-2 rounded-lg bg-[#215945] hover:bg-[#184636] px-4.5 py-2.5 text-xs sm:text-[13px] font-bold text-white shadow-sm transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#215945] hover:bg-[#184636] px-5 py-2.5 text-sm sm:text-base font-bold text-white shadow-sm transition-all cursor-pointer"
             >
               <span>Start Your Free Trial</span>
               <span>→</span>
             </button>
           </div>
 
-          <div className="mt-3 flex flex-wrap items-center gap-3 text-[10.5px] sm:text-[11px] font-medium text-[#526068]">
+          <div className="mt-3 flex flex-wrap items-center gap-3.5 text-xs sm:text-[13px] font-medium text-[#526068]">
             <div className="inline-flex items-center gap-1">
               <span className="font-bold text-[#1b6b50]">✓</span>
               <span>14 days free</span>
@@ -182,12 +182,12 @@ export default function LandingPage({ onGoToApp }) {
         <section className="my-9 text-center">
           <div className="flex items-center justify-center gap-3">
             <div className="h-px w-20 sm:w-28 bg-[#dcd4c6]" />
-            <h2 className="font-serif text-base sm:text-xl font-bold tracking-tight text-[#172b30]">
+            <h2 className="font-serif text-lg sm:text-2xl font-bold tracking-tight text-[#172b30]">
               “A GPS for homeschooling”
             </h2>
             <div className="h-px w-20 sm:w-28 bg-[#dcd4c6]" />
           </div>
-          <p className="mt-1.5 text-[11px] sm:text-xs font-medium text-[#ba633f]">
+          <p className="mt-1.5 text-xs sm:text-sm font-medium text-[#ba633f]">
             Tabula doesn't replace your curriculum - it helps you use it better.
           </p>
         </section>
@@ -209,18 +209,18 @@ export default function LandingPage({ onGoToApp }) {
                 </svg>
               </div>
               <div className="mb-1 flex items-center gap-1.5">
-                <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[#215945] text-[9px] font-bold text-white shrink-0">
+                <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[#215945] text-[10px] font-bold text-white shrink-0">
                   01
                 </span>
-                <h3 className="font-serif text-xs sm:text-[13px] font-bold text-[#172b30]">Plan</h3>
+                <h3 className="font-serif text-sm sm:text-[15px] font-bold text-[#172b30]">Plan</h3>
               </div>
-              <p className="text-[10px] sm:text-[10.5px] leading-tight text-[#526068]">
+              <p className="text-xs sm:text-[12.5px] leading-snug text-[#526068]">
                 Turn your curriculum in to a realistic weekly plan.
               </p>
             </div>
           </div>
 
-          <div className="flex items-center justify-center text-xs text-[#8c9b9f]">
+          <div className="flex items-center justify-center text-sm text-[#8c9b9f]">
             →
           </div>
 
@@ -241,18 +241,18 @@ export default function LandingPage({ onGoToApp }) {
                 </svg>
               </div>
               <div className="mb-1 flex items-center gap-1.5">
-                <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[#215945] text-[9px] font-bold text-white shrink-0">
+                <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[#215945] text-[10px] font-bold text-white shrink-0">
                   02
                 </span>
-                <h3 className="font-serif text-xs sm:text-[13px] font-bold text-[#172b30]">Adapt</h3>
+                <h3 className="font-serif text-sm sm:text-[15px] font-bold text-[#172b30]">Adapt</h3>
               </div>
-              <p className="text-[10px] sm:text-[10.5px] leading-tight text-[#526068]">
+              <p className="text-xs sm:text-[12.5px] leading-snug text-[#526068]">
                 Adjust lesson when life or your child's needs change.
               </p>
             </div>
           </div>
 
-          <div className="flex items-center justify-center text-xs text-[#8c9b9f]">
+          <div className="flex items-center justify-center text-sm text-[#8c9b9f]">
             →
           </div>
 
@@ -266,12 +266,12 @@ export default function LandingPage({ onGoToApp }) {
                 </svg>
               </div>
               <div className="mb-1 flex items-center gap-1.5">
-                <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[#215945] text-[9px] font-bold text-white shrink-0">
+                <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[#215945] text-[10px] font-bold text-white shrink-0">
                   03
                 </span>
-                <h3 className="font-serif text-xs sm:text-[13px] font-bold text-[#172b30]">Progress</h3>
+                <h3 className="font-serif text-sm sm:text-[15px] font-bold text-[#172b30]">Progress</h3>
               </div>
-              <p className="text-[10px] sm:text-[10.5px] leading-tight text-[#526068]">
+              <p className="text-xs sm:text-[12.5px] leading-snug text-[#526068]">
                 Know what's completed, what's next, and where support is needed.
               </p>
             </div>
@@ -283,7 +283,7 @@ export default function LandingPage({ onGoToApp }) {
             ================================================================ */}
         <section className="mb-11">
           <div className="mb-5 text-center">
-            <h2 className="font-serif text-base sm:text-xl font-bold tracking-tight text-[#172b30]">
+            <h2 className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-[#172b30]">
               Everything you need to homeschool with <span className="text-[#215945]">confidence</span>
             </h2>
           </div>
@@ -292,33 +292,33 @@ export default function LandingPage({ onGoToApp }) {
           <div className="mb-3.5 grid grid-cols-[1.1fr_0.9fr] items-center gap-3.5 rounded-2xl border border-[#e9e2d5] bg-white p-4 sm:p-5 shadow-2xs">
             {/* LEFT SIDE */}
             <div>
-              <h3 className="font-serif text-sm sm:text-lg font-bold text-[#172b30]">
+              <h3 className="font-serif text-base sm:text-xl font-bold text-[#172b30]">
                 AI Homeschool Coach
               </h3>
 
-              <div className="mt-1.5 inline-flex items-center rounded bg-[#fef3c7] px-1.5 py-0.5 text-[8.5px] sm:text-[9px] font-extrabold tracking-wider text-[#b45309]">
+              <div className="mt-1.5 inline-flex items-center rounded bg-[#fef3c7] px-2 py-0.5 text-[9.5px] sm:text-[10px] font-extrabold tracking-wider text-[#b45309]">
                 POWERED BY CLAUDE
               </div>
 
-              <p className="mt-2 text-[10.5px] sm:text-[11px] text-[#526068]">
+              <p className="mt-2 text-xs sm:text-sm text-[#526068]">
                 Your personal planning partner, every week.
               </p>
 
               <ul className="mt-2.5 space-y-1.5">
-                <li className="flex items-center gap-1.5 text-[10px] font-medium text-[#27373c]">
-                  <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#1b6b50] text-[8.5px] text-white font-bold">✓</span>
-                  <span>Plans around tour real progress</span>
+                <li className="flex items-center gap-1.5 text-xs sm:text-[12.5px] font-medium text-[#27373c]">
+                  <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50] text-[9.5px] text-white font-bold">✓</span>
+                  <span>Plans around your real progress</span>
                 </li>
-                <li className="flex items-center gap-1.5 text-[10px] font-medium text-[#27373c]">
-                  <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#1b6b50] text-[8.5px] text-white font-bold">✓</span>
+                <li className="flex items-center gap-1.5 text-xs sm:text-[12.5px] font-medium text-[#27373c]">
+                  <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50] text-[9.5px] text-white font-bold">✓</span>
                   <span>Suggest lessons and adjustments</span>
                 </li>
-                <li className="flex items-center gap-1.5 text-[10px] font-medium text-[#27373c]">
-                  <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#1b6b50] text-[8.5px] text-white font-bold">✓</span>
+                <li className="flex items-center gap-1.5 text-xs sm:text-[12.5px] font-medium text-[#27373c]">
+                  <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50] text-[9.5px] text-white font-bold">✓</span>
                   <span>Helps when a child is struggling</span>
                 </li>
-                <li className="flex items-center gap-1.5 text-[10px] font-medium text-[#27373c]">
-                  <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#1b6b50] text-[8.5px] text-white font-bold">✓</span>
+                <li className="flex items-center gap-1.5 text-xs sm:text-[12.5px] font-medium text-[#27373c]">
+                  <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50] text-[9.5px] text-white font-bold">✓</span>
                   <span>Shares teaching ideas that fit your philosophy</span>
                 </li>
               </ul>
@@ -326,17 +326,17 @@ export default function LandingPage({ onGoToApp }) {
 
             {/* RIGHT SIDE — Chat Mockup */}
             <div className="rounded-xl border border-[#e2dacf] bg-white p-3 shadow-2xs">
-              <div className="mb-1.5 text-[10.5px] font-bold text-[#172b30]">AI Coach</div>
+              <div className="mb-1.5 text-xs sm:text-sm font-bold text-[#172b30]">AI Coach</div>
 
               <div className="space-y-1.5">
                 {chatMessages.map((msg, idx) => (
                   msg.sender === 'ai' ? (
-                    <div key={idx} className="rounded-lg bg-[#f5efe6] p-2 text-[10px] leading-relaxed text-[#2c3c41]">
+                    <div key={idx} className="rounded-lg bg-[#f5efe6] p-2 text-xs sm:text-[12.5px] leading-relaxed text-[#2c3c41]">
                       {msg.text}
                     </div>
                   ) : (
                     <div key={idx} className="flex justify-end">
-                      <span className="rounded bg-[#ebe3d5] px-2 py-0.5 text-[9.5px] font-medium text-[#2f3e43]">
+                      <span className="rounded bg-[#ebe3d5] px-2 py-0.5 text-[11px] sm:text-xs font-medium text-[#2f3e43]">
                         {msg.text}
                       </span>
                     </div>
@@ -347,7 +347,7 @@ export default function LandingPage({ onGoToApp }) {
               <form className="mt-2.5 flex items-center rounded-lg border border-[#dfd7cb] bg-white px-2.5 py-1" onSubmit={handleSendMessage}>
                 <input
                   type="text"
-                  className="w-full bg-transparent text-[10px] text-[#2b3a3f] placeholder-[#9aa7ab] focus:outline-none"
+                  className="w-full bg-transparent text-xs text-[#2b3a3f] placeholder-[#9aa7ab] focus:outline-none"
                   placeholder="Ask your coach anytime..."
                   value={chatInput}
                   onChange={(e) => setChatInput(e.target.value)}
@@ -374,8 +374,8 @@ export default function LandingPage({ onGoToApp }) {
                     <line x1="3" y1="10" x2="21" y2="10" />
                   </svg>
                 </div>
-                <h4 className="font-serif text-xs font-bold text-[#172b30] leading-snug">Weekly Planner</h4>
-                <ul className="my-2 space-y-1 text-[9px] leading-tight text-[#37474c]">
+                <h4 className="font-serif text-sm sm:text-[14.5px] font-bold text-[#172b30] leading-snug">Weekly Planner</h4>
+                <ul className="my-2 space-y-1 text-[10.5px] sm:text-[11px] leading-tight text-[#37474c]">
                   <li className="flex items-start gap-1">
                     <span className="font-bold text-[#1b6b50]">✓</span>
                     <span>Day-by-day scheduling</span>
@@ -394,7 +394,7 @@ export default function LandingPage({ onGoToApp }) {
                   </li>
                 </ul>
               </div>
-              <button className="flex items-center gap-0.5 text-[9.5px] font-semibold text-[#ba633f] hover:gap-1 transition-all cursor-pointer mt-1.5" onClick={openSignup}>
+              <button className="flex items-center gap-0.5 text-[11.5px] sm:text-xs font-semibold text-[#ba633f] hover:gap-1 transition-all cursor-pointer mt-1.5" onClick={openSignup}>
                 <span>Learn more</span>
                 <span>→</span>
               </button>
@@ -409,8 +409,8 @@ export default function LandingPage({ onGoToApp }) {
                     <path d="M6 12v5c3 3 9 3 12 0v-5" />
                   </svg>
                 </div>
-                <h4 className="font-serif text-xs font-bold text-[#172b30] leading-snug">Student Profile</h4>
-                <ul className="my-2 space-y-1 text-[9px] leading-tight text-[#37474c]">
+                <h4 className="font-serif text-sm sm:text-[14.5px] font-bold text-[#172b30] leading-snug">Student Profile</h4>
+                <ul className="my-2 space-y-1 text-[10.5px] sm:text-[11px] leading-tight text-[#37474c]">
                   <li className="flex items-start gap-1">
                     <span className="font-bold text-[#1b6b50]">✓</span>
                     <span>Multiple students</span>
@@ -429,7 +429,7 @@ export default function LandingPage({ onGoToApp }) {
                   </li>
                 </ul>
               </div>
-              <button className="flex items-center gap-0.5 text-[9.5px] font-semibold text-[#ba633f] hover:gap-1 transition-all cursor-pointer mt-1.5" onClick={openSignup}>
+              <button className="flex items-center gap-0.5 text-[11.5px] sm:text-xs font-semibold text-[#ba633f] hover:gap-1 transition-all cursor-pointer mt-1.5" onClick={openSignup}>
                 <span>Learn more</span>
                 <span>→</span>
               </button>
@@ -444,8 +444,8 @@ export default function LandingPage({ onGoToApp }) {
                     <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
                   </svg>
                 </div>
-                <h4 className="font-serif text-xs font-bold text-[#172b30] leading-snug">Resource Library</h4>
-                <ul className="my-2 space-y-1 text-[9px] leading-tight text-[#37474c]">
+                <h4 className="font-serif text-sm sm:text-[14.5px] font-bold text-[#172b30] leading-snug">Resource Library</h4>
+                <ul className="my-2 space-y-1 text-[10.5px] sm:text-[11px] leading-tight text-[#37474c]">
                   <li className="flex items-start gap-1">
                     <span className="font-bold text-[#1b6b50]">✓</span>
                     <span>Filter by philosophy</span>
@@ -464,7 +464,7 @@ export default function LandingPage({ onGoToApp }) {
                   </li>
                 </ul>
               </div>
-              <button className="flex items-center gap-0.5 text-[9.5px] font-semibold text-[#ba633f] hover:gap-1 transition-all cursor-pointer mt-1.5" onClick={openSignup}>
+              <button className="flex items-center gap-0.5 text-[11.5px] sm:text-xs font-semibold text-[#ba633f] hover:gap-1 transition-all cursor-pointer mt-1.5" onClick={openSignup}>
                 <span>Learn more</span>
                 <span>→</span>
               </button>
@@ -478,8 +478,8 @@ export default function LandingPage({ onGoToApp }) {
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   </svg>
                 </div>
-                <h4 className="font-serif text-xs font-bold text-[#172b30] leading-snug">Privacy & Control</h4>
-                <ul className="my-2 space-y-1 text-[9px] leading-tight text-[#37474c]">
+                <h4 className="font-serif text-sm sm:text-[14.5px] font-bold text-[#172b30] leading-snug">Privacy & Control</h4>
+                <ul className="my-2 space-y-1 text-[10.5px] sm:text-[11px] leading-tight text-[#37474c]">
                   <li className="flex items-start gap-1">
                     <span className="font-bold text-[#1b6b50]">✓</span>
                     <span>Your data stays yours</span>
@@ -498,7 +498,7 @@ export default function LandingPage({ onGoToApp }) {
                   </li>
                 </ul>
               </div>
-              <button className="flex items-center gap-0.5 text-[9.5px] font-semibold text-[#ba633f] hover:gap-1 transition-all cursor-pointer mt-1.5" onClick={openSignup}>
+              <button className="flex items-center gap-0.5 text-[11.5px] sm:text-xs font-semibold text-[#ba633f] hover:gap-1 transition-all cursor-pointer mt-1.5" onClick={openSignup}>
                 <span>Learn more</span>
                 <span>→</span>
               </button>
@@ -511,10 +511,10 @@ export default function LandingPage({ onGoToApp }) {
             ================================================================ */}
         <section className="mb-11">
           <div className="mb-5 text-center">
-            <h2 className="font-serif text-base sm:text-xl font-bold text-[#172b30]">
+            <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#172b30]">
               Simple pricing. No surprises.
             </h2>
-            <p className="mt-0.5 text-[10.5px] sm:text-xs text-[#526068]">
+            <p className="mt-1 text-xs sm:text-sm text-[#526068]">
               Start with 14 days completely free.
             </p>
           </div>
@@ -523,11 +523,11 @@ export default function LandingPage({ onGoToApp }) {
             {/* Monthly Card */}
             <div className="flex flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-4 shadow-2xs">
               <div>
-                <h3 className="font-serif text-center text-xs sm:text-sm font-bold text-[#172b30]">Monthly</h3>
-                <div className="mt-0.5 text-center text-2xl sm:text-3xl font-bold text-[#172b30]">$8</div>
-                <div className="mt-0.5 text-center text-[10px] text-[#526068]">Per month</div>
+                <h3 className="font-serif text-center text-sm sm:text-base font-bold text-[#172b30]">Monthly</h3>
+                <div className="mt-0.5 text-center text-3xl sm:text-4xl font-bold text-[#172b30]">$8</div>
+                <div className="mt-0.5 text-center text-xs sm:text-[13px] text-[#526068]">Per month</div>
 
-                <ul className="my-3.5 space-y-1.5 text-[10.5px] text-[#27373c]">
+                <ul className="my-3.5 space-y-1.5 text-xs sm:text-[13px] text-[#27373c]">
                   <li className="flex items-center gap-1.5">
                     <span className="font-bold text-[#1b6b50]">✓</span>
                     <span>Unlimited students</span>
@@ -549,7 +549,7 @@ export default function LandingPage({ onGoToApp }) {
 
               <button
                 onClick={openSignup}
-                className="w-full rounded-lg border border-[#d0c8b9] bg-white py-1.5 text-xs font-bold text-[#172b30] hover:bg-[#faf5eb] transition-colors cursor-pointer text-center mt-1"
+                className="w-full rounded-lg border border-[#d0c8b9] bg-white py-2 text-xs sm:text-sm font-bold text-[#172b30] hover:bg-[#faf5eb] transition-colors cursor-pointer text-center mt-1"
               >
                 Choose Monthly →
               </button>
@@ -557,16 +557,16 @@ export default function LandingPage({ onGoToApp }) {
 
             {/* Annual Card */}
             <div className="relative flex flex-col justify-between rounded-xl border-2 border-[#215945] bg-white p-4 shadow-xs">
-              <div className="absolute -top-2.5 right-4 sm:right-6 rounded-sm bg-[#f4a123] px-2 py-0.5 text-[9px] font-extrabold tracking-wider text-[#4d2c00] uppercase shadow-2xs">
+              <div className="absolute -top-2.5 right-4 sm:right-6 rounded-sm bg-[#f4a123] px-2 py-0.5 text-[9.5px] sm:text-[10px] font-extrabold tracking-wider text-[#4d2c00] uppercase shadow-2xs">
                 BEST VALUE - SAVE $24!
               </div>
 
               <div>
-                <h3 className="font-serif text-center text-xs sm:text-sm font-bold text-[#172b30]">Annual</h3>
-                <div className="mt-0.5 text-center text-2xl sm:text-3xl font-bold text-[#172b30]">$6</div>
-                <div className="mt-0.5 text-center text-[10px] text-[#526068]">Per month - $72/year</div>
+                <h3 className="font-serif text-center text-sm sm:text-base font-bold text-[#172b30]">Annual</h3>
+                <div className="mt-0.5 text-center text-3xl sm:text-4xl font-bold text-[#172b30]">$6</div>
+                <div className="mt-0.5 text-center text-xs sm:text-[13px] text-[#526068]">Per month - $72/year</div>
 
-                <ul className="my-3.5 space-y-1.5 text-[10.5px] text-[#27373c]">
+                <ul className="my-3.5 space-y-1.5 text-xs sm:text-[13px] text-[#27373c]">
                   <li className="flex items-center gap-1.5">
                     <span className="font-bold text-[#1b6b50]">✓</span>
                     <span>Everything in monthly</span>
@@ -584,7 +584,7 @@ export default function LandingPage({ onGoToApp }) {
 
               <button
                 onClick={openSignup}
-                className="w-full rounded-lg bg-[#215945] py-1.5 text-xs font-bold text-white shadow-sm hover:bg-[#184636] transition-colors cursor-pointer text-center mt-1"
+                className="w-full rounded-lg bg-[#215945] py-2 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-[#184636] transition-colors cursor-pointer text-center mt-1"
               >
                 Choose Annual →
               </button>
@@ -596,7 +596,7 @@ export default function LandingPage({ onGoToApp }) {
             6. COMMON QUESTIONS (FAQ)
             ================================================================ */}
         <section className="mb-11">
-          <h2 className="font-serif mb-4 text-center text-base sm:text-xl font-bold text-[#172b30]">
+          <h2 className="font-serif mb-5 text-center text-xl sm:text-2xl font-bold text-[#172b30]">
             Common questions
           </h2>
 
@@ -613,13 +613,13 @@ export default function LandingPage({ onGoToApp }) {
                     onClick={() => toggleFaq(index)}
                     aria-expanded={isOpen}
                   >
-                    <span className="text-[10.5px] sm:text-[11px] font-semibold text-[#172b30] leading-snug">{faq.question}</span>
-                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-[#b2ddc8] bg-white text-[9.5px] font-semibold text-[#215945]">
+                    <span className="text-xs sm:text-sm font-semibold text-[#172b30] leading-snug">{faq.question}</span>
+                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-[#b2ddc8] bg-white text-xs font-semibold text-[#215945]">
                       {isOpen ? '−' : '+'}
                     </span>
                   </button>
                   {isOpen && (
-                    <div className="px-3 pb-3 text-[10px] leading-relaxed text-[#526068]">
+                    <div className="px-3 pb-3 text-xs sm:text-[12.5px] leading-relaxed text-[#526068]">
                       {faq.answer}
                     </div>
                   )}
@@ -633,23 +633,23 @@ export default function LandingPage({ onGoToApp }) {
             7. BOTTOM CTA CARD
             ================================================================ */}
         <section className="flex flex-col items-center rounded-xl border border-[#e9e2d5] bg-white px-5 py-8 text-center shadow-2xs">
-          <h2 className="font-serif text-base sm:text-xl font-bold tracking-tight text-[#172b30]">
+          <h2 className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-[#172b30]">
             Ready to simplify your homeschool?
           </h2>
 
-          <p className="mt-1.5 max-w-sm text-[10.5px] sm:text-[11px] leading-relaxed text-[#526068]">
+          <p className="mt-2 max-w-sm text-xs sm:text-sm leading-relaxed text-[#526068]">
             Join families who use Tabula to plan with confidence, teach with purpose, and stop reinventing the wheel every week.
           </p>
 
           <button
             onClick={openSignup}
-            className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-[#215945] hover:bg-[#184636] px-5 py-2 text-xs sm:text-[13px] font-bold text-white shadow-sm transition-all cursor-pointer"
+            className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-[#215945] hover:bg-[#184636] px-5 py-2.5 text-sm sm:text-base font-bold text-white shadow-sm transition-all cursor-pointer"
           >
             <span>Start Your Free Trial</span>
             <span>→</span>
           </button>
 
-          <div className="mt-3 flex flex-wrap justify-center items-center gap-3 text-[10px] sm:text-[10.5px] font-medium text-[#526068]">
+          <div className="mt-3 flex flex-wrap justify-center items-center gap-3.5 text-xs sm:text-[13px] font-medium text-[#526068]">
             <div className="inline-flex items-center gap-1">
               <span className="font-bold text-[#1b6b50]">✓</span>
               <span>14 days free</span>
