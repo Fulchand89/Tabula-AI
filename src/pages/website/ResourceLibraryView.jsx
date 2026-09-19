@@ -27,33 +27,33 @@ export default function ResourceLibraryView({ onBackToHome, onUpgradeClick }) {
   };
 
   return (
-    <div className="mx-auto w-full max-w-[960px] lg:max-w-[1024px] px-4 sm:px-8 pb-36">
+    <div className="mx-auto w-full max-w-[640px] px-3.5 sm:px-4 pb-32">
 
       {/* ══════════════════════════════════════════════
           FREE TRIAL BANNER
           ══════════════════════════════════════════════ */}
-      <div className="flex items-center justify-between border-b border-[#e9e2d5] py-2.5">
-        <span className="text-[12px] font-semibold text-[#bf643e]">
+      <div className="flex items-center justify-between border-b border-[#e9e2d5] py-2">
+        <span className="text-[11px] font-semibold text-[#bf643e]">
           Free trial — 14 days left
         </span>
         <button
           type="button"
           onClick={onUpgradeClick}
-          className="rounded-lg border border-[#d0c8b9] bg-white px-3.5 py-1.5 text-[11px] font-bold text-[#172b30] hover:bg-[#faf5eb] transition-colors cursor-pointer shadow-2xs"
+          className="rounded-md border border-[#d0c8b9] bg-white px-2.5 py-0.5 text-[10.5px] font-bold text-[#172b30] hover:bg-[#faf5eb] transition-colors cursor-pointer shadow-2xs"
         >
           Upgrade →
         </button>
       </div>
 
-      <div className="pt-5">
+      <div className="pt-3.5">
         {/* ══════════════════════════════════════════════
             PAGE HEADER
             ══════════════════════════════════════════════ */}
-        <div className="mb-5 flex items-center gap-3">
+        <div className="mb-4 flex items-center gap-2.5">
           <button
             type="button"
             onClick={onBackToHome}
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#d0c8b9] bg-white text-[#172b30] hover:bg-[#faf5eb] transition-colors cursor-pointer shadow-2xs"
+            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#d0c8b9] bg-white text-[#172b30] hover:bg-[#faf5eb] transition-colors cursor-pointer shadow-2xs"
             aria-label="Go back"
           >
             ←

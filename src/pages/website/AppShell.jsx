@@ -41,9 +41,8 @@ export default function AppShell({ onNavigateToLanding }) {
   const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
   const [isTrialModalOpen, setIsTrialModalOpen] = useState(false);
 
-  // Container width: max-w-[640px] for Dashboard page, max-w-[960px] lg:max-w-[1024px] for wider views
-  const isDashboard = activeNav === 'home';
-  const containerMaxWidth = isDashboard ? 'max-w-[640px]' : 'max-w-[960px] lg:max-w-[1024px]';
+  // Container width: max-w-[640px] for all views matching Dashboard page styling
+  const containerMaxWidth = 'max-w-[640px]';
 
   return (
     <div className="min-h-screen w-full bg-[#f3ede4] text-[#1e282d] antialiased py-0 sm:py-6 md:py-8 flex justify-center px-0 sm:px-4">

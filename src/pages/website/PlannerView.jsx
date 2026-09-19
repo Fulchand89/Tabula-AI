@@ -112,18 +112,18 @@ export default function PlannerView({ onBackToHome, onUpgradeClick }) {
   const selectedDayObj = DAYS.find(d => d.id === selectedDay) || DAYS[0];
 
   return (
-    <div className="mx-auto w-full max-w-[960px] lg:max-w-[1024px] pb-36 pt-6 px-4 sm:px-8 transition-all">
+    <div className="mx-auto w-full max-w-[640px] pb-32 pt-4 px-3.5 sm:px-4 transition-all">
       {/* ================================================================
           1. TOP TRIAL BANNER (Free trial — 14 days left + Upgrade →)
           ================================================================ */}
-      <div className="mb-6 flex items-center justify-between">
-        <span className="text-xs sm:text-[13px] font-semibold text-[#b9613b]">
+      <div className="mb-4 flex items-center justify-between border-b border-[#e9e2d5] pb-2.5">
+        <span className="text-[11px] font-semibold text-[#b9613b]">
           Free trial — 14 days left
         </span>
         <button 
           type="button"
           onClick={onUpgradeClick}
-          className="rounded-lg border border-[#bac7bf] bg-white/70 px-3 sm:px-3.5 py-1 sm:py-1.5 text-xs sm:text-[13px] font-semibold text-[#184635] hover:bg-white transition-colors shadow-2xs cursor-pointer"
+          className="rounded-md border border-[#bac7bf] bg-white/70 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#184635] hover:bg-white transition-colors shadow-2xs cursor-pointer"
         >
           Upgrade →
         </button>
@@ -132,19 +132,19 @@ export default function PlannerView({ onBackToHome, onUpgradeClick }) {
       {/* ================================================================
           2. PAGE HEADER (Circle Back Arrow + Planner Title)
           ================================================================ */}
-      <div className="mb-5 flex items-center gap-3 sm:gap-4">
+      <div className="mb-4 flex items-center gap-2.5">
         <button
           type="button"
           onClick={onBackToHome}
-          className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full border border-[#d5cbbe] bg-white text-[#1e282d] hover:bg-[#faf5eb] transition-colors shadow-2xs cursor-pointer"
+          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#d5cbbe] bg-white text-[#1e282d] hover:bg-[#faf5eb] transition-colors shadow-2xs cursor-pointer"
           aria-label="Go back to Home"
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <line x1="19" y1="12" x2="5" y2="12" />
             <polyline points="12 19 5 12 12 5" />
           </svg>
         </button>
-        <h1 className="font-serif text-[28px] sm:text-[34px] font-bold leading-tight text-[#16272b] tracking-tight">
+        <h1 className="font-serif text-2xl font-bold leading-tight text-[#16272b] tracking-tight">
           Planner
         </h1>
       </div>

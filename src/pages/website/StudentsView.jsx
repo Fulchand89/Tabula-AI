@@ -69,70 +69,70 @@ export default function StudentsView({ onBackToHome, onSelectStudent }) {
   };
 
   return (
-    <div className="mx-auto w-full max-w-[960px] lg:max-w-[1024px] pb-36 pt-6 px-4 sm:px-8 transition-all">
+    <div className="mx-auto w-full max-w-[640px] pb-32 pt-4 px-3.5 sm:px-4 transition-all">
       {/* Top Banner: Free trial — 14 days left */}
-      <div className="mb-6 flex items-center justify-between border-b border-[#e9e2d5] pb-3">
-        <span className="text-xs font-semibold text-[#bf643e]">
+      <div className="mb-4 flex items-center justify-between border-b border-[#e9e2d5] pb-2.5">
+        <span className="text-[11px] font-semibold text-[#bf643e]">
           Free trial — 14 days left
         </span>
-        <button className="rounded-md border border-[#d5cbbe] bg-white px-3 py-1 text-[11px] font-semibold text-[#1e282d] hover:bg-[#faf5eb] transition-colors">
+        <button className="rounded-md border border-[#d5cbbe] bg-white px-2.5 py-0.5 text-[10.5px] font-semibold text-[#1e282d] hover:bg-[#faf5eb] transition-colors cursor-pointer">
           Upgrade →
         </button>
       </div>
 
       {/* Page Header with Green Back Circle */}
-      <div className="mb-6 flex items-center gap-3">
+      <div className="mb-4 flex items-center gap-2.5">
         <button 
           onClick={onBackToHome}
-          className="flex h-8 w-8 items-center justify-center rounded-full bg-[#215945] text-white hover:bg-[#175742] transition-colors"
+          className="flex h-7 w-7 items-center justify-center rounded-full bg-[#215945] text-white hover:bg-[#175742] transition-colors cursor-pointer"
           aria-label="Go back"
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <line x1="19" y1="12" x2="5" y2="12" />
             <polyline points="12 19 5 12 12 5" />
           </svg>
         </button>
-        <h1 className="font-serif text-3xl font-bold tracking-tight text-[#172b30]">
+        <h1 className="font-serif text-2xl font-bold tracking-tight text-[#172b30]">
           Student
         </h1>
       </div>
 
       {/* Section Subtitle */}
-      <div className="mb-4">
-        <h2 className="font-serif text-xl font-bold text-[#172b30]">
+      <div className="mb-3">
+        <h2 className="font-serif text-lg font-bold text-[#172b30]">
           Students
         </h2>
-        <p className="text-xs text-[#526068]">
+        <p className="text-[11px] text-[#526068]">
           Tap a student to manage their curriculum and profile.
         </p>
       </div>
 
       {/* Student List */}
-      <div className="space-y-3">
+      <div className="space-y-2.5">
         {students.map((student) => (
           <div 
             key={student.id}
-            className="flex cursor-pointer items-center justify-between rounded-2xl border border-[#e9e2d5] bg-white/70 p-4 shadow-2xs backdrop-blur-xs transition-all hover:bg-white hover:shadow-xs"
+            className="flex cursor-pointer items-center justify-between rounded-xl border border-[#ebdcca] bg-white p-3 shadow-2xs transition-all hover:border-[#dcd3c4]"
             onClick={() => onSelectStudent && onSelectStudent(student)}
           >
-            <div className="flex items-center gap-3.5">
+            <div className="flex items-center gap-3 min-w-0">
               {/* Avatar Circle */}
               <div 
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-xs font-bold"
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-xs font-bold"
                 style={{ backgroundColor: student.avatarBg || '#dbe8df', color: student.avatarText || '#173f32' }}
               >
                 {student.initials}
               </div>
 
               {/* Student Details */}
-              <div>
-                <h3 className="text-sm font-bold text-[#172b30]">
+              <div className="min-w-0">
+                <h3 className="text-xs font-bold text-[#172b30] truncate">
                   {student.name}
                 </h3>
-                <p className="text-[11px] text-[#526068]">
+                <p className="text-[10px] text-[#526068] truncate">
                   {student.details}
                 </p>
-                <p className="text-[11px] text-[#526068]">
+                <p className="text-[10px] text-[#526068] truncate">
                   {student.desc}
                 </p>
               </div>

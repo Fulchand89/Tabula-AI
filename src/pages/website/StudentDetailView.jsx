@@ -148,46 +148,46 @@ export default function StudentDetailView({ student, onBack }) {
   };
 
   return (
-    <div className="mx-auto w-full max-w-[960px] lg:max-w-[1024px] pb-36 pt-6 px-4 sm:px-8 transition-all">
+    <div className="mx-auto w-full max-w-[640px] pb-32 pt-4 px-3.5 sm:px-4 transition-all">
       {/* Trial banner */}
-      <div className="mb-6 flex items-center justify-between">
-        <span className="text-xs sm:text-sm font-semibold text-[#b9613b]">
+      <div className="mb-4 flex items-center justify-between border-b border-[#e9e2d5] pb-2.5">
+        <span className="text-[11px] font-semibold text-[#b9613b]">
           Free trial — 14 days left
         </span>
-        <button className="rounded-lg border border-[#bac7bf] bg-white/70 px-3 sm:px-3.5 py-1 sm:py-1.5 text-xs sm:text-[13px] font-semibold text-[#184635] hover:bg-white transition-colors shadow-2xs cursor-pointer">
+        <button className="rounded-md border border-[#bac7bf] bg-white/70 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#184635] hover:bg-white transition-colors shadow-2xs cursor-pointer">
           Upgrade →
         </button>
       </div>
 
       {/* Back + Student Name (with Active Sub-Page Name appended) + Grade */}
-      <div className="mb-6 flex items-center gap-3 sm:gap-4">
+      <div className="mb-4 flex items-center gap-2.5">
         <button
           onClick={onBack}
-          className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full border border-[#d5cbbe] bg-white text-[#1e282d] hover:bg-[#faf5eb] transition-colors shadow-2xs cursor-pointer"
+          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#d5cbbe] bg-white text-[#1e282d] hover:bg-[#faf5eb] transition-colors shadow-2xs cursor-pointer"
           aria-label="Go back"
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <line x1="19" y1="12" x2="5" y2="12" />
             <polyline points="12 19 5 12 12 5" />
           </svg>
         </button>
         <div>
-          <h1 className="font-serif text-[26px] sm:text-[32px] font-bold leading-tight text-[#16272b]">
+          <h1 className="font-serif text-xl sm:text-2xl font-bold leading-tight text-[#16272b]">
             {student?.name || 'Student Name'} — {currentTabLabel}
           </h1>
-          <p className="text-[13px] sm:text-sm font-semibold text-[#54646b] mt-0.5">
+          <p className="text-xs font-semibold text-[#54646b] mt-0.5">
             {student?.details?.split(' •')[0] || '10th Grade'} • {currentTabLabel}
           </p>
         </div>
       </div>
 
       {/* 4-tab bar */}
-      <div className="mb-7 flex items-center rounded-full border border-[#e8dfd3] bg-[#fbf8f2] p-1 sm:p-1.5 shadow-2xs">
+      <div className="mb-5 flex items-center rounded-full border border-[#e8dfd3] bg-[#fbf8f2] p-1 shadow-2xs">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`flex-1 rounded-full py-2 sm:py-2.5 text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+            className={`flex-1 rounded-full py-1.5 text-xs font-bold transition-all cursor-pointer ${
               activeTab === tab.id
                 ? 'bg-gradient-to-r from-[#147948] to-[#126a3f] text-white shadow-xs'
                 : 'text-[#23353b] hover:text-[#16272b]'
