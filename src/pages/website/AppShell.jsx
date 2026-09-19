@@ -53,8 +53,10 @@ export default function AppShell({ onNavigateToLanding }) {
 
   const [selectedStudent, setSelectedStudent] = useState({
     id: 1,
-    name: 'Student Name',
-    details: '10th Grade',
+    initials: 'ET',
+    name: 'Emma Thomas',
+    details: 'Grade 3 • Born May 12, 2015',
+    desc: 'Loves stories, nature, and art',
   });
   const [studentInitialTab, setStudentInitialTab] = useState('curriculum');
   const [isCurriculumModalOpen, setIsCurriculumModalOpen] = useState(false);

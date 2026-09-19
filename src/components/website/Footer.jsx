@@ -50,7 +50,7 @@ export default function Footer({
         {/* 2. Students */}
         <button 
           type="button"
-          onClick={() => handleClick('student-detail')}
+          onClick={() => handleClick('students')}
           className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${
             isStudentsActive ? 'text-[#156c47]' : 'text-[#203136] hover:text-[#156c47]'
           }`}

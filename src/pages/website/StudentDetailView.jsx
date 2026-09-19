@@ -83,6 +83,18 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
     }
   }, [initialTab, student?.id]);
 
+  useEffect(() => {
+    if (student) {
+      if (student.details) {
+        const gradePart = student.details.split(' •')[0]?.trim();
+        if (gradePart) setSelectedGrade(gradePart);
+      }
+      if (student.desc) {
+        setInterests(student.desc);
+      }
+    }
+  }, [student?.id, student?.name]);
+
   const [reportSubTab, setReportSubTab] = useState('progress');
   const [schoolYear, setSchoolYear] = useState('2026–2027');
   const [isSchoolYearOpen, setIsSchoolYearOpen] = useState(false);
@@ -189,10 +201,10 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
         </button>
         <div>
           <h1 className="font-serif text-xl sm:text-2xl font-bold leading-tight text-[#16272b]">
-            {student?.name || 'Student Name'} — {currentTabLabel}
+            {student?.name || 'Student Name'}
           </h1>
           <p className="text-xs font-semibold text-[#54646b] mt-0.5">
-            {student?.details?.split(' •')[0] || '10th Grade'} • {currentTabLabel}
+            {student?.details || `${selectedGrade} • Classical`}
           </p>
         </div>
       </div>
