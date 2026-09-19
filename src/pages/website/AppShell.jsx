@@ -51,6 +51,7 @@ export default function AppShell({ onNavigateToLanding }) {
     name: 'Student Name',
     details: '10th Grade',
   });
+  const [studentInitialTab, setStudentInitialTab] = useState('curriculum');
   const [isCurriculumModalOpen, setIsCurriculumModalOpen] = useState(false);
   const [isAccountModalOpen, setIsAccountModalOpen] = useState(false);
   const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
@@ -91,8 +92,9 @@ export default function AppShell({ onNavigateToLanding }) {
         {activeNav === 'students' && (
           <StudentsView 
             onBackToHome={() => handleNavigate('home')}
-            onSelectStudent={(student) => {
+            onSelectStudent={(student, initialTab = 'curriculum') => {
               setSelectedStudent(student);
+              setStudentInitialTab(initialTab);
               handleNavigate('student-detail');
             }}
           />
@@ -101,6 +103,7 @@ export default function AppShell({ onNavigateToLanding }) {
         {activeNav === 'student-detail' && (
           <StudentDetailView
             student={selectedStudent}
+            initialTab={studentInitialTab}
             onBack={() => handleNavigate('students')}
           />
         )}
@@ -149,6 +152,7 @@ export default function AppShell({ onNavigateToLanding }) {
                 name: studentId === 2 ? 'Student 2' : 'Student', 
                 details: studentId === 2 ? '11th Grade' : '10th Grade' 
               });
+              setStudentInitialTab('curriculum');
               handleNavigate('student-detail');
             }}
             onNavigateToCoach={() => handleNavigate('coach')}

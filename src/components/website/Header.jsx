@@ -42,7 +42,7 @@ export default function Header({
               .
             </span>
           </div>
-          <p className="text-[11px] sm:text-[11.5px] font-semibold text-[#5a6a71]">
+          <p className="text-[11px] sm:text-[11.5px] font-semibold text-[#685949]">
             Classical • Secular
           </p>
         </div>

@@ -36,8 +36,57 @@ export default function StudentsView({ onBackToHome, onSelectStudent }) {
   const [newGrade, setNewGrade] = useState('');
   const [newInterests, setNewInterests] = useState('');
 
-  const handleDeleteStudent = (id) => {
+  // Editing student state
+  const [editingStudent, setEditingStudent] = useState(null);
+  const [editName, setEditName] = useState('');
+  const [editGrade, setEditGrade] = useState('');
+  const [editInterests, setEditInterests] = useState('');
+
+  const handleStartEdit = (student, e) => {
+    e?.stopPropagation();
+    setIsAdding(false);
+    setEditingStudent(student);
+    setEditName(student.name || '');
+    const currentGrade = student.details?.split(' •')[0] || '';
+    setEditGrade(currentGrade);
+    setEditInterests(student.desc || '');
+  };
+
+  const handleSaveEdit = (e) => {
+    e.preventDefault();
+    if (!editName.trim()) return;
+
+    const initials = editName
+      .split(' ')
+      .map(part => part[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2) || 'ST';
+
+    const updatedStudent = {
+      ...editingStudent,
+      name: editName,
+      initials,
+      details: `${editGrade || 'Grade 1'} • ${editingStudent.details?.split('• ')[1] || 'Born 2018'}`,
+      desc: editInterests || editingStudent.desc,
+    };
+
+    setStudents(prev => prev.map(s => s.id === updatedStudent.id ? updatedStudent : s));
+    setEditingStudent(null);
+    setEditName('');
+    setEditGrade('');
+    setEditInterests('');
+
+    // Redirect directly to the curriculum tab of this edited student!
+    onSelectStudent && onSelectStudent(updatedStudent, 'curriculum');
+  };
+
+  const handleDeleteStudent = (id, e) => {
+    e?.stopPropagation();
     setStudents(students.filter(s => s.id !== id));
+    if (editingStudent?.id === id) {
+      setEditingStudent(null);
+    }
   };
 
   const handleAddStudent = (e) => {
@@ -66,6 +115,9 @@ export default function StudentsView({ onBackToHome, onSelectStudent }) {
     setNewGrade('');
     setNewInterests('');
     setIsAdding(false);
+
+    // Redirect directly to the curriculum tab of this newly added student!
+    onSelectStudent && onSelectStudent(newStudent, 'curriculum');
   };
 
   return (
@@ -113,7 +165,7 @@ export default function StudentsView({ onBackToHome, onSelectStudent }) {
           <div 
             key={student.id}
             className="flex cursor-pointer items-center justify-between rounded-xl border border-[#ebdcca] bg-white p-3 shadow-2xs transition-all hover:border-[#dcd3c4]"
-            onClick={() => onSelectStudent && onSelectStudent(student)}
+            onClick={() => onSelectStudent && onSelectStudent(student, 'curriculum')}
           >
             <div className="flex items-center gap-3 min-w-0">
               {/* Avatar Circle */}
@@ -141,7 +193,9 @@ export default function StudentsView({ onBackToHome, onSelectStudent }) {
             {/* Actions: Edit & Delete */}
             <div className="flex items-center gap-3">
               <button 
-                className="flex items-center gap-1 text-xs font-semibold text-[#bf643e] hover:text-[#a04e2b] transition-colors"
+                type="button"
+                onClick={(e) => handleStartEdit(student, e)}
+                className="flex items-center gap-1 text-xs font-semibold text-[#bf643e] hover:text-[#a04e2b] transition-colors cursor-pointer"
                 title="Edit student"
               >
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -151,8 +205,9 @@ export default function StudentsView({ onBackToHome, onSelectStudent }) {
                 <span>Edit</span>
               </button>
               <button 
-                onClick={() => handleDeleteStudent(student.id)}
-                className="text-[#bf643e] hover:text-[#a04e2b] transition-colors"
+                type="button"
+                onClick={(e) => handleDeleteStudent(student.id, e)}
+                className="text-[#bf643e] hover:text-[#a04e2b] transition-colors cursor-pointer"
                 title="Delete student"
               >
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -165,16 +220,115 @@ export default function StudentsView({ onBackToHome, onSelectStudent }) {
         ))}
       </div>
 
+      {/* Edit Student Form */}
+      {editingStudent && (
+        <div className="mt-6 rounded-2xl border border-[#d5cbbe] bg-white p-5 shadow-sm">
+          <div className="mb-3 flex items-center justify-between border-b border-[#e9e2d5] pb-2">
+            <h4 className="font-serif text-sm font-bold text-[#172b30]">
+              Edit Student — {editingStudent.name}
+            </h4>
+            <span className="text-[11px] font-medium text-[#526068]">
+              Saves & redirects to Curriculum
+            </span>
+          </div>
+          <form onSubmit={handleSaveEdit} className="space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              {/* NAME */}
+              <div>
+                <label className="block text-center text-[11px] font-bold tracking-wider text-[#526068] uppercase">
+                  NAME
+                </label>
+                <input 
+                  type="text"
+                  required
+                  placeholder="Student Name"
+                  className="mt-1.5 w-full rounded-xl border border-[#dcd3c4] px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
+                  value={editName}
+                  onChange={(e) => setEditName(e.target.value)}
+                />
+              </div>
+
+              {/* GRADE */}
+              <div>
+                <label className="block text-center text-[11px] font-bold tracking-wider text-[#526068] uppercase">
+                  GRADE
+                </label>
+                <div className="relative mt-1.5">
+                  <select 
+                    className="w-full appearance-none rounded-xl border border-[#dcd3c4] bg-white px-3.5 py-2.5 text-xs text-[#1e282d] focus:border-[#1b6b50] focus:outline-hidden"
+                    value={editGrade}
+                    onChange={(e) => setEditGrade(e.target.value)}
+                  >
+                    <option value="">Select...</option>
+                    <option value="Pre-K">Pre-K</option>
+                    <option value="Kindergarten">Kindergarten</option>
+                    <option value="Grade 1">Grade 1</option>
+                    <option value="Grade 2">Grade 2</option>
+                    <option value="Grade 3">Grade 3</option>
+                    <option value="Grade 4">Grade 4</option>
+                    <option value="Grade 5">Grade 5</option>
+                    <option value="Grade 6">Grade 6</option>
+                    <option value="Grade 7">Grade 7</option>
+                    <option value="Grade 8">Grade 8</option>
+                    <option value="10th Grade">10th Grade</option>
+                    <option value="11th Grade">11th Grade</option>
+                    <option value="12th Grade">12th Grade</option>
+                    <option value="High School">High School</option>
+                  </select>
+                  <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#526068]">
+                    ▼
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* INTERESTS */}
+            <div>
+              <label className="block text-center text-[11px] font-bold tracking-wider text-[#526068] uppercase">
+                INTERESTS (OPTIONAL)
+              </label>
+              <input 
+                type="text"
+                placeholder="e.g. dinosaurs, art, Legos, horses"
+                className="mt-1.5 w-full rounded-xl border border-[#dcd3c4] px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
+                value={editInterests}
+                onChange={(e) => setEditInterests(e.target.value)}
+              />
+            </div>
+
+            {/* Form Actions */}
+            <div className="flex items-center gap-3 pt-2">
+              <button
+                type="button"
+                onClick={() => setEditingStudent(null)}
+                className="flex-1 rounded-xl border border-[#d5cbbe] bg-white py-2.5 text-xs font-semibold text-[#1e282d] hover:bg-[#faf5eb] transition-colors cursor-pointer"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="flex-1 rounded-xl bg-[#1b6b50] py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-[#14553f] transition-colors cursor-pointer"
+              >
+                Save & Go to Curriculum →
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
+
       {/* Your students ({students.length}) and + Add another student */}
       <div className="mt-8 flex items-center justify-between">
         <h3 className="font-serif text-base font-bold text-[#172b30]">
           Your students ({students.length})
         </h3>
         
-        {!isAdding && (
+        {!isAdding && !editingStudent && (
           <button
             type="button"
-            onClick={() => setIsAdding(true)}
+            onClick={() => {
+              setIsAdding(true);
+              setEditingStudent(null);
+            }}
             className="inline-flex items-center gap-1.5 rounded-full border-2 border-dashed border-[#1b6b50] bg-transparent px-4 py-1.5 text-xs font-bold text-[#1b6b50] hover:bg-[#edf5f0] transition-colors cursor-pointer"
           >
             <span>+ Add another student</span>
@@ -252,15 +406,15 @@ export default function StudentsView({ onBackToHome, onSelectStudent }) {
               <button
                 type="button"
                 onClick={() => setIsAdding(false)}
-                className="flex-1 rounded-xl border border-[#d5cbbe] bg-white py-2.5 text-xs font-semibold text-[#1e282d] hover:bg-[#faf5eb] transition-colors"
+                className="flex-1 rounded-xl border border-[#d5cbbe] bg-white py-2.5 text-xs font-semibold text-[#1e282d] hover:bg-[#faf5eb] transition-colors cursor-pointer"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="flex-1 rounded-xl bg-[#1b6b50] py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-[#14553f] transition-colors"
+                className="flex-1 rounded-xl bg-[#1b6b50] py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-[#14553f] transition-colors cursor-pointer"
               >
-                Add Student →
+                Add Student & View Curriculum →
               </button>
             </div>
           </form>

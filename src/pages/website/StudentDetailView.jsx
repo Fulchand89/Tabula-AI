@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import StudentCurriculumTab from './StudentCurriculumTab';
 import StudentProfileTab from './StudentProfileTab';
 import StudentReportTab from './StudentReportTab';
@@ -74,8 +74,15 @@ const PORTFOLIO_SUBJECTS = [
   'Other',
 ];
 
-export default function StudentDetailView({ student, onBack }) {
-  const [activeTab, setActiveTab] = useState('portfolio'); // Default to Portfolio tab
+export default function StudentDetailView({ student, initialTab = 'curriculum', onBack }) {
+  const [activeTab, setActiveTab] = useState(initialTab || 'curriculum'); // Default to Curriculum tab
+
+  useEffect(() => {
+    if (initialTab) {
+      setActiveTab(initialTab);
+    }
+  }, [initialTab, student?.id]);
+
   const [reportSubTab, setReportSubTab] = useState('progress');
   const [schoolYear, setSchoolYear] = useState('2026–2027');
   const [isSchoolYearOpen, setIsSchoolYearOpen] = useState(false);
@@ -232,6 +239,12 @@ export default function StudentDetailView({ student, onBack }) {
           toggleStrength={toggleStrength}
           challenges={challenges}
           toggleChallenge={toggleChallenge}
+          onSaveAndGoToCurriculum={() => {
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+            setActiveTab('curriculum');
+          }}
         />
       )}
 

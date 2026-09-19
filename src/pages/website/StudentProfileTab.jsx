@@ -16,6 +16,7 @@ export default function StudentProfileTab({
   toggleStrength,
   challenges,
   toggleChallenge,
+  onSaveAndGoToCurriculum,
 }) {
   return (
     <div className="space-y-6">
@@ -183,6 +184,20 @@ export default function StudentProfileTab({
           ))}
         </div>
       </div>
+
+      {/* Save & Go to Curriculum Button */}
+      {onSaveAndGoToCurriculum && (
+        <div className="pt-2">
+          <button
+            type="button"
+            onClick={onSaveAndGoToCurriculum}
+            className="w-full rounded-xl bg-[#1b6b50] py-3 text-xs font-bold text-white shadow-sm hover:bg-[#14553f] transition-colors cursor-pointer flex items-center justify-center gap-2"
+          >
+            <span>Save Profile & Go to Curriculum</span>
+            <span>→</span>
+          </button>
+        </div>
+      )}
     </div>
   );
 }
