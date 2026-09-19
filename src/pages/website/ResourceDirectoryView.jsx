@@ -268,7 +268,7 @@ export default function ResourceDirectoryView({ searchQuery, onSearchChange }) {
               <h2 className="mb-3 font-serif text-base font-bold text-[#172b30] border-b border-[#e9e2d5] pb-1.5">
                 {category}
               </h2>
-              <div className="space-y-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                 {items.map((r) => (
                   <ResourceCard key={`${r.id}-${r.category}`} resource={r} />
                 ))}

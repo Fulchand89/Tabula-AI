@@ -103,7 +103,7 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
   const [mathCredits, setMathCredits] = useState('1');
   const [isWorkSampleModalOpen, setIsWorkSampleModalOpen] = useState(false);
   const [workSamples, setWorkSamples] = useState([]);
-  
+
   // Portfolio states
   const [isAddingPortfolio, setIsAddingPortfolio] = useState(false);
   const [portfolioTitle, setPortfolioTitle] = useState('');
@@ -173,7 +173,7 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
         <span className="text-[11px] font-semibold text-[#b9613b]">
           Free trial — 14 days left
         </span>
-        <button 
+        <button
           type="button"
           onClick={onUpgradeClick}
           className="rounded-md border border-[#bac7bf] bg-white/70 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#184635] hover:bg-white transition-colors shadow-2xs cursor-pointer"
@@ -220,11 +220,10 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
               document.body.scrollTop = 0;
               setActiveTab(tab.id);
             }}
-            className={`flex-1 rounded-full py-1.5 text-xs font-bold transition-all cursor-pointer ${
-              activeTab === tab.id
+            className={`flex-1 rounded-full py-1.5 text-xs font-bold transition-all cursor-pointer ${activeTab === tab.id
                 ? 'bg-gradient-to-r from-[#147948] to-[#126a3f] text-white shadow-xs'
                 : 'text-[#23353b] hover:text-[#16272b]'
-            }`}
+              }`}
           >
             {tab.label}
           </button>
@@ -310,24 +309,24 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
           ADD WORK SAMPLE MODAL
           ================================================================ */}
       {isWorkSampleModalOpen && (
-        <div 
+        <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
           onClick={() => setIsWorkSampleModalOpen(false)}
         >
-          <div 
+          <div
             className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-serif text-lg font-bold text-[#16272b]">Add Work Sample</h3>
-              <button 
+              <button
                 onClick={() => setIsWorkSampleModalOpen(false)}
                 className="text-[#607077] hover:text-[#16272b] cursor-pointer"
               >
                 ✕
               </button>
             </div>
-            
+
             <form onSubmit={(e) => {
               e.preventDefault();
               const formData = new FormData(e.target);
@@ -341,7 +340,7 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
             }} className="space-y-4">
               <div>
                 <label className="block text-xs font-bold text-[#16272b] mb-1">Title</label>
-                <input 
+                <input
                   name="title"
                   placeholder="e.g. Chapter 3 Review, Watercolor Painting"
                   required
@@ -351,7 +350,7 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
 
               <div>
                 <label className="block text-xs font-bold text-[#16272b] mb-1">Subject</label>
-                <select 
+                <select
                   name="subject"
                   className="w-full rounded-xl border border-[#d5dcd8] px-3.5 py-2.5 text-sm focus:border-[#147948] focus:outline-none bg-white"
                 >

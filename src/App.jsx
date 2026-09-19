@@ -7,6 +7,7 @@ import AppShell from './pages/website/AppShell'
 function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname)
   const [signupUserName, setSignupUserName] = useState('shiva')
+  const [selectedPlan, setSelectedPlan] = useState('annual')
 
   useEffect(() => {
     const handleLocationChange = () => {
@@ -33,22 +34,23 @@ function App() {
     setCurrentPath(path);
   };
 
-  // If path is /checkout, render Tabula Trial Checkout Page matching screenshot
+  // If path is /checkout, render Tabula Trial Checkout Page
   if (currentPath === '/checkout' || currentPath.startsWith('/checkout') || currentPath === '/trial-checkout') {
     return (
       <TrialCheckoutPage 
         userName={signupUserName}
+        initialPlan={selectedPlan}
         onBack={() => navigateTo('/signup')}
-        onCompleteTrial={() => navigateTo('/')}
+        onCompleteTrial={() => navigateTo('/dashboard')}
       />
     )
   }
 
-  // If path is /signup, render Tabula Signup Page matching screenshot
+  // If path is /signup, render Tabula Signup Page
   if (currentPath === '/signup' || currentPath.startsWith('/signup') || currentPath === '/create-account') {
     return (
       <SignupPage 
-        onBackToLanding={() => navigateTo('/landing')}
+        onBackToLanding={() => navigateTo('/')}
         onProceedToCheckout={(name) => {
           if (name) setSignupUserName(name);
           navigateTo('/checkout');
@@ -57,13 +59,23 @@ function App() {
     )
   }
 
-  // If path is /landing, render Tabula Landing Page
-  if (currentPath === '/landing' || currentPath.startsWith('/landing')) {
-    return <LandingPage onGoToApp={() => navigateTo('/')} />
+  // If path is /dashboard or /app, render the full Homeschool App Shell (Dashboard, Students, Planner, etc.)
+  if (
+    currentPath === '/dashboard' || 
+    currentPath.startsWith('/dashboard') || 
+    currentPath === '/app' || 
+    currentPath.startsWith('/app')
+  ) {
+    return <AppShell onNavigateToLanding={() => navigateTo('/')} />
   }
 
-  // Otherwise render the full Homeschool App Shell (Dashboard, Students, Add Curriculum modal)
-  return <AppShell onNavigateToLanding={() => navigateTo('/landing')} />
+  // Default: root path '/' and '/landing' render the Landing Page
+  return (
+    <LandingPage 
+      onGoToApp={() => navigateTo('/dashboard')} 
+      onSelectPlan={setSelectedPlan} 
+    />
+  )
 }
 
 export default App

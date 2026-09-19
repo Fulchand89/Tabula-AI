@@ -66,11 +66,11 @@ Everything else is on pause without falling behind!`,
     setIsTyping(true);
 
     setTimeout(() => {
-      const replyText = sampleResponses[query] || 
+      const replyText = sampleResponses[query] ||
         `That's a great question about teaching ${selectedStudent}. Homeschooling is all about tailoring the rhythm to your family's unique day. I recommend breaking this into manageable 20-minute chunks with celebratory pauses in between. Would you like a concrete schedule template?`;
-      
+
       setChatMessages(prev => [
-        ...prev, 
+        ...prev,
         { sender: 'coach', text: replyText, time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }
       ]);
       setIsTyping(false);
@@ -92,7 +92,7 @@ Everything else is on pause without falling behind!`,
         <span className="text-[11px] font-semibold text-[#b9613b]">
           Free trial — 14 days left
         </span>
-        <button 
+        <button
           type="button"
           onClick={onUpgradeClick}
           className="rounded-md border border-[#bac7bf] bg-white/70 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#184635] hover:bg-white transition-colors shadow-2xs cursor-pointer"
@@ -133,22 +133,20 @@ Everything else is on pause without falling behind!`,
         <button
           type="button"
           onClick={() => setSelectedStudent('Student 1')}
-          className={`rounded-full px-3.5 py-1 text-[12px] font-semibold transition-all cursor-pointer ${
-            selectedStudent === 'Student 1'
+          className={`rounded-full px-3.5 py-1 text-[12px] font-semibold transition-all cursor-pointer ${selectedStudent === 'Student 1'
               ? 'border border-[#14533c] bg-[#dcf1e7] text-[#14533c]'
               : 'border border-[#df8569] bg-[#faf7f0] text-[#b65a3c] hover:bg-white'
-          }`}
+            }`}
         >
           Student 1
         </button>
         <button
           type="button"
           onClick={() => setSelectedStudent('Student 2')}
-          className={`rounded-full px-3.5 py-1 text-[12px] font-semibold transition-all cursor-pointer ${
-            selectedStudent === 'Student 2'
+          className={`rounded-full px-3.5 py-1 text-[12px] font-semibold transition-all cursor-pointer ${selectedStudent === 'Student 2'
               ? 'border border-[#14533c] bg-[#dcf1e7] text-[#14533c]'
               : 'border border-[#df8569] bg-[#faf7f0] text-[#b65a3c] hover:bg-white'
-          }`}
+            }`}
         >
           Student 2
         </button>
@@ -166,9 +164,9 @@ Everything else is on pause without falling behind!`,
         {/* Speech Bubble with triangular tail */}
         <div className="relative flex-1 rounded-2xl bg-[#fedebc] p-4 sm:p-5 shadow-[0_2px_10px_rgba(0,0,0,0.03)]">
           {/* Triangular pointer notch on the left */}
-          <div 
-            className="absolute -left-2 top-3.5 h-0 w-0 border-y-[6px] border-y-transparent border-r-[8px] border-r-[#fedebc]" 
-            aria-hidden="true" 
+          <div
+            className="absolute -left-2 top-3.5 h-0 w-0 border-y-[6px] border-y-transparent border-r-[8px] border-r-[#fedebc]"
+            aria-hidden="true"
           />
 
           <p className="text-[13px] sm:text-[13.5px] font-medium leading-relaxed text-[#22333b]">
@@ -195,11 +193,10 @@ Everything else is on pause without falling behind!`,
                 key={suggestion.text}
                 type="button"
                 onClick={() => handleSelectSuggestion(suggestion.text)}
-                className={`rounded-full px-3.5 py-1.5 text-[12px] sm:text-[12.5px] transition-all cursor-pointer ${
-                  isSelected
+                className={`rounded-full px-3.5 py-1.5 text-[12px] sm:text-[12.5px] transition-all cursor-pointer ${isSelected
                     ? 'bg-[#135338] text-white font-semibold shadow-2xs border border-transparent'
                     : 'bg-white border border-[#d8d0c4] text-[#203137] font-medium shadow-2xs hover:bg-[#faf7f2] hover:border-[#c5bcb0]'
-                }`}
+                  }`}
               >
                 {suggestion.text}
               </button>
@@ -214,11 +211,10 @@ Everything else is on pause without falling behind!`,
       {chatMessages.length > 0 && (
         <div className="mb-5 space-y-3.5 pt-1">
           {chatMessages.map((msg, index) => (
-            <div 
+            <div
               key={index}
-              className={`flex items-start gap-3 ${
-                msg.sender === 'user' ? 'flex-row-reverse' : ''
-              }`}
+              className={`flex items-start gap-3 ${msg.sender === 'user' ? 'flex-row-reverse' : ''
+                }`}
             >
               {msg.sender === 'coach' ? (
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#135338] text-sm font-bold text-white shadow-2xs font-serif">
@@ -230,12 +226,11 @@ Everything else is on pause without falling behind!`,
                 </div>
               )}
 
-              <div 
-                className={`relative max-w-[85%] rounded-2xl p-3.5 sm:p-4 text-xs sm:text-[13px] leading-relaxed shadow-2xs whitespace-pre-line ${
-                  msg.sender === 'user'
+              <div
+                className={`relative max-w-[85%] rounded-2xl p-3.5 sm:p-4 text-xs sm:text-[13px] leading-relaxed shadow-2xs whitespace-pre-line ${msg.sender === 'user'
                     ? 'bg-[#155e42] text-white font-medium rounded-tr-sm'
                     : 'bg-[#fedebc] text-[#22333b] font-medium rounded-tl-sm'
-                }`}
+                  }`}
               >
                 {msg.text}
                 <div className={`mt-1 text-[10px] ${msg.sender === 'user' ? 'text-white/70 text-right' : 'text-[#8b5536]'}`}>

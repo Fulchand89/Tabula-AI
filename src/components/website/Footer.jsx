@@ -27,12 +27,11 @@ export default function Footer({
     <nav className={`w-full border-t border-[#e8ded0] bg-[#faf7f0] py-2.5 sm:py-3 mt-auto transition-all ${className}`}>
       <div className="flex w-full items-center justify-between px-6 sm:px-10 transition-all">
         {/* 1. Home */}
-        <button 
+        <button
           type="button"
           onClick={() => handleClick('home')}
-          className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${
-            activeNav === 'home' ? 'text-[#156c47] font-bold' : 'text-[#203136] hover:text-[#156c47]'
-          }`}
+          className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${activeNav === 'home' ? 'text-[#156c47] font-bold' : 'text-[#203136] hover:text-[#156c47]'
+            }`}
         >
           <div className="flex h-6 w-6 items-center justify-center">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -48,12 +47,11 @@ export default function Footer({
         </button>
 
         {/* 2. Students */}
-        <button 
+        <button
           type="button"
           onClick={() => handleClick('students')}
-          className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${
-            isStudentsActive ? 'text-[#156c47]' : 'text-[#203136] hover:text-[#156c47]'
-          }`}
+          className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${isStudentsActive ? 'text-[#156c47]' : 'text-[#203136] hover:text-[#156c47]'
+            }`}
         >
           <div className="flex h-6 w-6 items-center justify-center">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -69,12 +67,11 @@ export default function Footer({
         </button>
 
         {/* 3. Planner */}
-        <button 
+        <button
           type="button"
           onClick={() => handleClick('planner')}
-          className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${
-            activeNav === 'planner' ? 'text-[#156c47]' : 'text-[#203136] hover:text-[#156c47]'
-          }`}
+          className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${activeNav === 'planner' ? 'text-[#156c47]' : 'text-[#203136] hover:text-[#156c47]'
+            }`}
         >
           <div className="flex h-6 w-6 items-center justify-center">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -97,12 +94,11 @@ export default function Footer({
         </button>
 
         {/* 4. Coach */}
-        <button 
+        <button
           type="button"
           onClick={() => handleClick('coach')}
-          className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${
-            activeNav === 'coach' ? 'text-[#156c47]' : 'text-[#203136] hover:text-[#156c47]'
-          }`}
+          className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${activeNav === 'coach' ? 'text-[#156c47]' : 'text-[#203136] hover:text-[#156c47]'
+            }`}
         >
           <div className="flex h-6 w-6 items-center justify-center">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -118,12 +114,11 @@ export default function Footer({
         </button>
 
         {/* 5. Resources */}
-        <button 
+        <button
           type="button"
           onClick={() => handleClick('resources')}
-          className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${
-            activeNav === 'resources' ? 'text-[#156c47]' : 'text-[#203136] hover:text-[#156c47]'
-          }`}
+          className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${activeNav === 'resources' ? 'text-[#156c47]' : 'text-[#203136] hover:text-[#156c47]'
+            }`}
         >
           <div className="flex h-6 w-6 items-center justify-center">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">

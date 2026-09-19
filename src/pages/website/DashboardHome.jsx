@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 
 const WEEK_DAYS = [
-  { 
-    day: 'Mon', 
-    date: 14, 
-    fullDate: 'Mon, Apr 14', 
+  {
+    day: 'Mon',
+    date: 14,
+    fullDate: 'Mon, Apr 14',
     lessons: [
       { name: 'Math', count: '1 lesson', color: 'bg-[#1b6b50]' },
       { name: 'Language Arts', count: '1 lesson', color: 'bg-[#1e293b]' },
       { name: 'Reading', count: '1 lesson', color: 'bg-[#558273]' },
     ]
   },
-  { 
-    day: 'Tue', 
-    date: 15, 
-    fullDate: 'Tue, Apr 15', 
+  {
+    day: 'Tue',
+    date: 15,
+    fullDate: 'Tue, Apr 15',
     lessons: [
       { name: 'Math', count: '3 lessons', color: 'bg-[#1b6b50]' },
       { name: 'Language Arts', count: '4 lessons', color: 'bg-[#1e293b]' },
@@ -23,10 +23,10 @@ const WEEK_DAYS = [
       { name: 'Art & Music', count: '1 lesson', color: 'bg-[#3e8a6f]' },
     ]
   },
-  { 
-    day: 'Wed', 
-    date: 16, 
-    fullDate: 'Wed, Apr 16', 
+  {
+    day: 'Wed',
+    date: 16,
+    fullDate: 'Wed, Apr 16',
     lessons: [
       { name: 'Math', count: '2 lessons', color: 'bg-[#1b6b50]' },
       { name: 'Writing', count: '1 lesson', color: 'bg-[#e5a93c]' },
@@ -34,39 +34,39 @@ const WEEK_DAYS = [
       { name: 'History', count: '1 lesson', color: 'bg-[#bf7634]' },
     ]
   },
-  { 
-    day: 'Thu', 
-    date: 17, 
-    fullDate: 'Thu, Apr 17', 
+  {
+    day: 'Thu',
+    date: 17,
+    fullDate: 'Thu, Apr 17',
     lessons: [
       { name: 'Reading', count: '2 lessons', color: 'bg-[#558273]' },
       { name: 'History', count: '1 lesson', color: 'bg-[#bf7634]' },
       { name: 'Science', count: '2 lessons', color: 'bg-[#2d7a70]' },
     ]
   },
-  { 
-    day: 'Fri', 
-    date: 18, 
-    fullDate: 'Fri, Apr 18', 
+  {
+    day: 'Fri',
+    date: 18,
+    fullDate: 'Fri, Apr 18',
     lessons: [
       { name: 'Review', count: '1 lesson', color: 'bg-[#ba704f]' },
       { name: 'Art & Music', count: '2 lessons', color: 'bg-[#3e8a6f]' },
       { name: 'Math', count: '1 lesson', color: 'bg-[#1b6b50]' },
     ]
   },
-  { 
-    day: 'Sat', 
-    date: 19, 
-    fullDate: 'Sat, Apr 19', 
+  {
+    day: 'Sat',
+    date: 19,
+    fullDate: 'Sat, Apr 19',
     lessons: [
       { name: 'Nature Walk', count: 'Outdoor', color: 'bg-[#276e48]' },
       { name: 'Library Visit', count: 'Free reading', color: 'bg-[#558273]' },
     ]
   },
-  { 
-    day: 'Sun', 
-    date: 20, 
-    fullDate: 'Sun, Apr 20', 
+  {
+    day: 'Sun',
+    date: 20,
+    fullDate: 'Sun, Apr 20',
     lessons: [
       { name: 'Read-Aloud & Rest', count: 'Quiet time', color: 'bg-[#70587c]' },
     ]
@@ -226,7 +226,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
       </div>
 
       {/* View Full Day button */}
-      <button 
+      <button
         type="button"
         onClick={onNavigateToPlanner}
         className="mt-3.5 w-full rounded-xl border border-[#ded5c7] bg-white py-1.5 text-[11px] font-semibold text-[#ba633f] hover:bg-[#faf5eb] transition-colors text-center cursor-pointer"
@@ -238,512 +238,498 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
 
   return (
     <div className="w-full max-w-[640px] mx-auto px-3.5 sm:px-4 py-4 sm:py-5 transition-all">
-        
-        {/* ================================================================
+
+      {/* ================================================================
             TOP GREETING & QUOTE (Left & Right Aligned)
             ================================================================ */}
-        <div className="mb-4 flex flex-col justify-between gap-1.5 sm:flex-row sm:items-start">
-          <div>
-            <span className="text-[10px] font-extrabold tracking-wider text-[#1b6b50] uppercase">
-              YOUR HOMESCHOOL
-            </span>
-            <h1 className="font-serif text-[28px] sm:text-[32px] font-bold tracking-tight text-[#172b30] leading-none mt-1">
-              Good afternoon
-            </h1>
-            <p className="mt-1 text-xs font-semibold text-[#ba633f]">
-              Classical • 1 student
-            </p>
-          </div>
-
-          <div className="sm:max-w-[240px] sm:text-right pt-0.5">
-            <p className="font-serif text-xs sm:text-[13px] font-medium italic leading-snug text-[#ba633f]">
-              “Small, faithful steps add up to extraordinary learning.”
-            </p>
-          </div>
+      <div className="mb-4 flex flex-col justify-between gap-1.5 sm:flex-row sm:items-start">
+        <div>
+          <span className="text-[10px] font-extrabold tracking-wider text-[#1b6b50] uppercase">
+            YOUR HOMESCHOOL
+          </span>
+          <h1 className="font-serif text-[28px] sm:text-[32px] font-bold tracking-tight text-[#172b30] leading-none mt-1">
+            Good afternoon
+          </h1>
+          <p className="mt-1 text-xs font-semibold text-[#ba633f]">
+            Classical • 1 student
+          </p>
         </div>
 
-        {/* ================================================================
+        <div className="sm:max-w-[240px] sm:text-right pt-0.5">
+          <p className="font-serif text-xs sm:text-[13px] font-medium italic leading-snug text-[#ba633f]">
+            “Small, faithful steps add up to extraordinary learning.”
+          </p>
+        </div>
+      </div>
+
+      {/* ================================================================
             2-COLUMN GRID LAYOUT (Side-by-side matching screenshot)
             Left: Coach card + Getting Started + To-Do list
             Right: Schedule cards + This Week
             ================================================================ */}
-        <div className="grid grid-cols-1 min-[520px]:grid-cols-[1.18fr_1fr] gap-3 sm:gap-3.5 items-start">
-          
-          {/* ──────── LEFT COLUMN ──────── */}
-          <div className="w-full space-y-3.5">
-            
-            {/* Card: What can I help you with today? */}
-            <div className="rounded-2xl border border-[#ebdcca] bg-white p-3.5 shadow-2xs">
-              <div className="flex items-start gap-2.5">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#d7e7dc] text-xs font-bold text-[#1b6b50]">
-                  T
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-xs font-bold text-[#172b30]">
-                    What can I help you with today?
-                  </h3>
-                  <p className="text-[10.5px] text-[#637278]">
-                    Ask your coach anything about your homeschool journey.
-                  </p>
+      <div className="grid grid-cols-1 min-[520px]:grid-cols-[1.18fr_1fr] gap-3 sm:gap-3.5 items-start">
 
-                  {/* Input with Ask button */}
-                  <form 
-                    onSubmit={(e) => { e.preventDefault(); handleAskCoach(); }}
-                    className="mt-2.5 flex items-center rounded-lg border border-[#e3dad0] bg-[#faf8f5] p-1 pl-2.5 focus-within:border-[#1b6b50] focus-within:bg-white"
-                  >
-                    <input 
-                      type="text"
-                      className="w-full bg-transparent text-[11px] text-[#1e282d] placeholder-[#8d9b9f] focus:outline-hidden"
-                      placeholder="Ask your coach anything..."
-                      value={coachQuestion}
-                      onChange={(e) => setCoachQuestion(e.target.value)}
-                    />
-                    <button 
-                      type="submit"
-                      className="flex shrink-0 items-center gap-1 rounded-md bg-[#1b6b50] px-2.5 py-1 text-[10.5px] font-semibold text-white shadow-2xs hover:bg-[#14553f] transition-colors cursor-pointer"
-                    >
-                      <span>Ask</span>
-                      <span>→</span>
-                    </button>
-                  </form>
+        {/* ──────── LEFT COLUMN ──────── */}
+        <div className="w-full space-y-3.5">
 
-                  {/* Coach AI Response Bubble */}
-                  {coachAnswer && (
-                    <div className="mt-2 rounded-lg bg-[#f5f0e6] p-2.5 text-[11px] leading-relaxed text-[#27373c]">
-                      <span className="font-bold text-[#1b6b50]">Coach: </span>
-                      {coachAnswer}
-                    </div>
-                  )}
-
-                  {/* Prompt Suggestions */}
-                  <div className="mt-2.5 flex flex-wrap gap-1.5">
-                    <button 
-                      type="button"
-                      onClick={() => handleAskCoach('Plan our week')}
-                      className="rounded-md border border-[#ded5c7] bg-white px-2 py-0.5 text-[10.5px] font-medium text-[#46575d] hover:bg-[#faf6ee] transition-colors cursor-pointer"
-                    >
-                      Plan our week
-                    </button>
-                    <button 
-                      type="button"
-                      onClick={() => handleAskCoach('What should we prioritize?')}
-                      className="rounded-md border border-[#ded5c7] bg-white px-2 py-0.5 text-[10.5px] font-medium text-[#46575d] hover:bg-[#faf6ee] transition-colors cursor-pointer"
-                    >
-                      What should we prioritize?
-                    </button>
-                    <button 
-                      type="button"
-                      onClick={() => handleAskCoach('Ideas for a struggling subject')}
-                      className="rounded-md border border-[#ded5c7] bg-white px-2 py-0.5 text-[10.5px] font-medium text-[#46575d] hover:bg-[#faf6ee] transition-colors cursor-pointer"
-                    >
-                      Ideas for a struggling subject
-                    </button>
-                  </div>
-                </div>
+          {/* Card: What can I help you with today? */}
+          <div className="rounded-2xl border border-[#ebdcca] bg-white p-3.5 shadow-2xs">
+            <div className="flex items-start gap-2.5">
+              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#d7e7dc] text-xs font-bold text-[#1b6b50]">
+                T
               </div>
-            </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="text-xs font-bold text-[#172b30]">
+                  What can I help you with today?
+                </h3>
+                <p className="text-[10.5px] text-[#637278]">
+                  Ask your coach anything about your homeschool journey.
+                </p>
 
-            {/* Section: GETTING STARTED (Interactive Steps) */}
-            <div>
-              <div className="mb-1.5 flex items-center justify-between">
-                <span className="text-[10px] font-bold tracking-wider text-[#3d4b50] uppercase">
-                  GETTING STARTED
-                </span>
-                <span className="text-[10.5px] font-semibold text-[#ba633f]">
-                  {activeStep} of 4 done
-                </span>
-              </div>
-
-              {/* Progress Bar */}
-              <div className="mb-2.5 h-1.5 w-full overflow-hidden rounded-full bg-[#e3ded4]">
-                <div 
-                  className="h-full rounded-full bg-[#1b6b50] transition-all duration-300"
-                  style={{ width: `${(activeStep / 4) * 100}%` }}
-                />
-              </div>
-
-              {/* 4 Steps */}
-              <div className="space-y-2">
-                {/* Step 1: Add your students */}
-                <div 
-                  onClick={() => setActiveStep(1)}
-                  className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${
-                    activeStep === 1
-                      ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
-                      : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
-                  }`}
+                {/* Input with Ask button */}
+                <form
+                  onSubmit={(e) => { e.preventDefault(); handleAskCoach(); }}
+                  className="mt-2.5 flex items-center rounded-lg border border-[#e3dad0] bg-[#faf8f5] p-1 pl-2.5 focus-within:border-[#1b6b50] focus-within:bg-white"
                 >
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${
-                      activeStep === 1
-                        ? 'bg-[#1b6b50] text-white'
-                        : 'border border-[#d5cbbe] text-[#526068]'
-                    }`}>
-                      {activeStep === 1 ? (
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                      ) : (
-                        '1'
-                      )}
-                    </div>
-                    <div className="min-w-0">
-                      <h4 className="text-[11.5px] font-bold text-[#172b30] truncate">
-                        Add your students
-                      </h4>
-                      <p className="text-[9.5px] text-[#637278] truncate">
-                        Tell us about the children you're teaching.
-                      </p>
-                    </div>
-                  </div>
-                  <span 
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setActiveStep(1);
-                      onNavigateToStudents?.();
-                    }}
-                    className={`text-xs pl-1 shrink-0 transition-colors ${
-                      activeStep === 1 ? 'text-[#1b6b50] font-bold' : 'text-[#798790]'
-                    }`}
-                  >
-                    ›
-                  </span>
-                </div>
-
-                {/* Step 2: Enter your curriculum */}
-                <div 
-                  onClick={() => setActiveStep(2)}
-                  className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${
-                    activeStep === 2
-                      ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
-                      : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${
-                      activeStep === 2
-                        ? 'bg-[#1b6b50] text-white'
-                        : 'border border-[#d5cbbe] text-[#526068]'
-                    }`}>
-                      {activeStep === 2 ? (
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                      ) : (
-                        '2'
-                      )}
-                    </div>
-                    <div className="min-w-0">
-                      <h4 className="text-[11.5px] font-bold text-[#172b30] truncate">
-                        Enter your curriculum
-                      </h4>
-                      <p className="text-[9.5px] text-[#637278] truncate">
-                        Tell us what books and programs you use.
-                      </p>
-                    </div>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setActiveStep(2);
-                      onOpenAddCurriculum?.();
-                    }}
-                    className="shrink-0 rounded-md bg-[#1b6b50] px-2 py-1 text-[10px] font-semibold text-white shadow-2xs hover:bg-[#14553f] transition-colors cursor-pointer"
-                  >
-                    Add curriculum →
-                  </button>
-                </div>
-
-                {/* Step 3: Build your weekly plan */}
-                <div 
-                  onClick={() => setActiveStep(3)}
-                  className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${
-                    activeStep === 3
-                      ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
-                      : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${
-                      activeStep === 3
-                        ? 'bg-[#1b6b50] text-white'
-                        : 'border border-[#d5cbbe] text-[#526068]'
-                    }`}>
-                      {activeStep === 3 ? (
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                      ) : (
-                        '3'
-                      )}
-                    </div>
-                    <div className="min-w-0">
-                      <h4 className="text-[11.5px] font-bold text-[#172b30] truncate">
-                        Build your weekly plan
-                      </h4>
-                      <p className="text-[9.5px] text-[#637278] truncate">
-                        Set which subjects you do each day.
-                      </p>
-                    </div>
-                  </div>
-                  <span 
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setActiveStep(3);
-                      onNavigateToPlanner?.();
-                    }}
-                    className={`text-xs pl-1 shrink-0 transition-colors ${
-                      activeStep === 3 ? 'text-[#1b6b50] font-bold' : 'text-[#798790]'
-                    }`}
-                  >
-                    ›
-                  </span>
-                </div>
-
-                {/* Step 4: Ask the AI coach */}
-                <div 
-                  onClick={() => setActiveStep(4)}
-                  className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${
-                    activeStep === 4
-                      ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
-                      : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${
-                      activeStep === 4
-                        ? 'bg-[#1b6b50] text-white'
-                        : 'border border-[#d5cbbe] text-[#526068]'
-                    }`}>
-                      {activeStep === 4 ? (
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                      ) : (
-                        '4'
-                      )}
-                    </div>
-                    <div className="min-w-0">
-                      <h4 className="text-[11.5px] font-bold text-[#172b30] truncate">
-                        Ask the AI coach
-                      </h4>
-                      <p className="text-[9.5px] text-[#637278] truncate">
-                        Get your first personalized guidance.
-                      </p>
-                    </div>
-                  </div>
-                  <span 
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setActiveStep(4);
-                      onNavigateToCoach?.();
-                    }}
-                    className={`text-xs pl-1 shrink-0 transition-colors ${
-                      activeStep === 4 ? 'text-[#1b6b50] font-bold' : 'text-[#798790]'
-                    }`}
-                  >
-                    ›
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Section: TO-DO LIST */}
-            <div>
-              <div className="mb-2 flex items-center justify-between">
-                <span className="text-[10px] font-bold tracking-wider text-[#3d4b50] uppercase">
-                  TO-DO LIST
-                </span>
-                <button className="text-[10.5px] font-semibold text-[#ba633f] hover:underline cursor-pointer">
-                  View all →
-                </button>
-              </div>
-
-              <div className="space-y-1.5">
-                {todos.map((todo) => (
-                  <div 
-                    key={todo.id}
-                    className="flex items-center justify-between rounded-xl border border-[#ebdcca] bg-white px-3 py-2 shadow-2xs transition-all hover:border-[#dcd3c4]"
-                  >
-                    <div 
-                      onClick={() => toggleTodo(todo.id)}
-                      className="flex flex-1 min-w-0 cursor-pointer items-center gap-2.5"
-                    >
-                      {/* Rounded Green Outline Checkbox matching screenshot */}
-                      <div 
-                        className={`flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-[3px] border-[1.5px] transition-colors ${
-                          todo.done ? 'border-[#1b6b50] bg-[#1b6b50] text-white' : 'border-[#2d7a5c] bg-white'
-                        }`}
-                      >
-                        {todo.done && (
-                          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                            <polyline points="20 6 9 17 4 12" />
-                          </svg>
-                        )}
-                      </div>
-                      <span className={`text-[11.5px] font-medium truncate ${todo.done ? 'line-through text-[#8d9b9f]' : 'text-[#1e282d]'}`}>
-                        {todo.text}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center gap-1.5 shrink-0 pl-1.5">
-                      <span className="rounded bg-[#e6ecf5] px-2 py-0.5 text-[9.5px] font-semibold text-[#2b4b73]">
-                        {todo.tag}
-                      </span>
-                      <span className="text-xs text-[#8d9b9f]">›</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Add a task trigger */}
-              {isAddingTask ? (
-                <form onSubmit={handleAddTask} className="mt-2 flex gap-1.5">
-                  <input 
+                  <input
                     type="text"
-                    placeholder="Enter task name..."
-                    className="w-full rounded-lg border border-[#dcd3c4] bg-white px-2.5 py-1.5 text-[11px] text-[#1e282d] focus:border-[#1b6b50] focus:outline-hidden"
-                    value={newTaskText}
-                    onChange={(e) => setNewTaskText(e.target.value)}
-                    autoFocus
+                    className="w-full bg-transparent text-[11px] text-[#1e282d] placeholder-[#8d9b9f] focus:outline-hidden"
+                    placeholder="Ask your coach anything..."
+                    value={coachQuestion}
+                    onChange={(e) => setCoachQuestion(e.target.value)}
                   />
-                  <button 
+                  <button
                     type="submit"
-                    className="rounded-lg bg-[#1b6b50] px-2.5 py-1.5 text-[11px] font-semibold text-white cursor-pointer"
+                    className="flex shrink-0 items-center gap-1 rounded-md bg-[#1b6b50] px-2.5 py-1 text-[10.5px] font-semibold text-white shadow-2xs hover:bg-[#14553f] transition-colors cursor-pointer"
                   >
-                    Add
-                  </button>
-                  <button 
-                    type="button"
-                    onClick={() => setIsAddingTask(false)}
-                    className="rounded-lg border border-[#dcd3c4] bg-white px-2.5 py-1.5 text-[11px] cursor-pointer"
-                  >
-                    ✕
+                    <span>Ask</span>
+                    <span>→</span>
                   </button>
                 </form>
-              ) : (
-                <button 
-                  type="button"
-                  onClick={() => setIsAddingTask(true)}
-                  className="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-[#1e282d] hover:text-[#1b6b50] transition-colors cursor-pointer"
-                >
-                  <span>+</span>
-                  <span>Add a task...</span>
-                </button>
-              )}
+
+                {/* Coach AI Response Bubble */}
+                {coachAnswer && (
+                  <div className="mt-2 rounded-lg bg-[#f5f0e6] p-2.5 text-[11px] leading-relaxed text-[#27373c]">
+                    <span className="font-bold text-[#1b6b50]">Coach: </span>
+                    {coachAnswer}
+                  </div>
+                )}
+
+                {/* Prompt Suggestions */}
+                <div className="mt-2.5 flex flex-wrap gap-1.5">
+                  <button
+                    type="button"
+                    onClick={() => handleAskCoach('Plan our week')}
+                    className="rounded-md border border-[#ded5c7] bg-white px-2 py-0.5 text-[10.5px] font-medium text-[#46575d] hover:bg-[#faf6ee] transition-colors cursor-pointer"
+                  >
+                    Plan our week
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleAskCoach('What should we prioritize?')}
+                    className="rounded-md border border-[#ded5c7] bg-white px-2 py-0.5 text-[10.5px] font-medium text-[#46575d] hover:bg-[#faf6ee] transition-colors cursor-pointer"
+                  >
+                    What should we prioritize?
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleAskCoach('Ideas for a struggling subject')}
+                    className="rounded-md border border-[#ded5c7] bg-white px-2 py-0.5 text-[10.5px] font-medium text-[#46575d] hover:bg-[#faf6ee] transition-colors cursor-pointer"
+                  >
+                    Ideas for a struggling subject
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* ──────── RIGHT COLUMN ──────── */}
-          <div className="w-full space-y-3.5">
-            {/* Today's Schedule Card 1 */}
-            {renderScheduleCard('schedule-1')}
+          {/* Section: GETTING STARTED (Interactive Steps) */}
+          <div>
+            <div className="mb-1.5 flex items-center justify-between">
+              <span className="text-[10px] font-bold tracking-wider text-[#3d4b50] uppercase">
+                GETTING STARTED
+              </span>
+              <span className="text-[10.5px] font-semibold text-[#ba633f]">
+                {activeStep} of 4 done
+              </span>
+            </div>
 
-            {/* Today's Schedule Card 2 (matching screenshot mockup) */}
-            {renderScheduleCard('schedule-2')}
+            {/* Progress Bar */}
+            <div className="mb-2.5 h-1.5 w-full overflow-hidden rounded-full bg-[#e3ded4]">
+              <div
+                className="h-full rounded-full bg-[#1b6b50] transition-all duration-300"
+                style={{ width: `${(activeStep / 4) * 100}%` }}
+              />
+            </div>
 
-            {/* This Week Card (Apr 14 - Apr 20) */}
-            <div className="rounded-2xl border border-[#ebdcca] bg-white p-3.5 shadow-2xs">
-              <div className="mb-2.5 flex items-center justify-between">
-                <h3 className="font-serif text-[15px] font-bold text-[#172b30]">
-                  This Week
-                </h3>
-                <div className="flex items-center gap-1.5">
-                  <span className="text-[10.5px] font-semibold text-[#ba633f]">
-                    Apr 14 – Apr 20
-                  </span>
-                  <div className="flex items-center gap-1 text-[11px] text-[#637278]">
-                    <button 
-                      type="button"
-                      onClick={() => {
-                        const currentIndex = WEEK_DAYS.findIndex(d => d.date === selectedDayDate);
-                        const prevIndex = (currentIndex - 1 + WEEK_DAYS.length) % WEEK_DAYS.length;
-                        setSelectedDayDate(WEEK_DAYS[prevIndex].date);
-                      }}
-                      className="hover:text-[#172b30] cursor-pointer p-0.5"
-                      aria-label="Previous day"
-                    >
-                      ‹
-                    </button>
-                    <button 
-                      type="button"
-                      onClick={() => {
-                        const currentIndex = WEEK_DAYS.findIndex(d => d.date === selectedDayDate);
-                        const nextIndex = (currentIndex + 1) % WEEK_DAYS.length;
-                        setSelectedDayDate(WEEK_DAYS[nextIndex].date);
-                      }}
-                      className="hover:text-[#172b30] cursor-pointer p-0.5"
-                      aria-label="Next day"
-                    >
-                      ›
-                    </button>
+            {/* 4 Steps */}
+            <div className="space-y-2">
+              {/* Step 1: Add your students */}
+              <div
+                onClick={() => setActiveStep(1)}
+                className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 1
+                    ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                    : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                  }`}
+              >
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 1
+                      ? 'bg-[#1b6b50] text-white'
+                      : 'border border-[#d5cbbe] text-[#526068]'
+                    }`}>
+                    {activeStep === 1 ? (
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    ) : (
+                      '1'
+                    )}
+                  </div>
+                  <div className="min-w-0">
+                    <h4 className="text-[11.5px] font-bold text-[#172b30] truncate">
+                      Add your students
+                    </h4>
+                    <p className="text-[9.5px] text-[#637278] truncate">
+                      Tell us about the children you're teaching.
+                    </p>
                   </div>
                 </div>
+                <span
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveStep(1);
+                    onNavigateToStudents?.();
+                  }}
+                  className={`text-xs pl-1 shrink-0 transition-colors ${activeStep === 1 ? 'text-[#1b6b50] font-bold' : 'text-[#798790]'
+                    }`}
+                >
+                  ›
+                </span>
               </div>
 
-              {/* Calendar Days Row - Every day is clickable */}
-              <div className="mb-3 grid grid-cols-7 gap-0.5 text-center">
-                {WEEK_DAYS.map((d) => {
-                  const isSelected = selectedDayDate === d.date;
-                  return (
-                    <button
-                      key={d.day}
-                      type="button"
-                      onClick={() => setSelectedDayDate(d.date)}
-                      className={`flex flex-col items-center py-1 px-0.5 rounded-lg transition-all cursor-pointer ${
-                        isSelected
-                          ? 'bg-[#edf5f0]'
-                          : 'hover:bg-[#faf5eb]'
-                      }`}
-                    >
-                      <span className={`block text-[9px] mb-0.5 transition-colors ${
-                        isSelected ? 'font-bold text-[#1b6b50]' : 'text-[#798790]'
-                      }`}>
-                        {d.day}
-                      </span>
-                      {isSelected ? (
-                        <span className="flex h-5 w-5 items-center justify-center rounded-md bg-[#1b6b50] text-[10px] font-bold text-white shadow-2xs">
-                          {d.date}
-                        </span>
-                      ) : (
-                        <span className="flex h-5 w-5 items-center justify-center text-[11px] font-semibold text-[#172b30] hover:text-[#1b6b50]">
-                          {d.date}
-                        </span>
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Subject Stats for Selected Day */}
-              <div className="space-y-1.5 border-t border-[#f0eae0] pt-2.5">
-                {currentSelectedDayObj.lessons.length > 0 ? (
-                  currentSelectedDayObj.lessons.map((lesson, idx) => (
-                    <div key={idx} className="flex items-center justify-between text-[11px]">
-                      <div className="flex items-center gap-2">
-                        <span className={`h-2 w-2 rounded-full ${lesson.color}`} />
-                        <span className="font-semibold text-[#172b30]">{lesson.name}</span>
-                      </div>
-                      <span className="text-[#637278]">{lesson.count}</span>
-                    </div>
-                  ))
-                ) : (
-                  <p className="text-[10.5px] text-[#8d9b9f] text-center py-1">No lessons scheduled for this day</p>
-                )}
-              </div>
-
-              {/* Open Planner button */}
-              <button 
-                type="button"
-                onClick={onNavigateToPlanner}
-                className="mt-3.5 w-full rounded-xl border border-[#ded5c7] bg-white py-1.5 text-[11px] font-semibold text-[#ba633f] hover:bg-[#faf5eb] transition-colors text-center cursor-pointer"
+              {/* Step 2: Enter your curriculum */}
+              <div
+                onClick={() => setActiveStep(2)}
+                className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 2
+                    ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                    : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                  }`}
               >
-                Open Planner →
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 2
+                      ? 'bg-[#1b6b50] text-white'
+                      : 'border border-[#d5cbbe] text-[#526068]'
+                    }`}>
+                    {activeStep === 2 ? (
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    ) : (
+                      '2'
+                    )}
+                  </div>
+                  <div className="min-w-0">
+                    <h4 className="text-[11.5px] font-bold text-[#172b30] truncate">
+                      Enter your curriculum
+                    </h4>
+                    <p className="text-[9.5px] text-[#637278] truncate">
+                      Tell us what books and programs you use.
+                    </p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveStep(2);
+                    onOpenAddCurriculum?.();
+                  }}
+                  className="shrink-0 rounded-md bg-[#1b6b50] px-2 py-1 text-[10px] font-semibold text-white shadow-2xs hover:bg-[#14553f] transition-colors cursor-pointer"
+                >
+                  Add curriculum →
+                </button>
+              </div>
+
+              {/* Step 3: Build your weekly plan */}
+              <div
+                onClick={() => setActiveStep(3)}
+                className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 3
+                    ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                    : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                  }`}
+              >
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 3
+                      ? 'bg-[#1b6b50] text-white'
+                      : 'border border-[#d5cbbe] text-[#526068]'
+                    }`}>
+                    {activeStep === 3 ? (
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    ) : (
+                      '3'
+                    )}
+                  </div>
+                  <div className="min-w-0">
+                    <h4 className="text-[11.5px] font-bold text-[#172b30] truncate">
+                      Build your weekly plan
+                    </h4>
+                    <p className="text-[9.5px] text-[#637278] truncate">
+                      Set which subjects you do each day.
+                    </p>
+                  </div>
+                </div>
+                <span
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveStep(3);
+                    onNavigateToPlanner?.();
+                  }}
+                  className={`text-xs pl-1 shrink-0 transition-colors ${activeStep === 3 ? 'text-[#1b6b50] font-bold' : 'text-[#798790]'
+                    }`}
+                >
+                  ›
+                </span>
+              </div>
+
+              {/* Step 4: Ask the AI coach */}
+              <div
+                onClick={() => setActiveStep(4)}
+                className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 4
+                    ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                    : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                  }`}
+              >
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 4
+                      ? 'bg-[#1b6b50] text-white'
+                      : 'border border-[#d5cbbe] text-[#526068]'
+                    }`}>
+                    {activeStep === 4 ? (
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    ) : (
+                      '4'
+                    )}
+                  </div>
+                  <div className="min-w-0">
+                    <h4 className="text-[11.5px] font-bold text-[#172b30] truncate">
+                      Ask the AI coach
+                    </h4>
+                    <p className="text-[9.5px] text-[#637278] truncate">
+                      Get your first personalized guidance.
+                    </p>
+                  </div>
+                </div>
+                <span
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveStep(4);
+                    onNavigateToCoach?.();
+                  }}
+                  className={`text-xs pl-1 shrink-0 transition-colors ${activeStep === 4 ? 'text-[#1b6b50] font-bold' : 'text-[#798790]'
+                    }`}
+                >
+                  ›
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Section: TO-DO LIST */}
+          <div>
+            <div className="mb-2 flex items-center justify-between">
+              <span className="text-[10px] font-bold tracking-wider text-[#3d4b50] uppercase">
+                TO-DO LIST
+              </span>
+              <button className="text-[10.5px] font-semibold text-[#ba633f] hover:underline cursor-pointer">
+                View all →
               </button>
             </div>
+
+            <div className="space-y-1.5">
+              {todos.map((todo) => (
+                <div
+                  key={todo.id}
+                  className="flex items-center justify-between rounded-xl border border-[#ebdcca] bg-white px-3 py-2 shadow-2xs transition-all hover:border-[#dcd3c4]"
+                >
+                  <div
+                    onClick={() => toggleTodo(todo.id)}
+                    className="flex flex-1 min-w-0 cursor-pointer items-center gap-2.5"
+                  >
+                    {/* Rounded Green Outline Checkbox matching screenshot */}
+                    <div
+                      className={`flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-[3px] border-[1.5px] transition-colors ${todo.done ? 'border-[#1b6b50] bg-[#1b6b50] text-white' : 'border-[#2d7a5c] bg-white'
+                        }`}
+                    >
+                      {todo.done && (
+                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      )}
+                    </div>
+                    <span className={`text-[11.5px] font-medium truncate ${todo.done ? 'line-through text-[#8d9b9f]' : 'text-[#1e282d]'}`}>
+                      {todo.text}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-1.5 shrink-0 pl-1.5">
+                    <span className="rounded bg-[#e6ecf5] px-2 py-0.5 text-[9.5px] font-semibold text-[#2b4b73]">
+                      {todo.tag}
+                    </span>
+                    <span className="text-xs text-[#8d9b9f]">›</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Add a task trigger */}
+            {isAddingTask ? (
+              <form onSubmit={handleAddTask} className="mt-2 flex gap-1.5">
+                <input
+                  type="text"
+                  placeholder="Enter task name..."
+                  className="w-full rounded-lg border border-[#dcd3c4] bg-white px-2.5 py-1.5 text-[11px] text-[#1e282d] focus:border-[#1b6b50] focus:outline-hidden"
+                  value={newTaskText}
+                  onChange={(e) => setNewTaskText(e.target.value)}
+                  autoFocus
+                />
+                <button
+                  type="submit"
+                  className="rounded-lg bg-[#1b6b50] px-2.5 py-1.5 text-[11px] font-semibold text-white cursor-pointer"
+                >
+                  Add
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setIsAddingTask(false)}
+                  className="rounded-lg border border-[#dcd3c4] bg-white px-2.5 py-1.5 text-[11px] cursor-pointer"
+                >
+                  ✕
+                </button>
+              </form>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setIsAddingTask(true)}
+                className="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-[#1e282d] hover:text-[#1b6b50] transition-colors cursor-pointer"
+              >
+                <span>+</span>
+                <span>Add a task...</span>
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* ──────── RIGHT COLUMN ──────── */}
+        <div className="w-full space-y-3.5">
+          {/* Today's Schedule Card 1 */}
+          {renderScheduleCard('schedule-1')}
+
+          {/* Today's Schedule Card 2 (matching screenshot mockup) */}
+          {renderScheduleCard('schedule-2')}
+
+          {/* This Week Card (Apr 14 - Apr 20) */}
+          <div className="rounded-2xl border border-[#ebdcca] bg-white p-3.5 shadow-2xs">
+            <div className="mb-2.5 flex items-center justify-between">
+              <h3 className="font-serif text-[15px] font-bold text-[#172b30]">
+                This Week
+              </h3>
+              <div className="flex items-center gap-1.5">
+                <span className="text-[10.5px] font-semibold text-[#ba633f]">
+                  Apr 14 – Apr 20
+                </span>
+                <div className="flex items-center gap-1 text-[11px] text-[#637278]">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const currentIndex = WEEK_DAYS.findIndex(d => d.date === selectedDayDate);
+                      const prevIndex = (currentIndex - 1 + WEEK_DAYS.length) % WEEK_DAYS.length;
+                      setSelectedDayDate(WEEK_DAYS[prevIndex].date);
+                    }}
+                    className="hover:text-[#172b30] cursor-pointer p-0.5"
+                    aria-label="Previous day"
+                  >
+                    ‹
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const currentIndex = WEEK_DAYS.findIndex(d => d.date === selectedDayDate);
+                      const nextIndex = (currentIndex + 1) % WEEK_DAYS.length;
+                      setSelectedDayDate(WEEK_DAYS[nextIndex].date);
+                    }}
+                    className="hover:text-[#172b30] cursor-pointer p-0.5"
+                    aria-label="Next day"
+                  >
+                    ›
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Calendar Days Row - Every day is clickable */}
+            <div className="mb-3 grid grid-cols-7 gap-0.5 text-center">
+              {WEEK_DAYS.map((d) => {
+                const isSelected = selectedDayDate === d.date;
+                return (
+                  <button
+                    key={d.day}
+                    type="button"
+                    onClick={() => setSelectedDayDate(d.date)}
+                    className={`flex flex-col items-center py-1 px-0.5 rounded-lg transition-all cursor-pointer ${isSelected
+                        ? 'bg-[#edf5f0]'
+                        : 'hover:bg-[#faf5eb]'
+                      }`}
+                  >
+                    <span className={`block text-[9px] mb-0.5 transition-colors ${isSelected ? 'font-bold text-[#1b6b50]' : 'text-[#798790]'
+                      }`}>
+                      {d.day}
+                    </span>
+                    {isSelected ? (
+                      <span className="flex h-5 w-5 items-center justify-center rounded-md bg-[#1b6b50] text-[10px] font-bold text-white shadow-2xs">
+                        {d.date}
+                      </span>
+                    ) : (
+                      <span className="flex h-5 w-5 items-center justify-center text-[11px] font-semibold text-[#172b30] hover:text-[#1b6b50]">
+                        {d.date}
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Subject Stats for Selected Day */}
+            <div className="space-y-1.5 border-t border-[#f0eae0] pt-2.5">
+              {currentSelectedDayObj.lessons.length > 0 ? (
+                currentSelectedDayObj.lessons.map((lesson, idx) => (
+                  <div key={idx} className="flex items-center justify-between text-[11px]">
+                    <div className="flex items-center gap-2">
+                      <span className={`h-2 w-2 rounded-full ${lesson.color}`} />
+                      <span className="font-semibold text-[#172b30]">{lesson.name}</span>
+                    </div>
+                    <span className="text-[#637278]">{lesson.count}</span>
+                  </div>
+                ))
+              ) : (
+                <p className="text-[10.5px] text-[#8d9b9f] text-center py-1">No lessons scheduled for this day</p>
+              )}
+            </div>
+
+            {/* Open Planner button */}
+            <button
+              type="button"
+              onClick={onNavigateToPlanner}
+              className="mt-3.5 w-full rounded-xl border border-[#ded5c7] bg-white py-1.5 text-[11px] font-semibold text-[#ba633f] hover:bg-[#faf5eb] transition-colors text-center cursor-pointer"
+            >
+              Open Planner →
+            </button>
           </div>
         </div>
       </div>
+    </div>
   );
 }

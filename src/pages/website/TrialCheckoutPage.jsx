@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-export default function TrialCheckoutPage({ userName = 'shiva', onCompleteTrial, onBack }) {
-  const [selectedPlan, setSelectedPlan] = useState('annual'); // 'monthly' | 'annual'
+export default function TrialCheckoutPage({ userName = 'shiva', initialPlan = 'annual', onCompleteTrial, onBack }) {
+  const [selectedPlan, setSelectedPlan] = useState(initialPlan); // 'monthly' | 'annual'
   const [cardName, setCardName] = useState('');
   const [cardNumber, setCardNumber] = useState('');
   const [expiry, setExpiry] = useState('');
@@ -106,7 +106,7 @@ export default function TrialCheckoutPage({ userName = 'shiva', onCompleteTrial,
                   <div>
                     <h4 className="font-serif text-sm font-bold text-[#172b30]">Monthly</h4>
                     <div className="text-xl sm:text-2xl font-bold text-[#ba633f] mt-0.5">$8/mo</div>
-                    <div className="text-[10.5px] text-[#ba633f] font-medium">Billed month</div>
+                    <div className="text-[10.5px] text-[#ba633f] font-medium">Billed monthly</div>
                   </div>
                   <div className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-[#ba633f]">
                     {selectedPlan === 'monthly' && (

@@ -220,40 +220,44 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
         <div className="mb-6 text-center text-xs text-[#526068] leading-relaxed">
           <p>
             By creating an account you agree to our{' '}
-            <a href="#terms" className="underline text-[#ba633f]">teams of service</a>. Your 14-day free trial begins today.
+            <a href="#terms" className="underline text-[#ba633f]">terms of service</a>. Your 14-day free trial begins today.
           </p>
           <p className="mt-0.5">No payment required until your trial ends.</p>
         </div>
 
         {/* ── 3 Value Props Card ── */}
         <div className="mb-5 grid grid-cols-3 divide-x divide-[#f0eae0] rounded-2xl border border-[#e9e2d5] bg-white p-4 sm:p-5 text-center shadow-2xs">
-          <div className="px-2">
-            <div className="mx-auto mb-2.5 flex h-10 w-10 items-center justify-center rounded-full bg-[#215945] text-white">
+          <div className="flex flex-col items-center px-1.5 sm:px-2">
+            <div className="mb-2.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#215945] text-white shadow-2xs">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               </svg>
             </div>
-            <h3 className="text-xs sm:text-sm font-bold text-[#172a2f]">No credit card today</h3>
-            <p className="mt-1 text-[10px] sm:text-[11px] leading-snug text-[#65757a]">
-              Start free, Pay only after 14 days if you love it.
+            <h3 className="flex h-9 items-center justify-center text-center text-xs sm:text-sm font-bold text-[#172a2f] leading-tight">
+              No credit card today
+            </h3>
+            <p className="mt-1 flex-1 text-center text-[10px] sm:text-[11px] leading-snug text-[#65757a]">
+              Start free, pay only after 14 days if you love it.
             </p>
           </div>
 
-          <div className="px-2">
-            <div className="mx-auto mb-2.5 flex h-10 w-10 items-center justify-center rounded-full bg-[#215945] text-white">
+          <div className="flex flex-col items-center px-1.5 sm:px-2">
+            <div className="mb-2.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#215945] text-white shadow-2xs">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
                 <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
               </svg>
             </div>
-            <h3 className="text-xs sm:text-sm font-bold text-[#172a2f]">Cancel anytime</h3>
-            <p className="mt-1 text-[10px] sm:text-[11px] leading-snug text-[#65757a]">
-              Full access during trial, Cancel anytime, no fees.
+            <h3 className="flex h-9 items-center justify-center text-center text-xs sm:text-sm font-bold text-[#172a2f] leading-tight">
+              Cancel anytime
+            </h3>
+            <p className="mt-1 flex-1 text-center text-[10px] sm:text-[11px] leading-snug text-[#65757a]">
+              Full access during trial, cancel anytime with no fees.
             </p>
           </div>
 
-          <div className="px-2">
-            <div className="mx-auto mb-2.5 flex h-10 w-10 items-center justify-center rounded-full bg-[#215945] text-white">
+          <div className="flex flex-col items-center px-1.5 sm:px-2">
+            <div className="mb-2.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#215945] text-white shadow-2xs">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                 <circle cx="9" cy="7" r="4"/>
@@ -261,9 +265,11 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
                 <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
               </svg>
             </div>
-            <h3 className="text-xs sm:text-sm font-bold text-[#172a2f]">Built for homeschoolers</h3>
-            <p className="mt-1 text-[10px] sm:text-[11px] leading-snug text-[#65757a]">
-              Designed by parents who homeschool too
+            <h3 className="flex h-9 items-center justify-center text-center text-xs sm:text-sm font-bold text-[#172a2f] leading-tight">
+              Built for homeschoolers
+            </h3>
+            <p className="mt-1 flex-1 text-center text-[10px] sm:text-[11px] leading-snug text-[#65757a]">
+              Designed by parents who homeschool too.
             </p>
           </div>
         </div>

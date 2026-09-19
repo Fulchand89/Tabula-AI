@@ -30,11 +30,11 @@ const DAYS = [
   { id: 'FRI', label: 'FRI' },
 ];
 
-export default function PlannerWeek2CopyView({ 
-  onBackToHome, 
-  onUpgradeClick, 
-  onToggleFamilyUnits, 
-  onCopySchedule, 
+export default function PlannerWeek2CopyView({
+  onBackToHome,
+  onUpgradeClick,
+  onToggleFamilyUnits,
+  onCopySchedule,
   onStartFresh,
   onPrevWeek,
 }) {
@@ -58,7 +58,7 @@ export default function PlannerWeek2CopyView({
         <span className="text-[11px] font-semibold text-[#b9613b]">
           Free trial — 14 days left
         </span>
-        <button 
+        <button
           type="button"
           onClick={onUpgradeClick}
           className="rounded-md border border-[#bac7bf] bg-white/70 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#184635] hover:bg-white transition-colors shadow-2xs cursor-pointer"
@@ -106,22 +106,20 @@ export default function PlannerWeek2CopyView({
         <button
           type="button"
           onClick={() => handleModeToggle('individual')}
-          className={`flex-1 py-2.5 px-4 sm:px-6 rounded-full text-xs sm:text-[14px] font-semibold transition-all cursor-pointer text-center ${
-            plannerMode === 'individual'
+          className={`flex-1 py-2.5 px-4 sm:px-6 rounded-full text-xs sm:text-[14px] font-semibold transition-all cursor-pointer text-center ${plannerMode === 'individual'
               ? 'bg-[#ba704f] text-white shadow-xs'
               : 'text-[#1e282d] hover:text-[#ba704f]'
-          }`}
+            }`}
         >
           Individual
         </button>
         <button
           type="button"
           onClick={() => handleModeToggle('family')}
-          className={`flex-1 py-2.5 px-4 sm:px-6 rounded-full text-xs sm:text-[14px] font-semibold transition-all cursor-pointer text-center ${
-            plannerMode === 'family'
+          className={`flex-1 py-2.5 px-4 sm:px-6 rounded-full text-xs sm:text-[14px] font-semibold transition-all cursor-pointer text-center ${plannerMode === 'family'
               ? 'bg-[#ba704f] text-white shadow-xs'
               : 'text-[#1e282d] hover:text-[#ba704f]'
-          }`}
+            }`}
         >
           Family Units
         </button>
@@ -134,11 +132,10 @@ export default function PlannerWeek2CopyView({
         <button
           type="button"
           onClick={() => setSelectedStudent('student-1')}
-          className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${
-            selectedStudent === 'student-1'
+          className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${selectedStudent === 'student-1'
               ? 'border-2 border-[#185842] bg-[#f0f6f3] text-[#185842] font-bold'
               : 'border border-[#cf805d] bg-[#fbf6f1] text-[#ba6644] hover:bg-[#f7ece4]'
-          }`}
+            }`}
         >
           Student 1
         </button>
@@ -146,11 +143,10 @@ export default function PlannerWeek2CopyView({
         <button
           type="button"
           onClick={() => setSelectedStudent('student-2')}
-          className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${
-            selectedStudent === 'student-2'
+          className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${selectedStudent === 'student-2'
               ? 'border-2 border-[#185842] bg-[#f0f6f3] text-[#185842] font-bold'
               : 'border border-[#cf805d] bg-[#fbf6f1] text-[#ba6644] hover:bg-[#f7ece4]'
-          }`}
+            }`}
         >
           Student 2
         </button>
@@ -179,11 +175,10 @@ export default function PlannerWeek2CopyView({
               key={day.id}
               type="button"
               onClick={() => setSelectedDay(day.id)}
-              className={`h-16 sm:h-20 flex items-center justify-center rounded-2xl transition-all cursor-pointer shadow-2xs text-center ${
-                isSelected
+              className={`h-16 sm:h-20 flex items-center justify-center rounded-2xl transition-all cursor-pointer shadow-2xs text-center ${isSelected
                   ? 'border-2 border-[#d5cbbe] bg-white text-[#16272b] font-bold'
                   : 'border border-[#e9e1d5] bg-[#faf6ee]/90 text-[#37474f] font-semibold hover:bg-white'
-              }`}
+                }`}
             >
               <span className="text-xs sm:text-sm tracking-wider uppercase">
                 {day.label}

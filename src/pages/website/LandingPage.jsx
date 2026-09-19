@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import SignupPage from './SignupPage';
 import TrialCheckoutPage from './TrialCheckoutPage';
 
-export default function LandingPage({ onGoToApp }) {
+export default function LandingPage({ onGoToApp, onSelectPlan }) {
   const [showSignup, setShowSignup] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [userName, setUserName] = useState('');
+  const [selectedPlan, setSelectedPlan] = useState('annual'); // 'monthly' | 'annual'
 
   // Interactive FAQ state
   const [openFaq, setOpenFaq] = useState(null);
@@ -46,7 +47,10 @@ export default function LandingPage({ onGoToApp }) {
     }, 600);
   };
 
-  const openSignup = () => {
+  const openSignup = (plan) => {
+    const targetPlan = (plan && typeof plan === 'string') ? plan : selectedPlan;
+    setSelectedPlan(targetPlan);
+    onSelectPlan?.(targetPlan);
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
@@ -107,6 +111,7 @@ export default function LandingPage({ onGoToApp }) {
     return (
       <TrialCheckoutPage
         userName={userName}
+        initialPlan={selectedPlan}
         onCompleteTrial={() => {
           window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
           document.documentElement.scrollTop = 0;
@@ -134,11 +139,19 @@ export default function LandingPage({ onGoToApp }) {
             1. HERO SECTION
             ================================================================ */}
         <header className="mb-9 text-left">
-          <div className="mb-2.5">
-            <div className="inline-flex items-baseline cursor-pointer" onClick={onGoToApp}>
+          <div className="mb-2.5 flex items-center justify-between">
+            <div className="inline-flex items-baseline cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <span className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-[#212C3E]">Tabula</span>
               <span className="font-serif text-3xl sm:text-4xl leading-none text-[#1b6b50]">.</span>
             </div>
+            <button
+              type="button"
+              onClick={onGoToApp}
+              className="rounded-lg border border-[#d5ccc0] bg-white px-3 py-1.5 text-xs font-semibold text-[#172b30] hover:bg-[#faf6ee] transition-colors shadow-2xs cursor-pointer flex items-center gap-1"
+            >
+              <span>Dashboard</span>
+              <span>→</span>
+            </button>
           </div>
 
           <h1 className="font-serif text-2xl sm:text-[28px] font-semibold leading-snug tracking-tight text-[#ba633f]">
@@ -519,75 +532,146 @@ export default function LandingPage({ onGoToApp }) {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-3.5">
-            {/* Monthly Card */}
-            <div className="flex flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-4 shadow-2xs">
+          <div className="grid grid-cols-2 gap-3.5 items-stretch">
+            {/* Monthly Card (First Card) */}
+            <div
+              onClick={() => setSelectedPlan('monthly')}
+              className={`flex flex-col justify-between rounded-xl p-4 transition-all cursor-pointer ${
+                selectedPlan === 'monthly'
+                  ? 'border-2 border-[#215945] bg-[#fbfdfc] shadow-xs ring-1 ring-[#215945]/10'
+                  : 'border border-[#e9e2d5] bg-white hover:border-[#215945]/40 shadow-2xs'
+              }`}
+            >
               <div>
-                <h3 className="font-serif text-center text-sm sm:text-base font-bold text-[#172b30]">Monthly</h3>
-                <div className="mt-0.5 text-center text-3xl sm:text-4xl font-bold text-[#172b30]">$8</div>
-                <div className="mt-0.5 text-center text-xs sm:text-[13px] text-[#526068]">Per month</div>
+                <div className="flex items-center justify-center gap-1.5">
+                  <h3 className="font-serif text-center text-sm sm:text-base font-bold text-[#172b30]">Monthly</h3>
+                  <div className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 transition-all ${
+                    selectedPlan === 'monthly' ? 'border-[#215945] bg-white' : 'border-[#d0c8b9]'
+                  }`}>
+                    {selectedPlan === 'monthly' && <div className="h-2 w-2 rounded-full bg-[#215945]" />}
+                  </div>
+                </div>
+                
+                <div className="mt-1 flex items-baseline justify-center gap-0.5">
+                  <span className="text-3xl sm:text-4xl font-bold text-[#172b30]">$8</span>
+                  <span className="text-xs sm:text-sm font-normal text-[#526068]">/mo</span>
+                </div>
+                <div className="mt-0.5 h-5 flex items-center justify-center text-center text-xs sm:text-[12.5px] text-[#526068]">
+                  Billed monthly
+                </div>
 
-                <ul className="my-3.5 space-y-1.5 text-xs sm:text-[13px] text-[#27373c]">
-                  <li className="flex items-center gap-1.5">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
-                    <span>Unlimited students</span>
+                <div className="my-3 border-t border-[#f0eae0]" />
+
+                <ul className="space-y-2 text-xs sm:text-[13px] text-[#27373c]">
+                  <li className="flex items-center gap-2">
+                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50]/12 text-[11px] font-bold text-[#1b6b50]">✓</span>
+                    <span className="leading-snug">Unlimited students</span>
                   </li>
-                  <li className="flex items-center gap-1.5">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
-                    <span>AI coaching</span>
+                  <li className="flex items-center gap-2">
+                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50]/12 text-[11px] font-bold text-[#1b6b50]">✓</span>
+                    <span className="leading-snug">AI coaching</span>
                   </li>
-                  <li className="flex items-center gap-1.5">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
-                    <span>Full planner & tracking</span>
+                  <li className="flex items-center gap-2">
+                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50]/12 text-[11px] font-bold text-[#1b6b50]">✓</span>
+                    <span className="leading-snug">Full planner & tracking</span>
                   </li>
-                  <li className="flex items-center gap-1.5">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
-                    <span>Resource library</span>
+                  <li className="flex items-center gap-2">
+                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50]/12 text-[11px] font-bold text-[#1b6b50]">✓</span>
+                    <span className="leading-snug">Resource library</span>
                   </li>
                 </ul>
               </div>
 
-              <button
-                onClick={openSignup}
-                className="w-full rounded-lg border border-[#d0c8b9] bg-white py-2 text-xs sm:text-sm font-bold text-[#172b30] hover:bg-[#faf5eb] transition-colors cursor-pointer text-center mt-1"
-              >
-                Choose Monthly →
-              </button>
+              <div className="mt-auto pt-3">
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedPlan('monthly');
+                    openSignup('monthly');
+                  }}
+                  className={`w-full rounded-lg py-2 text-xs sm:text-sm font-bold transition-colors cursor-pointer text-center ${
+                    selectedPlan === 'monthly'
+                      ? 'bg-[#215945] text-white shadow-sm hover:bg-[#184636]'
+                      : 'border border-[#d0c8b9] bg-white text-[#172b30] hover:bg-[#faf5eb]'
+                  }`}
+                >
+                  Choose Monthly →
+                </button>
+              </div>
             </div>
 
             {/* Annual Card */}
-            <div className="relative flex flex-col justify-between rounded-xl border-2 border-[#215945] bg-white p-4 shadow-xs">
-              <div className="absolute -top-2.5 right-4 sm:right-6 rounded-sm bg-[#f4a123] px-2 py-0.5 text-[9.5px] sm:text-[10px] font-extrabold tracking-wider text-[#4d2c00] uppercase shadow-2xs">
+            <div
+              onClick={() => setSelectedPlan('annual')}
+              className={`relative flex flex-col justify-between rounded-xl p-4 transition-all cursor-pointer ${
+                selectedPlan === 'annual'
+                  ? 'border-2 border-[#215945] bg-[#fbfdfc] shadow-xs ring-1 ring-[#215945]/10'
+                  : 'border border-[#e9e2d5] bg-white hover:border-[#215945]/40 shadow-2xs'
+              }`}
+            >
+              {/* BEST VALUE - SAVE $24! Centered Badge */}
+              <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-sm bg-[#f4a123] px-2.5 py-0.5 text-[9.5px] sm:text-[10px] font-extrabold tracking-wider text-[#4d2c00] uppercase shadow-2xs text-center z-10">
                 BEST VALUE - SAVE $24!
               </div>
 
               <div>
-                <h3 className="font-serif text-center text-sm sm:text-base font-bold text-[#172b30]">Annual</h3>
-                <div className="mt-0.5 text-center text-3xl sm:text-4xl font-bold text-[#172b30]">$6</div>
-                <div className="mt-0.5 text-center text-xs sm:text-[13px] text-[#526068]">Per month - $72/year</div>
+                <div className="flex items-center justify-center gap-1.5">
+                  <h3 className="font-serif text-center text-sm sm:text-base font-bold text-[#172b30]">Annual</h3>
+                  <div className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 transition-all ${
+                    selectedPlan === 'annual' ? 'border-[#215945] bg-white' : 'border-[#d0c8b9]'
+                  }`}>
+                    {selectedPlan === 'annual' && <div className="h-2 w-2 rounded-full bg-[#215945]" />}
+                  </div>
+                </div>
 
-                <ul className="my-3.5 space-y-1.5 text-xs sm:text-[13px] text-[#27373c]">
-                  <li className="flex items-center gap-1.5">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
-                    <span>Everything in monthly</span>
+                <div className="mt-1 flex items-baseline justify-center gap-0.5">
+                  <span className="text-3xl sm:text-4xl font-bold text-[#172b30]">$6</span>
+                  <span className="text-xs sm:text-sm font-normal text-[#526068]">/mo</span>
+                </div>
+                <div className="mt-0.5 h-5 flex items-center justify-center text-center text-xs sm:text-[12.5px] text-[#526068]">
+                  $72 billed annually
+                </div>
+
+                <div className="my-3 border-t border-[#f0eae0]" />
+
+                <ul className="space-y-2 text-xs sm:text-[13px] text-[#27373c]">
+                  <li className="flex items-center gap-2">
+                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50]/12 text-[11px] font-bold text-[#1b6b50]">✓</span>
+                    <span className="leading-snug">Everything in monthly</span>
                   </li>
-                  <li className="flex items-center gap-1.5">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
-                    <span>2 Months free</span>
+                  <li className="flex items-center gap-2">
+                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50]/12 text-[11px] font-bold text-[#1b6b50]">✓</span>
+                    <span className="leading-snug font-medium text-[#1b6b50]">2 Months free ($24 off)</span>
                   </li>
-                  <li className="flex items-center gap-1.5">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
-                    <span>Priority support</span>
+                  <li className="flex items-center gap-2">
+                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50]/12 text-[11px] font-bold text-[#1b6b50]">✓</span>
+                    <span className="leading-snug">Priority coach support</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50]/12 text-[11px] font-bold text-[#1b6b50]">✓</span>
+                    <span className="leading-snug">Full planner & tracking</span>
                   </li>
                 </ul>
               </div>
 
-              <button
-                onClick={openSignup}
-                className="w-full rounded-lg bg-[#215945] py-2 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-[#184636] transition-colors cursor-pointer text-center mt-1"
-              >
-                Choose Annual →
-              </button>
+              <div className="mt-auto pt-3">
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedPlan('annual');
+                    openSignup('annual');
+                  }}
+                  className={`w-full rounded-lg py-2 text-xs sm:text-sm font-bold transition-colors cursor-pointer text-center ${
+                    selectedPlan === 'annual'
+                      ? 'bg-[#215945] text-white shadow-sm hover:bg-[#184636]'
+                      : 'border border-[#d0c8b9] bg-white text-[#172b30] hover:bg-[#faf5eb]'
+                  }`}
+                >
+                  Choose Annual →
+                </button>
+              </div>
             </div>
           </div>
         </section>

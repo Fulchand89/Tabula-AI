@@ -73,11 +73,11 @@ const COMPLETED_DAYS_DATA = [
   },
 ];
 
-export default function PlannerWeekCompleteView({ 
-  onBackToHome, 
-  onUpgradeClick, 
+export default function PlannerWeekCompleteView({
+  onBackToHome,
+  onUpgradeClick,
   onPrevWeek,
-  onNextWeek, 
+  onNextWeek,
   onOpenLessonDetail,
   onToggleFamilyUnits
 }) {
@@ -161,7 +161,7 @@ export default function PlannerWeekCompleteView({
         <span className="text-[11px] font-semibold text-[#b9613b]">
           Free trial — 14 days left
         </span>
-        <button 
+        <button
           type="button"
           onClick={onUpgradeClick}
           className="rounded-md border border-[#bac7bf] bg-white/70 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#184635] hover:bg-white transition-colors shadow-2xs cursor-pointer"
@@ -241,11 +241,10 @@ export default function PlannerWeekCompleteView({
         <button
           type="button"
           onClick={() => setPlannerMode('individual')}
-          className={`flex-1 py-2.5 px-4 sm:px-6 rounded-full text-xs sm:text-[14px] font-semibold transition-all cursor-pointer text-center ${
-            plannerMode === 'individual'
+          className={`flex-1 py-2.5 px-4 sm:px-6 rounded-full text-xs sm:text-[14px] font-semibold transition-all cursor-pointer text-center ${plannerMode === 'individual'
               ? 'bg-[#ba704f] text-white shadow-xs'
               : 'text-[#1e282d] hover:text-[#ba704f]'
-          }`}
+            }`}
         >
           Individual
         </button>
@@ -255,11 +254,10 @@ export default function PlannerWeekCompleteView({
             setPlannerMode('family');
             onToggleFamilyUnits?.();
           }}
-          className={`flex-1 py-2.5 px-4 sm:px-6 rounded-full text-xs sm:text-[14px] font-semibold transition-all cursor-pointer text-center ${
-            plannerMode === 'family'
+          className={`flex-1 py-2.5 px-4 sm:px-6 rounded-full text-xs sm:text-[14px] font-semibold transition-all cursor-pointer text-center ${plannerMode === 'family'
               ? 'bg-[#ba704f] text-white shadow-xs'
               : 'text-[#1e282d] hover:text-[#ba704f]'
-          }`}
+            }`}
         >
           Family Units
         </button>
@@ -272,11 +270,10 @@ export default function PlannerWeekCompleteView({
         <button
           type="button"
           onClick={() => setSelectedStudent('student-1')}
-          className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${
-            selectedStudent === 'student-1'
+          className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${selectedStudent === 'student-1'
               ? 'border-2 border-[#185842] bg-[#f0f6f3] text-[#185842] font-bold'
               : 'border border-[#cf805d] bg-[#fbf6f1] text-[#ba6644] hover:bg-[#f7ece4]'
-          }`}
+            }`}
         >
           Student 1
         </button>
@@ -284,11 +281,10 @@ export default function PlannerWeekCompleteView({
         <button
           type="button"
           onClick={() => setSelectedStudent('student-2')}
-          className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${
-            selectedStudent === 'student-2'
+          className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${selectedStudent === 'student-2'
               ? 'border-2 border-[#185842] bg-[#f0f6f3] text-[#185842] font-bold'
               : 'border border-[#cf805d] bg-[#fbf6f1] text-[#ba6644] hover:bg-[#f7ece4]'
-          }`}
+            }`}
         >
           Student 2
         </button>
@@ -312,11 +308,10 @@ export default function PlannerWeekCompleteView({
               key={day.id}
               type="button"
               onClick={() => setSelectedDay(day.id)}
-              className={`flex flex-col justify-start rounded-2xl p-2 sm:p-2.5 transition-all cursor-pointer shadow-2xs text-left min-h-[145px] sm:min-h-[155px] ${
-                isSelected
+              className={`flex flex-col justify-start rounded-2xl p-2 sm:p-2.5 transition-all cursor-pointer shadow-2xs text-left min-h-[145px] sm:min-h-[155px] ${isSelected
                   ? 'border border-[#d5cbbe] bg-white ring-1 ring-[#185842]/15'
                   : 'border border-[#e9e1d5] bg-[#faf6ee]/90 hover:bg-white'
-              }`}
+                }`}
             >
               {/* Day title & task counter */}
               <div className="text-center w-full mb-2">
@@ -426,11 +421,10 @@ export default function PlannerWeekCompleteView({
                   <button
                     type="button"
                     onClick={() => handleToggleComplete(card.id)}
-                    className={`h-5 w-5 sm:h-5.5 sm:w-5.5 rounded-full transition-all flex items-center justify-center cursor-pointer shadow-2xs ${
-                      card.isCompleted
+                    className={`h-5 w-5 sm:h-5.5 sm:w-5.5 rounded-full transition-all flex items-center justify-center cursor-pointer shadow-2xs ${card.isCompleted
                         ? 'bg-[#267756] border-2 border-[#267756] text-white'
                         : 'bg-white border-2 border-[#d5cbbe]'
-                    }`}
+                      }`}
                     aria-label={`Toggle completion for ${card.title}`}
                   >
                     {card.isCompleted && (
@@ -521,11 +515,10 @@ export default function PlannerWeekCompleteView({
                 key={subject}
                 type="button"
                 onClick={() => handleTogglePill(subject)}
-                className={`rounded-full border px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-[13px] font-medium shadow-2xs active:scale-95 transition-all cursor-pointer ${
-                  isActive
+                className={`rounded-full border px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-[13px] font-medium shadow-2xs active:scale-95 transition-all cursor-pointer ${isActive
                     ? 'border-[#185842] bg-[#eef5f1] text-[#185842] font-semibold'
                     : 'border-[#d5cbbe] bg-white text-[#2d3f45] hover:bg-[#faf5eb] hover:border-[#185842]'
-                }`}
+                  }`}
               >
                 {subject}
               </button>

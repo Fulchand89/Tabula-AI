@@ -73,9 +73,9 @@ const INITIAL_DAYS_DATA = [
   },
 ];
 
-export default function PlannerScheduleView({ 
-  onBackToHome, 
-  onUpgradeClick, 
+export default function PlannerScheduleView({
+  onBackToHome,
+  onUpgradeClick,
   onOpenLessonDetail,
   onToggleFamilyUnits
 }) {
@@ -217,7 +217,7 @@ export default function PlannerScheduleView({
         <span className="text-[11px] font-semibold text-[#b9613b]">
           Free trial — 14 days left
         </span>
-        <button 
+        <button
           type="button"
           onClick={onUpgradeClick}
           className="rounded-md border border-[#bac7bf] bg-white/70 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#184635] hover:bg-white transition-colors shadow-2xs cursor-pointer"
@@ -297,11 +297,10 @@ export default function PlannerScheduleView({
         <button
           type="button"
           onClick={() => setPlannerMode('individual')}
-          className={`flex-1 py-2.5 px-4 sm:px-6 rounded-full text-xs sm:text-[14px] font-semibold transition-all cursor-pointer text-center ${
-            plannerMode === 'individual'
+          className={`flex-1 py-2.5 px-4 sm:px-6 rounded-full text-xs sm:text-[14px] font-semibold transition-all cursor-pointer text-center ${plannerMode === 'individual'
               ? 'bg-[#ba704f] text-white shadow-xs'
               : 'text-[#1e282d] hover:text-[#ba704f]'
-          }`}
+            }`}
         >
           Individual
         </button>
@@ -311,11 +310,10 @@ export default function PlannerScheduleView({
             setPlannerMode('family');
             onToggleFamilyUnits?.();
           }}
-          className={`flex-1 py-2.5 px-4 sm:px-6 rounded-full text-xs sm:text-[14px] font-semibold transition-all cursor-pointer text-center ${
-            plannerMode === 'family'
+          className={`flex-1 py-2.5 px-4 sm:px-6 rounded-full text-xs sm:text-[14px] font-semibold transition-all cursor-pointer text-center ${plannerMode === 'family'
               ? 'bg-[#ba704f] text-white shadow-xs'
               : 'text-[#1e282d] hover:text-[#ba704f]'
-          }`}
+            }`}
         >
           Family Units
         </button>
@@ -328,11 +326,10 @@ export default function PlannerScheduleView({
         <button
           type="button"
           onClick={() => setSelectedStudent('student-1')}
-          className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${
-            selectedStudent === 'student-1'
+          className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${selectedStudent === 'student-1'
               ? 'border-2 border-[#185842] bg-[#f0f6f3] text-[#185842] font-bold'
               : 'border border-[#cf805d] bg-[#fbf6f1] text-[#ba6644] hover:bg-[#f7ece4]'
-          }`}
+            }`}
         >
           Student 1
         </button>
@@ -340,11 +337,10 @@ export default function PlannerScheduleView({
         <button
           type="button"
           onClick={() => setSelectedStudent('student-2')}
-          className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${
-            selectedStudent === 'student-2'
+          className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${selectedStudent === 'student-2'
               ? 'border-2 border-[#185842] bg-[#f0f6f3] text-[#185842] font-bold'
               : 'border border-[#cf805d] bg-[#fbf6f1] text-[#ba6644] hover:bg-[#f7ece4]'
-          }`}
+            }`}
         >
           Student 2
         </button>
@@ -368,11 +364,10 @@ export default function PlannerScheduleView({
               key={day.id}
               type="button"
               onClick={() => setSelectedDay(day.id)}
-              className={`flex flex-col justify-start rounded-2xl p-2 sm:p-2.5 transition-all cursor-pointer shadow-2xs text-left min-h-[145px] sm:min-h-[155px] ${
-                isSelected
+              className={`flex flex-col justify-start rounded-2xl p-2 sm:p-2.5 transition-all cursor-pointer shadow-2xs text-left min-h-[145px] sm:min-h-[155px] ${isSelected
                   ? 'border-2 border-[#267756] bg-[#fdfefd] ring-1 ring-[#267756]/20'
                   : 'border border-[#e9e1d5] bg-[#faf6ee]/90 hover:bg-white'
-              }`}
+                }`}
             >
               {/* Day title & task counter */}
               <div className="text-center w-full mb-2">
@@ -412,7 +407,7 @@ export default function PlannerScheduleView({
           ================================================================ */}
       <div className="mb-6 flex items-center gap-4">
         <div className="flex-1 h-2 rounded-full bg-[#e6dfd4] overflow-hidden">
-          <div 
+          <div
             className="h-full rounded-full bg-[#185842] transition-all duration-300"
             style={{ width: '18%' }}
           />
@@ -430,11 +425,10 @@ export default function PlannerScheduleView({
           return (
             <div
               key={card.id}
-              className={`rounded-2xl bg-white p-4 sm:p-5 shadow-2xs transition-all ${
-                card.isHighlighted
+              className={`rounded-2xl bg-white p-4 sm:p-5 shadow-2xs transition-all ${card.isHighlighted
                   ? 'border-2 border-[#267756]'
                   : 'border border-[#e9e1d5]'
-              }`}
+                }`}
             >
               {/* Top row */}
               <div className="flex items-center justify-between gap-2">
@@ -455,11 +449,10 @@ export default function PlannerScheduleView({
                   <button
                     type="button"
                     onClick={() => handleToggleComplete(card.id)}
-                    className={`h-5 w-5 sm:h-5.5 sm:w-5.5 rounded-full border-2 transition-all flex items-center justify-center cursor-pointer ${
-                      card.isCompleted
+                    className={`h-5 w-5 sm:h-5.5 sm:w-5.5 rounded-full border-2 transition-all flex items-center justify-center cursor-pointer ${card.isCompleted
                         ? 'border-[#267756] bg-[#267756] text-white'
                         : `${card.checkboxColor} bg-white hover:bg-[#faf5eb]`
-                    }`}
+                      }`}
                     aria-label={`Mark ${card.title} complete`}
                   >
                     {card.isCompleted && (
@@ -525,7 +518,7 @@ export default function PlannerScheduleView({
                   {mathSubtasks.map((item) => (
                     <div key={item.id} className="flex items-center justify-between text-xs text-[#1e282d] bg-[#fdfaf7] rounded-lg p-2 border border-[#fae5d9]">
                       <span className="font-medium">• {item.text}</span>
-                      <button 
+                      <button
                         type="button"
                         onClick={() => setMathSubtasks(mathSubtasks.filter(a => a.id !== item.id))}
                         className="text-[#9ca3af] hover:text-[#d32f2f] text-xs px-1"
@@ -541,7 +534,7 @@ export default function PlannerScheduleView({
               {card.hasAddDashedBox && (
                 isAddingMathAssignment ? (
                   <form onSubmit={handleAddMathSubtask} className="mt-4 flex items-center gap-2">
-                    <input 
+                    <input
                       type="text"
                       autoFocus
                       placeholder="e.g. Lesson 16 problems..."
@@ -564,7 +557,7 @@ export default function PlannerScheduleView({
                     </button>
                   </form>
                 ) : (
-                  <div 
+                  <div
                     onClick={() => setIsAddingMathAssignment(true)}
                     className="mt-4 rounded-xl border border-dashed border-[#e69b7c] bg-[#fdfaf7]/60 py-2.5 px-4 text-center cursor-pointer hover:bg-[#fbf4ee] hover:border-[#ba704f] transition-all select-none"
                   >
@@ -612,11 +605,10 @@ export default function PlannerScheduleView({
                 key={subject}
                 type="button"
                 onClick={() => handleTogglePill(subject)}
-                className={`rounded-full border px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-[13px] font-medium shadow-2xs active:scale-95 transition-all cursor-pointer ${
-                  isActive
+                className={`rounded-full border px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-[13px] font-medium shadow-2xs active:scale-95 transition-all cursor-pointer ${isActive
                     ? 'border-[#185842] bg-[#eef5f1] text-[#185842] font-semibold'
                     : 'border-[#d5cbbe] bg-white text-[#2d3f45] hover:bg-[#faf5eb] hover:border-[#185842]'
-                }`}
+                  }`}
               >
                 {subject}
               </button>
@@ -629,11 +621,11 @@ export default function PlannerScheduleView({
           10. EDIT MODAL FOR ASSIGNMENTS
           ================================================================ */}
       {editingCard && (
-        <div 
+        <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
           onClick={() => setEditingCard(null)}
         >
-          <div 
+          <div
             className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >

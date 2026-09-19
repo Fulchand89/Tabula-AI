@@ -71,12 +71,12 @@ export default function AppShell({ onNavigateToLanding }) {
     <div className="min-h-screen w-full bg-[#f3ede4] text-[#1e282d] antialiased py-0 sm:py-6 md:py-8 flex justify-center px-0 sm:px-4">
       {/* ── Single Unified Page Container with Border, Shadow & Rounded Corners ── */}
       <div className={`w-full ${containerMaxWidth} bg-[#faf7f0] border-x sm:border border-[#ded5c7] sm:rounded-2xl shadow-sm flex flex-col min-h-[92vh] overflow-hidden transition-all`}>
-        
+
         {/* ================================================================
             TOP REUSABLE HEADER COMPONENT (Inside Page Container)
             ================================================================ */}
         {activeNav !== 'lesson-detail' && activeNav !== 'account' && (
-          <Header 
+          <Header
             onLogoClick={() => handleNavigate('home')}
             onAccountClick={() => handleNavigate('account')}
             onPrivacyClick={() => handleNavigate('privacy')}
@@ -87,156 +87,156 @@ export default function AppShell({ onNavigateToLanding }) {
             MAIN VIEW CONTAINER
             ================================================================ */}
         <main className="flex-1 flex flex-col">
-        {activeNav === 'home' && (
-          <DashboardHome 
-            onOpenAddCurriculum={() => setIsCurriculumModalOpen(true)}
-            onNavigateToStudents={() => handleNavigate('students')}
-            onNavigateToCoach={() => handleNavigate('coach')}
-            onNavigateToPlanner={() => handleNavigate('planner')}
-          />
-        )}
+          {activeNav === 'home' && (
+            <DashboardHome
+              onOpenAddCurriculum={() => setIsCurriculumModalOpen(true)}
+              onNavigateToStudents={() => handleNavigate('students')}
+              onNavigateToCoach={() => handleNavigate('coach')}
+              onNavigateToPlanner={() => handleNavigate('planner')}
+            />
+          )}
 
-        {activeNav === 'students' && (
-          <StudentsView 
-            onBackToHome={() => handleNavigate('home')}
-            onUpgradeClick={() => handleNavigate('account')}
-            onSelectStudent={(student, initialTab = 'curriculum') => {
-              setSelectedStudent(student);
-              setStudentInitialTab(initialTab);
-              handleNavigate('student-detail');
-            }}
-          />
-        )}
+          {activeNav === 'students' && (
+            <StudentsView
+              onBackToHome={() => handleNavigate('home')}
+              onUpgradeClick={() => handleNavigate('account')}
+              onSelectStudent={(student, initialTab = 'curriculum') => {
+                setSelectedStudent(student);
+                setStudentInitialTab(initialTab);
+                handleNavigate('student-detail');
+              }}
+            />
+          )}
 
-        {activeNav === 'student-detail' && (
-          <StudentDetailView
-            student={selectedStudent}
-            initialTab={studentInitialTab}
-            onBack={() => handleNavigate('students')}
-            onUpgradeClick={() => handleNavigate('account')}
-          />
-        )}
+          {activeNav === 'student-detail' && (
+            <StudentDetailView
+              student={selectedStudent}
+              initialTab={studentInitialTab}
+              onBack={() => handleNavigate('students')}
+              onUpgradeClick={() => handleNavigate('account')}
+            />
+          )}
 
-        {activeNav === 'planner' && (
-          <PlannerView 
-            onBackToHome={() => handleNavigate('home')}
-            onUpgradeClick={() => handleNavigate('account')}
-            onOpenLessonDetail={() => handleNavigate('lesson-detail')}
-            onToggleFamilyUnits={() => handleNavigate('planner-family')}
-            onViewCompleteWeek={() => handleNavigate('planner-complete')}
-            onNextWeek={() => handleNavigate('planner-week2')}
-          />
-        )}
+          {activeNav === 'planner' && (
+            <PlannerView
+              onBackToHome={() => handleNavigate('home')}
+              onUpgradeClick={() => handleNavigate('account')}
+              onOpenLessonDetail={() => handleNavigate('lesson-detail')}
+              onToggleFamilyUnits={() => handleNavigate('planner-family')}
+              onViewCompleteWeek={() => handleNavigate('planner-complete')}
+              onNextWeek={() => handleNavigate('planner-week2')}
+            />
+          )}
 
-        {activeNav === 'planner-complete' && (
-          <PlannerWeekCompleteView 
-            onBackToHome={() => handleNavigate('home')}
-            onUpgradeClick={() => handleNavigate('account')}
-            onPrevWeek={() => handleNavigate('planner')}
-            onNextWeek={() => handleNavigate('planner-week2')}
-            onOpenLessonDetail={() => handleNavigate('lesson-detail')}
-            onToggleFamilyUnits={() => handleNavigate('planner-family')}
-          />
-        )}
+          {activeNav === 'planner-complete' && (
+            <PlannerWeekCompleteView
+              onBackToHome={() => handleNavigate('home')}
+              onUpgradeClick={() => handleNavigate('account')}
+              onPrevWeek={() => handleNavigate('planner')}
+              onNextWeek={() => handleNavigate('planner-week2')}
+              onOpenLessonDetail={() => handleNavigate('lesson-detail')}
+              onToggleFamilyUnits={() => handleNavigate('planner-family')}
+            />
+          )}
 
-        {(activeNav === 'planner-week2' || activeNav === 'week-2') && (
-          <PlannerWeek2CopyView 
-            onBackToHome={() => handleNavigate('home')}
-            onUpgradeClick={() => handleNavigate('account')}
-            onToggleFamilyUnits={() => handleNavigate('planner-family')}
-            onCopySchedule={() => handleNavigate('planner-schedule')}
-            onStartFresh={() => handleNavigate('planner')}
-            onPrevWeek={() => handleNavigate('planner-complete')}
-          />
-        )}
+          {(activeNav === 'planner-week2' || activeNav === 'week-2') && (
+            <PlannerWeek2CopyView
+              onBackToHome={() => handleNavigate('home')}
+              onUpgradeClick={() => handleNavigate('account')}
+              onToggleFamilyUnits={() => handleNavigate('planner-family')}
+              onCopySchedule={() => handleNavigate('planner-schedule')}
+              onStartFresh={() => handleNavigate('planner')}
+              onPrevWeek={() => handleNavigate('planner-complete')}
+            />
+          )}
 
-        {(activeNav === 'planner-family' || activeNav === 'family-units') && (
-          <PlannerFamilyUnitsView 
-            onBackToHome={() => handleNavigate('home')}
-            onUpgradeClick={() => handleNavigate('account')}
-            onToggleIndividual={() => handleNavigate('planner')}
-            onEditStudentPlan={(studentId) => {
-              setSelectedStudent({ 
-                id: studentId, 
-                name: studentId === 2 ? 'Student 2' : 'Student', 
-                details: studentId === 2 ? '11th Grade' : '10th Grade' 
-              });
-              setStudentInitialTab('curriculum');
-              handleNavigate('student-detail');
-            }}
-            onNavigateToCoach={() => handleNavigate('coach')}
-          />
-        )}
+          {(activeNav === 'planner-family' || activeNav === 'family-units') && (
+            <PlannerFamilyUnitsView
+              onBackToHome={() => handleNavigate('home')}
+              onUpgradeClick={() => handleNavigate('account')}
+              onToggleIndividual={() => handleNavigate('planner')}
+              onEditStudentPlan={(studentId) => {
+                setSelectedStudent({
+                  id: studentId,
+                  name: studentId === 2 ? 'Student 2' : 'Student',
+                  details: studentId === 2 ? '11th Grade' : '10th Grade'
+                });
+                setStudentInitialTab('curriculum');
+                handleNavigate('student-detail');
+              }}
+              onNavigateToCoach={() => handleNavigate('coach')}
+            />
+          )}
 
-        {activeNav === 'planner-schedule' && (
-          <PlannerScheduleView 
-            onBackToHome={() => handleNavigate('home')}
-            onUpgradeClick={() => handleNavigate('account')}
-            onOpenLessonDetail={() => handleNavigate('lesson-detail')}
-            onToggleFamilyUnits={() => handleNavigate('planner-family')}
-          />
-        )}
+          {activeNav === 'planner-schedule' && (
+            <PlannerScheduleView
+              onBackToHome={() => handleNavigate('home')}
+              onUpgradeClick={() => handleNavigate('account')}
+              onOpenLessonDetail={() => handleNavigate('lesson-detail')}
+              onToggleFamilyUnits={() => handleNavigate('planner-family')}
+            />
+          )}
 
-        {activeNav === 'planner-blank' && (
-          <PlannerView 
-            onBackToHome={() => handleNavigate('home')}
-            onUpgradeClick={() => handleNavigate('account')}
-            onToggleFamilyUnits={() => handleNavigate('planner-family')}
-          />
-        )}
+          {activeNav === 'planner-blank' && (
+            <PlannerView
+              onBackToHome={() => handleNavigate('home')}
+              onUpgradeClick={() => handleNavigate('account')}
+              onToggleFamilyUnits={() => handleNavigate('planner-family')}
+            />
+          )}
 
-        {activeNav === 'lesson-detail' && (
-          <PlannerLessonDetailView 
-            onCancel={() => handleNavigate('planner')}
-            onAddCurriculum={(data) => {
-              handleNavigate('planner');
-            }}
-          />
-        )}
+          {activeNav === 'lesson-detail' && (
+            <PlannerLessonDetailView
+              onCancel={() => handleNavigate('planner')}
+              onAddCurriculum={(data) => {
+                handleNavigate('planner');
+              }}
+            />
+          )}
 
-        {activeNav === 'account' && (
-          <AccountMembershipView 
-            onBackToHome={() => handleNavigate(previousNav || 'home')}
-          />
-        )}
+          {activeNav === 'account' && (
+            <AccountMembershipView
+              onBackToHome={() => handleNavigate(previousNav || 'home')}
+            />
+          )}
 
-        {activeNav === 'privacy' && (
-          <PrivacySettingsView 
-            onBackToHome={() => handleNavigate('home')}
-          />
-        )}
+          {activeNav === 'privacy' && (
+            <PrivacySettingsView
+              onBackToHome={() => handleNavigate('home')}
+            />
+          )}
 
-        {activeNav === 'coach' && (
-          <CoachView 
-            onBackToHome={() => handleNavigate('home')}
-            onUpgradeClick={() => handleNavigate('account')}
-          />
-        )}
+          {activeNav === 'coach' && (
+            <CoachView
+              onBackToHome={() => handleNavigate('home')}
+              onUpgradeClick={() => handleNavigate('account')}
+            />
+          )}
 
-        {activeNav === 'resources' && (
-          <ResourceLibraryView
-            onBackToHome={() => handleNavigate('home')}
-            onUpgradeClick={() => handleNavigate('account')}
-          />
-        )}
-      </main>
+          {activeNav === 'resources' && (
+            <ResourceLibraryView
+              onBackToHome={() => handleNavigate('home')}
+              onUpgradeClick={() => handleNavigate('account')}
+            />
+          )}
+        </main>
 
-      {/* ================================================================
+        {/* ================================================================
           BOTTOM REUSABLE FOOTER / NAVIGATION COMPONENT (Inside Page Container)
           ================================================================ */}
-      {activeNav !== 'lesson-detail' && (
-        <Footer 
-          activeNav={activeNav}
-          onNavigate={(navKey) => handleNavigate(navKey)}
-        />
-      )}
+        {activeNav !== 'lesson-detail' && (
+          <Footer
+            activeNav={activeNav}
+            onNavigate={(navKey) => handleNavigate(navKey)}
+          />
+        )}
       </div>
 
       {/* ================================================================
           MODALS
           ================================================================ */}
       {/* Add Math Curriculum Modal (Image 4) */}
-      <AddCurriculumModal 
+      <AddCurriculumModal
         isOpen={isCurriculumModalOpen}
         onClose={() => setIsCurriculumModalOpen(false)}
         onAddCurriculum={(curriculum) => {
@@ -252,7 +252,7 @@ export default function AppShell({ onNavigateToLanding }) {
             <h3 className="font-serif text-lg font-bold text-[#172b30]">Account Settings</h3>
             <p className="mt-2 text-xs text-[#526068]">Free trial active: 14 days remaining.</p>
             <div className="mt-4 flex justify-end">
-              <button 
+              <button
                 onClick={() => setIsAccountModalOpen(false)}
                 className="rounded-lg bg-[#1b6b50] px-4 py-2 text-xs font-semibold text-white"
               >
@@ -270,7 +270,7 @@ export default function AppShell({ onNavigateToLanding }) {
             <h3 className="font-serif text-lg font-bold text-[#172b30]">Privacy & Control</h3>
             <p className="mt-2 text-xs text-[#526068]">Your family's data is private. We never share or sell student information.</p>
             <div className="mt-4 flex justify-end">
-              <button 
+              <button
                 onClick={() => setIsPrivacyModalOpen(false)}
                 className="rounded-lg bg-[#1b6b50] px-4 py-2 text-xs font-semibold text-white"
               >

@@ -158,15 +158,13 @@ export default function PrivacySettingsView({ onBackToHome }) {
               <button
                 type="button"
                 onClick={() => toggleSetting('teachingPhilosophy')}
-                className={`relative inline-flex h-6.5 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-                  toggles.teachingPhilosophy ? 'bg-[#156c47]' : 'bg-[#d0c8b8]'
-                }`}
+                className={`relative inline-flex h-6.5 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${toggles.teachingPhilosophy ? 'bg-[#156c47]' : 'bg-[#d0c8b8]'
+                  }`}
                 aria-label="Toggle Teaching philosophy & faith tradition"
               >
                 <span
-                  className={`pointer-events-none inline-block h-5.5 w-5.5 rounded-full bg-white shadow-md transform ring-0 transition duration-200 ease-in-out ${
-                    toggles.teachingPhilosophy ? 'translate-x-5.5' : 'translate-x-0'
-                  }`}
+                  className={`pointer-events-none inline-block h-5.5 w-5.5 rounded-full bg-white shadow-md transform ring-0 transition duration-200 ease-in-out ${toggles.teachingPhilosophy ? 'translate-x-5.5' : 'translate-x-0'
+                    }`}
                 />
               </button>
             </div>
@@ -194,15 +192,13 @@ export default function PrivacySettingsView({ onBackToHome }) {
               <button
                 type="button"
                 onClick={() => toggleSetting('studentNames')}
-                className={`relative inline-flex h-6.5 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-                  toggles.studentNames ? 'bg-[#156c47]' : 'bg-[#d0c8b8]'
-                }`}
+                className={`relative inline-flex h-6.5 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${toggles.studentNames ? 'bg-[#156c47]' : 'bg-[#d0c8b8]'
+                  }`}
                 aria-label="Toggle Student names"
               >
                 <span
-                  className={`pointer-events-none inline-block h-5.5 w-5.5 rounded-full bg-white shadow-md transform ring-0 transition duration-200 ease-in-out ${
-                    toggles.studentNames ? 'translate-x-5.5' : 'translate-x-0'
-                  }`}
+                  className={`pointer-events-none inline-block h-5.5 w-5.5 rounded-full bg-white shadow-md transform ring-0 transition duration-200 ease-in-out ${toggles.studentNames ? 'translate-x-5.5' : 'translate-x-0'
+                    }`}
                 />
               </button>
             </div>
@@ -229,15 +225,13 @@ export default function PrivacySettingsView({ onBackToHome }) {
               <button
                 type="button"
                 onClick={() => toggleSetting('learningStrengths')}
-                className={`relative inline-flex h-6.5 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-                  toggles.learningStrengths ? 'bg-[#156c47]' : 'bg-[#d0c8b8]'
-                }`}
+                className={`relative inline-flex h-6.5 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${toggles.learningStrengths ? 'bg-[#156c47]' : 'bg-[#d0c8b8]'
+                  }`}
                 aria-label="Toggle Learning strengths & challenges"
               >
                 <span
-                  className={`pointer-events-none inline-block h-5.5 w-5.5 rounded-full bg-white shadow-md transform ring-0 transition duration-200 ease-in-out ${
-                    toggles.learningStrengths ? 'translate-x-5.5' : 'translate-x-0'
-                  }`}
+                  className={`pointer-events-none inline-block h-5.5 w-5.5 rounded-full bg-white shadow-md transform ring-0 transition duration-200 ease-in-out ${toggles.learningStrengths ? 'translate-x-5.5' : 'translate-x-0'
+                    }`}
                 />
               </button>
             </div>
@@ -266,15 +260,13 @@ export default function PrivacySettingsView({ onBackToHome }) {
               <button
                 type="button"
                 onClick={() => toggleSetting('curriculumResources')}
-                className={`relative inline-flex h-6.5 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-                  toggles.curriculumResources ? 'bg-[#156c47]' : 'bg-[#d0c8b8]'
-                }`}
+                className={`relative inline-flex h-6.5 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${toggles.curriculumResources ? 'bg-[#156c47]' : 'bg-[#d0c8b8]'
+                  }`}
                 aria-label="Toggle Curriculum resources & pacing"
               >
                 <span
-                  className={`pointer-events-none inline-block h-5.5 w-5.5 rounded-full bg-white shadow-md transform ring-0 transition duration-200 ease-in-out ${
-                    toggles.curriculumResources ? 'translate-x-5.5' : 'translate-x-0'
-                  }`}
+                  className={`pointer-events-none inline-block h-5.5 w-5.5 rounded-full bg-white shadow-md transform ring-0 transition duration-200 ease-in-out ${toggles.curriculumResources ? 'translate-x-5.5' : 'translate-x-0'
+                    }`}
                 />
               </button>
             </div>
@@ -302,15 +294,13 @@ export default function PrivacySettingsView({ onBackToHome }) {
               <button
                 type="button"
                 onClick={() => toggleSetting('weeklySchedule')}
-                className={`relative inline-flex h-6.5 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-                  toggles.weeklySchedule ? 'bg-[#156c47]' : 'bg-[#d0c8b8]'
-                }`}
+                className={`relative inline-flex h-6.5 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${toggles.weeklySchedule ? 'bg-[#156c47]' : 'bg-[#d0c8b8]'
+                  }`}
                 aria-label="Toggle Weekly schedule & assignments"
               >
                 <span
-                  className={`pointer-events-none inline-block h-5.5 w-5.5 rounded-full bg-white shadow-md transform ring-0 transition duration-200 ease-in-out ${
-                    toggles.weeklySchedule ? 'translate-x-5.5' : 'translate-x-0'
-                  }`}
+                  className={`pointer-events-none inline-block h-5.5 w-5.5 rounded-full bg-white shadow-md transform ring-0 transition duration-200 ease-in-out ${toggles.weeklySchedule ? 'translate-x-5.5' : 'translate-x-0'
+                    }`}
                 />
               </button>
             </div>
@@ -349,7 +339,7 @@ export default function PrivacySettingsView({ onBackToHome }) {
             </div>
 
             {/* Row 2: Delete all my data → */}
-            <div 
+            <div
               onClick={handleDeleteData}
               className="p-4 flex items-center justify-between hover:bg-[#fff9f6] transition-colors cursor-pointer"
             >
