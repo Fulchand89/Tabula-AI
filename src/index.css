@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  
+  --color-tabula-bg: #faf6ee;
+  --color-tabula-card: #ffffff;
+  --color-tabula-border: #e9e2d5;
+  --color-tabula-border-light: #f0eae0;
+  
+  --color-tabula-text: #1e282d;
+  --color-tabula-muted: #526068;
+  --color-tabula-subtle: #798790;
+  
+  --color-tabula-green: #1b6b50;
+  --color-tabula-green-hover: #14553f;
+  --color-tabula-green-light: #e8f3ee;
+  --color-tabula-green-pill: #175742;
+  --color-tabula-green-circle: #215945;
+  
+  --color-tabula-terracotta: #bf643e;
+  --color-tabula-terracotta-light: #faefe9;
+  
+  --color-tabula-gold: #f4a21d;
+  --color-tabula-gold-badge: #fdf5df;
+  --color-tabula-gold-text: #b06904;
+}
+
+body {
+  margin: 0;
+  background-color: #faf6ee;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  color: #1e282d;
+  -webkit-font-smoothing: antialiased;
+}

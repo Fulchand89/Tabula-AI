@@ -1,0 +1,271 @@
+import React, { useState } from 'react';
+
+export default function StudentsView({ onBackToHome, onSelectStudent }) {
+  const [students, setStudents] = useState([
+    {
+      id: 1,
+      initials: 'ET',
+      name: 'Emma Thomas',
+      details: 'Grade 3 • Born May 12, 2015',
+      desc: 'Loves stories, nature, and art',
+      avatarBg: '#b8d8c8',
+      avatarText: '#173f32'
+    },
+    {
+      id: 2,
+      initials: 'JL',
+      name: 'James Thomas',
+      details: 'Grade 1 • Born Sep 3, 2017',
+      desc: 'Enjoys building, animals, and hands-on activities',
+      avatarBg: '#c8dfd6',
+      avatarText: '#173f32'
+    },
+    {
+      id: 3,
+      initials: 'OL',
+      name: 'Olivia Thomas',
+      details: 'Kindergarten • Born Jan 21, 2020',
+      desc: 'Loves music, pretend play, and picture books',
+      avatarBg: '#d4e8e0',
+      avatarText: '#173f32'
+    }
+  ]);
+
+  const [isAdding, setIsAdding] = useState(false);
+  const [newName, setNewName] = useState('');
+  const [newGrade, setNewGrade] = useState('');
+  const [newInterests, setNewInterests] = useState('');
+
+  const handleDeleteStudent = (id) => {
+    setStudents(students.filter(s => s.id !== id));
+  };
+
+  const handleAddStudent = (e) => {
+    e.preventDefault();
+    if (!newName.trim()) return;
+
+    const initials = newName
+      .split(' ')
+      .map(part => part[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2) || 'ST';
+
+    const newStudent = {
+      id: Date.now(),
+      initials,
+      name: newName,
+      details: `${newGrade || 'Grade 1'} • Born 2018`,
+      desc: newInterests || 'Enjoys reading and exploring science',
+      avatarBg: '#c8dfd6',
+      avatarText: '#173f32'
+    };
+
+    setStudents([...students, newStudent]);
+    setNewName('');
+    setNewGrade('');
+    setNewInterests('');
+    setIsAdding(false);
+  };
+
+  return (
+    <div className="mx-auto w-full max-w-[960px] lg:max-w-[1024px] pb-36 pt-6 px-4 sm:px-8 transition-all">
+      {/* Top Banner: Free trial — 14 days left */}
+      <div className="mb-6 flex items-center justify-between border-b border-[#e9e2d5] pb-3">
+        <span className="text-xs font-semibold text-[#bf643e]">
+          Free trial — 14 days left
+        </span>
+        <button className="rounded-md border border-[#d5cbbe] bg-white px-3 py-1 text-[11px] font-semibold text-[#1e282d] hover:bg-[#faf5eb] transition-colors">
+          Upgrade →
+        </button>
+      </div>
+
+      {/* Page Header with Green Back Circle */}
+      <div className="mb-6 flex items-center gap-3">
+        <button 
+          onClick={onBackToHome}
+          className="flex h-8 w-8 items-center justify-center rounded-full bg-[#215945] text-white hover:bg-[#175742] transition-colors"
+          aria-label="Go back"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <line x1="19" y1="12" x2="5" y2="12" />
+            <polyline points="12 19 5 12 12 5" />
+          </svg>
+        </button>
+        <h1 className="font-serif text-3xl font-bold tracking-tight text-[#172b30]">
+          Student
+        </h1>
+      </div>
+
+      {/* Section Subtitle */}
+      <div className="mb-4">
+        <h2 className="font-serif text-xl font-bold text-[#172b30]">
+          Students
+        </h2>
+        <p className="text-xs text-[#526068]">
+          Tap a student to manage their curriculum and profile.
+        </p>
+      </div>
+
+      {/* Student List */}
+      <div className="space-y-3">
+        {students.map((student) => (
+          <div 
+            key={student.id}
+            className="flex cursor-pointer items-center justify-between rounded-2xl border border-[#e9e2d5] bg-white/70 p-4 shadow-2xs backdrop-blur-xs transition-all hover:bg-white hover:shadow-xs"
+            onClick={() => onSelectStudent && onSelectStudent(student)}
+          >
+            <div className="flex items-center gap-3.5">
+              {/* Avatar Circle */}
+              <div 
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-xs font-bold"
+                style={{ backgroundColor: student.avatarBg || '#dbe8df', color: student.avatarText || '#173f32' }}
+              >
+                {student.initials}
+              </div>
+
+              {/* Student Details */}
+              <div>
+                <h3 className="text-sm font-bold text-[#172b30]">
+                  {student.name}
+                </h3>
+                <p className="text-[11px] text-[#526068]">
+                  {student.details}
+                </p>
+                <p className="text-[11px] text-[#526068]">
+                  {student.desc}
+                </p>
+              </div>
+            </div>
+
+            {/* Actions: Edit & Delete */}
+            <div className="flex items-center gap-3">
+              <button 
+                className="flex items-center gap-1 text-xs font-semibold text-[#bf643e] hover:text-[#a04e2b] transition-colors"
+                title="Edit student"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 20h9"/>
+                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                </svg>
+                <span>Edit</span>
+              </button>
+              <button 
+                onClick={() => handleDeleteStudent(student.id)}
+                className="text-[#bf643e] hover:text-[#a04e2b] transition-colors"
+                title="Delete student"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <polyline points="3 6 5 6 21 6"/>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Your students ({students.length}) and + Add another student */}
+      <div className="mt-8 flex items-center justify-between">
+        <h3 className="font-serif text-base font-bold text-[#172b30]">
+          Your students ({students.length})
+        </h3>
+        
+        {!isAdding && (
+          <button
+            type="button"
+            onClick={() => setIsAdding(true)}
+            className="inline-flex items-center gap-1.5 rounded-full border-2 border-dashed border-[#1b6b50] bg-transparent px-4 py-1.5 text-xs font-bold text-[#1b6b50] hover:bg-[#edf5f0] transition-colors cursor-pointer"
+          >
+            <span>+ Add another student</span>
+          </button>
+        )}
+      </div>
+
+      {/* Image 3: Expanded Add Student Form */}
+      {isAdding && (
+        <div className="mt-4 rounded-2xl border border-[#e9e2d5] bg-white p-5 shadow-sm">
+          <form onSubmit={handleAddStudent} className="space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              {/* NAME */}
+              <div>
+                <label className="block text-center text-[11px] font-bold tracking-wider text-[#526068] uppercase">
+                  NAME
+                </label>
+                <input 
+                  type="text"
+                  required
+                  placeholder="Thomas"
+                  className="mt-1.5 w-full rounded-xl border border-[#dcd3c4] px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
+                  value={newName}
+                  onChange={(e) => setNewName(e.target.value)}
+                />
+              </div>
+
+              {/* GRADE */}
+              <div>
+                <label className="block text-center text-[11px] font-bold tracking-wider text-[#526068] uppercase">
+                  GRADE
+                </label>
+                <div className="relative mt-1.5">
+                  <select 
+                    className="w-full appearance-none rounded-xl border border-[#dcd3c4] bg-white px-3.5 py-2.5 text-xs text-[#1e282d] focus:border-[#1b6b50] focus:outline-hidden"
+                    value={newGrade}
+                    onChange={(e) => setNewGrade(e.target.value)}
+                  >
+                    <option value="">Select...</option>
+                    <option value="Pre-K">Pre-K</option>
+                    <option value="Kindergarten">Kindergarten</option>
+                    <option value="Grade 1">Grade 1</option>
+                    <option value="Grade 2">Grade 2</option>
+                    <option value="Grade 3">Grade 3</option>
+                    <option value="Grade 4">Grade 4</option>
+                    <option value="Grade 5">Grade 5</option>
+                    <option value="Grade 6">Grade 6</option>
+                    <option value="Grade 7">Grade 7</option>
+                    <option value="Grade 8">Grade 8</option>
+                    <option value="High School">High School</option>
+                  </select>
+                  <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#526068]">
+                    ▼
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* INTERESTS (OPTIONAL) */}
+            <div>
+              <label className="block text-center text-[11px] font-bold tracking-wider text-[#526068] uppercase">
+                INTERESTS (OPTIONAL)
+              </label>
+              <input 
+                type="text"
+                placeholder="e.g. dinosaurs, art, Legos, horses"
+                className="mt-1.5 w-full rounded-xl border border-[#dcd3c4] px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
+                value={newInterests}
+                onChange={(e) => setNewInterests(e.target.value)}
+              />
+            </div>
+
+            {/* Form Actions */}
+            <div className="flex items-center gap-3 pt-2">
+              <button
+                type="button"
+                onClick={() => setIsAdding(false)}
+                className="flex-1 rounded-xl border border-[#d5cbbe] bg-white py-2.5 text-xs font-semibold text-[#1e282d] hover:bg-[#faf5eb] transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="flex-1 rounded-xl bg-[#1b6b50] py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-[#14553f] transition-colors"
+              >
+                Add Student →
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
+    </div>
+  );
+}
