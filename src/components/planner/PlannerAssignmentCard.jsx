@@ -43,7 +43,7 @@ export default function PlannerAssignmentCard({
             className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 transition-colors cursor-pointer ${
               item.done
                 ? 'border-[#185842] bg-[#185842] text-white'
-                : 'border-[#ba704f] bg-transparent hover:bg-[#fff6f0]'
+                : `${item.circleBorder || 'border-[#ba704f]'} bg-transparent hover:bg-[#fff6f0]`
             }`}
             aria-label="Mark task complete"
           >
@@ -57,7 +57,7 @@ export default function PlannerAssignmentCard({
           {/* Subject title & Curriculum name */}
           <div className="min-w-0">
             <div className="flex items-center gap-1.5 flex-wrap">
-              <span className={`text-[11.5px] font-bold uppercase tracking-wider text-[#ba704f] ${
+              <span className={`text-[11.5px] font-bold uppercase tracking-wider ${item.titleColor || 'text-[#ba704f]'} ${
                 item.done ? 'line-through opacity-70' : ''
               }`}>
                 {item.title || 'MATH'} • {item.duration || '30 min'}
@@ -97,7 +97,11 @@ export default function PlannerAssignmentCard({
       <button
         type="button"
         onClick={() => onAddAssignment?.(item)}
-        className="mt-3.5 w-full rounded-xl border border-dashed border-[#d9825b] bg-[#fffaf5] py-2 px-3 text-center text-[12px] font-semibold text-[#ba704f] hover:bg-[#fff4eb] transition-colors cursor-pointer"
+        className={`mt-3.5 w-full rounded-xl border border-dashed ${
+          item.dashedBorder || 'border-[#d9825b]'
+        } ${item.dashedBg || 'bg-[#fffaf5]'} py-2 px-3 text-center text-[12px] font-semibold ${
+          item.dashedText || 'text-[#ba704f]'
+        } hover:opacity-90 transition-all cursor-pointer`}
       >
         + Add today's assignment
       </button>

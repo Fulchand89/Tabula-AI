@@ -57,21 +57,25 @@ export default function PlannerDayCards({
                 </div>
 
                 <div className="w-full mt-1 space-y-1">
-                  {dayItems.slice(0, 2).map((item) => (
-                    <div
-                      key={item.id}
-                      className="w-full rounded-lg bg-[#ba704f] px-1 py-1 text-center text-white"
-                    >
-                      <p className="text-[10px] font-bold leading-none truncate">
-                        {item.badgeTitle || item.title}
-                      </p>
-                      {item.code && (
-                        <p className="text-[9px] font-semibold leading-none opacity-90 mt-0.5">
-                          {item.code}
+                  {dayItems.slice(0, 3).map((item) => {
+                    const badgeBg = item.badgeBg || item.color || 'bg-[#ba704f]';
+                    const badgeText = item.badgeText || item.textColor || 'text-white';
+                    return (
+                      <div
+                        key={item.id}
+                        className={`w-full rounded-lg ${badgeBg} px-1 py-1 text-center ${badgeText}`}
+                      >
+                        <p className="text-[10px] font-bold leading-none truncate">
+                          {item.badgeTitle || item.title}
                         </p>
-                      )}
-                    </div>
-                  ))}
+                        {item.code && (
+                          <p className="text-[9px] font-semibold leading-none opacity-90 mt-0.5">
+                            {item.code}
+                          </p>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               </>
             ) : (

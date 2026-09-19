@@ -1,4 +1,5 @@
 import React from 'react';
+import { getSubjectStyle } from './plannerSubjectColors';
 
 export const ALL_SUBJECTS = [
   'Math',
@@ -57,6 +58,7 @@ export default function PlannerSubjectPicker({
         <div className="flex flex-wrap gap-2 sm:gap-2.5">
           {ALL_SUBJECTS.map((subject) => {
             const isAdded = activeSubjectNames.includes(subject);
+            const style = getSubjectStyle(subject);
 
             return (
               <button
@@ -65,7 +67,7 @@ export default function PlannerSubjectPicker({
                 onClick={() => onToggleSubject?.(subject)}
                 className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all cursor-pointer shadow-2xs ${
                   isAdded
-                    ? 'bg-[#185842] text-white border border-[#185842] shadow-xs active:scale-95'
+                    ? `${style.pillActive} shadow-xs active:scale-95`
                     : 'bg-white border border-[#d5cbbe] text-[#2d3f45] hover:border-[#185842] hover:text-[#185842] hover:bg-[#faf5eb] active:scale-95'
                 }`}
               >

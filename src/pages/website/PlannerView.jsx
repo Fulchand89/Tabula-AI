@@ -6,6 +6,7 @@ import {
   PlannerProgressBar,
   PlannerAssignmentCard,
   PlannerSubjectPicker,
+  getSubjectStyle,
 } from '../../components/planner';
 
 const DAYS = [
@@ -93,18 +94,22 @@ export default function PlannerView({
         // Remove
         updatedList = currentList.filter((i) => i.subjectName !== subjectName);
       } else {
-        // Add subject (Math defaults to Saxon Math / L14 matching Image 2)
+        const style = getSubjectStyle(subjectName);
         const newItem = {
           id: `${subjectName.toLowerCase()}-${Date.now()}`,
           subjectName: subjectName,
           title: subjectName.toUpperCase(),
           badgeTitle: subjectName,
-          code: subjectName.toLowerCase() === 'math' ? 'L14' : 'L1',
+          code: style.code || 'L1',
           duration: '30 min',
-          curriculum:
-            subjectName.toLowerCase() === 'math'
-              ? 'Saxon Math'
-              : `${subjectName} Curriculum`,
+          curriculum: style.curriculum || `${subjectName} Curriculum`,
+          badgeBg: style.badgeBg,
+          badgeText: style.badgeText,
+          titleColor: style.titleColor,
+          circleBorder: style.circleBorder,
+          dashedBorder: style.dashedBorder,
+          dashedText: style.dashedText,
+          dashedBg: style.dashedBg,
           done: false,
         };
         updatedList = [...currentList, newItem];
