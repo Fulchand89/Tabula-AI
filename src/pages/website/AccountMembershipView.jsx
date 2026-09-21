@@ -12,7 +12,7 @@ import React, { useState } from 'react';
  * - Section 6: TRIAL (Cancel trial action row)
  * - Section 7: Large "Done" green button
  */
-export default function AccountMembershipView({ onBackToHome }) {
+export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) {
   const [coachName, setCoachName] = useState('');
   const [selectedState, setSelectedState] = useState('');
   const [isStateDropdownOpen, setIsStateDropdownOpen] = useState(false);
@@ -92,22 +92,33 @@ export default function AccountMembershipView({ onBackToHome }) {
             2. FREE TRIAL STATUS CARD
             ================================================================ */}
         <div className="rounded-2xl sm:rounded-3xl border border-[#e8dfd3] bg-white p-5 sm:p-6 shadow-2xs">
-          <div className="flex items-start gap-4">
-            {/* Gold Crown Icon */}
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#fdf5df] text-[#b06904]">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z" />
-                <path d="M5 20h14" />
-              </svg>
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex items-start gap-4 flex-1">
+              {/* Gold Crown Icon */}
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#fdf5df] text-[#b06904]">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z" />
+                  <path d="M5 20h14" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <h2 className="font-serif text-lg sm:text-xl font-bold text-[#5d3119] leading-snug">
+                  Free Trial — 14 days remaining
+                </h2>
+                <p className="mt-1 text-xs sm:text-[13px] text-[#607077]">
+                  Trial ends September 24, 2026. You will be charged after your trial ends.
+                </p>
+              </div>
             </div>
-            <div className="flex-1">
-              <h2 className="font-serif text-lg sm:text-xl font-bold text-[#5d3119] leading-snug">
-                Free Trial — 14 days remaining
-              </h2>
-              <p className="mt-1 text-xs sm:text-[13px] text-[#607077]">
-                Trial ends September 24, 2026. You will be charged after your trial ends.
-              </p>
-            </div>
+            {onUpgradeClick && (
+              <button
+                type="button"
+                onClick={onUpgradeClick}
+                className="rounded-full bg-[#c36a49] px-3.5 py-1 text-xs font-bold text-white shadow-2xs hover:bg-[#b05c3d] transition-colors cursor-pointer shrink-0 mt-0.5"
+              >
+                Upgrade →
+              </button>
+            )}
           </div>
 
           <div className="my-4 border-t border-[#f0eae0]" />

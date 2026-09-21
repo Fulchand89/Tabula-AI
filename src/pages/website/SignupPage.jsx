@@ -21,9 +21,24 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
 
         {/* ── HEADER SECTION (Tabula. + Subtitle + 3 Dark Green Badges) ── */}
         <header className="mb-6 text-center">
-          <div className="mb-1.5 inline-flex items-baseline cursor-pointer" onClick={onBackToLanding}>
-            <span className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[#212C3E]">Tabula</span>
-            <span className="font-serif text-4xl sm:text-5xl leading-none text-[#1b6b50]">.</span>
+          <div className="relative mb-1.5 flex items-center justify-center">
+            {onBackToLanding && (
+              <button
+                type="button"
+                onClick={onBackToLanding}
+                className="absolute left-0 top-1 flex h-7 w-7 items-center justify-center rounded-full border border-[#d5cbbe] bg-white text-[#1e282d] hover:bg-[#faf5eb] transition-colors shadow-2xs cursor-pointer"
+                aria-label="Go back"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="19" y1="12" x2="5" y2="12" />
+                  <polyline points="12 19 5 12 12 5" />
+                </svg>
+              </button>
+            )}
+            <div className="inline-flex items-baseline cursor-pointer" onClick={onBackToLanding}>
+              <span className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[#212C3E]">Tabula</span>
+              <span className="font-serif text-4xl sm:text-5xl leading-none text-[#1b6b50]">.</span>
+            </div>
           </div>
 
           <h1 className="font-serif text-xl sm:text-2xl font-semibold text-[#ba633f] mt-1">

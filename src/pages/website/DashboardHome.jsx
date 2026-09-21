@@ -240,8 +240,8 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
     <div className="w-full max-w-[640px] mx-auto px-3.5 sm:px-4 py-4 sm:py-5 transition-all">
 
       {/* ================================================================
-            TOP GREETING & QUOTE (Left & Right Aligned)
-            ================================================================ */}
+            TOP GREETING & QUOTE (Left & Right Aligned)
+            ================================================================ */}
       <div className="mb-4 flex flex-col justify-between gap-1.5 sm:flex-row sm:items-start">
         <div>
           <span className="text-[10px] font-extrabold tracking-wider text-[#1b6b50] uppercase">
@@ -263,10 +263,10 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
       </div>
 
       {/* ================================================================
-            2-COLUMN GRID LAYOUT (Side-by-side matching screenshot)
-            Left: Coach card + Getting Started + To-Do list
-            Right: Schedule cards + This Week
-            ================================================================ */}
+            2-COLUMN GRID LAYOUT (Side-by-side matching screenshot)
+            Left: Coach card + Getting Started + To-Do list
+            Right: Schedule cards + This Week
+            ================================================================ */}
       <div className="grid grid-cols-1 min-[520px]:grid-cols-[1.18fr_1fr] gap-3 sm:gap-3.5 items-start">
 
         {/* ──────── LEFT COLUMN ──────── */}
@@ -350,7 +350,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                 GETTING STARTED
               </span>
               <span className="text-[10.5px] font-semibold text-[#ba633f]">
-                {activeStep} of 4 done
+                {activeStep ? `${activeStep} of 4 done` : '0 of 4 done'}
               </span>
             </div>
 
@@ -358,7 +358,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
             <div className="mb-2.5 h-1.5 w-full overflow-hidden rounded-full bg-[#e3ded4]">
               <div
                 className="h-full rounded-full bg-[#1b6b50] transition-all duration-300"
-                style={{ width: `${(activeStep / 4) * 100}%` }}
+                style={{ width: `${((activeStep || 0) / 4) * 100}%` }}
               />
             </div>
 
@@ -368,17 +368,28 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
               <div
                 onClick={() => setActiveStep(1)}
                 className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 1
-                    ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
-                    : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                  ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                  : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
                   }`}
               >
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 1
+                  <div
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 1
                       ? 'bg-[#1b6b50] text-white'
                       : 'border border-[#d5cbbe] text-[#526068]'
-                    }`}>
+                      }`}
+                  >
                     {activeStep === 1 ? (
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <svg
+                        width="11"
+                        height="11"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
                     ) : (
@@ -411,17 +422,28 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
               <div
                 onClick={() => setActiveStep(2)}
                 className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 2
-                    ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
-                    : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                  ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                  : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
                   }`}
               >
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 2
+                  <div
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 2
                       ? 'bg-[#1b6b50] text-white'
                       : 'border border-[#d5cbbe] text-[#526068]'
-                    }`}>
+                      }`}
+                  >
                     {activeStep === 2 ? (
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <svg
+                        width="11"
+                        height="11"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
                     ) : (
@@ -454,17 +476,28 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
               <div
                 onClick={() => setActiveStep(3)}
                 className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 3
-                    ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
-                    : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                  ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                  : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
                   }`}
               >
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 3
+                  <div
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 3
                       ? 'bg-[#1b6b50] text-white'
                       : 'border border-[#d5cbbe] text-[#526068]'
-                    }`}>
+                      }`}
+                  >
                     {activeStep === 3 ? (
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <svg
+                        width="11"
+                        height="11"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
                     ) : (
@@ -497,17 +530,28 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
               <div
                 onClick={() => setActiveStep(4)}
                 className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 4
-                    ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
-                    : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                  ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                  : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
                   }`}
               >
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 4
+                  <div
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 4
                       ? 'bg-[#1b6b50] text-white'
                       : 'border border-[#d5cbbe] text-[#526068]'
-                    }`}>
+                      }`}
+                  >
                     {activeStep === 4 ? (
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <svg
+                        width="11"
+                        height="11"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
                     ) : (
@@ -537,7 +581,6 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
               </div>
             </div>
           </div>
-
           {/* Section: TO-DO LIST */}
           <div>
             <div className="mb-2 flex items-center justify-between">
@@ -680,8 +723,8 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                     type="button"
                     onClick={() => setSelectedDayDate(d.date)}
                     className={`flex flex-col items-center py-1 px-0.5 rounded-lg transition-all cursor-pointer ${isSelected
-                        ? 'bg-[#edf5f0]'
-                        : 'hover:bg-[#faf5eb]'
+                      ? 'bg-[#edf5f0]'
+                      : 'hover:bg-[#faf5eb]'
                       }`}
                   >
                     <span className={`block text-[9px] mb-0.5 transition-colors ${isSelected ? 'font-bold text-[#1b6b50]' : 'text-[#798790]'

@@ -83,11 +83,31 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
     }
   }, [initialTab, student?.id]);
 
+  const [birthDate, setBirthDate] = useState('12/05/2015');
+
   useEffect(() => {
     if (student) {
       if (student.details) {
         const gradePart = student.details.split(' •')[0]?.trim();
         if (gradePart) setSelectedGrade(gradePart);
+        if (student.details.includes('Born')) {
+          const bornText = student.details.split('Born')[1]?.trim();
+          if (bornText) {
+            try {
+              const d = new Date(bornText);
+              if (!isNaN(d.getTime())) {
+                const day = String(d.getDate()).padStart(2, '0');
+                const month = String(d.getMonth() + 1).padStart(2, '0');
+                const year = d.getFullYear();
+                setBirthDate(`${day}/${month}/${year}`);
+              } else {
+                setBirthDate(bornText);
+              }
+            } catch {
+              setBirthDate('12/05/2015');
+            }
+          }
+        }
       }
       if (student.desc) {
         setInterests(student.desc);
@@ -109,7 +129,7 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
   const [portfolioTitle, setPortfolioTitle] = useState('');
   const [portfolioSubject, setPortfolioSubject] = useState('— Select subject —');
   const [isPortfolioSubjectOpen, setIsPortfolioSubjectOpen] = useState(false);
-  const [portfolioDate, setPortfolioDate] = useState('09/11/2026');
+  const [portfolioDate, setPortfolioDate] = useState('12/05/2002');
   const [portfolioNotes, setPortfolioNotes] = useState('');
   const [portfolioImageUrl, setPortfolioImageUrl] = useState('');
   const [portfolioEntries, setPortfolioEntries] = useState([]);
@@ -204,7 +224,7 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
             {student?.name || 'Student Name'}
           </h1>
           <p className="text-xs font-semibold text-[#54646b] mt-0.5">
-            {student?.details || `${selectedGrade} • Classical`}
+            {selectedGrade} • Born {birthDate || '12/05/2015'}
           </p>
         </div>
       </div>
@@ -248,6 +268,8 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
           isGradeDropdownOpen={isGradeDropdownOpen}
           setIsGradeDropdownOpen={setIsGradeDropdownOpen}
           GRADE_OPTIONS={GRADE_OPTIONS}
+          birthDate={birthDate}
+          setBirthDate={setBirthDate}
           interests={interests}
           setInterests={setInterests}
           strengths={strengths}

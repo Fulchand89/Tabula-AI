@@ -104,3 +104,23 @@ html, body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Custom subtle scrollbar for cards and chat */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #dcd4c6;
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #bfb5a3;
+}
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #dcd4c6 transparent;
+}
+

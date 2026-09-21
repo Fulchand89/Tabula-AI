@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatDateInput, isoToDisplayDate, displayToIsoDate } from '../../utils/dateFormatter';
 
 /**
  * Portfolio Tab component for Student Details.
@@ -101,9 +102,9 @@ export default function StudentPortfolioTab({
         </div>
       )}
 
-      {/* VIEW 2: Add Work Sample Form State */}
+      {/* VIEW 2: Add Work Sample Form */}
       {isAddingPortfolio && (
-        <form onSubmit={handleSavePortfolio} className="space-y-6">
+        <form onSubmit={handleSavePortfolio} className="space-y-5">
           {/* Form Card Container */}
           <div className="rounded-2xl border border-[#e8dfd3] bg-white p-6 shadow-2xs space-y-5">
             {/* TITLE * */}
@@ -116,7 +117,7 @@ export default function StudentPortfolioTab({
                 required
                 value={portfolioTitle}
                 onChange={(e) => setPortfolioTitle(e.target.value)}
-                placeholder="e.g. Solar system diorama"
+                placeholder="e.g. Ancient Egypt Diorama, Long Division Test"
                 className="w-full rounded-xl border border-[#d5dcd8] bg-white px-4 py-3 text-sm text-[#16272b] placeholder-[#8a989f] focus:border-[#147948] focus:outline-none transition-colors"
               />
             </div>
@@ -131,9 +132,7 @@ export default function StudentPortfolioTab({
                 onClick={() => setIsPortfolioSubjectOpen(!isPortfolioSubjectOpen)}
                 className="flex w-full items-center justify-between rounded-xl border border-[#d5dcd8] bg-white px-4 py-3 text-left text-sm font-medium text-[#16272b] hover:border-[#b8c2bc] transition-colors cursor-pointer"
               >
-                <span className={portfolioSubject === '— Select subject —' ? 'text-[#526068]' : 'text-[#16272b]'}>
-                  {portfolioSubject}
-                </span>
+                <span>{portfolioSubject}</span>
                 <svg
                   width="16"
                   height="16"
@@ -174,16 +173,55 @@ export default function StudentPortfolioTab({
 
             {/* DATE * */}
             <div>
-              <label className="block text-[11px] font-extrabold uppercase tracking-widest text-[#718086] mb-2">
-                DATE *
-              </label>
-              <input
-                type="text"
-                required
-                value={portfolioDate}
-                onChange={(e) => setPortfolioDate(e.target.value)}
-                className="w-full rounded-xl border border-[#d5dcd8] bg-white px-4 py-3 text-sm text-[#16272b] focus:border-[#147948] focus:outline-none transition-colors"
-              />
+              <div className="flex items-center justify-between mb-2">
+                <label className="block text-[11px] font-extrabold uppercase tracking-widest text-[#718086]">
+                  DATE *
+                </label>
+                <span className="text-[10px] font-semibold text-[#8b999f]">
+                  DD/MM/YYYY
+                </span>
+              </div>
+              <div className="relative flex items-center">
+                <input
+                  type="text"
+                  required
+                  placeholder="DD/MM/YYYY (e.g. 12/05/2002)"
+                  maxLength={10}
+                  value={portfolioDate}
+                  onChange={(e) => setPortfolioDate(formatDateInput(e.target.value))}
+                  className="w-full rounded-xl border border-[#d5dcd8] bg-white px-4 py-3 pr-11 text-sm text-[#16272b] placeholder-[#8a989f] focus:border-[#147948] focus:outline-none transition-colors"
+                />
+                <label
+                  className="absolute right-3 cursor-pointer text-[#526068] hover:text-[#147948] transition-colors p-1"
+                  title="Choose date from calendar"
+                >
+                  <svg
+                    width="19"
+                    height="19"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                  <input
+                    type="date"
+                    value={displayToIsoDate(portfolioDate)}
+                    onChange={(e) => {
+                      if (e.target.value) {
+                        setPortfolioDate(isoToDisplayDate(e.target.value));
+                      }
+                    }}
+                    className="sr-only"
+                  />
+                </label>
+              </div>
             </div>
 
             {/* DESCRIPTION / NOTES */}

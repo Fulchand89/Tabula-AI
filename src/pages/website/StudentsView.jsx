@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { formatDateInput, isoToDisplayDate, displayToIsoDate } from '../../utils/dateFormatter';
 
 export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeClick }) {
   const [students, setStudents] = useState([
@@ -6,7 +7,7 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
       id: 1,
       initials: 'ET',
       name: 'Emma Thomas',
-      details: 'Grade 3 • Born May 12, 2015',
+      details: 'Grade 3 • Born 12/05/2015',
       desc: 'Loves stories, nature, and art',
       avatarBg: '#b8d8c8',
       avatarText: '#173f32'
@@ -15,7 +16,7 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
       id: 2,
       initials: 'JL',
       name: 'James Thomas',
-      details: 'Grade 1 • Born Sep 3, 2017',
+      details: 'Grade 1 • Born 03/09/2017',
       desc: 'Enjoys building, animals, and hands-on activities',
       avatarBg: '#c8dfd6',
       avatarText: '#173f32'
@@ -24,7 +25,7 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
       id: 3,
       initials: 'OL',
       name: 'Olivia Thomas',
-      details: 'Kindergarten • Born Jan 21, 2020',
+      details: 'Kindergarten • Born 21/01/2020',
       desc: 'Loves music, pretend play, and picture books',
       avatarBg: '#d4e8e0',
       avatarText: '#173f32'
@@ -34,13 +35,33 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
   const [isAdding, setIsAdding] = useState(false);
   const [newName, setNewName] = useState('');
   const [newGrade, setNewGrade] = useState('');
+  const [newBirthDate, setNewBirthDate] = useState('12/05/2018');
   const [newInterests, setNewInterests] = useState('');
 
   // Editing student state
   const [editingStudent, setEditingStudent] = useState(null);
   const [editName, setEditName] = useState('');
   const [editGrade, setEditGrade] = useState('');
+  const [editBirthDate, setEditBirthDate] = useState('');
   const [editInterests, setEditInterests] = useState('');
+
+  const parseStudentBirthDate = (details) => {
+    if (!details || !details.includes('Born')) return '12/05/2015';
+    const bornStr = details.split('Born')[1]?.trim();
+    if (!bornStr) return '12/05/2015';
+    try {
+      const d = new Date(bornStr);
+      if (!isNaN(d.getTime())) {
+        const day = String(d.getDate()).padStart(2, '0');
+        const month = String(d.getMonth() + 1).padStart(2, '0');
+        const year = d.getFullYear();
+        return `${day}/${month}/${year}`;
+      }
+    } catch {
+      // ignore
+    }
+    return bornStr;
+  };
 
   const handleStartEdit = (student, e) => {
     e?.stopPropagation();
@@ -49,6 +70,7 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
     setEditName(student.name || '');
     const currentGrade = student.details?.split(' •')[0] || '';
     setEditGrade(currentGrade);
+    setEditBirthDate(parseStudentBirthDate(student.details));
     setEditInterests(student.desc || '');
   };
 
@@ -67,7 +89,7 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
       ...editingStudent,
       name: editName,
       initials,
-      details: `${editGrade || 'Grade 1'} • ${editingStudent.details?.split('• ')[1] || 'Born 2018'}`,
+      details: `${editGrade || 'Grade 1'} • Born ${editBirthDate || '12/05/2015'}`,
       desc: editInterests || editingStudent.desc,
     };
 
@@ -75,6 +97,7 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
     setEditingStudent(null);
     setEditName('');
     setEditGrade('');
+    setEditBirthDate('');
     setEditInterests('');
 
     // Redirect directly to the curriculum tab of this edited student!
@@ -104,7 +127,7 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
       id: Date.now(),
       initials,
       name: newName,
-      details: `${newGrade || 'Grade 1'} • Born 2018`,
+      details: `${newGrade || 'Grade 1'} • Born ${newBirthDate || '12/05/2018'}`,
       desc: newInterests || 'Enjoys reading and exploring science',
       avatarBg: '#c8dfd6',
       avatarText: '#173f32'
@@ -113,6 +136,7 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
     setStudents([...students, newStudent]);
     setNewName('');
     setNewGrade('');
+    setNewBirthDate('12/05/2018');
     setNewInterests('');
     setIsAdding(false);
 
@@ -286,6 +310,46 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
               </div>
             </div>
 
+            {/* DATE OF BIRTH */}
+            <div>
+              <div className="flex items-center justify-between">
+                <label className="text-[11px] font-bold tracking-wider text-[#526068] uppercase">
+                  DATE OF BIRTH
+                </label>
+                <span className="text-[10px] font-semibold text-[#8d9b9f]">
+                  DD/MM/YYYY
+                </span>
+              </div>
+              <div className="relative mt-1.5 flex items-center">
+                <input
+                  type="text"
+                  placeholder="DD/MM/YYYY (e.g. 12/05/2002)"
+                  maxLength={10}
+                  className="w-full rounded-xl border border-[#dcd3c4] bg-white px-3.5 py-2.5 pr-10 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
+                  value={editBirthDate}
+                  onChange={(e) => setEditBirthDate(formatDateInput(e.target.value))}
+                />
+                <label className="absolute right-3 cursor-pointer text-[#526068] hover:text-[#1b6b50] p-1" title="Pick date">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                  <input
+                    type="date"
+                    value={displayToIsoDate(editBirthDate)}
+                    onChange={(e) => {
+                      if (e.target.value) {
+                        setEditBirthDate(isoToDisplayDate(e.target.value));
+                      }
+                    }}
+                    className="sr-only"
+                  />
+                </label>
+              </div>
+            </div>
+
             {/* INTERESTS */}
             <div>
               <label className="block text-center text-[11px] font-bold tracking-wider text-[#526068] uppercase">
@@ -388,6 +452,46 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
                     ▼
                   </span>
                 </div>
+              </div>
+            </div>
+
+            {/* DATE OF BIRTH */}
+            <div>
+              <div className="flex items-center justify-between">
+                <label className="text-[11px] font-bold tracking-wider text-[#526068] uppercase">
+                  DATE OF BIRTH
+                </label>
+                <span className="text-[10px] font-semibold text-[#8d9b9f]">
+                  DD/MM/YYYY
+                </span>
+              </div>
+              <div className="relative mt-1.5 flex items-center">
+                <input
+                  type="text"
+                  placeholder="DD/MM/YYYY (e.g. 12/05/2002)"
+                  maxLength={10}
+                  className="w-full rounded-xl border border-[#dcd3c4] bg-white px-3.5 py-2.5 pr-10 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
+                  value={newBirthDate}
+                  onChange={(e) => setNewBirthDate(formatDateInput(e.target.value))}
+                />
+                <label className="absolute right-3 cursor-pointer text-[#526068] hover:text-[#1b6b50] p-1" title="Pick date">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                  <input
+                    type="date"
+                    value={displayToIsoDate(newBirthDate)}
+                    onChange={(e) => {
+                      if (e.target.value) {
+                        setNewBirthDate(isoToDisplayDate(e.target.value));
+                      }
+                    }}
+                    className="sr-only"
+                  />
+                </label>
               </div>
             </div>
 

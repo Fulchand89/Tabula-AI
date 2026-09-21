@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import SignupPage from './SignupPage';
 import TrialCheckoutPage from './TrialCheckoutPage';
 
-export default function LandingPage({ onGoToApp, onSelectPlan }) {
+export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignup }) {
   const [showSignup, setShowSignup] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [userName, setUserName] = useState('');
@@ -23,6 +23,16 @@ export default function LandingPage({ onGoToApp, onSelectPlan }) {
     }
   ]);
   const [chatInput, setChatInput] = useState('');
+  const chatContainerRef = useRef(null);
+
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTo({
+        top: chatContainerRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
+  }, [chatMessages]);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -51,6 +61,10 @@ export default function LandingPage({ onGoToApp, onSelectPlan }) {
     const targetPlan = (plan && typeof plan === 'string') ? plan : selectedPlan;
     setSelectedPlan(targetPlan);
     onSelectPlan?.(targetPlan);
+    if (onNavigateToSignup) {
+      onNavigateToSignup(targetPlan);
+      return;
+    }
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
@@ -338,10 +352,13 @@ export default function LandingPage({ onGoToApp, onSelectPlan }) {
             </div>
 
             {/* RIGHT SIDE — Chat Mockup */}
-            <div className="rounded-xl border border-[#e2dacf] bg-white p-3 shadow-2xs">
+            <div className="flex flex-col justify-between rounded-xl border border-[#e2dacf] bg-white p-3 shadow-2xs">
               <div className="mb-1.5 text-xs sm:text-sm font-bold text-[#172b30]">AI Coach</div>
 
-              <div className="space-y-1.5">
+              <div
+                ref={chatContainerRef}
+                className="h-[145px] overflow-y-auto space-y-1.5 pr-1.5 custom-scrollbar"
+              >
                 {chatMessages.map((msg, idx) => (
                   msg.sender === 'ai' ? (
                     <div key={idx} className="rounded-lg bg-[#f5efe6] p-2 text-xs sm:text-[12.5px] leading-relaxed text-[#2c3c41]">
@@ -536,22 +553,20 @@ export default function LandingPage({ onGoToApp, onSelectPlan }) {
             {/* Monthly Card (First Card) */}
             <div
               onClick={() => setSelectedPlan('monthly')}
-              className={`flex flex-col justify-between rounded-xl p-4 transition-all cursor-pointer ${
-                selectedPlan === 'monthly'
-                  ? 'border-2 border-[#215945] bg-[#fbfdfc] shadow-xs ring-1 ring-[#215945]/10'
-                  : 'border border-[#e9e2d5] bg-white hover:border-[#215945]/40 shadow-2xs'
-              }`}
+              className={`flex flex-col justify-between rounded-xl p-4 transition-all cursor-pointer ${selectedPlan === 'monthly'
+                ? 'border-2 border-[#215945] bg-[#fbfdfc] shadow-xs ring-1 ring-[#215945]/10'
+                : 'border border-[#e9e2d5] bg-white hover:border-[#215945]/40 shadow-2xs'
+                }`}
             >
               <div>
                 <div className="flex items-center justify-center gap-1.5">
                   <h3 className="font-serif text-center text-sm sm:text-base font-bold text-[#172b30]">Monthly</h3>
-                  <div className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 transition-all ${
-                    selectedPlan === 'monthly' ? 'border-[#215945] bg-white' : 'border-[#d0c8b9]'
-                  }`}>
+                  <div className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 transition-all ${selectedPlan === 'monthly' ? 'border-[#215945] bg-white' : 'border-[#d0c8b9]'
+                    }`}>
                     {selectedPlan === 'monthly' && <div className="h-2 w-2 rounded-full bg-[#215945]" />}
                   </div>
                 </div>
-                
+
                 <div className="mt-1 flex items-baseline justify-center gap-0.5">
                   <span className="text-3xl sm:text-4xl font-bold text-[#172b30]">$8</span>
                   <span className="text-xs sm:text-sm font-normal text-[#526068]">/mo</span>
@@ -590,11 +605,10 @@ export default function LandingPage({ onGoToApp, onSelectPlan }) {
                     setSelectedPlan('monthly');
                     openSignup('monthly');
                   }}
-                  className={`w-full rounded-lg py-2 text-xs sm:text-sm font-bold transition-colors cursor-pointer text-center ${
-                    selectedPlan === 'monthly'
-                      ? 'bg-[#215945] text-white shadow-sm hover:bg-[#184636]'
-                      : 'border border-[#d0c8b9] bg-white text-[#172b30] hover:bg-[#faf5eb]'
-                  }`}
+                  className={`w-full rounded-lg py-2 text-xs sm:text-sm font-bold transition-colors cursor-pointer text-center ${selectedPlan === 'monthly'
+                    ? 'bg-[#215945] text-white shadow-sm hover:bg-[#184636]'
+                    : 'border border-[#d0c8b9] bg-white text-[#172b30] hover:bg-[#faf5eb]'
+                    }`}
                 >
                   Choose Monthly →
                 </button>
@@ -604,11 +618,10 @@ export default function LandingPage({ onGoToApp, onSelectPlan }) {
             {/* Annual Card */}
             <div
               onClick={() => setSelectedPlan('annual')}
-              className={`relative flex flex-col justify-between rounded-xl p-4 transition-all cursor-pointer ${
-                selectedPlan === 'annual'
-                  ? 'border-2 border-[#215945] bg-[#fbfdfc] shadow-xs ring-1 ring-[#215945]/10'
-                  : 'border border-[#e9e2d5] bg-white hover:border-[#215945]/40 shadow-2xs'
-              }`}
+              className={`relative flex flex-col justify-between rounded-xl p-4 transition-all cursor-pointer ${selectedPlan === 'annual'
+                ? 'border-2 border-[#215945] bg-[#fbfdfc] shadow-xs ring-1 ring-[#215945]/10'
+                : 'border border-[#e9e2d5] bg-white hover:border-[#215945]/40 shadow-2xs'
+                }`}
             >
               {/* BEST VALUE - SAVE $24! Centered Badge */}
               <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-sm bg-[#f4a123] px-2.5 py-0.5 text-[9.5px] sm:text-[10px] font-extrabold tracking-wider text-[#4d2c00] uppercase shadow-2xs text-center z-10">
@@ -618,9 +631,8 @@ export default function LandingPage({ onGoToApp, onSelectPlan }) {
               <div>
                 <div className="flex items-center justify-center gap-1.5">
                   <h3 className="font-serif text-center text-sm sm:text-base font-bold text-[#172b30]">Annual</h3>
-                  <div className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 transition-all ${
-                    selectedPlan === 'annual' ? 'border-[#215945] bg-white' : 'border-[#d0c8b9]'
-                  }`}>
+                  <div className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 transition-all ${selectedPlan === 'annual' ? 'border-[#215945] bg-white' : 'border-[#d0c8b9]'
+                    }`}>
                     {selectedPlan === 'annual' && <div className="h-2 w-2 rounded-full bg-[#215945]" />}
                   </div>
                 </div>
@@ -663,11 +675,10 @@ export default function LandingPage({ onGoToApp, onSelectPlan }) {
                     setSelectedPlan('annual');
                     openSignup('annual');
                   }}
-                  className={`w-full rounded-lg py-2 text-xs sm:text-sm font-bold transition-colors cursor-pointer text-center ${
-                    selectedPlan === 'annual'
-                      ? 'bg-[#215945] text-white shadow-sm hover:bg-[#184636]'
-                      : 'border border-[#d0c8b9] bg-white text-[#172b30] hover:bg-[#faf5eb]'
-                  }`}
+                  className={`w-full rounded-lg py-2 text-xs sm:text-sm font-bold transition-colors cursor-pointer text-center ${selectedPlan === 'annual'
+                    ? 'bg-[#215945] text-white shadow-sm hover:bg-[#184636]'
+                    : 'border border-[#d0c8b9] bg-white text-[#172b30] hover:bg-[#faf5eb]'
+                    }`}
                 >
                   Choose Annual →
                 </button>
@@ -684,9 +695,10 @@ export default function LandingPage({ onGoToApp, onSelectPlan }) {
             Common questions
           </h2>
 
-          <div className="grid grid-cols-2 gap-2.5">
+          <div className="grid grid-cols-1 gap-2.5">
             {faqs.map((faq, index) => {
               const isOpen = openFaq === index;
+
               return (
                 <div
                   key={index}
@@ -697,11 +709,26 @@ export default function LandingPage({ onGoToApp, onSelectPlan }) {
                     onClick={() => toggleFaq(index)}
                     aria-expanded={isOpen}
                   >
-                    <span className="text-xs sm:text-sm font-semibold text-[#172b30] leading-snug">{faq.question}</span>
-                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-[#b2ddc8] bg-white text-xs font-semibold text-[#215945]">
-                      {isOpen ? '−' : '+'}
+                    <span className="text-xs sm:text-sm font-semibold text-[#172b30] leading-snug">
+                      {faq.question}
+                    </span>
+
+                    {/* Circle container with SVG icon for 100% precise centering */}
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#b2ddc8] bg-white text-[#215945]">
+                      {isOpen ? (
+                        // Minus SVG
+                        <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
+                        </svg>
+                      ) : (
+                        // Plus SVG
+                        <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                        </svg>
+                      )}
                     </span>
                   </button>
+
                   {isOpen && (
                     <div className="px-3 pb-3 text-xs sm:text-[12.5px] leading-relaxed text-[#526068]">
                       {faq.answer}
@@ -712,7 +739,6 @@ export default function LandingPage({ onGoToApp, onSelectPlan }) {
             })}
           </div>
         </section>
-
         {/* ================================================================
             7. BOTTOM CTA CARD
             ================================================================ */}

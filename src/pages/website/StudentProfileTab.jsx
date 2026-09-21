@@ -1,8 +1,9 @@
 import React from 'react';
+import { formatDateInput, isoToDisplayDate, displayToIsoDate } from '../../utils/dateFormatter';
 
 /**
  * Profile Tab component for Student Details.
- * Displays Grade selector, Interests, Learning Strengths, and Learning Challenges.
+ * Displays Grade selector, Date of Birth, Interests, Learning Strengths, and Learning Challenges.
  */
 export default function StudentProfileTab({
   selectedGrade,
@@ -10,6 +11,8 @@ export default function StudentProfileTab({
   isGradeDropdownOpen,
   setIsGradeDropdownOpen,
   GRADE_OPTIONS,
+  birthDate,
+  setBirthDate,
   interests,
   setInterests,
   strengths,
@@ -102,7 +105,84 @@ export default function StudentProfileTab({
           {/* Hairline Divider */}
           <div className="my-5 border-t border-[#ede7dd]" />
 
-          {/* Row 2: INTERESTS */}
+          {/* Row 2: DATE OF BIRTH */}
+          <div className="flex items-start gap-4">
+            {/* Calendar Icon in circle */}
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#d6e5dc]">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#235c46"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+            </div>
+
+            {/* Date of Birth Input */}
+            <div className="flex-1">
+              <div className="flex items-center justify-between mb-1.5">
+                <label className="block text-[11px] font-extrabold uppercase tracking-widest text-[#718086]">
+                  DATE OF BIRTH
+                </label>
+                <span className="text-[10px] font-semibold text-[#8b999f]">
+                  DD/MM/YYYY
+                </span>
+              </div>
+              <div className="relative flex items-center">
+                <input
+                  type="text"
+                  value={birthDate || ''}
+                  onChange={(e) => setBirthDate?.(formatDateInput(e.target.value))}
+                  placeholder="DD/MM/YYYY (e.g. 12/05/2002)"
+                  maxLength={10}
+                  className="w-full rounded-xl border border-[#d5dcd8] bg-white px-4 py-3 pr-11 text-sm text-[#16272b] placeholder-[#819097] focus:border-[#1b6b50] focus:outline-none transition-colors"
+                />
+                <label
+                  className="absolute right-3 cursor-pointer text-[#526068] hover:text-[#1b6b50] transition-colors p-1"
+                  title="Choose date from calendar"
+                >
+                  <svg
+                    width="19"
+                    height="19"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                  <input
+                    type="date"
+                    value={displayToIsoDate(birthDate)}
+                    onChange={(e) => {
+                      if (e.target.value) {
+                        setBirthDate?.(isoToDisplayDate(e.target.value));
+                      }
+                    }}
+                    className="sr-only"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          {/* Hairline Divider */}
+          <div className="my-5 border-t border-[#ede7dd]" />
+
+          {/* Row 3: INTERESTS */}
           <div className="flex items-start gap-4">
             {/* Graduation Cap Icon in circle */}
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#d6e5dc]">

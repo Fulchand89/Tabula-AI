@@ -4,12 +4,6 @@ import React from 'react';
  * PlannerDayCards component
  * 
  * 5 weekday cards (MON, TUE, WED, THU, FRI)
- * If items are scheduled for a day (e.g. MON in Image 2):
- *  - Displays green border: border-2 border-[#185842]
- *  - Day label + count (e.g. "MON", "0/1")
- *  - Brown badge showing subject name + code (e.g. "Math", "L14")
- * If empty (Image 1):
- *  - Displays centered day label in rounded card
  */
 export default function PlannerDayCards({
   days = [
@@ -37,13 +31,14 @@ export default function PlannerDayCards({
             key={day.id}
             type="button"
             onClick={() => onSelectDay?.(day.id)}
-            className={`min-h-[76px] sm:min-h-[88px] rounded-2xl p-1.5 sm:p-2 transition-all cursor-pointer shadow-2xs text-center flex flex-col justify-between items-center ${
-              hasItems
-                ? 'border-2 border-[#185842] bg-[#fcf8f2]'
+            className={`min-h-[76px] sm:min-h-[88px] rounded-2xl p-1.5 sm:p-2 transition-all cursor-pointer shadow-2xs text-center flex flex-col justify-between items-center ${hasItems
+                ? isSelected
+                  ? 'border-2 border-[#185842] bg-white' // Has items + Selected (Background White)
+                  : 'border-2 border-[#185842] bg-[#fcf8f2]' // Has items + Normal
                 : isSelected
-                ? 'border border-[#d5cbbe] bg-[#fcf8f2] hover:bg-white'
-                : 'border border-[#e9e1d5] bg-[#fcf8f2] hover:bg-white'
-            }`}
+                  ? 'border-2 border-[#185842] bg-white' // Empty + Selected (Background White)
+                  : 'border border-[#e9e1d5] bg-[#fcf8f2] hover:bg-white' // Empty + Normal
+              }`}
           >
             {hasItems ? (
               <>

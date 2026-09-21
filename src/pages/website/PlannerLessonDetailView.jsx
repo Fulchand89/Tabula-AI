@@ -1,4 +1,10 @@
 import React, { useState } from 'react';
+import {
+  formatTimeInput,
+  setTimePeriod,
+  time24To12,
+  time12To24,
+} from '../../utils/timeFormatter';
 
 const DURATION_OPTIONS = ['+ 15 min', '20 min', '30 min', '45 min', '60 min', 'Custom'];
 
@@ -16,7 +22,7 @@ const TYPE_OPTIONS = [
 export default function PlannerLessonDetailView({ onCancel, onAddCurriculum }) {
   const [isDone, setIsDone] = useState(false);
   const [workingOnText, setWorkingOnText] = useState('e.g. Lesson 45, Chapter 3, Week 12 of 36');
-  const [startTime, setStartTime] = useState('--:-- --');
+  const [startTime, setStartTime] = useState('');
   const [selectedDuration, setSelectedDuration] = useState('+ 15 min');
   const [customDuration, setCustomDuration] = useState('');
   const [teachingNotes, setTeachingNotes] = useState('');
@@ -117,16 +123,97 @@ export default function PlannerLessonDetailView({ onCancel, onAddCurriculum }) {
               SECTION 3: START TIME (OPTIONAL)
               ================================================================ */}
           <div>
-            <label className="block text-[11px] font-extrabold tracking-wider text-[#1e282d] uppercase mb-2">
-              START TIME (OPTIONAL)
-            </label>
-            <input
-              type="text"
-              value={startTime}
-              onChange={(e) => setStartTime(e.target.value)}
-              className="w-36 rounded-xl border border-[#e8dfd5] bg-white px-3 py-2 text-center text-xs tracking-widest text-[#788890] focus:border-[#185842] focus:outline-hidden shadow-2xs"
-              placeholder="--:-- --"
-            />
+            <div className="flex items-center justify-between mb-2">
+              <label className="block text-[11px] font-extrabold tracking-wider text-[#1e282d] uppercase">
+                START TIME (OPTIONAL)
+              </label>
+              <span className="text-[10px] font-semibold text-[#8b999f]">
+                HH:MM AM/PM
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2.5 flex-wrap">
+              <div className="relative flex items-center">
+                <input
+                  type="text"
+                  value={startTime}
+                  onChange={(e) => setStartTime(formatTimeInput(e.target.value))}
+                  maxLength={8}
+                  className="w-36 rounded-xl border border-[#e8dfd5] bg-white px-3 py-2 pr-9 text-center text-xs tracking-wider text-[#1e282d] font-semibold focus:border-[#185842] focus:outline-hidden shadow-2xs transition-colors"
+                  placeholder="--:-- --"
+                />
+                <label
+                  className="absolute right-2.5 cursor-pointer text-[#788890] hover:text-[#185842] transition-colors p-0.5"
+                  title="Choose time from clock"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  <input
+                    type="time"
+                    value={time12To24(startTime)}
+                    onChange={(e) => {
+                      if (e.target.value) {
+                        setStartTime(time24To12(e.target.value));
+                      }
+                    }}
+                    className="sr-only"
+                  />
+                </label>
+              </div>
+
+              {/* Quick AM / PM Period Toggle */}
+              <div className="flex rounded-xl border border-[#e8dfd5] bg-[#f8f5ee] p-0.5 shadow-2xs">
+                <button
+                  type="button"
+                  onClick={() => setStartTime(setTimePeriod(startTime || '09:00', 'AM'))}
+                  className={`rounded-lg px-2.5 py-1 text-[11px] font-bold transition-all cursor-pointer ${
+                    startTime.toUpperCase().includes('AM')
+                      ? 'bg-[#185842] text-white shadow-2xs'
+                      : 'text-[#6c7d84] hover:text-[#1e282d]'
+                  }`}
+                >
+                  AM
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setStartTime(setTimePeriod(startTime || '12:00', 'PM'))}
+                  className={`rounded-lg px-2.5 py-1 text-[11px] font-bold transition-all cursor-pointer ${
+                    startTime.toUpperCase().includes('PM')
+                      ? 'bg-[#185842] text-white shadow-2xs'
+                      : 'text-[#6c7d84] hover:text-[#1e282d]'
+                  }`}
+                >
+                  PM
+                </button>
+              </div>
+
+              {/* Clear button if time entered */}
+              {startTime && (
+                <button
+                  type="button"
+                  onClick={() => setStartTime('')}
+                  className="rounded-lg p-1.5 text-[#8898a0] hover:text-[#c53030] hover:bg-[#fee2e2] transition-colors cursor-pointer"
+                  title="Clear start time"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                </button>
+              )}
+            </div>
+
             <p className="text-[11px] text-[#788890] mt-1.5">
               Set a start time to build a daily schedule.
             </p>
