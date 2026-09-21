@@ -182,7 +182,10 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
         <h2 className="font-serif text-lg font-bold text-[#172b30]">
           Students
         </h2>
-        <p className="text-[11px] text-[#526068]">
+        <p
+          style={{ fontFamily: 'Inter, sans-serif' }}
+          className="text-[16px] font-medium leading-[100%] tracking-[0%] text-[#526068]"
+        >
           Tap a student to manage their curriculum and profile.
         </p>
       </div>

@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Lora', serif;
+  --font-lora: 'Lora', serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-inter: 'Inter', sans-serif;
   
   --color-tabula-bg: #faf6ee;
   --color-tabula-card: #ffffff;
@@ -47,10 +49,128 @@ html, body {
   max-width: 100%;
   overflow-x: hidden;
   background-color: #faf6ee;
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 15px;
   color: #1e282d;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Inter font for ALL small text elements across the entire website (<= 16.5px, text-xs, text-sm, text-base, body, paragraphs, labels, inputs) */
+.font-inter,
+.text-xs:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+.text-sm:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+.text-base:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+.text-\[8px\]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+.text-\[8\.5px\]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+.text-\[9px\]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+.text-\[9\.5px\]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+.text-\[10px\]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+.text-\[10\.5px\]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+.text-\[11px\]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+.text-\[11\.5px\]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+.text-\[12px\]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+.text-\[12\.5px\]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+.text-\[13px\]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+.text-\[13\.5px\]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+.text-\[14px\]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+.text-\[14\.5px\]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+.text-\[15px\]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+.text-\[15\.5px\]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+.text-\[16px\]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+.text-\[16\.5px\]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+[class*="text-[8px]"]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+[class*="text-[8.5px]"]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+[class*="text-[9px]"]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+[class*="text-[9.5px]"]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+[class*="text-[10px]"]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+[class*="text-[10.5px]"]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+[class*="text-[11px]"]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+[class*="text-[11.5px]"]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+[class*="text-[12px]"]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+[class*="text-[12.5px]"]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+[class*="text-[13px]"]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+[class*="text-[13.5px]"]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+[class*="text-[14px]"]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+[class*="text-[14.5px]"]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+[class*="text-[15px]"]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+[class*="text-[15.5px]"]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+[class*="text-[16px]"]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+[class*="text-xs"]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+[class*="text-sm"]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]),
+[class*="text-base"]:not(.font-serif):not([class*="font-serif"]):not([style*="fontFamily"]):not([style*="font-family"]) {
+  font-family: 'Inter', sans-serif !important;
+}
+
+input, textarea, select, button {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Lora font for all large fonts, headings, and serif text across the website (>= 17px, text-lg, text-xl, text-2xl, text-3xl, text-4xl, etc.) */
+.font-serif,
+.font-lora,
+h1:not(.font-inter):not([class*="font-inter"]):not([class*="text-xs"]):not([class*="text-sm"]):not([class*="text-[8"]):not([class*="text-[9"]):not([class*="text-[10"]):not([class*="text-[11"]):not([class*="text-[12"]):not([class*="text-[13"]):not([class*="text-[14"]):not([class*="text-[15"]):not([class*="text-[16"]),
+h2:not(.font-inter):not([class*="font-inter"]):not([class*="text-xs"]):not([class*="text-sm"]):not([class*="text-[8"]):not([class*="text-[9"]):not([class*="text-[10"]):not([class*="text-[11"]):not([class*="text-[12"]):not([class*="text-[13"]):not([class*="text-[14"]):not([class*="text-[15"]):not([class*="text-[16"]),
+h3:not(.font-inter):not([class*="font-inter"]):not([class*="text-xs"]):not([class*="text-sm"]):not([class*="text-[8"]):not([class*="text-[9"]):not([class*="text-[10"]):not([class*="text-[11"]):not([class*="text-[12"]):not([class*="text-[13"]):not([class*="text-[14"]):not([class*="text-[15"]):not([class*="text-[16"]),
+h4:not(.font-inter):not([class*="font-inter"]):not([class*="text-xs"]):not([class*="text-sm"]):not([class*="text-[8"]):not([class*="text-[9"]):not([class*="text-[10"]):not([class*="text-[11"]):not([class*="text-[12"]):not([class*="text-[13"]):not([class*="text-[14"]):not([class*="text-[15"]):not([class*="text-[16"]),
+.text-lg:not(.font-inter):not([class*="font-inter"]),
+.text-xl:not(.font-inter):not([class*="font-inter"]),
+.text-2xl:not(.font-inter):not([class*="font-inter"]),
+.text-3xl:not(.font-inter):not([class*="font-inter"]),
+.text-4xl:not(.font-inter):not([class*="font-inter"]),
+.text-5xl:not(.font-inter):not([class*="font-inter"]),
+.text-\[17px\]:not(.font-inter):not([class*="font-inter"]),
+.text-\[18px\]:not(.font-inter):not([class*="font-inter"]),
+.text-\[19px\]:not(.font-inter):not([class*="font-inter"]),
+.text-\[20px\]:not(.font-inter):not([class*="font-inter"]),
+.text-\[21px\]:not(.font-inter):not([class*="font-inter"]),
+.text-\[22px\]:not(.font-inter):not([class*="font-inter"]),
+.text-\[24px\]:not(.font-inter):not([class*="font-inter"]),
+.text-\[25px\]:not(.font-inter):not([class*="font-inter"]),
+.text-\[26px\]:not(.font-inter):not([class*="font-inter"]),
+.text-\[28px\]:not(.font-inter):not([class*="font-inter"]),
+.text-\[30px\]:not(.font-inter):not([class*="font-inter"]),
+.text-\[32px\]:not(.font-inter):not([class*="font-inter"]),
+.text-\[34px\]:not(.font-inter):not([class*="font-inter"]),
+.text-\[36px\]:not(.font-inter):not([class*="font-inter"]),
+.text-\[40px\]:not(.font-inter):not([class*="font-inter"]),
+.text-\[44px\]:not(.font-inter):not([class*="font-inter"]),
+.text-\[48px\]:not(.font-inter):not([class*="font-inter"]),
+.text-\[56px\]:not(.font-inter):not([class*="font-inter"]),
+.text-\[64px\]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-[17px]"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-[18px]"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-[19px]"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-[20px]"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-[21px]"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-[22px]"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-[24px]"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-[25px]"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-[26px]"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-[28px]"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-[30px]"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-[32px]"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-[34px]"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-[36px]"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-[40px]"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-[44px]"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-[48px]"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-[56px]"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-[64px]"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-lg"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-xl"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-2xl"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-3xl"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-4xl"]:not(.font-inter):not([class*="font-inter"]),
+[class*="text-5xl"]:not(.font-inter):not([class*="font-inter"]),
+[class*="sm:text-lg"]:not(.font-inter):not([class*="font-inter"]),
+[class*="sm:text-xl"]:not(.font-inter):not([class*="font-inter"]),
+[class*="sm:text-2xl"]:not(.font-inter):not([class*="font-inter"]),
+[class*="sm:text-3xl"]:not(.font-inter):not([class*="font-inter"]),
+[class*="sm:text-4xl"]:not(.font-inter):not([class*="font-inter"]),
+[class*="sm:text-[2"]:not(.font-inter):not([class*="font-inter"]),
+[class*="sm:text-[3"]:not(.font-inter):not([class*="font-inter"]),
+[class*="sm:text-[4"]:not(.font-inter):not([class*="font-inter"]) {
+  font-family: 'Lora', serif !important;
 }
 
 /* Proportional text size increases for arbitrary font-size utilities across the website */

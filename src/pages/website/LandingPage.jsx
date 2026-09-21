@@ -168,7 +168,10 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             </button>
           </div>
 
-          <h1 className="font-serif text-2xl sm:text-[28px] font-semibold leading-snug tracking-tight text-[#ba633f]">
+          <h1
+            style={{ fontFamily: 'Lora, serif' }}
+            className="text-[24px] font-semibold leading-[100%] tracking-[0%] text-[#ba633f]"
+          >
             Your AI homeschool planning coach
           </h1>
 
@@ -541,7 +544,10 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             ================================================================ */}
         <section className="mb-11">
           <div className="mb-5 text-center">
-            <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#172b30]">
+            <h2
+              style={{ fontFamily: 'Lora, serif' }}
+              className="text-[20px] font-semibold leading-[100%] tracking-[0%] text-center text-[#172b30]"
+            >
               Simple pricing. No surprises.
             </h2>
             <p className="mt-1 text-xs sm:text-sm text-[#526068]">
@@ -743,14 +749,18 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             7. BOTTOM CTA CARD
             ================================================================ */}
         <section className="flex flex-col items-center rounded-xl border border-[#e9e2d5] bg-white px-5 py-8 text-center shadow-2xs">
-          <h2 className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-[#172b30]">
+          <h2
+            style={{ fontFamily: 'Lora, serif' }}
+            className="text-[20px] font-semibold leading-[100%] tracking-[0%] text-center text-[#172b30]"
+          >
             Ready to simplify your homeschool?
           </h2>
-
-          <p className="mt-2 max-w-sm text-xs sm:text-sm leading-relaxed text-[#526068]">
+          <p
+            style={{ fontFamily: 'Inter, sans-serif' }}
+            className="text-[12px] font-medium leading-[100%] tracking-[0%] text-center text-[#526068] mt-2 max-w-sm"
+          >
             Join families who use Tabula to plan with confidence, teach with purpose, and stop reinventing the wheel every week.
           </p>
-
           <button
             onClick={openSignup}
             className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-[#215945] hover:bg-[#184636] px-5 py-2.5 text-sm sm:text-base font-bold text-white shadow-sm transition-all cursor-pointer"
@@ -760,18 +770,28 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
           </button>
 
           <div className="mt-3 flex flex-wrap justify-center items-center gap-3.5 text-xs sm:text-[13px] font-medium text-[#526068]">
-            <div className="inline-flex items-center gap-1">
+            <div
+              style={{ fontFamily: 'Inter, sans-serif' }}
+              className="text-[12px] font-semibold leading-[100%] tracking-[0%] inline-flex items-center gap-1"
+            >
               <span className="font-bold text-[#1b6b50]">✓</span>
               <span>14 days free</span>
             </div>
-            <div className="inline-flex items-center gap-1">
+            <div
+              style={{ fontFamily: 'Inter, sans-serif' }}
+              className="text-[12px] font-semibold leading-[100%] tracking-[0%] inline-flex items-center gap-1"
+            >
               <span className="font-bold text-[#1b6b50]">✓</span>
               <span>$8/month after trial</span>
             </div>
-            <div className="inline-flex items-center gap-1">
+            <div
+              style={{ fontFamily: 'Inter, sans-serif' }}
+              className="text-[12px] font-semibold leading-[100%] tracking-[0%] inline-flex items-center gap-1"
+            >
               <span className="font-bold text-[#1b6b50]">✓</span>
               <span>Cancel anytime</span>
             </div>
+
           </div>
         </section>
 

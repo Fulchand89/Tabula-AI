@@ -114,7 +114,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
     <div key={key} className="rounded-2xl border border-[#ebdcca] bg-white p-3.5 shadow-2xs">
       <div className="mb-3 flex items-center justify-between">
         <h3 className="font-serif text-[15px] font-bold text-[#172b30]">
-          Schedule
+          Today's Schedule
         </h3>
         <span className="text-[11px] font-semibold text-[#ba633f]">
           {currentSelectedDayObj.fullDate}
@@ -240,17 +240,20 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
     <div className="w-full max-w-[640px] mx-auto px-3.5 sm:px-4 py-4 sm:py-5 transition-all">
 
       {/* ================================================================
-            TOP GREETING & QUOTE (Left & Right Aligned)
-            ================================================================ */}
+            TOP GREETING & QUOTE (Left & Right Aligned)
+            ================================================================ */}
       <div className="mb-4 flex flex-col justify-between gap-1.5 sm:flex-row sm:items-start">
         <div>
           <span className="text-[10px] font-extrabold tracking-wider text-[#1b6b50] uppercase">
             YOUR HOMESCHOOL
           </span>
-          <h1 className="font-serif text-[28px] sm:text-[32px] font-bold tracking-tight text-[#172b30] leading-none mt-1">
+          <h1
+            style={{ fontFamily: 'Lora, serif' }}
+            className="text-[36px] font-bold leading-[100%] tracking-[0px] align-middle text-[#172b30] mt-1"
+          >
             Good afternoon
           </h1>
-          <p className="mt-1 text-xs font-semibold text-[#ba633f]">
+          <p className="mt-1 font-inter text-xs font-semibold text-[#ba633f]">
             Classical • 1 student
           </p>
         </div>
@@ -263,10 +266,10 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
       </div>
 
       {/* ================================================================
-            2-COLUMN GRID LAYOUT (Side-by-side matching screenshot)
-            Left: Coach card + Getting Started + To-Do list
-            Right: Schedule cards + This Week
-            ================================================================ */}
+            2-COLUMN GRID LAYOUT (Side-by-side matching screenshot)
+            Left: Coach card + Getting Started + To-Do list
+            Right: Schedule card + This Week
+            ================================================================ */}
       <div className="grid grid-cols-1 min-[520px]:grid-cols-[1.18fr_1fr] gap-3 sm:gap-3.5 items-start">
 
         {/* ──────── LEFT COLUMN ──────── */}
@@ -279,10 +282,17 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                 T
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="text-xs font-bold text-[#172b30]">
+                <h3
+                  style={{ fontFamily: 'Inter, sans-serif' }}
+                  className="text-[14px] font-semibold leading-[17.5px] tracking-[0px] align-middle text-[#172b30]"
+                >
                   What can I help you with today?
                 </h3>
-                <p className="text-[10.5px] text-[#637278]">
+
+                <p
+                  style={{ fontFamily: 'Inter, sans-serif' }}
+                  className="text-[12px] font-medium leading-[16.5px] tracking-[0px] align-middle text-[#637278]"
+                >
                   Ask your coach anything about your homeschool journey.
                 </p>
 
@@ -400,7 +410,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                     <h4 className="text-[11.5px] font-bold text-[#172b30] truncate">
                       Add your students
                     </h4>
-                    <p className="text-[9.5px] text-[#637278] truncate">
+                    <p className="text-[9.5px] font-inter text-[#637278] truncate">
                       Tell us about the children you're teaching.
                     </p>
                   </div>
@@ -454,7 +464,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                     <h4 className="text-[11.5px] font-bold text-[#172b30] truncate">
                       Enter your curriculum
                     </h4>
-                    <p className="text-[9.5px] text-[#637278] truncate">
+                    <p className="text-[9.5px] font-inter text-[#637278] truncate">
                       Tell us what books and programs you use.
                     </p>
                   </div>
@@ -508,7 +518,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                     <h4 className="text-[11.5px] font-bold text-[#172b30] truncate">
                       Build your weekly plan
                     </h4>
-                    <p className="text-[9.5px] text-[#637278] truncate">
+                    <p className="text-[9.5px] font-inter text-[#637278] truncate">
                       Set which subjects you do each day.
                     </p>
                   </div>
@@ -562,7 +572,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                     <h4 className="text-[11.5px] font-bold text-[#172b30] truncate">
                       Ask the AI coach
                     </h4>
-                    <p className="text-[9.5px] text-[#637278] truncate">
+                    <p className="text-[9.5px] font-inter text-[#637278] truncate">
                       Get your first personalized guidance.
                     </p>
                   </div>
@@ -581,6 +591,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
               </div>
             </div>
           </div>
+
           {/* Section: TO-DO LIST */}
           <div>
             <div className="mb-2 flex items-center justify-between">
@@ -668,11 +679,8 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
 
         {/* ──────── RIGHT COLUMN ──────── */}
         <div className="w-full space-y-3.5">
-          {/* Today's Schedule Card 1 */}
+          {/* Today's Schedule Card (Only 1 instance now) */}
           {renderScheduleCard('schedule-1')}
-
-          {/* Today's Schedule Card 2 (matching screenshot mockup) */}
-          {renderScheduleCard('schedule-2')}
 
           {/* This Week Card (Apr 14 - Apr 20) */}
           <div className="rounded-2xl border border-[#ebdcca] bg-white p-3.5 shadow-2xs">

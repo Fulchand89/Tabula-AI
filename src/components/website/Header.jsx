@@ -35,14 +35,17 @@ export default function Header({
           onKeyDown={(e) => { if (e.key === 'Enter') handleAction(onLogoClick); }}
         >
           <div className="flex items-baseline">
-            <span className="font-serif text-[24px] sm:text-[26px] font-bold tracking-tight text-[#172b30]">
+            <span
+              style={{ fontFamily: 'Lora, serif' }}
+              className="text-[48px] font-semibold leading-[100%] tracking-[0%] text-[#172b30]"
+            >
               Tabula
             </span>
             <span className="font-serif text-[24px] sm:text-[26px] font-bold leading-none text-[#1b6b50]">
               .
             </span>
           </div>
-          <p className="text-[11px] sm:text-[11.5px] font-semibold text-[#685949]">
+          <p className="font-inter text-[14px] font-semibold leading-[16px] tracking-[0.3px] align-middle text-[#685949]">
             Classical • Secular
           </p>
         </div>
