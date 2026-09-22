@@ -201,7 +201,7 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
               <span>14 days free</span>
             </div>
             <div className="inline-flex items-center gap-1">
-              <span className="font-bold text-[#356F58]">✓</span>
+              <span className="font-bold text-#FF6A00">✓</span>
               <span>$8/month after trial</span>
             </div>
             <div className="inline-flex items-center gap-1">

@@ -205,7 +205,7 @@ export default function TrialCheckoutPage({
                       Monthly
                     </h4>
                     {/* Click/Select par Green, warna Red */}
-                    <div className={`text-xl sm:text-2xl font-bold mt-0.5 transition-colors ${selectedPlan === 'monthly' ? 'text-[#356F58]' : 'text-red-600'
+                    <div className={`text-xl sm:text-2xl font-bold mt-0.5 transition-colors ${selectedPlan === 'monthly' ? 'text-[#356F58]' : 'text-[#FF6A00]'
                       }`}>
                       $8/mo
                     </div>
@@ -238,7 +238,7 @@ export default function TrialCheckoutPage({
                       Annual
                     </h4>
                     {/* Click/Select par Green, warna Red */}
-                    <div className={`text-xl sm:text-2xl font-bold mt-0.5 transition-colors ${selectedPlan === 'annual' ? 'text-[#356F58]' : 'text-red-600'
+                    <div className={`text-xl sm:text-2xl font-bold mt-0.5 transition-colors ${selectedPlan === 'annual' ? 'text-[#356F58]' : 'text-[#FF6A00]'
                       }`}>
                       $6/mo
                     </div>
