@@ -43,7 +43,7 @@ export default function Header({
             </span>
             <span
               style={{ fontFamily: 'Lora, serif' }}
-              className="text-[32px] font-bold leading-[100%] tracking-[0%] text-[#1b6b50]"
+              className="text-[32px] font-bold leading-[100%] tracking-[0%] text-[#126041]"
             >
               .
             </span>

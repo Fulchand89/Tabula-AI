@@ -100,7 +100,7 @@ export default function PlannerWeekCompleteView({
     {
       id: 'writing',
       title: 'Writing',
-      titleColor: 'text-[#2d7a5b]',
+      titleColor: 'text-[#356F58]',
       duration: '20 min',
       curriculum: 'All About Reading',
       isCompleted: true,
@@ -164,7 +164,7 @@ export default function PlannerWeekCompleteView({
         <button
           type="button"
           onClick={onUpgradeClick}
-          className="rounded-md border border-[#bac7bf] bg-white/70 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#184635] hover:bg-white transition-colors shadow-2xs cursor-pointer"
+          className="rounded-md border border-[#bac7bf] bg-white/70 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#356F58] hover:bg-white transition-colors shadow-2xs cursor-pointer"
         >
           Upgrade →
         </button>
@@ -271,7 +271,7 @@ export default function PlannerWeekCompleteView({
           type="button"
           onClick={() => setSelectedStudent('student-1')}
           className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${selectedStudent === 'student-1'
-              ? 'border-2 border-[#185842] bg-[#f0f6f3] text-[#185842] font-bold'
+              ? 'border-2 border-[#356F58] bg-[#f0f6f3] text-[#356F58] font-bold'
               : 'border border-[#cf805d] bg-[#fbf6f1] text-[#ba6644] hover:bg-[#f7ece4]'
             }`}
         >
@@ -282,7 +282,7 @@ export default function PlannerWeekCompleteView({
           type="button"
           onClick={() => setSelectedStudent('student-2')}
           className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${selectedStudent === 'student-2'
-              ? 'border-2 border-[#185842] bg-[#f0f6f3] text-[#185842] font-bold'
+              ? 'border-2 border-[#356F58] bg-[#f0f6f3] text-[#356F58] font-bold'
               : 'border border-[#cf805d] bg-[#fbf6f1] text-[#ba6644] hover:bg-[#f7ece4]'
             }`}
         >
@@ -309,7 +309,7 @@ export default function PlannerWeekCompleteView({
               type="button"
               onClick={() => setSelectedDay(day.id)}
               className={`flex flex-col justify-start rounded-2xl p-2 sm:p-2.5 transition-all cursor-pointer shadow-2xs text-left min-h-[145px] sm:min-h-[155px] ${isSelected
-                  ? 'border border-[#d5cbbe] bg-white ring-1 ring-[#185842]/15'
+                  ? 'border border-[#d5cbbe] bg-white ring-1 ring-[#356F58]/15'
                   : 'border border-[#e9e1d5] bg-[#faf6ee]/90 hover:bg-white'
                 }`}
             >
@@ -351,8 +351,8 @@ export default function PlannerWeekCompleteView({
           Matching screenshot: 100% full green bar
           ================================================================ */}
       <div className="mb-6 flex items-center gap-4">
-        <div className="flex-1 h-2 rounded-full bg-[#187d4a] overflow-hidden">
-          <div className="h-full w-full rounded-full bg-[#187d4a]" />
+        <div className="flex-1 h-2 rounded-full bg-[#356F58] overflow-hidden">
+          <div className="h-full w-full rounded-full bg-[#356F58]" />
         </div>
         <span className="text-xs font-semibold text-[#1e282d] shrink-0">
           3/3 done
@@ -366,13 +366,13 @@ export default function PlannerWeekCompleteView({
       <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-[#c3ded0] bg-[#e4ede7] p-4 sm:p-5 shadow-2xs">
         <div className="flex items-center gap-3.5">
           {/* Green checkmark circle */}
-          <div className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-[#187d4a] text-white shadow-2xs">
+          <div className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-white shadow-2xs">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="20 6 9 17 4 12" />
             </svg>
           </div>
           <div>
-            <h3 className="font-serif text-[17px] sm:text-[19px] font-bold text-[#144b36] leading-tight">
+            <h3 className="font-serif text-[17px] sm:text-[19px] font-bold text-[#356F58] leading-tight">
               Week 1 complete!
             </h3>
             <p className="text-xs sm:text-[13px] font-bold text-[#1e282d] mt-0.5">
@@ -385,7 +385,7 @@ export default function PlannerWeekCompleteView({
         <button
           type="button"
           onClick={handleNextWeekAction}
-          className="rounded-full bg-[#167846] px-5 py-2.5 text-xs sm:text-[13px] font-bold text-white hover:bg-[#12643a] transition-colors shadow-md flex items-center justify-center gap-1.5 cursor-pointer shrink-0 self-start sm:self-auto"
+          className="rounded-full bg-[#356F58] px-5 py-2.5 text-xs sm:text-[13px] font-bold text-white hover:bg-[#2a5946] transition-colors shadow-md flex items-center justify-center gap-1.5 cursor-pointer shrink-0 self-start sm:self-auto"
         >
           <span>Next Week</span>
           <span>→</span>
@@ -422,7 +422,7 @@ export default function PlannerWeekCompleteView({
                     type="button"
                     onClick={() => handleToggleComplete(card.id)}
                     className={`h-5 w-5 sm:h-5.5 sm:w-5.5 rounded-full transition-all flex items-center justify-center cursor-pointer shadow-2xs ${card.isCompleted
-                        ? 'bg-[#267756] border-2 border-[#267756] text-white'
+                        ? 'bg-[#356F58] border-2 border-[#356F58] text-white'
                         : 'bg-white border-2 border-[#d5cbbe]'
                       }`}
                     aria-label={`Toggle completion for ${card.title}`}
@@ -501,7 +501,7 @@ export default function PlannerWeekCompleteView({
                   key={subject}
                   type="button"
                   onClick={() => handleTogglePill(subject)}
-                  className="rounded-full bg-[#185842] px-4 py-1.5 sm:py-2 text-xs sm:text-[13px] font-bold text-white shadow-2xs hover:bg-[#134937] active:scale-95 transition-all cursor-pointer flex items-center gap-1"
+                  className="rounded-full bg-[#356F58] px-4 py-1.5 sm:py-2 text-xs sm:text-[13px] font-bold text-white shadow-2xs hover:bg-[#2a5946] active:scale-95 transition-all cursor-pointer flex items-center gap-1"
                 >
                   {subject}
                 </button>
@@ -516,8 +516,8 @@ export default function PlannerWeekCompleteView({
                 type="button"
                 onClick={() => handleTogglePill(subject)}
                 className={`rounded-full border px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-[13px] font-medium shadow-2xs active:scale-95 transition-all cursor-pointer ${isActive
-                    ? 'border-[#185842] bg-[#eef5f1] text-[#185842] font-semibold'
-                    : 'border-[#d5cbbe] bg-white text-[#2d3f45] hover:bg-[#faf5eb] hover:border-[#185842]'
+                    ? 'border-[#356F58] bg-[#eef5f1] text-[#356F58] font-semibold'
+                    : 'border-[#d5cbbe] bg-white text-[#2d3f45] hover:bg-[#faf5eb] hover:border-[#356F58]'
                   }`}
               >
                 {subject}

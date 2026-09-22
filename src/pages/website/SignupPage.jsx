@@ -36,8 +36,12 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
               </button>
             )}
             <div className="inline-flex items-baseline cursor-pointer" onClick={onBackToLanding}>
-              <span className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-[#212C3E]">Tabula</span>
-              <span className="font-serif text-4xl sm:text-5xl leading-none text-[#1b6b50]">.</span>
+              <span className="font-['Lora'] font-semibold text-[30px] leading-[100%] tracking-normal text-[#212C3E]">
+                Tabula
+              </span>
+              <span className="font-['Lora'] font-semibold text-[48px] leading-[100%] tracking-normal text-[#356F58]">
+                .
+              </span>
             </div>
           </div>
 
@@ -48,7 +52,7 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
           {/* 3 Dark Green Pills */}
           <div className="mt-4 flex items-center justify-center gap-1.5 sm:gap-2.5 w-full">
             {/* Tag 1 */}
-            <div className="flex items-center gap-1 sm:gap-1.5 rounded-md sm:rounded-lg bg-[#0f533a] px-2 sm:px-3 py-1.5 text-[9.5px] sm:text-[12px] font-medium text-white shadow-xs whitespace-nowrap">
+            <div className="flex items-center gap-1 sm:gap-1.5 rounded-md sm:rounded-lg bg-[#356F58] px-2 sm:px-3 py-1.5 text-[9.5px] sm:text-[12px] font-medium text-white shadow-xs whitespace-nowrap">
               <svg
                 className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0 text-white"
                 viewBox="0 0 24 24"
@@ -65,7 +69,7 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
             </div>
 
             {/* Tag 2 */}
-            <div className="flex items-center gap-1 sm:gap-1.5 rounded-md sm:rounded-lg bg-[#0f533a] px-2 sm:px-3 py-1.5 text-[9.5px] sm:text-[12px] font-medium text-white shadow-xs whitespace-nowrap">
+            <div className="flex items-center gap-1 sm:gap-1.5 rounded-md sm:rounded-lg bg-[#356F58] px-2 sm:px-3 py-1.5 text-[9.5px] sm:text-[12px] font-medium text-white shadow-xs whitespace-nowrap">
               <svg
                 className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0 text-white"
                 viewBox="0 0 24 24"
@@ -82,7 +86,7 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
             </div>
 
             {/* Tag 3 */}
-            <div className="flex items-center gap-1 sm:gap-1.5 rounded-md sm:rounded-lg bg-[#0f533a] px-2 sm:px-3 py-1.5 text-[9.5px] sm:text-[12px] font-medium text-white shadow-xs whitespace-nowrap">
+            <div className="flex items-center gap-1 sm:gap-1.5 rounded-md sm:rounded-lg bg-[#356F58] px-2 sm:px-3 py-1.5 text-[9.5px] sm:text-[12px] font-medium text-white shadow-xs whitespace-nowrap">
               <svg
                 className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0 text-white"
                 viewBox="0 0 24 24"
@@ -128,7 +132,7 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
             <h2 className="text-[14.5px] font-bold text-[#b2613d] leading-snug">
               14-day free trial
             </h2>
-            <p className="text-[12px] font-semibold text-[#1a5b43] mt-0.5">
+            <p className="text-[12px] font-semibold text-[#356F58] mt-0.5">
               Full access - $8/month after trial
             </p>
           </div>
@@ -143,8 +147,8 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
               type="button"
               onClick={() => setActiveTab('create')}
               className={`flex-1 flex items-center justify-center gap-2 py-3 text-xs sm:text-[13.5px] font-semibold transition-all cursor-pointer ${activeTab === 'create'
-                  ? 'bg-[#155b41] text-white rounded-tl-xl rounded-br-2xl shadow-xs'
-                  : 'bg-white text-[#304149] hover:bg-gray-50'
+                ? 'bg-[#356F58] text-white rounded-tl-xl rounded-br-2xl shadow-xs'
+                : 'bg-white text-[#304149] hover:bg-gray-50'
                 }`}
             >
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -158,8 +162,8 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
               type="button"
               onClick={() => setActiveTab('signin')}
               className={`flex-1 flex items-center justify-center gap-2 py-3 text-xs sm:text-[13.5px] font-semibold transition-all cursor-pointer ${activeTab === 'signin'
-                  ? 'bg-[#155b41] text-white rounded-tr-xl rounded-bl-2xl shadow-xs'
-                  : 'bg-white text-[#304149] hover:bg-gray-50'
+                ? 'bg-[#356F58] text-white rounded-tr-xl rounded-bl-2xl shadow-xs'
+                : 'bg-white text-[#304149] hover:bg-gray-50'
                 }`}
             >
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -186,7 +190,7 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
                   </span>
                   <input
                     type="text"
-                    className="w-full rounded-xl border border-[#cbd3d6] bg-white py-2.5 pr-3 pl-9 text-xs sm:text-sm text-[#1c2930] placeholder-[#78888e] focus:border-[#155b41] focus:outline-none transition-colors"
+                    className="w-full rounded-xl border border-[#cbd3d6] bg-white py-2.5 pr-3 pl-9 text-xs sm:text-sm text-[#1c2930] placeholder-[#78888e] focus:border-[#356F58] focus:outline-none transition-colors"
                     placeholder="First name or family name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -210,7 +214,7 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
                 </span>
                 <input
                   type="email"
-                  className="w-full rounded-xl border border-[#cbd3d6] bg-white py-2.5 pr-3 pl-9 text-xs sm:text-sm text-[#1c2930] placeholder-[#78888e] focus:border-[#155b41] focus:outline-none transition-colors"
+                  className="w-full rounded-xl border border-[#cbd3d6] bg-white py-2.5 pr-3 pl-9 text-xs sm:text-sm text-[#1c2930] placeholder-[#78888e] focus:border-[#356F58] focus:outline-none transition-colors"
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -233,7 +237,7 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
                 </span>
                 <input
                   type={showPassword ? 'text' : 'password'}
-                  className="w-full rounded-xl border border-[#cbd3d6] bg-white py-2.5 pr-9 pl-9 text-xs sm:text-sm text-[#1c2930] placeholder-[#78888e] focus:border-[#155b41] focus:outline-none transition-colors"
+                  className="w-full rounded-xl border border-[#cbd3d6] bg-white py-2.5 pr-9 pl-9 text-xs sm:text-sm text-[#1c2930] placeholder-[#78888e] focus:border-[#356F58] focus:outline-none transition-colors"
                   placeholder="At least 6 characters"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -257,7 +261,7 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
             <div className="pt-2">
               <button
                 type="submit"
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#157a4a] py-3 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#126b41] transition-all cursor-pointer"
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#356F58] py-3 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#2a5946] transition-all cursor-pointer"
               >
                 <span>{activeTab === 'create' ? 'Start Your Free Trial' : 'Sign In to Tabula'}</span>
                 <span>→</span>
@@ -277,7 +281,7 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
         {/* ── 3 Value Props Card ── */}
         <div className="mb-5 grid grid-cols-3 divide-x divide-[#f0eae0] rounded-2xl border border-[#e9e2d5] bg-white p-4 sm:p-5 text-center shadow-2xs">
           <div className="flex flex-col items-center px-1.5 sm:px-2">
-            <div className="mb-2.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#215945] text-white shadow-2xs">
+            <div className="mb-2.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-white shadow-2xs">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
               </svg>
@@ -291,7 +295,7 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
           </div>
 
           <div className="flex flex-col items-center px-1.5 sm:px-2">
-            <div className="mb-2.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#215945] text-white shadow-2xs">
+            <div className="mb-2.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-white shadow-2xs">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                 <path d="M7 11V7a5 5 0 0 1 10 0v4" />
@@ -306,7 +310,7 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
           </div>
 
           <div className="flex flex-col items-center px-1.5 sm:px-2">
-            <div className="mb-2.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#215945] text-white shadow-2xs">
+            <div className="mb-2.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-white shadow-2xs">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                 <circle cx="9" cy="7" r="4" />

@@ -38,7 +38,7 @@ export default function StudentPortfolioTab({
           <button
             type="button"
             onClick={() => setIsAddingPortfolio(true)}
-            className="mb-8 flex w-full items-center justify-center gap-2 rounded-2xl bg-[#147948] hover:bg-[#126a3f] active:scale-[0.99] py-4 px-6 text-sm font-bold text-white shadow-xs transition-all cursor-pointer"
+            className="mb-8 flex w-full items-center justify-center gap-2 rounded-2xl bg-[#356F58] hover:bg-[#2a5946] active:scale-[0.99] py-4 px-6 text-sm font-bold text-white shadow-xs transition-all cursor-pointer"
           >
             <svg
               width="18"
@@ -76,7 +76,7 @@ export default function StudentPortfolioTab({
                   <div className="flex items-start justify-between">
                     <div>
                       <h4 className="text-sm font-bold text-[#16272b]">{entry.title}</h4>
-                      <span className="inline-block mt-1 rounded-md bg-[#edf5f0] px-2 py-0.5 text-[11px] font-semibold text-[#147948]">
+                      <span className="inline-block mt-1 rounded-md bg-[#edf5f0] px-2 py-0.5 text-[11px] font-semibold text-[#356F58]">
                         {entry.subject}
                       </span>
                     </div>
@@ -90,7 +90,7 @@ export default function StudentPortfolioTab({
                       href={entry.imageUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-xs font-semibold text-[#147948] hover:underline inline-block pt-1"
+                      className="text-xs font-semibold text-[#356F58] hover:underline inline-block pt-1"
                     >
                       View attached photo →
                     </a>
@@ -118,7 +118,7 @@ export default function StudentPortfolioTab({
                 value={portfolioTitle}
                 onChange={(e) => setPortfolioTitle(e.target.value)}
                 placeholder="e.g. Ancient Egypt Diorama, Long Division Test"
-                className="w-full rounded-xl border border-[#d5dcd8] bg-white px-4 py-3 text-sm text-[#16272b] placeholder-[#8a989f] focus:border-[#147948] focus:outline-none transition-colors"
+                className="w-full rounded-xl border border-[#d5dcd8] bg-white px-4 py-3 text-sm text-[#16272b] placeholder-[#8a989f] focus:border-[#356F58] focus:outline-none transition-colors"
               />
             </div>
 
@@ -160,7 +160,7 @@ export default function StudentPortfolioTab({
                       }}
                       className={`flex w-full items-center px-4 py-2 text-left text-xs font-medium transition-colors cursor-pointer ${
                         portfolioSubject === subj
-                          ? 'bg-[#edf5f0] text-[#1b6b50] font-bold'
+                          ? 'bg-[#edf5f0] text-[#356F58] font-bold'
                           : 'text-[#1e282d] hover:bg-[#faf5eb]'
                       }`}
                     >
@@ -189,10 +189,10 @@ export default function StudentPortfolioTab({
                   maxLength={10}
                   value={portfolioDate}
                   onChange={(e) => setPortfolioDate(formatDateInput(e.target.value))}
-                  className="w-full rounded-xl border border-[#d5dcd8] bg-white px-4 py-3 pr-11 text-sm text-[#16272b] placeholder-[#8a989f] focus:border-[#147948] focus:outline-none transition-colors"
+                  className="w-full rounded-xl border border-[#d5dcd8] bg-white px-4 py-3 pr-11 text-sm text-[#16272b] placeholder-[#8a989f] focus:border-[#356F58] focus:outline-none transition-colors"
                 />
                 <label
-                  className="absolute right-3 cursor-pointer text-[#526068] hover:text-[#147948] transition-colors p-1"
+                  className="absolute right-3 cursor-pointer text-[#526068] hover:text-[#356F58] transition-colors p-1"
                   title="Choose date from calendar"
                 >
                   <svg
@@ -234,7 +234,7 @@ export default function StudentPortfolioTab({
                 value={portfolioNotes}
                 onChange={(e) => setPortfolioNotes(e.target.value)}
                 placeholder="What did they do? What skills did it demonstrate?"
-                className="w-full rounded-xl border border-[#d5dcd8] bg-white px-4 py-3 text-sm text-[#16272b] placeholder-[#8a989f] focus:border-[#147948] focus:outline-none transition-colors resize-none min-h-[95px]"
+                className="w-full rounded-xl border border-[#d5dcd8] bg-white px-4 py-3 text-sm text-[#16272b] placeholder-[#8a989f] focus:border-[#356F58] focus:outline-none transition-colors resize-none min-h-[95px]"
               />
             </div>
 
@@ -248,7 +248,7 @@ export default function StudentPortfolioTab({
                 value={portfolioImageUrl}
                 onChange={(e) => setPortfolioImageUrl(e.target.value)}
                 placeholder="Paste a link to a photo of the work"
-                className="w-full rounded-xl border border-[#d5dcd8] bg-white px-4 py-3 text-sm text-[#16272b] placeholder-[#8a989f] focus:border-[#147948] focus:outline-none transition-colors"
+                className="w-full rounded-xl border border-[#d5dcd8] bg-white px-4 py-3 text-sm text-[#16272b] placeholder-[#8a989f] focus:border-[#356F58] focus:outline-none transition-colors"
               />
             </div>
           </div>
@@ -264,7 +264,7 @@ export default function StudentPortfolioTab({
             </button>
             <button
               type="submit"
-              className="flex-1 rounded-2xl bg-[#147948] hover:bg-[#126a3f] active:scale-[0.99] py-3.5 px-6 text-sm font-bold text-white shadow-xs transition-all cursor-pointer text-center"
+              className="flex-1 rounded-2xl bg-[#356F58] hover:bg-[#2a5946] active:scale-[0.99] py-3.5 px-6 text-sm font-bold text-white shadow-xs transition-all cursor-pointer text-center"
             >
               Save
             </button>

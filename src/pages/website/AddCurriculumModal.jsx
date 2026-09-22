@@ -187,7 +187,7 @@ export default function AddCurriculumModal({
         </button>
 
         {/* Icon */}
-        <div className="mx-auto mb-2 flex h-11 w-11 items-center justify-center rounded-full bg-[#d7e7dc] text-[#1b6b50]">
+        <div className="mx-auto mb-2 flex h-11 w-11 items-center justify-center rounded-full bg-[#d7e7dc] text-[#356F58]">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
             <rect x="4" y="2" width="16" height="20" rx="2" />
             <line x1="8" y1="6" x2="16" y2="6" />
@@ -217,7 +217,7 @@ export default function AddCurriculumModal({
             <input 
               type="text"
               required
-              className="mt-1 w-full rounded-xl border border-[#e2d8cb] bg-white px-3 py-2 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
+              className="mt-1 w-full rounded-xl border border-[#e2d8cb] bg-white px-3 py-2 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-hidden"
               placeholder={`e.g. ${commonChoices[0] || 'Curriculum Title'}`}
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -239,7 +239,7 @@ export default function AddCurriculumModal({
                     onClick={() => handleSelectChoice(choice)}
                     className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-all cursor-pointer ${
                       isSelected
-                        ? 'bg-[#1b6b50] text-white'
+                        ? 'bg-[#356F58] text-white'
                         : 'border border-[#e2d8cb] bg-white text-[#33444a] hover:bg-[#faf6ee]'
                     }`}
                   >
@@ -257,7 +257,7 @@ export default function AddCurriculumModal({
             </label>
             <input 
               type="text"
-              className="mt-1 w-full rounded-xl border border-[#e2d8cb] bg-white px-3 py-2 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
+              className="mt-1 w-full rounded-xl border border-[#e2d8cb] bg-white px-3 py-2 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-hidden"
               placeholder="e.g. Lesson 45, Chapter 3, Week 12 of 36"
               value={pacing}
               onChange={(e) => setPacing(e.target.value)}
@@ -271,7 +271,7 @@ export default function AddCurriculumModal({
             </label>
             <textarea 
               rows={2}
-              className="mt-1 w-full resize-none rounded-xl border border-[#e2d8cb] bg-white px-3 py-2 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
+              className="mt-1 w-full resize-none rounded-xl border border-[#e2d8cb] bg-white px-3 py-2 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-hidden"
               placeholder="Any context about how you use this curriculum, modifications you make, etc."
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
@@ -289,7 +289,7 @@ export default function AddCurriculumModal({
             </button>
             <button
               type="submit"
-              className="flex-1 rounded-xl bg-[#1b6b50] py-2 text-xs font-semibold text-white shadow-sm hover:bg-[#14553f] transition-colors cursor-pointer"
+              className="flex-1 rounded-xl bg-[#356F58] py-2 text-xs font-semibold text-white shadow-sm hover:bg-[#2a5946] transition-colors cursor-pointer"
             >
               {isEditing ? 'Save Changes →' : 'Add Curriculum →'}
             </button>

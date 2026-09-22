@@ -110,7 +110,7 @@ export default function PlannerScheduleView({
     {
       id: 'writing',
       title: 'Writing',
-      titleColor: 'text-[#2d7a5b]',
+      titleColor: 'text-[#356F58]',
       duration: '20 min',
       curriculum: 'All About Reading',
       checkboxColor: 'border-[#459b73]',
@@ -124,7 +124,7 @@ export default function PlannerScheduleView({
       titleColor: 'text-[#1e282d]',
       duration: '15 min',
       curriculum: 'Story of the World',
-      checkboxColor: 'bg-[#267756] border-[#267756]',
+      checkboxColor: 'bg-[#356F58] border-[#356F58]',
       isCompleted: true, // Marked completed with checkmark in screenshot
       hasAddDashedBox: false,
       isHighlighted: false,
@@ -220,7 +220,7 @@ export default function PlannerScheduleView({
         <button
           type="button"
           onClick={onUpgradeClick}
-          className="rounded-md border border-[#bac7bf] bg-white/70 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#184635] hover:bg-white transition-colors shadow-2xs cursor-pointer"
+          className="rounded-md border border-[#bac7bf] bg-white/70 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#356F58] hover:bg-white transition-colors shadow-2xs cursor-pointer"
         >
           Upgrade →
         </button>
@@ -327,7 +327,7 @@ export default function PlannerScheduleView({
           type="button"
           onClick={() => setSelectedStudent('student-1')}
           className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${selectedStudent === 'student-1'
-              ? 'border-2 border-[#185842] bg-[#f0f6f3] text-[#185842] font-bold'
+              ? 'border-2 border-[#356F58] bg-[#f0f6f3] text-[#356F58] font-bold'
               : 'border border-[#cf805d] bg-[#fbf6f1] text-[#ba6644] hover:bg-[#f7ece4]'
             }`}
         >
@@ -338,7 +338,7 @@ export default function PlannerScheduleView({
           type="button"
           onClick={() => setSelectedStudent('student-2')}
           className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${selectedStudent === 'student-2'
-              ? 'border-2 border-[#185842] bg-[#f0f6f3] text-[#185842] font-bold'
+              ? 'border-2 border-[#356F58] bg-[#f0f6f3] text-[#356F58] font-bold'
               : 'border border-[#cf805d] bg-[#fbf6f1] text-[#ba6644] hover:bg-[#f7ece4]'
             }`}
         >
@@ -365,7 +365,7 @@ export default function PlannerScheduleView({
               type="button"
               onClick={() => setSelectedDay(day.id)}
               className={`flex flex-col justify-start rounded-2xl p-2 sm:p-2.5 transition-all cursor-pointer shadow-2xs text-left min-h-[145px] sm:min-h-[155px] ${isSelected
-                  ? 'border-2 border-[#267756] bg-[#fdfefd] ring-1 ring-[#267756]/20'
+                  ? 'border-2 border-[#356F58] bg-[#fdfefd] ring-1 ring-[#356F58]/20'
                   : 'border border-[#e9e1d5] bg-[#faf6ee]/90 hover:bg-white'
                 }`}
             >
@@ -408,7 +408,7 @@ export default function PlannerScheduleView({
       <div className="mb-6 flex items-center gap-4">
         <div className="flex-1 h-2 rounded-full bg-[#e6dfd4] overflow-hidden">
           <div
-            className="h-full rounded-full bg-[#185842] transition-all duration-300"
+            className="h-full rounded-full bg-[#356F58] transition-all duration-300"
             style={{ width: '18%' }}
           />
         </div>
@@ -426,7 +426,7 @@ export default function PlannerScheduleView({
             <div
               key={card.id}
               className={`rounded-2xl bg-white p-4 sm:p-5 shadow-2xs transition-all ${card.isHighlighted
-                  ? 'border-2 border-[#267756]'
+                  ? 'border-2 border-[#356F58]'
                   : 'border border-[#e9e1d5]'
                 }`}
             >
@@ -450,7 +450,7 @@ export default function PlannerScheduleView({
                     type="button"
                     onClick={() => handleToggleComplete(card.id)}
                     className={`h-5 w-5 sm:h-5.5 sm:w-5.5 rounded-full border-2 transition-all flex items-center justify-center cursor-pointer ${card.isCompleted
-                        ? 'border-[#267756] bg-[#267756] text-white'
+                        ? 'border-[#356F58] bg-[#356F58] text-white'
                         : `${card.checkboxColor} bg-white hover:bg-[#faf5eb]`
                       }`}
                     aria-label={`Mark ${card.title} complete`}
@@ -591,7 +591,7 @@ export default function PlannerScheduleView({
                   key={subject}
                   type="button"
                   onClick={() => handleTogglePill(subject)}
-                  className="rounded-full bg-[#185842] px-4 py-1.5 sm:py-2 text-xs sm:text-[13px] font-bold text-white shadow-2xs hover:bg-[#134937] active:scale-95 transition-all cursor-pointer flex items-center gap-1"
+                  className="rounded-full bg-[#356F58] px-4 py-1.5 sm:py-2 text-xs sm:text-[13px] font-bold text-white shadow-2xs hover:bg-[#2a5946] active:scale-95 transition-all cursor-pointer flex items-center gap-1"
                 >
                   {subject}
                 </button>
@@ -606,8 +606,8 @@ export default function PlannerScheduleView({
                 type="button"
                 onClick={() => handleTogglePill(subject)}
                 className={`rounded-full border px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-[13px] font-medium shadow-2xs active:scale-95 transition-all cursor-pointer ${isActive
-                    ? 'border-[#185842] bg-[#eef5f1] text-[#185842] font-semibold'
-                    : 'border-[#d5cbbe] bg-white text-[#2d3f45] hover:bg-[#faf5eb] hover:border-[#185842]'
+                    ? 'border-[#356F58] bg-[#eef5f1] text-[#356F58] font-semibold'
+                    : 'border-[#d5cbbe] bg-white text-[#2d3f45] hover:bg-[#faf5eb] hover:border-[#356F58]'
                   }`}
               >
                 {subject}
@@ -642,7 +642,7 @@ export default function PlannerScheduleView({
                   type="text"
                   value={editTitle}
                   onChange={(e) => setEditTitle(e.target.value)}
-                  className="w-full rounded-lg border border-[#d5cbbe] px-3 py-2 text-xs text-[#1e282d] focus:border-[#185842] focus:outline-hidden"
+                  className="w-full rounded-lg border border-[#d5cbbe] px-3 py-2 text-xs text-[#1e282d] focus:border-[#356F58] focus:outline-hidden"
                 />
               </div>
 
@@ -654,7 +654,7 @@ export default function PlannerScheduleView({
                   type="text"
                   value={editCurriculum}
                   onChange={(e) => setEditCurriculum(e.target.value)}
-                  className="w-full rounded-lg border border-[#d5cbbe] px-3 py-2 text-xs text-[#1e282d] focus:border-[#185842] focus:outline-hidden"
+                  className="w-full rounded-lg border border-[#d5cbbe] px-3 py-2 text-xs text-[#1e282d] focus:border-[#356F58] focus:outline-hidden"
                 />
               </div>
 
@@ -666,7 +666,7 @@ export default function PlannerScheduleView({
                   type="text"
                   value={editDuration}
                   onChange={(e) => setEditDuration(e.target.value)}
-                  className="w-full rounded-lg border border-[#d5cbbe] px-3 py-2 text-xs text-[#1e282d] focus:border-[#185842] focus:outline-hidden"
+                  className="w-full rounded-lg border border-[#d5cbbe] px-3 py-2 text-xs text-[#1e282d] focus:border-[#356F58] focus:outline-hidden"
                 />
               </div>
 
@@ -680,7 +680,7 @@ export default function PlannerScheduleView({
                 </button>
                 <button
                   type="submit"
-                  className="rounded-lg bg-[#185842] px-4 py-1.5 text-xs font-semibold text-white hover:bg-[#134937]"
+                  className="rounded-lg bg-[#356F58] px-4 py-1.5 text-xs font-semibold text-white hover:bg-[#2a5946]"
                 >
                   Save Changes
                 </button>

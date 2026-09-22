@@ -21,7 +21,7 @@ function ReviewCard({ review }) {
             {review.curriculumName}
           </h3>
           {review.subject && (
-            <p className="text-[11px] font-semibold text-[#1b6b50] mt-0.5">
+            <p className="text-[11px] font-semibold text-[#356F58] mt-0.5">
               {review.subject}
             </p>
           )}
@@ -35,7 +35,7 @@ function ReviewCard({ review }) {
             {review.tags.map((t) => (
               <span
                 key={t}
-                className="rounded-full border border-[#b2ddc8] bg-[#f0faf5] px-2 py-0.5 text-[10px] font-bold text-[#1b6b50]"
+                className="rounded-full border border-[#b2ddc8] bg-[#f0faf5] px-2 py-0.5 text-[10px] font-bold text-[#356F58]"
               >
                 {t}
               </span>
@@ -47,7 +47,7 @@ function ReviewCard({ review }) {
       {review.reviewText && (
         <blockquote className="mt-3 rounded-lg bg-[#f5f0e6] px-3 py-2 text-[11px] italic leading-relaxed text-[#37474c]">
           "{review.reviewText}"
-          <span className="mt-1 block not-italic font-semibold text-[#1b6b50]">
+          <span className="mt-1 block not-italic font-semibold text-[#356F58]">
             — {review.reviewer || 'Homeschool Parent'}
           </span>
         </blockquote>
@@ -117,7 +117,7 @@ export default function ResourceCommunityView({ searchQuery = '', onSearchChange
           <button
             type="button"
             onClick={() => setIsWritingReview(true)}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#1b6b50] py-3.5 text-xs font-bold text-white shadow-sm hover:bg-[#14553f] active:scale-[0.99] transition-all cursor-pointer"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#356F58] py-3.5 text-xs font-bold text-white shadow-sm hover:bg-[#2a5946] active:scale-[0.99] transition-all cursor-pointer"
           >
             <span>Write a Review</span>
             <span className="text-sm">→</span>
@@ -179,7 +179,7 @@ export default function ResourceCommunityView({ searchQuery = '', onSearchChange
             <button
               type="button"
               onClick={() => handleSearchUpdate('')}
-              className="mt-3 text-xs font-semibold text-[#1b6b50] underline cursor-pointer hover:text-[#14553f]"
+              className="mt-3 text-xs font-semibold text-[#356F58] underline cursor-pointer hover:text-[#356F58]"
             >
               Clear search
             </button>

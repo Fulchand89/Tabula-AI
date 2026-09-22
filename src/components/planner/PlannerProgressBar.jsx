@@ -12,7 +12,7 @@ export default function PlannerProgressBar({ doneCount = 0, totalCount = 0 }) {
     <div className="flex items-center gap-3.5 my-1">
       <div className="flex-1 h-2 rounded-full bg-[#e6ded3] overflow-hidden">
         <div
-          className="h-full rounded-full bg-[#185842] transition-all duration-300"
+          className="h-full rounded-full bg-[#356F58] transition-all duration-300"
           style={{ width: `${percent}%` }}
         />
       </div>

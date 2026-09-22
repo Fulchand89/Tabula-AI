@@ -54,7 +54,7 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
     <div className="mx-auto w-full max-w-[640px] pb-32 pt-4 px-3.5 sm:px-4 transition-all">
       {/* Toast Feedback */}
       {toastMessage && (
-        <div className="fixed top-20 right-6 z-50 flex items-center gap-2 rounded-xl bg-[#147948] px-4 py-3 text-xs font-bold text-white shadow-xl animate-fade-in">
+        <div className="fixed top-20 right-6 z-50 flex items-center gap-2 rounded-xl bg-[#356F58] px-4 py-3 text-xs font-bold text-white shadow-xl animate-fade-in">
           <span>✓</span>
           <span>{toastMessage}</span>
         </div>
@@ -125,7 +125,7 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
 
           <p className="text-center text-xs sm:text-[13px] text-[#22333b]">
             Current plan after trial:{' '}
-            <span className="font-bold text-[#147948]">Annual — $72/year</span>
+            <span className="font-bold text-[#356F58]">Annual — $72/year</span>
           </p>
         </div>
 
@@ -153,12 +153,12 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
                 value={coachName}
                 onChange={(e) => setCoachName(e.target.value)}
                 placeholder="e.g. Coach Maple, Ms. Rivera, Sunny"
-                className="w-full rounded-2xl border border-[#d5dcd8] bg-white pl-10 pr-4 py-3 text-xs sm:text-sm text-[#16272b] placeholder-[#8a989f] focus:border-[#147948] focus:outline-none transition-colors"
+                className="w-full rounded-2xl border border-[#d5dcd8] bg-white pl-10 pr-4 py-3 text-xs sm:text-sm text-[#16272b] placeholder-[#8a989f] focus:border-[#356F58] focus:outline-none transition-colors"
               />
             </div>
             <button
               type="submit"
-              className="rounded-xl sm:rounded-2xl bg-[#14553f] hover:bg-[#0f402f] text-white px-5 sm:px-6 py-3 text-xs sm:text-sm font-bold shadow-xs transition-colors cursor-pointer"
+              className="rounded-xl sm:rounded-2xl bg-[#356F58] hover:bg-[#2a5946] text-white px-5 sm:px-6 py-3 text-xs sm:text-sm font-bold shadow-xs transition-colors cursor-pointer"
             >
               Save
             </button>
@@ -219,7 +219,7 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
                     }}
                     className={`flex w-full items-center px-4 py-2 text-left text-xs sm:text-sm font-medium transition-colors cursor-pointer ${
                       selectedState === state
-                        ? 'bg-[#edf5f0] text-[#1b6b50] font-bold'
+                        ? 'bg-[#edf5f0] text-[#356F58] font-bold'
                         : 'text-[#1e282d] hover:bg-[#faf5eb]'
                     }`}
                   >
@@ -245,13 +245,13 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
               onClick={() => setSelectedPlan('monthly')}
               className={`rounded-2xl border p-4 flex items-center justify-between shadow-2xs transition-all cursor-pointer ${
                 selectedPlan === 'monthly'
-                  ? 'border-2 border-[#147948] bg-[#f2f8f5]'
+                  ? 'border-2 border-[#356F58] bg-[#f2f8f5]'
                   : 'border-[#e8dfd3] bg-white hover:border-[#b8c2bc]'
               }`}
             >
               <div className="flex items-center gap-3.5">
                 <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-[#b8c2bc] bg-white">
-                  {selectedPlan === 'monthly' && <div className="h-2.5 w-2.5 rounded-full bg-[#147948]" />}
+                  {selectedPlan === 'monthly' && <div className="h-2.5 w-2.5 rounded-full bg-[#356F58]" />}
                 </div>
                 <div>
                   <h3 className="text-xs sm:text-[14px] font-bold text-[#16272b]">Monthly</h3>
@@ -280,13 +280,13 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
               onClick={() => setSelectedPlan('annual')}
               className={`rounded-2xl border-2 p-4 flex items-center justify-between shadow-2xs transition-all cursor-pointer ${
                 selectedPlan === 'annual'
-                  ? 'border-[#147948] bg-[#f2f8f5]'
+                  ? 'border-[#356F58] bg-[#f2f8f5]'
                   : 'border-[#e8dfd3] bg-white hover:border-[#b8c2bc]'
               }`}
             >
               <div className="flex items-center gap-3.5">
-                <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-[#147948] bg-white">
-                  {selectedPlan === 'annual' && <div className="h-2.5 w-2.5 rounded-full bg-[#147948]" />}
+                <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-[#356F58] bg-white">
+                  {selectedPlan === 'annual' && <div className="h-2.5 w-2.5 rounded-full bg-[#356F58]" />}
                 </div>
                 <div>
                   <div className="flex flex-wrap items-center gap-2">
@@ -294,7 +294,7 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
                     <span className="rounded bg-[#eedec5] px-1.5 py-0.5 text-[9.5px] font-extrabold text-[#784918]">
                       BEST VALUE
                     </span>
-                    <span className="rounded bg-[#d5e8dc] px-1.5 py-0.5 text-[9.5px] font-extrabold text-[#146b45]">
+                    <span className="rounded bg-[#d5e8dc] px-1.5 py-0.5 text-[9.5px] font-extrabold text-[#356F58]">
                       CURRENT
                     </span>
                   </div>
@@ -350,7 +350,7 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
                         type="text"
                         value={userName}
                         onChange={(e) => setUserName(e.target.value)}
-                        className="rounded-lg border border-[#d5dcd8] px-2.5 py-1 text-xs sm:text-sm font-semibold text-[#16272b] focus:border-[#147948] focus:outline-none"
+                        className="rounded-lg border border-[#d5dcd8] px-2.5 py-1 text-xs sm:text-sm font-semibold text-[#16272b] focus:border-[#356F58] focus:outline-none"
                       />
                       <button
                         type="button"
@@ -358,7 +358,7 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
                           setIsEditingName(false);
                           showToast('Name updated');
                         }}
-                        className="rounded-lg bg-[#147948] px-2.5 py-1 text-xs font-bold text-white"
+                        className="rounded-lg bg-[#356F58] px-2.5 py-1 text-xs font-bold text-white"
                       >
                         Save
                       </button>
@@ -400,7 +400,7 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
                         type="email"
                         value={userEmail}
                         onChange={(e) => setUserEmail(e.target.value)}
-                        className="rounded-lg border border-[#d5dcd8] px-2.5 py-1 text-xs sm:text-sm font-semibold text-[#16272b] focus:border-[#147948] focus:outline-none"
+                        className="rounded-lg border border-[#d5dcd8] px-2.5 py-1 text-xs sm:text-sm font-semibold text-[#16272b] focus:border-[#356F58] focus:outline-none"
                       />
                       <button
                         type="button"
@@ -408,7 +408,7 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
                           setIsEditingEmail(false);
                           showToast('Email updated');
                         }}
-                        className="rounded-lg bg-[#147948] px-2.5 py-1 text-xs font-bold text-white"
+                        className="rounded-lg bg-[#356F58] px-2.5 py-1 text-xs font-bold text-white"
                       >
                         Save
                       </button>
@@ -473,7 +473,7 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
         <button
           type="button"
           onClick={onBackToHome}
-          className="flex w-full items-center justify-center rounded-2xl bg-[#147948] hover:bg-[#11623a] active:scale-[0.99] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-md transition-all cursor-pointer"
+          className="flex w-full items-center justify-center rounded-2xl bg-[#356F58] hover:bg-[#2a5946] active:scale-[0.99] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-md transition-all cursor-pointer"
         >
           Done
         </button>

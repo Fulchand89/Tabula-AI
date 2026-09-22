@@ -95,7 +95,7 @@ Everything else is on pause without falling behind!`,
         <button
           type="button"
           onClick={onUpgradeClick}
-          className="rounded-md border border-[#bac7bf] bg-white/70 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#184635] hover:bg-white transition-colors shadow-2xs cursor-pointer"
+          className="rounded-md border border-[#bac7bf] bg-white/70 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#356F58] hover:bg-white transition-colors shadow-2xs cursor-pointer"
         >
           Upgrade →
         </button>
@@ -134,7 +134,7 @@ Everything else is on pause without falling behind!`,
           type="button"
           onClick={() => setSelectedStudent('Student 1')}
           className={`rounded-full px-3.5 py-1 text-[12px] font-semibold transition-all cursor-pointer ${selectedStudent === 'Student 1'
-              ? 'border border-[#14533c] bg-[#dcf1e7] text-[#14533c]'
+              ? 'border border-[#356F58] bg-[#dcf1e7] text-[#356F58]'
               : 'border border-[#df8569] bg-[#faf7f0] text-[#b65a3c] hover:bg-white'
             }`}
         >
@@ -144,7 +144,7 @@ Everything else is on pause without falling behind!`,
           type="button"
           onClick={() => setSelectedStudent('Student 2')}
           className={`rounded-full px-3.5 py-1 text-[12px] font-semibold transition-all cursor-pointer ${selectedStudent === 'Student 2'
-              ? 'border border-[#14533c] bg-[#dcf1e7] text-[#14533c]'
+              ? 'border border-[#356F58] bg-[#dcf1e7] text-[#356F58]'
               : 'border border-[#df8569] bg-[#faf7f0] text-[#b65a3c] hover:bg-white'
             }`}
         >
@@ -157,7 +157,7 @@ Everything else is on pause without falling behind!`,
           ================================================================ */}
       <div className="mb-5 flex items-start gap-3">
         {/* Coach Avatar Circle */}
-        <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full bg-[#135338] text-base sm:text-lg font-bold text-white shadow-2xs font-serif select-none">
+        <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-base sm:text-lg font-bold text-white shadow-2xs font-serif select-none">
           C
         </div>
 
@@ -194,7 +194,7 @@ Everything else is on pause without falling behind!`,
                 type="button"
                 onClick={() => handleSelectSuggestion(suggestion.text)}
                 className={`rounded-full px-3.5 py-1.5 text-[12px] sm:text-[12.5px] transition-all cursor-pointer ${isSelected
-                    ? 'bg-[#135338] text-white font-semibold shadow-2xs border border-transparent'
+                    ? 'bg-[#356F58] text-white font-semibold shadow-2xs border border-transparent'
                     : 'bg-white border border-[#d8d0c4] text-[#203137] font-medium shadow-2xs hover:bg-[#faf7f2] hover:border-[#c5bcb0]'
                   }`}
               >
@@ -217,7 +217,7 @@ Everything else is on pause without falling behind!`,
                 }`}
             >
               {msg.sender === 'coach' ? (
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#135338] text-sm font-bold text-white shadow-2xs font-serif">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-sm font-bold text-white shadow-2xs font-serif">
                   C
                 </div>
               ) : (
@@ -228,7 +228,7 @@ Everything else is on pause without falling behind!`,
 
               <div
                 className={`relative max-w-[85%] rounded-2xl p-3.5 sm:p-4 text-xs sm:text-[13px] leading-relaxed shadow-2xs whitespace-pre-line ${msg.sender === 'user'
-                    ? 'bg-[#155e42] text-white font-medium rounded-tr-sm'
+                    ? 'bg-[#356F58] text-white font-medium rounded-tr-sm'
                     : 'bg-[#fedebc] text-[#22333b] font-medium rounded-tl-sm'
                   }`}
               >
@@ -242,7 +242,7 @@ Everything else is on pause without falling behind!`,
 
           {isTyping && (
             <div className="flex items-start gap-3">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#135338] text-sm font-bold text-white shadow-2xs font-serif">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-sm font-bold text-white shadow-2xs font-serif">
                 C
               </div>
               <div className="rounded-2xl bg-[#fedebc] px-3.5 py-2.5 shadow-2xs flex items-center gap-1.5">
@@ -267,13 +267,13 @@ Everything else is on pause without falling behind!`,
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               placeholder="Message your coach about Student..."
-              className="w-full rounded-xl border border-[#ded5c8] bg-white px-3.5 py-2.5 sm:py-3 text-[13px] sm:text-[13.5px] text-[#1e282d] placeholder-[#6b7c85] focus:outline-none focus:border-[#155e42] transition-colors"
+              className="w-full rounded-xl border border-[#ded5c8] bg-white px-3.5 py-2.5 sm:py-3 text-[13px] sm:text-[13.5px] text-[#1e282d] placeholder-[#6b7c85] focus:outline-none focus:border-[#356F58] transition-colors"
             />
           </div>
           <button
             type="submit"
             disabled={!inputText.trim()}
-            className="flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full bg-[#156c47] text-white shadow-[0_4px_14px_rgba(21,108,71,0.35)] hover:bg-[#115839] disabled:opacity-40 disabled:cursor-not-allowed transition-all active:scale-95 cursor-pointer"
+            className="flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-white shadow-[0_4px_14px_rgba(53,111,88,0.35)] hover:bg-[#2a5946] disabled:opacity-40 disabled:cursor-not-allowed transition-all active:scale-95 cursor-pointer"
             aria-label="Send message"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">

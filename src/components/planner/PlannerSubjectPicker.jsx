@@ -30,7 +30,7 @@ export const ALL_SUBJECTS = [
  * - "Add subjects to [Day]" section
  * - 19 rounded subject pills
  * - When a subject is active (e.g. Math in Image 2):
- *   Renders as "+ Math" with green background: bg-[#185842] text-white
+ *   Renders as "+ Math" with green background: bg-[#356F58] text-white
  */
 export default function PlannerSubjectPicker({
   dayName = 'Monday',
@@ -68,7 +68,7 @@ export default function PlannerSubjectPicker({
                 className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all cursor-pointer shadow-2xs ${
                   isAdded
                     ? `${style.pillActive} shadow-xs active:scale-95`
-                    : 'bg-white border border-[#d5cbbe] text-[#2d3f45] hover:border-[#185842] hover:text-[#185842] hover:bg-[#faf5eb] active:scale-95'
+                    : 'bg-white border border-[#d5cbbe] text-[#2d3f45] hover:border-[#356F58] hover:text-[#356F58] hover:bg-[#faf5eb] active:scale-95'
                 }`}
               >
                 {isAdded ? `+ ${subject}` : subject}

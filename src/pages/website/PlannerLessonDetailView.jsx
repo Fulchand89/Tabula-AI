@@ -59,8 +59,8 @@ export default function PlannerLessonDetailView({ onCancel, onAddCurriculum }) {
             onClick={() => setIsDone(!isDone)}
             className={`h-6 w-6 rounded-full border-2 transition-all flex items-center justify-center cursor-pointer shadow-2xs ${
               isDone
-                ? 'border-[#185842] bg-[#185842] text-white'
-                : 'border-[#d5cbbe] bg-white hover:border-[#185842]'
+                ? 'border-[#356F58] bg-[#356F58] text-white'
+                : 'border-[#d5cbbe] bg-white hover:border-[#356F58]'
             }`}
             aria-label="Toggle completed"
           >
@@ -74,7 +74,7 @@ export default function PlannerLessonDetailView({ onCancel, onAddCurriculum }) {
 
         {/* 3. Centered Header (MATH + Saxon Math) */}
         <div className="text-center mb-5 -mt-2">
-          <span className="block text-[11px] font-extrabold tracking-widest text-[#185842] uppercase">
+          <span className="block text-[11px] font-extrabold tracking-widest text-[#356F58] uppercase">
             MATH
           </span>
           <h1 className="font-serif text-[24px] sm:text-[28px] font-bold text-[#16272b] tracking-tight mt-0.5">
@@ -111,7 +111,7 @@ export default function PlannerLessonDetailView({ onCancel, onAddCurriculum }) {
               type="text"
               value={workingOnText}
               onChange={(e) => setWorkingOnText(e.target.value)}
-              className="w-full rounded-2xl border border-[#e8dfd5] bg-white px-4 py-3 text-xs sm:text-[13px] text-[#1e282d] placeholder-[#9ca3af] focus:border-[#185842] focus:outline-hidden shadow-2xs"
+              className="w-full rounded-2xl border border-[#e8dfd5] bg-white px-4 py-3 text-xs sm:text-[13px] text-[#1e282d] placeholder-[#9ca3af] focus:border-[#356F58] focus:outline-hidden shadow-2xs"
               placeholder="e.g. Lesson 45, Chapter 3, Week 12 of 36"
             />
             <p className="text-[11px] text-[#788890] mt-1.5">
@@ -139,11 +139,11 @@ export default function PlannerLessonDetailView({ onCancel, onAddCurriculum }) {
                   value={startTime}
                   onChange={(e) => setStartTime(formatTimeInput(e.target.value))}
                   maxLength={8}
-                  className="w-36 rounded-xl border border-[#e8dfd5] bg-white px-3 py-2 pr-9 text-center text-xs tracking-wider text-[#1e282d] font-semibold focus:border-[#185842] focus:outline-hidden shadow-2xs transition-colors"
+                  className="w-36 rounded-xl border border-[#e8dfd5] bg-white px-3 py-2 pr-9 text-center text-xs tracking-wider text-[#1e282d] font-semibold focus:border-[#356F58] focus:outline-hidden shadow-2xs transition-colors"
                   placeholder="--:-- --"
                 />
                 <label
-                  className="absolute right-2.5 cursor-pointer text-[#788890] hover:text-[#185842] transition-colors p-0.5"
+                  className="absolute right-2.5 cursor-pointer text-[#788890] hover:text-[#356F58] transition-colors p-0.5"
                   title="Choose time from clock"
                 >
                   <svg
@@ -179,7 +179,7 @@ export default function PlannerLessonDetailView({ onCancel, onAddCurriculum }) {
                   onClick={() => setStartTime(setTimePeriod(startTime || '09:00', 'AM'))}
                   className={`rounded-lg px-2.5 py-1 text-[11px] font-bold transition-all cursor-pointer ${
                     startTime.toUpperCase().includes('AM')
-                      ? 'bg-[#185842] text-white shadow-2xs'
+                      ? 'bg-[#356F58] text-white shadow-2xs'
                       : 'text-[#6c7d84] hover:text-[#1e282d]'
                   }`}
                 >
@@ -190,7 +190,7 @@ export default function PlannerLessonDetailView({ onCancel, onAddCurriculum }) {
                   onClick={() => setStartTime(setTimePeriod(startTime || '12:00', 'PM'))}
                   className={`rounded-lg px-2.5 py-1 text-[11px] font-bold transition-all cursor-pointer ${
                     startTime.toUpperCase().includes('PM')
-                      ? 'bg-[#185842] text-white shadow-2xs'
+                      ? 'bg-[#356F58] text-white shadow-2xs'
                       : 'text-[#6c7d84] hover:text-[#1e282d]'
                   }`}
                 >
@@ -236,7 +236,7 @@ export default function PlannerLessonDetailView({ onCancel, onAddCurriculum }) {
                     onClick={() => setSelectedDuration(opt)}
                     className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${
                       isActive
-                        ? 'bg-[#185842] text-white font-bold'
+                        ? 'bg-[#356F58] text-white font-bold'
                         : 'border border-[#d5cbbe] bg-white text-[#2d3f45] hover:bg-[#faf5eb]'
                     }`}
                   >
@@ -251,7 +251,7 @@ export default function PlannerLessonDetailView({ onCancel, onAddCurriculum }) {
                 placeholder="Enter custom duration (e.g. 25 min)"
                 value={customDuration}
                 onChange={(e) => setCustomDuration(e.target.value)}
-                className="mt-2 w-48 rounded-xl border border-[#e8dfd5] bg-white px-3 py-1.5 text-xs text-[#1e282d] focus:border-[#185842] focus:outline-hidden"
+                className="mt-2 w-48 rounded-xl border border-[#e8dfd5] bg-white px-3 py-1.5 text-xs text-[#1e282d] focus:border-[#356F58] focus:outline-hidden"
               />
             )}
           </div>
@@ -268,7 +268,7 @@ export default function PlannerLessonDetailView({ onCancel, onAddCurriculum }) {
               value={teachingNotes}
               onChange={(e) => setTeachingNotes(e.target.value)}
               placeholder="What to watch for, discussion questions, adaptations, materials needed..."
-              className="w-full rounded-2xl border border-[#e8dfd5] bg-white p-4 text-xs sm:text-[13px] text-[#1e282d] placeholder-[#9ca3af] focus:border-[#185842] focus:outline-hidden shadow-2xs resize-y"
+              className="w-full rounded-2xl border border-[#e8dfd5] bg-white p-4 text-xs sm:text-[13px] text-[#1e282d] placeholder-[#9ca3af] focus:border-[#356F58] focus:outline-hidden shadow-2xs resize-y"
             />
           </div>
 
@@ -289,7 +289,7 @@ export default function PlannerLessonDetailView({ onCancel, onAddCurriculum }) {
                     onClick={() => setSelectedType(type)}
                     className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${
                       isActive
-                        ? 'bg-[#185842] text-white font-bold'
+                        ? 'bg-[#356F58] text-white font-bold'
                         : 'border border-[#d5cbbe] bg-white text-[#2d3f45] hover:bg-[#faf5eb]'
                     }`}
                   >
@@ -314,7 +314,7 @@ export default function PlannerLessonDetailView({ onCancel, onAddCurriculum }) {
 
             <button
               type="submit"
-              className="flex-1 rounded-2xl bg-[#167846] hover:bg-[#12643a] py-3 text-center text-xs sm:text-sm font-bold text-white transition-all cursor-pointer shadow-md flex items-center justify-center gap-1.5"
+              className="flex-1 rounded-2xl bg-[#356F58] hover:bg-[#2a5946] py-3 text-center text-xs sm:text-sm font-bold text-white transition-all cursor-pointer shadow-md flex items-center justify-center gap-1.5"
             >
               <span>Add Curriculum</span>
               <span>→</span>

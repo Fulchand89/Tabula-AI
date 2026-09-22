@@ -43,7 +43,7 @@ export default function PlannerWeekNav({
             <button
               type="button"
               onClick={onViewCompleteWeek}
-              className="flex items-center gap-1 rounded-lg border border-[#c2decb] bg-[#eef7f1] px-2.5 py-1 text-[11px] font-bold text-[#185842] hover:bg-[#e2f2e7] transition-colors shadow-2xs cursor-pointer"
+              className="flex items-center gap-1 rounded-lg border border-[#c2decb] bg-[#eef7f1] px-2.5 py-1 text-[11px] font-bold text-[#356F58] hover:bg-[#e2f2e7] transition-colors shadow-2xs cursor-pointer"
               title="View completed week"
             >
               <span>Week Complete</span>
@@ -106,7 +106,7 @@ export default function PlannerWeekNav({
           onClick={() => onStudentChange?.('student-1')}
           className={`rounded-full px-4 py-1 text-xs font-semibold transition-all cursor-pointer shadow-2xs ${
             selectedStudent === 'student-1'
-              ? 'border-2 border-[#185842] bg-white text-[#185842] font-bold'
+              ? 'border-2 border-[#356F58] bg-white text-[#356F58] font-bold'
               : 'border border-[#cf805d] bg-white text-[#ba6644] hover:bg-[#fffaf6]'
           }`}
         >
@@ -118,7 +118,7 @@ export default function PlannerWeekNav({
           onClick={() => onStudentChange?.('student-2')}
           className={`rounded-full px-4 py-1 text-xs font-semibold transition-all cursor-pointer shadow-2xs ${
             selectedStudent === 'student-2'
-              ? 'border-2 border-[#185842] bg-white text-[#185842] font-bold'
+              ? 'border-2 border-[#356F58] bg-white text-[#356F58] font-bold'
               : 'border border-[#cf805d] bg-white text-[#ba6644] hover:bg-[#fffaf6]'
           }`}
         >

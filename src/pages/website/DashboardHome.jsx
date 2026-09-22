@@ -6,7 +6,7 @@ const WEEK_DAYS = [
     date: 14,
     fullDate: 'Mon, Apr 14',
     lessons: [
-      { name: 'Math', count: '1 lesson', color: 'bg-[#1b6b50]' },
+      { name: 'Math', count: '1 lesson', color: 'bg-[#356F58]' },
       { name: 'Language Arts', count: '1 lesson', color: 'bg-[#1e293b]' },
       { name: 'Reading', count: '1 lesson', color: 'bg-[#558273]' },
     ]
@@ -16,11 +16,11 @@ const WEEK_DAYS = [
     date: 15,
     fullDate: 'Tue, Apr 15',
     lessons: [
-      { name: 'Math', count: '3 lessons', color: 'bg-[#1b6b50]' },
+      { name: 'Math', count: '3 lessons', color: 'bg-[#356F58]' },
       { name: 'Language Arts', count: '4 lessons', color: 'bg-[#1e293b]' },
       { name: 'Science', count: '2 lessons', color: 'bg-[#2d7a70]' },
       { name: 'History', count: '1 lesson', color: 'bg-[#bf7634]' },
-      { name: 'Art & Music', count: '1 lesson', color: 'bg-[#3e8a6f]' },
+      { name: 'Art & Music', count: '1 lesson', color: 'bg-[#356F58]' },
     ]
   },
   {
@@ -28,7 +28,7 @@ const WEEK_DAYS = [
     date: 16,
     fullDate: 'Wed, Apr 16',
     lessons: [
-      { name: 'Math', count: '2 lessons', color: 'bg-[#1b6b50]' },
+      { name: 'Math', count: '2 lessons', color: 'bg-[#356F58]' },
       { name: 'Writing', count: '1 lesson', color: 'bg-[#e5a93c]' },
       { name: 'Language Arts', count: '2 lessons', color: 'bg-[#1e293b]' },
       { name: 'History', count: '1 lesson', color: 'bg-[#bf7634]' },
@@ -50,8 +50,8 @@ const WEEK_DAYS = [
     fullDate: 'Fri, Apr 18',
     lessons: [
       { name: 'Review', count: '1 lesson', color: 'bg-[#ba704f]' },
-      { name: 'Art & Music', count: '2 lessons', color: 'bg-[#3e8a6f]' },
-      { name: 'Math', count: '1 lesson', color: 'bg-[#1b6b50]' },
+      { name: 'Art & Music', count: '2 lessons', color: 'bg-[#356F58]' },
+      { name: 'Math', count: '1 lesson', color: 'bg-[#356F58]' },
     ]
   },
   {
@@ -59,7 +59,7 @@ const WEEK_DAYS = [
     date: 19,
     fullDate: 'Sat, Apr 19',
     lessons: [
-      { name: 'Nature Walk', count: 'Outdoor', color: 'bg-[#276e48]' },
+      { name: 'Nature Walk', count: 'Outdoor', color: 'bg-[#356F58]' },
       { name: 'Library Visit', count: 'Free reading', color: 'bg-[#558273]' },
     ]
   },
@@ -122,13 +122,13 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
       </div>
 
       {/* Timeline List */}
-      <div className="relative pl-5 space-y-3 before:absolute before:left-[8px] before:top-2 before:bottom-2 before:w-[2px] before:bg-[#20674c]">
+      <div className="relative pl-5 space-y-3 before:absolute before:left-[8px] before:top-2 before:bottom-2 before:w-[2px] before:bg-[#356F58]">
         {/* 8:30 AM Math */}
         <div className="relative flex items-center justify-between">
-          <span className="absolute -left-[15px] top-2 h-2 w-2 rounded-full bg-[#1b6b50] ring-2 ring-white" />
+          <span className="absolute -left-[15px] top-2 h-2 w-2 rounded-full bg-[#356F58] ring-2 ring-white" />
           <div className="flex items-center gap-2 min-w-0">
             <span className="w-12 text-[10px] font-bold text-[#637278] shrink-0">8:30 AM</span>
-            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#dce9e1] text-[#1b6b50]">
+            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#dce9e1] text-[#356F58]">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="4" y="2" width="16" height="20" rx="2" />
                 <line x1="8" y1="7" x2="16" y2="7" />
@@ -146,10 +146,10 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
 
         {/* 9:30 AM Language Arts */}
         <div className="relative flex items-center justify-between">
-          <span className="absolute -left-[15px] top-2 h-2 w-2 rounded-full bg-[#1b6b50] ring-2 ring-white" />
+          <span className="absolute -left-[15px] top-2 h-2 w-2 rounded-full bg-[#356F58] ring-2 ring-white" />
           <div className="flex items-center gap-2 min-w-0">
             <span className="w-12 text-[10px] font-bold text-[#637278] shrink-0">9:30 AM</span>
-            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#dce9e1] text-[#1b6b50]">
+            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#dce9e1] text-[#356F58]">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
@@ -187,10 +187,10 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
 
         {/* 11:00 AM Science */}
         <div className="relative flex items-center justify-between">
-          <span className="absolute -left-[15px] top-2 h-2 w-2 rounded-full bg-[#1b6b50] ring-2 ring-white" />
+          <span className="absolute -left-[15px] top-2 h-2 w-2 rounded-full bg-[#356F58] ring-2 ring-white" />
           <div className="flex items-center gap-2 min-w-0">
             <span className="w-12 text-[10px] font-bold text-[#637278] shrink-0">11:00 AM</span>
-            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#dce9e1] text-[#1b6b50]">
+            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#dce9e1] text-[#356F58]">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M10 2v7.31L4.2 19.5A2 2 0 0 0 5.92 22h12.16a2 2 0 0 0 1.72-2.5L14 9.31V2" />
                 <line x1="8.5" y1="2" x2="15.5" y2="2" />
@@ -206,10 +206,10 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
 
         {/* 12:00 PM Lunch */}
         <div className="relative flex items-center justify-between">
-          <span className="absolute -left-[15px] top-2 h-2 w-2 rounded-full bg-[#1b6b50] ring-2 ring-white" />
+          <span className="absolute -left-[15px] top-2 h-2 w-2 rounded-full bg-[#356F58] ring-2 ring-white" />
           <div className="flex items-center gap-2 min-w-0">
             <span className="w-12 text-[10px] font-bold text-[#637278] shrink-0">12:00 PM</span>
-            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#dce9e1] text-[#1b6b50]">
+            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#dce9e1] text-[#356F58]">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 11h18a9 9 0 0 1-18 0Z" />
                 <path d="M6 7a3 3 0 0 1 3-3" />
@@ -244,7 +244,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
             ================================================================ */}
       <div className="mb-4 flex flex-col justify-between gap-1.5 sm:flex-row sm:items-start">
         <div>
-          <span className="text-[10px] font-extrabold tracking-wider text-[#1b6b50] uppercase">
+          <span className="text-[10px] font-extrabold tracking-wider text-[#356F58] uppercase">
             YOUR HOMESCHOOL
           </span>
           <h1
@@ -278,7 +278,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
           {/* Card: What can I help you with today? */}
           <div className="rounded-2xl border border-[#ebdcca] bg-white p-3.5 shadow-2xs">
             <div className="flex items-start gap-2.5">
-              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#d7e7dc] text-xs font-bold text-[#1b6b50]">
+              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#d7e7dc] text-xs font-bold text-[#356F58]">
                 T
               </div>
               <div className="flex-1 min-w-0">
@@ -299,7 +299,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                 {/* Input with Ask button */}
                 <form
                   onSubmit={(e) => { e.preventDefault(); handleAskCoach(); }}
-                  className="mt-2.5 flex items-center rounded-lg border border-[#e3dad0] bg-[#faf8f5] p-1 pl-2.5 focus-within:border-[#1b6b50] focus-within:bg-white"
+                  className="mt-2.5 flex items-center rounded-lg border border-[#e3dad0] bg-[#faf8f5] p-1 pl-2.5 focus-within:border-[#356F58] focus-within:bg-white"
                 >
                   <input
                     type="text"
@@ -310,7 +310,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                   />
                   <button
                     type="submit"
-                    className="flex shrink-0 items-center gap-1 rounded-md bg-[#1b6b50] px-2.5 py-1 text-[10.5px] font-semibold text-white shadow-2xs hover:bg-[#14553f] transition-colors cursor-pointer"
+                    className="flex shrink-0 items-center gap-1 rounded-md bg-[#356F58] px-2.5 py-1 text-[10.5px] font-semibold text-white shadow-2xs hover:bg-[#2a5946] transition-colors cursor-pointer"
                   >
                     <span>Ask</span>
                     <span>→</span>
@@ -320,7 +320,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                 {/* Coach AI Response Bubble */}
                 {coachAnswer && (
                   <div className="mt-2 rounded-lg bg-[#f5f0e6] p-2.5 text-[11px] leading-relaxed text-[#27373c]">
-                    <span className="font-bold text-[#1b6b50]">Coach: </span>
+                    <span className="font-bold text-[#356F58]">Coach: </span>
                     {coachAnswer}
                   </div>
                 )}
@@ -367,7 +367,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
             {/* Progress Bar */}
             <div className="mb-2.5 h-1.5 w-full overflow-hidden rounded-full bg-[#e3ded4]">
               <div
-                className="h-full rounded-full bg-[#1b6b50] transition-all duration-300"
+                className="h-full rounded-full bg-[#356F58] transition-all duration-300"
                 style={{ width: `${((activeStep || 0) / 4) * 100}%` }}
               />
             </div>
@@ -385,7 +385,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                 <div className="flex items-center gap-2.5 min-w-0">
                   <div
                     className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 1
-                      ? 'bg-[#1b6b50] text-white'
+                      ? 'bg-[#356F58] text-white'
                       : 'border border-[#d5cbbe] text-[#526068]'
                       }`}
                   >
@@ -421,7 +421,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                     setActiveStep(1);
                     onNavigateToStudents?.();
                   }}
-                  className={`text-xs pl-1 shrink-0 transition-colors ${activeStep === 1 ? 'text-[#1b6b50] font-bold' : 'text-[#798790]'
+                  className={`text-xs pl-1 shrink-0 transition-colors ${activeStep === 1 ? 'text-[#356F58] font-bold' : 'text-[#798790]'
                     }`}
                 >
                   ›
@@ -439,7 +439,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                 <div className="flex items-center gap-2.5 min-w-0">
                   <div
                     className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 2
-                      ? 'bg-[#1b6b50] text-white'
+                      ? 'bg-[#356F58] text-white'
                       : 'border border-[#d5cbbe] text-[#526068]'
                       }`}
                   >
@@ -476,7 +476,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                     setActiveStep(2);
                     onOpenAddCurriculum?.();
                   }}
-                  className="shrink-0 rounded-md bg-[#1b6b50] px-2 py-1 text-[10px] font-semibold text-white shadow-2xs hover:bg-[#14553f] transition-colors cursor-pointer"
+                  className="shrink-0 rounded-md bg-[#356F58] px-2 py-1 text-[10px] font-semibold text-white shadow-2xs hover:bg-[#2a5946] transition-colors cursor-pointer"
                 >
                   Add curriculum →
                 </button>
@@ -493,7 +493,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                 <div className="flex items-center gap-2.5 min-w-0">
                   <div
                     className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 3
-                      ? 'bg-[#1b6b50] text-white'
+                      ? 'bg-[#356F58] text-white'
                       : 'border border-[#d5cbbe] text-[#526068]'
                       }`}
                   >
@@ -529,7 +529,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                     setActiveStep(3);
                     onNavigateToPlanner?.();
                   }}
-                  className={`text-xs pl-1 shrink-0 transition-colors ${activeStep === 3 ? 'text-[#1b6b50] font-bold' : 'text-[#798790]'
+                  className={`text-xs pl-1 shrink-0 transition-colors ${activeStep === 3 ? 'text-[#356F58] font-bold' : 'text-[#798790]'
                     }`}
                 >
                   ›
@@ -547,7 +547,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                 <div className="flex items-center gap-2.5 min-w-0">
                   <div
                     className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 4
-                      ? 'bg-[#1b6b50] text-white'
+                      ? 'bg-[#356F58] text-white'
                       : 'border border-[#d5cbbe] text-[#526068]'
                       }`}
                   >
@@ -583,7 +583,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                     setActiveStep(4);
                     onNavigateToCoach?.();
                   }}
-                  className={`text-xs pl-1 shrink-0 transition-colors ${activeStep === 4 ? 'text-[#1b6b50] font-bold' : 'text-[#798790]'
+                  className={`text-xs pl-1 shrink-0 transition-colors ${activeStep === 4 ? 'text-[#356F58] font-bold' : 'text-[#798790]'
                     }`}
                 >
                   ›
@@ -615,7 +615,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                   >
                     {/* Rounded Green Outline Checkbox matching screenshot */}
                     <div
-                      className={`flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-[3px] border-[1.5px] transition-colors ${todo.done ? 'border-[#1b6b50] bg-[#1b6b50] text-white' : 'border-[#2d7a5c] bg-white'
+                      className={`flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-[3px] border-[1.5px] transition-colors ${todo.done ? 'border-[#356F58] bg-[#356F58] text-white' : 'border-[#356F58] bg-white'
                         }`}
                     >
                       {todo.done && (
@@ -645,14 +645,14 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                 <input
                   type="text"
                   placeholder="Enter task name..."
-                  className="w-full rounded-lg border border-[#dcd3c4] bg-white px-2.5 py-1.5 text-[11px] text-[#1e282d] focus:border-[#1b6b50] focus:outline-hidden"
+                  className="w-full rounded-lg border border-[#dcd3c4] bg-white px-2.5 py-1.5 text-[11px] text-[#1e282d] focus:border-[#356F58] focus:outline-hidden"
                   value={newTaskText}
                   onChange={(e) => setNewTaskText(e.target.value)}
                   autoFocus
                 />
                 <button
                   type="submit"
-                  className="rounded-lg bg-[#1b6b50] px-2.5 py-1.5 text-[11px] font-semibold text-white cursor-pointer"
+                  className="rounded-lg bg-[#356F58] px-2.5 py-1.5 text-[11px] font-semibold text-white cursor-pointer"
                 >
                   Add
                 </button>
@@ -668,7 +668,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
               <button
                 type="button"
                 onClick={() => setIsAddingTask(true)}
-                className="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-[#1e282d] hover:text-[#1b6b50] transition-colors cursor-pointer"
+                className="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-[#1e282d] hover:text-[#356F58] transition-colors cursor-pointer"
               >
                 <span>+</span>
                 <span>Add a task...</span>
@@ -735,16 +735,16 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                       : 'hover:bg-[#faf5eb]'
                       }`}
                   >
-                    <span className={`block text-[9px] mb-0.5 transition-colors ${isSelected ? 'font-bold text-[#1b6b50]' : 'text-[#798790]'
+                    <span className={`block text-[9px] mb-0.5 transition-colors ${isSelected ? 'font-bold text-[#356F58]' : 'text-[#798790]'
                       }`}>
                       {d.day}
                     </span>
                     {isSelected ? (
-                      <span className="flex h-5 w-5 items-center justify-center rounded-md bg-[#1b6b50] text-[10px] font-bold text-white shadow-2xs">
+                      <span className="flex h-5 w-5 items-center justify-center rounded-md bg-[#356F58] text-[10px] font-bold text-white shadow-2xs">
                         {d.date}
                       </span>
                     ) : (
-                      <span className="flex h-5 w-5 items-center justify-center text-[11px] font-semibold text-[#172b30] hover:text-[#1b6b50]">
+                      <span className="flex h-5 w-5 items-center justify-center text-[11px] font-semibold text-[#172b30] hover:text-[#356F58]">
                         {d.date}
                       </span>
                     )}

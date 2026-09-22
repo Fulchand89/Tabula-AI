@@ -87,7 +87,7 @@ export default function StudentCurriculumTab({
           <button
             type="button"
             onClick={handleOpenAdd}
-            className="inline-flex items-center gap-1.5 rounded-full border-2 border-dashed border-[#1b6b50] bg-transparent px-3.5 py-1 text-[11px] font-bold text-[#1b6b50] hover:bg-[#edf5f0] transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 rounded-full border-2 border-dashed border-[#356F58] bg-transparent px-3.5 py-1 text-[11px] font-bold text-[#356F58] hover:bg-[#edf5f0] transition-colors cursor-pointer"
           >
             + Add another
           </button>
@@ -159,7 +159,7 @@ export default function StudentCurriculumTab({
             <button
               type="button"
               onClick={handleOpenAdd}
-              className="mt-2.5 inline-flex items-center gap-1.5 rounded-full bg-[#1b6b50] px-3.5 py-1 text-[11px] font-bold text-white shadow-2xs hover:bg-[#14553f] transition-colors cursor-pointer"
+              className="mt-2.5 inline-flex items-center gap-1.5 rounded-full bg-[#356F58] px-3.5 py-1 text-[11px] font-bold text-white shadow-2xs hover:bg-[#2a5946] transition-colors cursor-pointer"
             >
               + Add {cleanSubject} Curriculum
             </button>
@@ -197,10 +197,10 @@ export default function StudentCurriculumTab({
               onClick={() => setSelectedSubject?.(subject)}
               className={`rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-all cursor-pointer ${
                 isSelected
-                  ? 'border-transparent bg-[#1b6b50] text-white shadow-2xs'
+                  ? 'border-transparent bg-[#356F58] text-white shadow-2xs'
                   : hasCurriculum
-                  ? 'border-[#1b6b50] bg-[#f0faf5] text-[#1b6b50] hover:bg-[#e4f4ec]'
-                  : 'border-[#d5cbbe] bg-white text-[#1e282d] hover:border-[#1b6b50] hover:text-[#1b6b50]'
+                  ? 'border-[#356F58] bg-[#f0faf5] text-[#356F58] hover:bg-[#e4f4ec]'
+                  : 'border-[#d5cbbe] bg-white text-[#1e282d] hover:border-[#356F58] hover:text-[#356F58]'
               }`}
             >
               {hasCurriculum && !subject.startsWith('+') ? `+ ${subject}` : subject}

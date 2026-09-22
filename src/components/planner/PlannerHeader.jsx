@@ -16,7 +16,7 @@ export default function PlannerHeader({ onBackToHome, onUpgradeClick }) {
         <button
           type="button"
           onClick={onUpgradeClick}
-          className="rounded-md border border-[#bac7bf] bg-white/80 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#184635] hover:bg-white transition-colors shadow-2xs cursor-pointer"
+          className="rounded-md border border-[#bac7bf] bg-white/80 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#356F58] hover:bg-white transition-colors shadow-2xs cursor-pointer"
         >
           Upgrade →
         </button>

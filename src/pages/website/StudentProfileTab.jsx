@@ -40,7 +40,7 @@ export default function StudentProfileTab({
                 height="22"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#235c46"
+                stroke="#356F58"
                 strokeWidth="1.8"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -90,7 +90,7 @@ export default function StudentProfileTab({
                       }}
                       className={`flex w-full items-center px-4 py-2 text-left text-xs font-medium transition-colors cursor-pointer ${
                         selectedGrade === grade
-                          ? 'bg-[#edf5f0] text-[#1b6b50] font-bold'
+                          ? 'bg-[#edf5f0] text-[#356F58] font-bold'
                           : 'text-[#1e282d] hover:bg-[#faf5eb]'
                       }`}
                     >
@@ -114,7 +114,7 @@ export default function StudentProfileTab({
                 height="22"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#235c46"
+                stroke="#356F58"
                 strokeWidth="1.8"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -143,10 +143,10 @@ export default function StudentProfileTab({
                   onChange={(e) => setBirthDate?.(formatDateInput(e.target.value))}
                   placeholder="DD/MM/YYYY (e.g. 12/05/2002)"
                   maxLength={10}
-                  className="w-full rounded-xl border border-[#d5dcd8] bg-white px-4 py-3 pr-11 text-sm text-[#16272b] placeholder-[#819097] focus:border-[#1b6b50] focus:outline-none transition-colors"
+                  className="w-full rounded-xl border border-[#d5dcd8] bg-white px-4 py-3 pr-11 text-sm text-[#16272b] placeholder-[#819097] focus:border-[#356F58] focus:outline-none transition-colors"
                 />
                 <label
-                  className="absolute right-3 cursor-pointer text-[#526068] hover:text-[#1b6b50] transition-colors p-1"
+                  className="absolute right-3 cursor-pointer text-[#526068] hover:text-[#356F58] transition-colors p-1"
                   title="Choose date from calendar"
                 >
                   <svg
@@ -191,7 +191,7 @@ export default function StudentProfileTab({
                 height="22"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#235c46"
+                stroke="#356F58"
                 strokeWidth="1.8"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -212,7 +212,7 @@ export default function StudentProfileTab({
                 onChange={(e) => setInterests(e.target.value)}
                 placeholder="e.g. animals, space, art, building, stories..."
                 rows={2}
-                className="w-full rounded-xl border border-[#d5dcd8] bg-white px-4 py-3 text-sm text-[#16272b] placeholder-[#819097] focus:border-[#1b6b50] focus:outline-none transition-colors resize-none h-[82px]"
+                className="w-full rounded-xl border border-[#d5dcd8] bg-white px-4 py-3 text-sm text-[#16272b] placeholder-[#819097] focus:border-[#356F58] focus:outline-none transition-colors resize-none h-[82px]"
               />
             </div>
           </div>
@@ -232,8 +232,8 @@ export default function StudentProfileTab({
               onClick={() => toggleStrength(item.id)}
               className={`rounded-full px-4 py-2 text-xs transition-all cursor-pointer ${
                 item.active
-                  ? 'border border-transparent bg-[#1b5e43] text-white font-semibold shadow-2xs'
-                  : 'border border-[#d0c8b8] bg-white text-[#2a3a3f] font-medium hover:border-[#1b5e43]'
+                  ? 'border border-transparent bg-[#356F58] text-white font-semibold shadow-2xs'
+                  : 'border border-[#d0c8b8] bg-white text-[#2a3a3f] font-medium hover:border-[#356F58]'
               }`}
             >
               {item.active ? `+ ${item.label}` : item.label}
@@ -255,8 +255,8 @@ export default function StudentProfileTab({
               onClick={() => toggleChallenge(item.id)}
               className={`rounded-full px-4 py-2 text-xs transition-all cursor-pointer ${
                 item.active
-                  ? 'border border-transparent bg-[#1b5e43] text-white font-semibold shadow-2xs'
-                  : 'border border-[#d0c8b8] bg-white text-[#2a3a3f] font-medium hover:border-[#1b5e43]'
+                  ? 'border border-transparent bg-[#356F58] text-white font-semibold shadow-2xs'
+                  : 'border border-[#d0c8b8] bg-white text-[#2a3a3f] font-medium hover:border-[#356F58]'
               }`}
             >
               {item.active ? `+ ${item.label}` : item.label}
@@ -271,7 +271,7 @@ export default function StudentProfileTab({
           <button
             type="button"
             onClick={onSaveAndGoToCurriculum}
-            className="w-full rounded-xl bg-[#1b6b50] py-3 text-xs font-bold text-white shadow-sm hover:bg-[#14553f] transition-colors cursor-pointer flex items-center justify-center gap-2"
+            className="w-full rounded-xl bg-[#356F58] py-3 text-xs font-bold text-white shadow-sm hover:bg-[#2a5946] transition-colors cursor-pointer flex items-center justify-center gap-2"
           >
             <span>Save Profile & Go to Curriculum</span>
             <span>→</span>

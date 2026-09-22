@@ -196,7 +196,7 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
         <button
           type="button"
           onClick={onUpgradeClick}
-          className="rounded-md border border-[#bac7bf] bg-white/70 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#184635] hover:bg-white transition-colors shadow-2xs cursor-pointer"
+          className="rounded-md border border-[#bac7bf] bg-white/70 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#356F58] hover:bg-white transition-colors shadow-2xs cursor-pointer"
         >
           Upgrade →
         </button>
@@ -241,7 +241,7 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
               setActiveTab(tab.id);
             }}
             className={`flex-1 rounded-full py-1.5 text-xs font-bold transition-all cursor-pointer ${activeTab === tab.id
-                ? 'bg-gradient-to-r from-[#147948] to-[#126a3f] text-white shadow-xs'
+                ? 'bg-[#356F58] text-white shadow-xs'
                 : 'text-[#23353b] hover:text-[#16272b]'
               }`}
           >
@@ -366,7 +366,7 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
                   name="title"
                   placeholder="e.g. Chapter 3 Review, Watercolor Painting"
                   required
-                  className="w-full rounded-xl border border-[#d5dcd8] px-3.5 py-2.5 text-sm focus:border-[#147948] focus:outline-none"
+                  className="w-full rounded-xl border border-[#d5dcd8] px-3.5 py-2.5 text-sm focus:border-[#356F58] focus:outline-none"
                 />
               </div>
 
@@ -374,7 +374,7 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
                 <label className="block text-xs font-bold text-[#16272b] mb-1">Subject</label>
                 <select
                   name="subject"
-                  className="w-full rounded-xl border border-[#d5dcd8] px-3.5 py-2.5 text-sm focus:border-[#147948] focus:outline-none bg-white"
+                  className="w-full rounded-xl border border-[#d5dcd8] px-3.5 py-2.5 text-sm focus:border-[#356F58] focus:outline-none bg-white"
                 >
                   <option>Math</option>
                   <option>Language Arts</option>
@@ -394,7 +394,7 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
                 </button>
                 <button
                   type="submit"
-                  className="rounded-xl bg-[#147948] px-4 py-2 text-xs font-bold text-white hover:bg-[#126a3f] cursor-pointer shadow-xs"
+                  className="rounded-xl bg-[#356F58] px-4 py-2 text-xs font-bold text-white hover:bg-[#2a5946] cursor-pointer shadow-xs"
                 >
                   Save Sample
                 </button>

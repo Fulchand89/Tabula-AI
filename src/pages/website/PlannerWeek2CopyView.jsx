@@ -61,7 +61,7 @@ export default function PlannerWeek2CopyView({
         <button
           type="button"
           onClick={onUpgradeClick}
-          className="rounded-md border border-[#bac7bf] bg-white/70 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#184635] hover:bg-white transition-colors shadow-2xs cursor-pointer"
+          className="rounded-md border border-[#bac7bf] bg-white/70 px-2.5 py-0.5 text-[10.5px] font-semibold text-[#356F58] hover:bg-white transition-colors shadow-2xs cursor-pointer"
         >
           Upgrade →
         </button>
@@ -133,7 +133,7 @@ export default function PlannerWeek2CopyView({
           type="button"
           onClick={() => setSelectedStudent('student-1')}
           className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${selectedStudent === 'student-1'
-              ? 'border-2 border-[#185842] bg-[#f0f6f3] text-[#185842] font-bold'
+              ? 'border-2 border-[#356F58] bg-[#f0f6f3] text-[#356F58] font-bold'
               : 'border border-[#cf805d] bg-[#fbf6f1] text-[#ba6644] hover:bg-[#f7ece4]'
             }`}
         >
@@ -144,7 +144,7 @@ export default function PlannerWeek2CopyView({
           type="button"
           onClick={() => setSelectedStudent('student-2')}
           className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${selectedStudent === 'student-2'
-              ? 'border-2 border-[#185842] bg-[#f0f6f3] text-[#185842] font-bold'
+              ? 'border-2 border-[#356F58] bg-[#f0f6f3] text-[#356F58] font-bold'
               : 'border border-[#cf805d] bg-[#fbf6f1] text-[#ba6644] hover:bg-[#f7ece4]'
             }`}
         >
@@ -157,7 +157,7 @@ export default function PlannerWeek2CopyView({
           ================================================================ */}
       <div className="mb-6 flex items-center gap-4">
         <div className="flex-1 h-2 rounded-full bg-[#e6dfd4] overflow-hidden">
-          <div className="h-full rounded-full bg-[#185842]" style={{ width: '0%' }} />
+          <div className="h-full rounded-full bg-[#356F58]" style={{ width: '0%' }} />
         </div>
         <span className="text-xs font-semibold text-[#526068] shrink-0">
           0/0 done
@@ -205,7 +205,7 @@ export default function PlannerWeek2CopyView({
           <button
             type="button"
             onClick={onCopySchedule}
-            className="flex-1 rounded-xl bg-[#167846] py-3 px-5 text-center text-xs sm:text-sm font-bold text-white hover:bg-[#12643a] transition-all cursor-pointer shadow-md flex items-center justify-center gap-1.5"
+            className="flex-1 rounded-xl bg-[#356F58] py-3 px-5 text-center text-xs sm:text-sm font-bold text-white hover:bg-[#2a5946] transition-all cursor-pointer shadow-md flex items-center justify-center gap-1.5"
           >
             <span>Copy Schedule + Notes</span>
             <span>→</span>
@@ -262,7 +262,7 @@ export default function PlannerWeek2CopyView({
             <button
               key={subject}
               type="button"
-              className="rounded-full border border-[#d5cbbe] bg-white px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-[13px] font-medium text-[#2d3f45] shadow-2xs hover:bg-[#faf5eb] hover:border-[#185842] transition-colors cursor-pointer"
+              className="rounded-full border border-[#d5cbbe] bg-white px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-[13px] font-medium text-[#2d3f45] shadow-2xs hover:bg-[#faf5eb] hover:border-[#356F58] transition-colors cursor-pointer"
             >
               {subject}
             </button>

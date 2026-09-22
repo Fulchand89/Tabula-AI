@@ -81,7 +81,7 @@ export default function PlannerAssignmentCard({
             type="button"
             onClick={() => onToggleDone?.(item.id)}
             className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 transition-colors cursor-pointer ${item.done
-                ? 'border-[#185842] bg-[#185842] text-white'
+                ? 'border-[#356F58] bg-[#356F58] text-white'
                 : `${item.circleBorder || 'border-[#ba704f]'} bg-transparent hover:bg-[#fff6f0]`
               }`}
             aria-label="Mark task complete"

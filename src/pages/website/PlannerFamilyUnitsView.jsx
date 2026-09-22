@@ -100,7 +100,7 @@ export default function PlannerFamilyUnitsView({
             value={currentSharedTopic}
             onChange={handleSharedTopicChange}
             placeholder="e.g. Ancient Egypt, Water Cycle, American Revolution..."
-            className="w-full rounded-xl border border-[#d5cdc0] bg-white px-4 py-3 text-xs sm:text-sm text-[#172b30] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-none transition-colors"
+            className="w-full rounded-xl border border-[#d5cdc0] bg-white px-4 py-3 text-xs sm:text-sm text-[#172b30] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-none transition-colors"
           />
           <p className="mt-2 text-xs text-[#526068] leading-relaxed">
             Use this for subjects you teach together. Each child still has their own independent assignments below.
@@ -150,7 +150,7 @@ export default function PlannerFamilyUnitsView({
               <button
                 type="button"
                 onClick={() => onEditStudentPlan?.(2)}
-                className="w-full rounded-xl border border-dashed border-[#1b6b50] bg-transparent py-2 px-3 text-xs font-bold text-[#1b6b50] hover:bg-[#f2f9f6] transition-all cursor-pointer text-center"
+                className="w-full rounded-xl border border-dashed border-[#356F58] bg-transparent py-2 px-3 text-xs font-bold text-[#356F58] hover:bg-[#f2f9f6] transition-all cursor-pointer text-center"
               >
                 Edit Student 2's plan →
               </button>

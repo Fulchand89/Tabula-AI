@@ -41,7 +41,7 @@ export default function PrivacySettingsView({ onBackToHome }) {
     <div className="mx-auto w-full max-w-[640px] pb-32 pt-4 px-3.5 sm:px-4 transition-all">
       {/* Saved Toast Notification */}
       {savedNotification && (
-        <div className="fixed top-20 right-6 z-50 flex items-center gap-2 rounded-xl bg-[#147948] px-4 py-3 text-xs font-bold text-white shadow-xl animate-fade-in">
+        <div className="fixed top-20 right-6 z-50 flex items-center gap-2 rounded-xl bg-[#356F58] px-4 py-3 text-xs font-bold text-white shadow-xl animate-fade-in">
           <span>✓</span>
           <span>Privacy settings saved successfully!</span>
         </div>
@@ -84,7 +84,7 @@ export default function PrivacySettingsView({ onBackToHome }) {
           <div className="space-y-3.5">
             {/* Bullet 1 */}
             <div className="flex items-start gap-3">
-              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#156c47] text-white text-[11px] font-bold mt-0.5 shadow-2xs">
+              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-white text-[11px] font-bold mt-0.5 shadow-2xs">
                 ✓
               </div>
               <p className="text-xs sm:text-[13.5px] font-semibold text-[#16272b] leading-relaxed">
@@ -94,7 +94,7 @@ export default function PrivacySettingsView({ onBackToHome }) {
 
             {/* Bullet 2 */}
             <div className="flex items-start gap-3">
-              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#156c47] text-white text-[11px] font-bold mt-0.5 shadow-2xs">
+              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-white text-[11px] font-bold mt-0.5 shadow-2xs">
                 ✓
               </div>
               <p className="text-xs sm:text-[13.5px] font-semibold text-[#16272b] leading-relaxed">
@@ -104,7 +104,7 @@ export default function PrivacySettingsView({ onBackToHome }) {
 
             {/* Bullet 3 */}
             <div className="flex items-start gap-3">
-              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#156c47] text-white text-[11px] font-bold mt-0.5 shadow-2xs">
+              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-white text-[11px] font-bold mt-0.5 shadow-2xs">
                 ✓
               </div>
               <p className="text-xs sm:text-[13.5px] font-semibold text-[#16272b] leading-relaxed">
@@ -114,7 +114,7 @@ export default function PrivacySettingsView({ onBackToHome }) {
 
             {/* Bullet 4 */}
             <div className="flex items-start gap-3">
-              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#156c47] text-white text-[11px] font-bold mt-0.5 shadow-2xs">
+              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-white text-[11px] font-bold mt-0.5 shadow-2xs">
                 ✓
               </div>
               <p className="text-xs sm:text-[13.5px] font-semibold text-[#16272b] leading-relaxed">
@@ -139,7 +139,7 @@ export default function PrivacySettingsView({ onBackToHome }) {
             {/* Toggle 1: Teaching philosophy & faith tradition */}
             <div className="rounded-2xl border border-[#e8dfd3] bg-white p-4 flex items-center justify-between shadow-2xs">
               <div className="flex items-center gap-3.5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#edf5f0] text-[#1b6b50]">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#edf5f0] text-[#356F58]">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
                     <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
@@ -158,7 +158,7 @@ export default function PrivacySettingsView({ onBackToHome }) {
               <button
                 type="button"
                 onClick={() => toggleSetting('teachingPhilosophy')}
-                className={`relative inline-flex h-6.5 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${toggles.teachingPhilosophy ? 'bg-[#156c47]' : 'bg-[#d0c8b8]'
+                className={`relative inline-flex h-6.5 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${toggles.teachingPhilosophy ? 'bg-[#356F58]' : 'bg-[#d0c8b8]'
                   }`}
                 aria-label="Toggle Teaching philosophy & faith tradition"
               >
@@ -172,7 +172,7 @@ export default function PrivacySettingsView({ onBackToHome }) {
             {/* Toggle 2: Student names */}
             <div className="rounded-2xl border border-[#e8dfd3] bg-white p-4 flex items-center justify-between shadow-2xs">
               <div className="flex items-center gap-3.5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#edf5f0] text-[#1b6b50]">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#edf5f0] text-[#356F58]">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                     <circle cx="9" cy="7" r="4" />
@@ -192,7 +192,7 @@ export default function PrivacySettingsView({ onBackToHome }) {
               <button
                 type="button"
                 onClick={() => toggleSetting('studentNames')}
-                className={`relative inline-flex h-6.5 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${toggles.studentNames ? 'bg-[#156c47]' : 'bg-[#d0c8b8]'
+                className={`relative inline-flex h-6.5 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${toggles.studentNames ? 'bg-[#356F58]' : 'bg-[#d0c8b8]'
                   }`}
                 aria-label="Toggle Student names"
               >
@@ -206,7 +206,7 @@ export default function PrivacySettingsView({ onBackToHome }) {
             {/* Toggle 3: Learning strengths & challenges */}
             <div className="rounded-2xl border border-[#e8dfd3] bg-white p-4 flex items-center justify-between shadow-2xs">
               <div className="flex items-center gap-3.5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#edf5f0] text-[#1b6b50]">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#edf5f0] text-[#356F58]">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="18" y1="20" x2="18" y2="10" />
                     <line x1="12" y1="20" x2="12" y2="4" />
@@ -225,7 +225,7 @@ export default function PrivacySettingsView({ onBackToHome }) {
               <button
                 type="button"
                 onClick={() => toggleSetting('learningStrengths')}
-                className={`relative inline-flex h-6.5 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${toggles.learningStrengths ? 'bg-[#156c47]' : 'bg-[#d0c8b8]'
+                className={`relative inline-flex h-6.5 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${toggles.learningStrengths ? 'bg-[#356F58]' : 'bg-[#d0c8b8]'
                   }`}
                 aria-label="Toggle Learning strengths & challenges"
               >
@@ -239,7 +239,7 @@ export default function PrivacySettingsView({ onBackToHome }) {
             {/* Toggle 4: Curriculum resources & pacing */}
             <div className="rounded-2xl border border-[#e8dfd3] bg-white p-4 flex items-center justify-between shadow-2xs">
               <div className="flex items-center gap-3.5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#edf5f0] text-[#1b6b50]">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#edf5f0] text-[#356F58]">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                     <polyline points="14 2 14 8 20 8" />
@@ -260,7 +260,7 @@ export default function PrivacySettingsView({ onBackToHome }) {
               <button
                 type="button"
                 onClick={() => toggleSetting('curriculumResources')}
-                className={`relative inline-flex h-6.5 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${toggles.curriculumResources ? 'bg-[#156c47]' : 'bg-[#d0c8b8]'
+                className={`relative inline-flex h-6.5 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${toggles.curriculumResources ? 'bg-[#356F58]' : 'bg-[#d0c8b8]'
                   }`}
                 aria-label="Toggle Curriculum resources & pacing"
               >
@@ -274,7 +274,7 @@ export default function PrivacySettingsView({ onBackToHome }) {
             {/* Toggle 5: Weekly schedule & assignments */}
             <div className="rounded-2xl border border-[#e8dfd3] bg-white p-4 flex items-center justify-between shadow-2xs">
               <div className="flex items-center gap-3.5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#edf5f0] text-[#1b6b50]">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#edf5f0] text-[#356F58]">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                     <line x1="16" y1="2" x2="16" y2="6" />
@@ -294,7 +294,7 @@ export default function PrivacySettingsView({ onBackToHome }) {
               <button
                 type="button"
                 onClick={() => toggleSetting('weeklySchedule')}
-                className={`relative inline-flex h-6.5 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${toggles.weeklySchedule ? 'bg-[#156c47]' : 'bg-[#d0c8b8]'
+                className={`relative inline-flex h-6.5 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${toggles.weeklySchedule ? 'bg-[#356F58]' : 'bg-[#d0c8b8]'
                   }`}
                 aria-label="Toggle Weekly schedule & assignments"
               >
@@ -319,7 +319,7 @@ export default function PrivacySettingsView({ onBackToHome }) {
             {/* Row 1: All data stored on this device */}
             <div className="p-4 flex items-center justify-between">
               <div className="flex items-center gap-3.5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#edf5f0] text-[#1b6b50]">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#edf5f0] text-[#356F58]">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <ellipse cx="12" cy="5" rx="9" ry="3" />
                     <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
@@ -387,7 +387,7 @@ export default function PrivacySettingsView({ onBackToHome }) {
         <button
           type="button"
           onClick={handleSave}
-          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#147948] hover:bg-[#11623a] active:scale-[0.99] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-md transition-all cursor-pointer"
+          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#356F58] hover:bg-[#2a5946] active:scale-[0.99] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-md transition-all cursor-pointer"
         >
           <span>Save Privacy Settings</span>
           <span>→</span>

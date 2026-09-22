@@ -295,7 +295,7 @@ export default function AppShell({
             <div className="mt-4 flex justify-end">
               <button
                 onClick={() => setIsAccountModalOpen(false)}
-                className="rounded-lg bg-[#1b6b50] px-4 py-2 text-xs font-semibold text-white"
+                className="rounded-lg bg-[#356F58] px-4 py-2 text-xs font-semibold text-white"
               >
                 Close
               </button>
@@ -313,7 +313,7 @@ export default function AppShell({
             <div className="mt-4 flex justify-end">
               <button
                 onClick={() => setIsPrivacyModalOpen(false)}
-                className="rounded-lg bg-[#1b6b50] px-4 py-2 text-xs font-semibold text-white"
+                className="rounded-lg bg-[#356F58] px-4 py-2 text-xs font-semibold text-white"
               >
                 Close
               </button>

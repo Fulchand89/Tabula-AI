@@ -33,8 +33,8 @@ function FilterChip({ label, active, onClick }) {
     type="button"
     onClick={onClick}
     className={`rounded-full px-3 py-1 text-[11.5px] font-semibold transition-all cursor-pointer border ${active
-        ? 'bg-[#1b6b50] text-white border-[#1b6b50] shadow-sm hover:bg-[#14553f] active:scale-[0.99]'
-        : 'bg-white text-[#37474c] border-[#ddd6c8] hover:border-[#1b6b50] hover:text-[#1b6b50] hover:bg-[#f7faf8] active:scale-[0.99]'
+        ? 'bg-[#356F58] text-white border-[#356F58] shadow-sm hover:bg-[#2a5946] active:scale-[0.99]'
+        : 'bg-white text-[#37474c] border-[#ddd6c8] hover:border-[#356F58] hover:text-[#356F58] hover:bg-[#f7faf8] active:scale-[0.99]'
       }`}
   >
     {label}
@@ -45,9 +45,9 @@ function FilterChip({ label, active, onClick }) {
 function TagBadge({ label }) {
   const colors = {
     'Virtual': 'bg-[#e8f5ff] text-[#1565c0] border-[#bcd8f5]',
-    'Parent-Led': 'bg-[#f0faf5] text-[#1b6b50] border-[#b2ddc8]',
+    'Parent-Led': 'bg-[#f0faf5] text-[#356F58] border-[#b2ddc8]',
     'Both': 'bg-[#fdf5e6] text-[#b06904] border-[#f0d8a0]',
-    'Free': 'bg-[#f0faf5] text-[#1b6b50] border-[#b2ddc8]',
+    'Free': 'bg-[#f0faf5] text-[#356F58] border-[#b2ddc8]',
     'Christian': 'bg-[#f5f0fb] text-[#6d28d9] border-[#ddd0f5]',
     'Catholic': 'bg-[#f5f0fb] text-[#6d28d9] border-[#ddd0f5]',
   };
@@ -120,7 +120,7 @@ function EmptyState({ onClear }) {
       <button
         type="button"
         onClick={onClear}
-        className="mt-4 rounded-lg bg-[#1b6b50] px-5 py-2 text-xs font-semibold text-white hover:bg-[#14553f] transition-colors cursor-pointer"
+        className="mt-4 rounded-lg bg-[#356F58] px-5 py-2 text-xs font-semibold text-white hover:bg-[#2a5946] transition-colors cursor-pointer"
       >
         Clear all filters
       </button>
@@ -247,11 +247,11 @@ export default function ResourceDirectoryView({ searchQuery, onSearchChange }) {
             type="button"
             onClick={() => setFreeOnly((v) => !v)}
             className={`flex items-center gap-1.5 rounded-full border px-3 py-1 text-[11.5px] font-semibold transition-all cursor-pointer ${freeOnly
-                ? 'bg-[#1b6b50] text-white border-[#1b6b50]'
-                : 'bg-white text-[#37474c] border-[#ddd6c8] hover:border-[#1b6b50]'
+                ? 'bg-[#356F58] text-white border-[#356F58]'
+                : 'bg-white text-[#37474c] border-[#ddd6c8] hover:border-[#356F58]'
               }`}
           >
-            <span className={freeOnly ? 'text-white' : 'text-[#1b6b50]'}>✓</span>
+            <span className={freeOnly ? 'text-white' : 'text-[#356F58]'}>✓</span>
             Free only
           </button>
           <span className="text-[11.5px] font-semibold text-[#526068]">

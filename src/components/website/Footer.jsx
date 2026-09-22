@@ -30,7 +30,7 @@ export default function Footer({
         <button
           type="button"
           onClick={() => handleClick('home')}
-          className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${activeNav === 'home' ? 'text-[#156c47] font-bold' : 'text-[#203136] hover:text-[#156c47]'
+          className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${activeNav === 'home' ? 'text-[#356F58] font-bold' : 'text-[#203136] hover:text-[#356F58]'
             }`}
         >
           <div className="flex h-6 w-6 items-center justify-center">
@@ -42,7 +42,7 @@ export default function Footer({
           </div>
           <span className="text-[11px] font-medium leading-none">Home</span>
           {activeNav === 'home' && (
-            <span className="h-[3px] w-5 rounded-full bg-[#156c47] mt-0.5" />
+            <span className="h-[3px] w-5 rounded-full bg-[#356F58] mt-0.5" />
           )}
         </button>
 
@@ -50,7 +50,7 @@ export default function Footer({
         <button
           type="button"
           onClick={() => handleClick('students')}
-          className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${isStudentsActive ? 'text-[#156c47]' : 'text-[#203136] hover:text-[#156c47]'
+          className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${isStudentsActive ? 'text-[#356F58]' : 'text-[#203136] hover:text-[#356F58]'
             }`}
         >
           <div className="flex h-6 w-6 items-center justify-center">
@@ -62,7 +62,7 @@ export default function Footer({
           </div>
           <span className={`text-[11px] leading-none ${isStudentsActive ? 'font-bold' : 'font-medium'}`}>Students</span>
           {isStudentsActive && (
-            <span className="h-[3px] w-5 rounded-full bg-[#156c47] mt-0.5" />
+            <span className="h-[3px] w-5 rounded-full bg-[#356F58] mt-0.5" />
           )}
         </button>
 
@@ -70,7 +70,7 @@ export default function Footer({
         <button
           type="button"
           onClick={() => handleClick('planner')}
-          className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${activeNav === 'planner' ? 'text-[#156c47]' : 'text-[#203136] hover:text-[#156c47]'
+          className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${activeNav === 'planner' ? 'text-[#356F58]' : 'text-[#203136] hover:text-[#356F58]'
             }`}
         >
           <div className="flex h-6 w-6 items-center justify-center">
@@ -89,7 +89,7 @@ export default function Footer({
           </div>
           <span className={`text-[11px] leading-none ${activeNav === 'planner' ? 'font-bold' : 'font-medium'}`}>Planner</span>
           {activeNav === 'planner' && (
-            <span className="h-[3px] w-5 rounded-full bg-[#156c47] mt-0.5" />
+            <span className="h-[3px] w-5 rounded-full bg-[#356F58] mt-0.5" />
           )}
         </button>
 
@@ -97,7 +97,7 @@ export default function Footer({
         <button
           type="button"
           onClick={() => handleClick('coach')}
-          className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${activeNav === 'coach' ? 'text-[#156c47]' : 'text-[#203136] hover:text-[#156c47]'
+          className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${activeNav === 'coach' ? 'text-[#356F58]' : 'text-[#203136] hover:text-[#356F58]'
             }`}
         >
           <div className="flex h-6 w-6 items-center justify-center">
@@ -109,7 +109,7 @@ export default function Footer({
           </div>
           <span className={`text-[11px] leading-none ${activeNav === 'coach' ? 'font-bold' : 'font-medium'}`}>Coach</span>
           {activeNav === 'coach' && (
-            <span className="h-[3px] w-5 rounded-full bg-[#156c47] mt-0.5" />
+            <span className="h-[3px] w-5 rounded-full bg-[#356F58] mt-0.5" />
           )}
         </button>
 
@@ -117,7 +117,7 @@ export default function Footer({
         <button
           type="button"
           onClick={() => handleClick('resources')}
-          className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${activeNav === 'resources' ? 'text-[#156c47]' : 'text-[#203136] hover:text-[#156c47]'
+          className={`flex flex-col items-center gap-1 transition-all cursor-pointer ${activeNav === 'resources' ? 'text-[#356F58]' : 'text-[#203136] hover:text-[#356F58]'
             }`}
         >
           <div className="flex h-6 w-6 items-center justify-center">
@@ -129,7 +129,7 @@ export default function Footer({
           </div>
           <span className={`text-[11px] leading-none ${activeNav === 'resources' ? 'font-bold' : 'font-medium'}`}>Resources</span>
           {activeNav === 'resources' && (
-            <span className="h-[3px] w-5 rounded-full bg-[#156c47] mt-0.5" />
+            <span className="h-[3px] w-5 rounded-full bg-[#356F58] mt-0.5" />
           )}
         </button>
       </div>

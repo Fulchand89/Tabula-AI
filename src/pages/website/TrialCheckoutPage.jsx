@@ -93,7 +93,7 @@ export default function TrialCheckoutPage({
       <div className="w-full max-w-[640px] bg-[#faf7f0] border border-[#ded5c7] shadow-sm px-5 sm:px-8 py-8 sm:py-10">
         {isSuccess ? (
           <div className="py-12 text-center">
-            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#1b6b50] text-2xl text-white shadow-sm">
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#356F58] text-2xl text-white shadow-sm">
               ✓
             </div>
 
@@ -107,7 +107,7 @@ export default function TrialCheckoutPage({
 
             <button
               type="button"
-              className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-[#1b6b50] px-7 py-3 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-[#14553f] transition-colors cursor-pointer"
+              className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-[#356F58] px-7 py-3 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-[#2a5946] transition-colors cursor-pointer"
               onClick={onCompleteTrial || onBack}
             >
               <span>Go to Dashboard</span>
@@ -168,7 +168,7 @@ export default function TrialCheckoutPage({
                     key={item}
                     className="flex items-center gap-2.5 text-xs sm:text-[13px] text-[#ba633f] font-medium"
                   >
-                    <span className="flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full bg-[#1b6b50] text-white">
+                    <span className="flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-white">
                       <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
                         <polyline
                           points="2,6 5,9 10,3"
@@ -196,8 +196,8 @@ export default function TrialCheckoutPage({
                 <div
                   onClick={() => setSelectedPlan('monthly')}
                   className={`rounded-2xl border p-4 sm:p-5 flex items-center justify-between cursor-pointer transition-all bg-white ${selectedPlan === 'monthly'
-                      ? 'border-2 border-[#1b6b50] shadow-xs'
-                      : 'border-[#e9e2d5] hover:border-[#ba633f] shadow-2xs'
+                    ? 'border-2 border-[#356F58] shadow-xs'
+                    : 'border-[#e9e2d5] hover:border-[#ba633f] shadow-2xs'
                     }`}
                 >
                   <div>
@@ -205,7 +205,7 @@ export default function TrialCheckoutPage({
                       Monthly
                     </h4>
                     {/* Click/Select par Green, warna Red */}
-                    <div className={`text-xl sm:text-2xl font-bold mt-0.5 transition-colors ${selectedPlan === 'monthly' ? 'text-[#1b6b50]' : 'text-red-600'
+                    <div className={`text-xl sm:text-2xl font-bold mt-0.5 transition-colors ${selectedPlan === 'monthly' ? 'text-[#356F58]' : 'text-red-600'
                       }`}>
                       $8/mo
                     </div>
@@ -214,9 +214,9 @@ export default function TrialCheckoutPage({
                     </div>
                   </div>
 
-                  <div className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-[#1b6b50]">
+                  <div className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-[#356F58]">
                     {selectedPlan === 'monthly' && (
-                      <div className="h-2.5 w-2.5 rounded-full bg-[#1b6b50]" />
+                      <div className="h-2.5 w-2.5 rounded-full bg-[#356F58]" />
                     )}
                   </div>
                 </div>
@@ -225,8 +225,8 @@ export default function TrialCheckoutPage({
                 <div
                   onClick={() => setSelectedPlan('annual')}
                   className={`relative rounded-2xl border p-4 sm:p-5 flex items-center justify-between cursor-pointer transition-all bg-white ${selectedPlan === 'annual'
-                      ? 'border-2 border-[#1b6b50] shadow-xs'
-                      : 'border-[#e9e2d5] hover:border-[#1b6b50] shadow-2xs'
+                    ? 'border-2 border-[#356F58] shadow-xs'
+                    : 'border-[#e9e2d5] hover:border-[#356F58] shadow-2xs'
                     }`}
                 >
                   <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-sm bg-[#f4a123] px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-[#5c3500] shadow-2xs whitespace-nowrap">
@@ -238,7 +238,7 @@ export default function TrialCheckoutPage({
                       Annual
                     </h4>
                     {/* Click/Select par Green, warna Red */}
-                    <div className={`text-xl sm:text-2xl font-bold mt-0.5 transition-colors ${selectedPlan === 'annual' ? 'text-[#1b6b50]' : 'text-red-600'
+                    <div className={`text-xl sm:text-2xl font-bold mt-0.5 transition-colors ${selectedPlan === 'annual' ? 'text-[#356F58]' : 'text-red-600'
                       }`}>
                       $6/mo
                     </div>
@@ -247,9 +247,9 @@ export default function TrialCheckoutPage({
                     </div>
                   </div>
 
-                  <div className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-[#1b6b50]">
+                  <div className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-[#356F58]">
                     {selectedPlan === 'annual' && (
-                      <div className="h-2.5 w-2.5 rounded-full bg-[#1b6b50]" />
+                      <div className="h-2.5 w-2.5 rounded-full bg-[#356F58]" />
                     )}
                   </div>
                 </div>
@@ -274,7 +274,7 @@ export default function TrialCheckoutPage({
                     value={cardName}
                     onChange={(e) => setCardName(e.target.value)}
                     placeholder="Full name"
-                    className="w-full rounded-xl border border-[#d5cdc0] bg-white px-4 py-3 text-xs sm:text-sm text-[#172b30] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-none transition-colors"
+                    className="w-full rounded-xl border border-[#d5cdc0] bg-white px-4 py-3 text-xs sm:text-sm text-[#172b30] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -292,7 +292,7 @@ export default function TrialCheckoutPage({
                     maxLength={19}
                     inputMode="numeric"
                     autoComplete="cc-number"
-                    className="w-full rounded-xl border border-[#d5cdc0] bg-white px-4 py-3 text-xs sm:text-sm text-[#172b30] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-none transition-colors"
+                    className="w-full rounded-xl border border-[#d5cdc0] bg-white px-4 py-3 text-xs sm:text-sm text-[#172b30] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -312,7 +312,7 @@ export default function TrialCheckoutPage({
                       maxLength={5}
                       inputMode="numeric"
                       autoComplete="cc-exp"
-                      className="w-full rounded-xl border border-[#d5cdc0] bg-white px-3 py-3 text-xs sm:text-sm text-[#172b30] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-none transition-colors text-center"
+                      className="w-full rounded-xl border border-[#d5cdc0] bg-white px-3 py-3 text-xs sm:text-sm text-[#172b30] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-none transition-colors text-center"
                     />
                   </div>
 
@@ -326,13 +326,13 @@ export default function TrialCheckoutPage({
                       required
                       value={cvv}
                       onChange={(e) =>
-                        setCvv(e.target.value.replace(/\D/g, '').slice(0, 4))
+                        setCvv(e.target.value.replace(/\D/g, '').slice(0, 3))
                       }
-                      placeholder="1234"
-                      maxLength={4}
+                      placeholder="123"
+                      maxLength={3}
                       inputMode="numeric"
                       autoComplete="cc-csc"
-                      className="w-full rounded-xl border border-[#d5cdc0] bg-white px-3 py-3 text-xs sm:text-sm text-[#172b30] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-none transition-colors text-center"
+                      className="w-full rounded-xl border border-[#d5cdc0] bg-white px-3 py-3 text-xs sm:text-sm text-[#172b30] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-none transition-colors text-center"
                     />
                   </div>
 
@@ -352,7 +352,7 @@ export default function TrialCheckoutPage({
                       maxLength={5}
                       inputMode="numeric"
                       autoComplete="postal-code"
-                      className="w-full rounded-xl border border-[#d5cdc0] bg-white px-3 py-3 text-xs sm:text-sm text-[#172b30] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-none transition-colors text-center"
+                      className="w-full rounded-xl border border-[#d5cdc0] bg-white px-3 py-3 text-xs sm:text-sm text-[#172b30] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-none transition-colors text-center"
                     />
                   </div>
                 </div>
@@ -364,7 +364,7 @@ export default function TrialCheckoutPage({
                   type="checkbox"
                   checked={agreed}
                   onChange={(e) => setAgreed(e.target.checked)}
-                  className="mt-0.5 h-4 w-4 rounded border-[#d5cdc0] text-[#1b6b50] focus:ring-[#1b6b50] cursor-pointer"
+                  className="mt-0.5 h-4 w-4 rounded border-[#d5cdc0] text-[#356F58] focus:ring-[#356F58] cursor-pointer"
                 />
                 <span>
                   I understand my 14-day free trial starts today. I will not be charged until{' '}
@@ -381,7 +381,7 @@ export default function TrialCheckoutPage({
               <div className="mt-5">
                 <button
                   type="submit"
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#1b6b50] hover:bg-[#14553f] py-3.5 text-xs sm:text-sm font-bold text-white shadow-sm transition-all cursor-pointer"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#356F58] hover:bg-[#2a5946] py-3.5 text-xs sm:text-sm font-bold text-white shadow-sm transition-all cursor-pointer"
                 >
                   <span>Start Your Free Trial</span>
                   <span>→</span>

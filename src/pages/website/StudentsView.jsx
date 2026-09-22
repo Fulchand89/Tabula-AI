@@ -164,7 +164,7 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
       <div className="mb-4 flex items-center gap-2.5">
         <button
           onClick={onBackToHome}
-          className="flex h-7 w-7 items-center justify-center rounded-full bg-[#215945] text-white hover:bg-[#175742] transition-colors cursor-pointer"
+          className="flex h-7 w-7 items-center justify-center rounded-full bg-[#356F58] text-white hover:bg-[#2a5946] transition-colors cursor-pointer"
           aria-label="Go back"
         >
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -273,7 +273,7 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
                   type="text"
                   required
                   placeholder="Student Name"
-                  className="mt-1.5 w-full rounded-xl border border-[#dcd3c4] px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
+                  className="mt-1.5 w-full rounded-xl border border-[#dcd3c4] px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-hidden"
                   value={editName}
                   onChange={(e) => setEditName(e.target.value)}
                 />
@@ -286,7 +286,7 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
                 </label>
                 <div className="relative mt-1.5">
                   <select
-                    className="w-full appearance-none rounded-xl border border-[#dcd3c4] bg-white px-3.5 py-2.5 text-xs text-[#1e282d] focus:border-[#1b6b50] focus:outline-hidden"
+                    className="w-full appearance-none rounded-xl border border-[#dcd3c4] bg-white px-3.5 py-2.5 text-xs text-[#1e282d] focus:border-[#356F58] focus:outline-hidden"
                     value={editGrade}
                     onChange={(e) => setEditGrade(e.target.value)}
                   >
@@ -328,11 +328,11 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
                   type="text"
                   placeholder="DD/MM/YYYY (e.g. 12/05/2002)"
                   maxLength={10}
-                  className="w-full rounded-xl border border-[#dcd3c4] bg-white px-3.5 py-2.5 pr-10 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
+                  className="w-full rounded-xl border border-[#dcd3c4] bg-white px-3.5 py-2.5 pr-10 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-hidden"
                   value={editBirthDate}
                   onChange={(e) => setEditBirthDate(formatDateInput(e.target.value))}
                 />
-                <label className="absolute right-3 cursor-pointer text-[#526068] hover:text-[#1b6b50] p-1" title="Pick date">
+                <label className="absolute right-3 cursor-pointer text-[#526068] hover:text-[#356F58] p-1" title="Pick date">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                     <line x1="16" y1="2" x2="16" y2="6" />
@@ -361,7 +361,7 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
               <input
                 type="text"
                 placeholder="e.g. dinosaurs, art, Legos, horses"
-                className="mt-1.5 w-full rounded-xl border border-[#dcd3c4] px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
+                className="mt-1.5 w-full rounded-xl border border-[#dcd3c4] px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-hidden"
                 value={editInterests}
                 onChange={(e) => setEditInterests(e.target.value)}
               />
@@ -378,7 +378,7 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
               </button>
               <button
                 type="submit"
-                className="flex-1 rounded-xl bg-[#1b6b50] py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-[#14553f] transition-colors cursor-pointer"
+                className="flex-1 rounded-xl bg-[#356F58] py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-[#2a5946] transition-colors cursor-pointer"
               >
                 Save & Go to Curriculum →
               </button>
@@ -400,7 +400,7 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
               setIsAdding(true);
               setEditingStudent(null);
             }}
-            className="inline-flex items-center gap-1.5 rounded-full border-2 border-dashed border-[#1b6b50] bg-transparent px-4 py-1.5 text-xs font-bold text-[#1b6b50] hover:bg-[#edf5f0] transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 rounded-full border-2 border-dashed border-[#356F58] bg-transparent px-4 py-1.5 text-xs font-bold text-[#356F58] hover:bg-[#edf5f0] transition-colors cursor-pointer"
           >
             <span>+ Add another student</span>
           </button>
@@ -421,7 +421,7 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
                   type="text"
                   required
                   placeholder="Thomas"
-                  className="mt-1.5 w-full rounded-xl border border-[#dcd3c4] px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
+                  className="mt-1.5 w-full rounded-xl border border-[#dcd3c4] px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-hidden"
                   value={newName}
                   onChange={(e) => setNewName(e.target.value)}
                 />
@@ -434,7 +434,7 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
                 </label>
                 <div className="relative mt-1.5">
                   <select
-                    className="w-full appearance-none rounded-xl border border-[#dcd3c4] bg-white px-3.5 py-2.5 text-xs text-[#1e282d] focus:border-[#1b6b50] focus:outline-hidden"
+                    className="w-full appearance-none rounded-xl border border-[#dcd3c4] bg-white px-3.5 py-2.5 text-xs text-[#1e282d] focus:border-[#356F58] focus:outline-hidden"
                     value={newGrade}
                     onChange={(e) => setNewGrade(e.target.value)}
                   >
@@ -473,11 +473,11 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
                   type="text"
                   placeholder="DD/MM/YYYY (e.g. 12/05/2002)"
                   maxLength={10}
-                  className="w-full rounded-xl border border-[#dcd3c4] bg-white px-3.5 py-2.5 pr-10 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
+                  className="w-full rounded-xl border border-[#dcd3c4] bg-white px-3.5 py-2.5 pr-10 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-hidden"
                   value={newBirthDate}
                   onChange={(e) => setNewBirthDate(formatDateInput(e.target.value))}
                 />
-                <label className="absolute right-3 cursor-pointer text-[#526068] hover:text-[#1b6b50] p-1" title="Pick date">
+                <label className="absolute right-3 cursor-pointer text-[#526068] hover:text-[#356F58] p-1" title="Pick date">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                     <line x1="16" y1="2" x2="16" y2="6" />
@@ -506,7 +506,7 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
               <input
                 type="text"
                 placeholder="e.g. dinosaurs, art, Legos, horses"
-                className="mt-1.5 w-full rounded-xl border border-[#dcd3c4] px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#1b6b50] focus:outline-hidden"
+                className="mt-1.5 w-full rounded-xl border border-[#dcd3c4] px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-hidden"
                 value={newInterests}
                 onChange={(e) => setNewInterests(e.target.value)}
               />
@@ -523,7 +523,7 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
               </button>
               <button
                 type="submit"
-                className="flex-1 rounded-xl bg-[#1b6b50] py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-[#14553f] transition-colors cursor-pointer"
+                className="flex-1 rounded-xl bg-[#356F58] py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-[#2a5946] transition-colors cursor-pointer"
               >
                 Add Student & View Curriculum →
               </button>

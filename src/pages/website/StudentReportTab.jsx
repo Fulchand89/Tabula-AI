@@ -124,7 +124,7 @@ export default function StudentReportTab({
                         }}
                         className={`flex w-full items-center justify-center px-4 py-2.5 text-xs font-semibold transition-colors cursor-pointer ${
                           schoolYear === yr
-                            ? 'bg-[#edf5f0] text-[#1b6b50] font-bold'
+                            ? 'bg-[#edf5f0] text-[#356F58] font-bold'
                             : 'text-[#1e282d] hover:bg-[#faf5eb]'
                         }`}
                       >
@@ -154,7 +154,7 @@ export default function StudentReportTab({
                   height="22"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#235c46"
+                  stroke="#356F58"
                   strokeWidth="1.8"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -209,7 +209,7 @@ export default function StudentReportTab({
                         }}
                         className={`flex w-full items-center px-4 py-2 text-left text-xs font-medium transition-colors cursor-pointer ${
                           mathGrade === g
-                            ? 'bg-[#edf5f0] text-[#1b6b50] font-bold'
+                            ? 'bg-[#edf5f0] text-[#356F58] font-bold'
                             : 'text-[#1e282d] hover:bg-[#faf5eb]'
                         }`}
                       >
@@ -229,7 +229,7 @@ export default function StudentReportTab({
                   type="text"
                   value={mathCredits}
                   onChange={(e) => setMathCredits(e.target.value)}
-                  className="w-full rounded-xl border border-[#d5dcd8] bg-white py-3 text-center text-sm font-semibold text-[#16272b] focus:border-[#1b6b50] focus:outline-none transition-colors"
+                  className="w-full rounded-xl border border-[#d5dcd8] bg-white py-3 text-center text-sm font-semibold text-[#16272b] focus:border-[#356F58] focus:outline-none transition-colors"
                 />
               </div>
             </div>
@@ -261,7 +261,7 @@ export default function StudentReportTab({
           <button
             type="button"
             onClick={() => window.print()}
-            className="flex w-full items-center justify-center gap-2.5 rounded-2xl bg-[#147948] px-6 py-4 text-sm font-bold text-white shadow-xs hover:bg-[#126a3f] active:scale-[0.99] transition-all cursor-pointer"
+            className="flex w-full items-center justify-center gap-2.5 rounded-2xl bg-[#356F58] px-6 py-4 text-sm font-bold text-white shadow-xs hover:bg-[#2a5946] active:scale-[0.99] transition-all cursor-pointer"
           >
             <svg
               width="20"
@@ -328,7 +328,7 @@ export default function StudentReportTab({
                         }}
                         className={`flex w-full items-center justify-center px-4 py-2.5 text-xs font-semibold transition-colors cursor-pointer ${
                           schoolYear === yr
-                            ? 'bg-[#edf5f0] text-[#1b6b50] font-bold'
+                            ? 'bg-[#edf5f0] text-[#356F58] font-bold'
                             : 'text-[#1e282d] hover:bg-[#faf5eb]'
                         }`}
                       >
@@ -358,7 +358,7 @@ export default function StudentReportTab({
                     <h4 className="text-sm font-bold text-[#16272b]">{sample.title}</h4>
                     <p className="text-xs text-[#607077]">{sample.subject} • {sample.date}</p>
                   </div>
-                  <span className="text-xs font-semibold text-[#147948]">Added</span>
+                  <span className="text-xs font-semibold text-[#356F58]">Added</span>
                 </div>
               ))}
             </div>
@@ -367,7 +367,7 @@ export default function StudentReportTab({
           <button
             type="button"
             onClick={() => setIsWorkSampleModalOpen(true)}
-            className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#147948] px-6 py-4 text-sm font-bold text-white shadow-xs hover:bg-[#126a3f] active:scale-[0.99] transition-all cursor-pointer"
+            className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#356F58] px-6 py-4 text-sm font-bold text-white shadow-xs hover:bg-[#2a5946] active:scale-[0.99] transition-all cursor-pointer"
           >
             <svg
               width="18"

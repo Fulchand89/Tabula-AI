@@ -56,7 +56,7 @@ export default function ResourceReviewForm({ onSubmit, onCancel }) {
             value={curriculumName}
             onChange={(e) => setCurriculumName(e.target.value)}
             placeholder="e.g. Saxon Math, Story of the World"
-            className="w-full rounded-xl border border-[#e9e2d5] bg-white px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8c9b9f] transition-colors focus:border-[#1b6b50] focus:outline-none"
+            className="w-full rounded-xl border border-[#e9e2d5] bg-white px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8c9b9f] transition-colors focus:border-[#356F58] focus:outline-none"
           />
         </div>
 
@@ -70,7 +70,7 @@ export default function ResourceReviewForm({ onSubmit, onCancel }) {
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
             placeholder="e.g. Math, History"
-            className="w-full rounded-xl border border-[#e9e2d5] bg-white px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8c9b9f] transition-colors focus:border-[#1b6b50] focus:outline-none"
+            className="w-full rounded-xl border border-[#e9e2d5] bg-white px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8c9b9f] transition-colors focus:border-[#356F58] focus:outline-none"
           />
         </div>
 
@@ -114,7 +114,7 @@ export default function ResourceReviewForm({ onSubmit, onCancel }) {
             value={reviewText}
             onChange={(e) => setReviewText(e.target.value)}
             placeholder="How did this curriculum work for your family? What ages, what worked, what didn't?"
-            className="w-full resize-none rounded-xl border border-[#e9e2d5] bg-white px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8c9b9f] transition-colors focus:border-[#1b6b50] focus:outline-none"
+            className="w-full resize-none rounded-xl border border-[#e9e2d5] bg-white px-3.5 py-2.5 text-xs text-[#1e282d] placeholder-[#8c9b9f] transition-colors focus:border-[#356F58] focus:outline-none"
           />
         </div>
 
@@ -129,7 +129,7 @@ export default function ResourceReviewForm({ onSubmit, onCancel }) {
           </button>
           <button
             type="submit"
-            className="flex-1 rounded-xl bg-[#1b6b50] py-2.5 text-xs font-bold text-white hover:bg-[#14553f] transition-colors cursor-pointer text-center shadow-sm active:scale-[0.99]"
+            className="flex-1 rounded-xl bg-[#356F58] py-2.5 text-xs font-bold text-white hover:bg-[#2a5946] transition-colors cursor-pointer text-center shadow-sm active:scale-[0.99]"
           >
             Submit
           </button>

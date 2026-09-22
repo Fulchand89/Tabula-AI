@@ -33,10 +33,10 @@ export default function PlannerDayCards({
             onClick={() => onSelectDay?.(day.id)}
             className={`min-h-[76px] sm:min-h-[88px] rounded-2xl p-1.5 sm:p-2 transition-all cursor-pointer shadow-2xs text-center flex flex-col justify-between items-center ${hasItems
                 ? isSelected
-                  ? 'border-2 border-[#185842] bg-white' // Has items + Selected (Background White)
-                  : 'border-2 border-[#185842] bg-[#fcf8f2]' // Has items + Normal
+                  ? 'border-2 border-[#356F58] bg-white' // Has items + Selected (Background White)
+                  : 'border-2 border-[#356F58] bg-[#fcf8f2]' // Has items + Normal
                 : isSelected
-                  ? 'border-2 border-[#185842] bg-white' // Empty + Selected (Background White)
+                  ? 'border-2 border-[#356F58] bg-white' // Empty + Selected (Background White)
                   : 'border border-[#e9e1d5] bg-[#fcf8f2] hover:bg-white' // Empty + Normal
               }`}
           >
