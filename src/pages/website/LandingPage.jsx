@@ -223,13 +223,13 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
         </section>
 
         {/* ================================================================
-            3. PROCESS STEPS (01 Plan, 02 Adapt, 03 Progress)
+            3. PROCESS STEPS (01 Plan, 02 Adapt, 03 Progress) - Exact Figma Match
             ================================================================ */}
         <section className="mb-11 grid grid-cols-[1fr_auto_1fr_auto_1fr] items-center gap-2">
           {/* 01 Plan */}
-          <div className="flex h-full flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-3 sm:p-3.5 shadow-2xs">
+          <div className="flex h-full flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-3.5 sm:p-4 shadow-2xs">
             <div>
-              <div className="mb-2 text-[#21353a]">
+              <div className="mb-2.5 text-[#21353a]">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                   <line x1="16" y1="2" x2="16" y2="6" />
@@ -238,8 +238,8 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                   <path d="m9 16 2 2 4-4" />
                 </svg>
               </div>
-              <div className="mb-1 flex items-center gap-1.5">
-                <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[#215945] text-[10px] font-bold text-white shrink-0">
+              <div className="mb-1.5 flex items-center gap-2">
+                <span className="flex h-[22px] w-[22px] items-center justify-center rounded-full bg-[#215945] text-[10.5px] font-bold text-white shrink-0">
                   01
                 </span>
                 <h3 className="font-serif text-sm sm:text-[15px] font-bold text-[#172b30]">Plan</h3>
@@ -255,9 +255,9 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
           </div>
 
           {/* 02 Adapt */}
-          <div className="flex h-full flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-3 sm:p-3.5 shadow-2xs">
+          <div className="flex h-full flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-3.5 sm:p-4 shadow-2xs">
             <div>
-              <div className="mb-2 text-[#21353a]">
+              <div className="mb-2.5 text-[#21353a]">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <line x1="4" y1="21" x2="4" y2="14" />
                   <line x1="4" y1="10" x2="4" y2="3" />
@@ -270,8 +270,8 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                   <line x1="17" y1="16" x2="23" y2="16" />
                 </svg>
               </div>
-              <div className="mb-1 flex items-center gap-1.5">
-                <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[#215945] text-[10px] font-bold text-white shrink-0">
+              <div className="mb-1.5 flex items-center gap-2">
+                <span className="flex h-[22px] w-[22px] items-center justify-center rounded-full bg-[#215945] text-[10.5px] font-bold text-white shrink-0">
                   02
                 </span>
                 <h3 className="font-serif text-sm sm:text-[15px] font-bold text-[#172b30]">Adapt</h3>
@@ -287,16 +287,16 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
           </div>
 
           {/* 03 Progress */}
-          <div className="flex h-full flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-3 sm:p-3.5 shadow-2xs">
+          <div className="flex h-full flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-3.5 sm:p-4 shadow-2xs">
             <div>
-              <div className="mb-2 text-[#21353a]">
+              <div className="mb-2.5 text-[#21353a]">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
                   <polyline points="16 7 22 7 22 13" />
                 </svg>
               </div>
-              <div className="mb-1 flex items-center gap-1.5">
-                <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[#215945] text-[10px] font-bold text-white shrink-0">
+              <div className="mb-1.5 flex items-center gap-2">
+                <span className="flex h-[22px] w-[22px] items-center justify-center rounded-full bg-[#215945] text-[10.5px] font-bold text-white shrink-0">
                   03
                 </span>
                 <h3 className="font-serif text-sm sm:text-[15px] font-bold text-[#172b30]">Progress</h3>
@@ -558,19 +558,18 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
           <div className="grid grid-cols-2 gap-3.5 items-stretch">
             {/* Monthly Card (First Card) */}
             <div
-              onClick={() => setSelectedPlan('monthly')}
+              onClick={() => {
+                setSelectedPlan('monthly');
+                openSignup('monthly');
+              }}
               className={`flex flex-col justify-between rounded-xl p-4 transition-all cursor-pointer ${selectedPlan === 'monthly'
                 ? 'border-2 border-[#215945] bg-[#fbfdfc] shadow-xs ring-1 ring-[#215945]/10'
                 : 'border border-[#e9e2d5] bg-white hover:border-[#215945]/40 shadow-2xs'
                 }`}
             >
               <div>
-                <div className="flex items-center justify-center gap-1.5">
+                <div className="flex items-center justify-center">
                   <h3 className="font-serif text-center text-sm sm:text-base font-bold text-[#172b30]">Monthly</h3>
-                  <div className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 transition-all ${selectedPlan === 'monthly' ? 'border-[#215945] bg-white' : 'border-[#d0c8b9]'
-                    }`}>
-                    {selectedPlan === 'monthly' && <div className="h-2 w-2 rounded-full bg-[#215945]" />}
-                  </div>
                 </div>
 
                 <div className="mt-1 flex items-baseline justify-center gap-0.5">
@@ -602,28 +601,14 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                   </li>
                 </ul>
               </div>
-
-              <div className="mt-auto pt-3">
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setSelectedPlan('monthly');
-                    openSignup('monthly');
-                  }}
-                  className={`w-full rounded-lg py-2 text-xs sm:text-sm font-bold transition-colors cursor-pointer text-center ${selectedPlan === 'monthly'
-                    ? 'bg-[#215945] text-white shadow-sm hover:bg-[#184636]'
-                    : 'border border-[#d0c8b9] bg-white text-[#172b30] hover:bg-[#faf5eb]'
-                    }`}
-                >
-                  Choose Monthly →
-                </button>
-              </div>
             </div>
 
             {/* Annual Card */}
             <div
-              onClick={() => setSelectedPlan('annual')}
+              onClick={() => {
+                setSelectedPlan('annual');
+                openSignup('annual');
+              }}
               className={`relative flex flex-col justify-between rounded-xl p-4 transition-all cursor-pointer ${selectedPlan === 'annual'
                 ? 'border-2 border-[#215945] bg-[#fbfdfc] shadow-xs ring-1 ring-[#215945]/10'
                 : 'border border-[#e9e2d5] bg-white hover:border-[#215945]/40 shadow-2xs'
@@ -635,12 +620,8 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
               </div>
 
               <div>
-                <div className="flex items-center justify-center gap-1.5">
+                <div className="flex items-center justify-center">
                   <h3 className="font-serif text-center text-sm sm:text-base font-bold text-[#172b30]">Annual</h3>
-                  <div className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 transition-all ${selectedPlan === 'annual' ? 'border-[#215945] bg-white' : 'border-[#d0c8b9]'
-                    }`}>
-                    {selectedPlan === 'annual' && <div className="h-2 w-2 rounded-full bg-[#215945]" />}
-                  </div>
                 </div>
 
                 <div className="mt-1 flex items-baseline justify-center gap-0.5">
@@ -671,23 +652,6 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                     <span className="leading-snug">Full planner & tracking</span>
                   </li>
                 </ul>
-              </div>
-
-              <div className="mt-auto pt-3">
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setSelectedPlan('annual');
-                    openSignup('annual');
-                  }}
-                  className={`w-full rounded-lg py-2 text-xs sm:text-sm font-bold transition-colors cursor-pointer text-center ${selectedPlan === 'annual'
-                    ? 'bg-[#215945] text-white shadow-sm hover:bg-[#184636]'
-                    : 'border border-[#d0c8b9] bg-white text-[#172b30] hover:bg-[#faf5eb]'
-                    }`}
-                >
-                  Choose Annual →
-                </button>
               </div>
             </div>
           </div>
@@ -745,19 +709,19 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             })}
           </div>
         </section>
+
         {/* ================================================================
             7. BOTTOM CTA CARD
             ================================================================ */}
-        <section className="flex flex-col items-center rounded-xl border border-[#e9e2d5] bg-white px-5 py-8 text-center shadow-2xs">
+        <section className="flex flex-col items-center rounded-xl border border-[#e9e2d5] bg-white px-6 py-8 text-center shadow-2xs">
           <h2
             style={{ fontFamily: 'Lora, serif' }}
-            className="text-[20px] font-semibold leading-[100%] tracking-[0%] text-center text-[#172b30]"
+            className="text-[20px] font-semibold leading-[120%] tracking-[0%] text-center text-[#172b30]"
           >
             Ready to simplify your homeschool?
           </h2>
           <p
-            style={{ fontFamily: 'Inter, sans-serif' }}
-            className="text-[12px] font-medium leading-[100%] tracking-[0%] text-center text-[#526068] mt-2 max-w-sm"
+            className="text-[12px] font-medium leading-[140%] tracking-[0%] text-center text-[#526068] mt-2 max-w-[370px]"
           >
             Join families who use Tabula to plan with confidence, teach with purpose, and stop reinventing the wheel every week.
           </p>
@@ -770,28 +734,18 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
           </button>
 
           <div className="mt-3 flex flex-wrap justify-center items-center gap-3.5 text-xs sm:text-[13px] font-medium text-[#526068]">
-            <div
-              style={{ fontFamily: 'Inter, sans-serif' }}
-              className="text-[12px] font-semibold leading-[100%] tracking-[0%] inline-flex items-center gap-1"
-            >
+            <div className="inline-flex items-center gap-1">
               <span className="font-bold text-[#1b6b50]">✓</span>
               <span>14 days free</span>
             </div>
-            <div
-              style={{ fontFamily: 'Inter, sans-serif' }}
-              className="text-[12px] font-semibold leading-[100%] tracking-[0%] inline-flex items-center gap-1"
-            >
+            <div className="inline-flex items-center gap-1">
               <span className="font-bold text-[#1b6b50]">✓</span>
               <span>$8/month after trial</span>
             </div>
-            <div
-              style={{ fontFamily: 'Inter, sans-serif' }}
-              className="text-[12px] font-semibold leading-[100%] tracking-[0%] inline-flex items-center gap-1"
-            >
+            <div className="inline-flex items-center gap-1">
               <span className="font-bold text-[#1b6b50]">✓</span>
               <span>Cancel anytime</span>
             </div>
-
           </div>
         </section>
 

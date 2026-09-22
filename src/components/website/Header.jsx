@@ -41,7 +41,10 @@ export default function Header({
             >
               Tabula
             </span>
-            <span className="font-serif text-[24px] sm:text-[26px] font-bold leading-none text-[#1b6b50]">
+            <span
+              style={{ fontFamily: 'Lora, serif' }}
+              className="text-[32px] font-bold leading-[100%] tracking-[0%] text-[#1b6b50]"
+            >
               .
             </span>
           </div>
