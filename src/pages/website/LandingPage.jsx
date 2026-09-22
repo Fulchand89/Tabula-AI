@@ -183,7 +183,7 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
           <div className="mt-4">
             <button
               onClick={openSignup}
-              className="inline-flex items-center gap-2 rounded-lg bg-[#215945] hover:bg-[#184636] px-5 py-2.5 text-sm sm:text-base font-bold text-white shadow-sm transition-all cursor-pointer"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-[#215945] hover:bg-[#184636] px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-white shadow-sm transition-all cursor-pointer"
             >
               <span>Start Your Free Trial</span>
               <span>→</span>
@@ -212,12 +212,12 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
         <section className="my-9 text-center">
           <div className="flex items-center justify-center gap-3">
             <div className="h-px w-20 sm:w-28 bg-[#dcd4c6]" />
-            <h2 className="font-serif text-lg sm:text-2xl font-bold tracking-tight text-[#172b30]">
+            <h2 className="font-serif text-[17px] sm:text-xl font-bold tracking-tight text-[#172b30]">
               “A GPS for homeschooling”
             </h2>
             <div className="h-px w-20 sm:w-28 bg-[#dcd4c6]" />
           </div>
-          <p className="mt-1.5 text-xs sm:text-sm font-medium text-[#ba633f]">
+          <p className="mt-1 text-[11px] sm:text-[12.5px] font-medium text-[#ba633f]">
             Tabula doesn't replace your curriculum - it helps you use it better.
           </p>
         </section>
@@ -313,63 +313,84 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             ================================================================ */}
         <section className="mb-11">
           <div className="mb-5 text-center">
-            <h2 className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-[#172b30]">
+            <h2 className="font-serif text-base sm:text-lg font-bold tracking-tight text-[#172b30]">
               Everything you need to homeschool with <span className="text-[#215945]">confidence</span>
             </h2>
           </div>
 
           {/* AI Homeschool Coach Card */}
-          <div className="mb-3.5 grid grid-cols-[1.1fr_0.9fr] items-center gap-3.5 rounded-2xl border border-[#e9e2d5] bg-white p-4 sm:p-5 shadow-2xs">
-            {/* LEFT SIDE */}
-            <div>
-              <h3 className="font-serif text-base sm:text-xl font-bold text-[#172b30]">
-                AI Homeschool Coach
-              </h3>
-
-              <div className="mt-1.5 inline-flex items-center rounded bg-[#fef3c7] px-2 py-0.5 text-[9.5px] sm:text-[10px] font-extrabold tracking-wider text-[#b45309]">
-                POWERED BY CLAUDE
+          <div className="mb-4 grid grid-cols-1 sm:grid-cols-[1.1fr_0.9fr] items-center gap-4 rounded-2xl border border-[#ded7ca] bg-white p-4 sm:p-5 shadow-xs">
+            {/* LEFT SIDE: Info & Feature List */}
+            <div className="flex flex-col">
+              {/* Heading & Badge */}
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="font-serif text-[15px] sm:text-base font-bold text-[#1c2930]">
+                  AI Homeschool Coach
+                </h3>
+                <span className="inline-flex items-center rounded-md bg-[#fef3c7] px-2 py-0.5 text-[9px] sm:text-[9.5px] font-extrabold tracking-wider text-[#b45309]">
+                  POWERED BY CLAUDE
+                </span>
               </div>
 
-              <p className="mt-2 text-xs sm:text-sm text-[#526068]">
+              <p className="mt-1 text-[11.5px] sm:text-xs text-[#55636a]">
                 Your personal planning partner, every week.
               </p>
 
-              <ul className="mt-2.5 space-y-1.5">
-                <li className="flex items-center gap-1.5 text-xs sm:text-[12.5px] font-medium text-[#27373c]">
-                  <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50] text-[9.5px] text-white font-bold">✓</span>
+              {/* Checklist */}
+              <ul className="mt-3 space-y-2">
+                <li className="flex items-center gap-2 text-[11px] sm:text-xs font-medium text-[#203036]">
+                  <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#155b41] text-[8px] text-white font-bold">
+                    ✓
+                  </span>
                   <span>Plans around your real progress</span>
                 </li>
-                <li className="flex items-center gap-1.5 text-xs sm:text-[12.5px] font-medium text-[#27373c]">
-                  <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50] text-[9.5px] text-white font-bold">✓</span>
+
+                <li className="flex items-center gap-2 text-[11px] sm:text-xs font-medium text-[#203036]">
+                  <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#155b41] text-[8px] text-white font-bold">
+                    ✓
+                  </span>
                   <span>Suggest lessons and adjustments</span>
                 </li>
-                <li className="flex items-center gap-1.5 text-xs sm:text-[12.5px] font-medium text-[#27373c]">
-                  <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50] text-[9.5px] text-white font-bold">✓</span>
+
+                <li className="flex items-center gap-2 text-[11px] sm:text-xs font-medium text-[#203036]">
+                  <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#155b41] text-[8px] text-white font-bold">
+                    ✓
+                  </span>
                   <span>Helps when a child is struggling</span>
                 </li>
-                <li className="flex items-center gap-1.5 text-xs sm:text-[12.5px] font-medium text-[#27373c]">
-                  <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50] text-[9.5px] text-white font-bold">✓</span>
+
+                <li className="flex items-center gap-2 text-[11px] sm:text-xs font-medium text-[#203036]">
+                  <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#155b41] text-[8px] text-white font-bold">
+                    ✓
+                  </span>
                   <span>Shares teaching ideas that fit your philosophy</span>
                 </li>
               </ul>
             </div>
 
             {/* RIGHT SIDE — Chat Mockup */}
-            <div className="flex flex-col justify-between rounded-xl border border-[#e2dacf] bg-white p-3 shadow-2xs">
-              <div className="mb-1.5 text-xs sm:text-sm font-bold text-[#172b30]">AI Coach</div>
+            <div className="flex flex-col justify-between rounded-2xl border border-[#ded7ca] bg-white p-3.5 sm:p-4 shadow-xs">
+              {/* Header */}
+              <div className="mb-2 text-xs sm:text-[13px] font-bold text-[#1c2930]">
+                AI Coach
+              </div>
 
+              {/* Chat Message Area */}
               <div
                 ref={chatContainerRef}
-                className="h-[145px] overflow-y-auto space-y-1.5 pr-1.5 custom-scrollbar"
+                className="h-[135px] overflow-y-auto space-y-2 pr-1 custom-scrollbar"
               >
                 {chatMessages.map((msg, idx) => (
                   msg.sender === 'ai' ? (
-                    <div key={idx} className="rounded-lg bg-[#f5efe6] p-2 text-xs sm:text-[12.5px] leading-relaxed text-[#2c3c41]">
+                    <div
+                      key={idx}
+                      className="rounded-xl bg-[#f7f2ea] p-2.5 text-[11px] sm:text-xs leading-relaxed text-[#2c3c41]"
+                    >
                       {msg.text}
                     </div>
                   ) : (
                     <div key={idx} className="flex justify-end">
-                      <span className="rounded bg-[#ebe3d5] px-2 py-0.5 text-[11px] sm:text-xs font-medium text-[#2f3e43]">
+                      <span className="rounded-lg bg-[#ede4d7] px-2.5 py-1 text-[10.5px] sm:text-[11.5px] font-medium text-[#203036]">
                         {msg.text}
                       </span>
                     </div>
@@ -377,168 +398,186 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                 ))}
               </div>
 
-              <form className="mt-2.5 flex items-center rounded-lg border border-[#dfd7cb] bg-white px-2.5 py-1" onSubmit={handleSendMessage}>
+              {/* Chat Input Field */}
+              <form
+                className="mt-3 flex items-center rounded-xl border border-[#cbd3d6] bg-white px-3 py-1.5 focus-within:border-[#155b41] transition-colors"
+                onSubmit={handleSendMessage}
+              >
                 <input
                   type="text"
-                  className="w-full bg-transparent text-xs text-[#2b3a3f] placeholder-[#9aa7ab] focus:outline-none"
+                  className="w-full bg-transparent text-[11.5px] sm:text-xs text-[#1c2930] placeholder-[#78888e] focus:outline-none"
                   placeholder="Ask your coach anytime..."
                   value={chatInput}
                   onChange={(e) => setChatInput(e.target.value)}
                 />
-                <button type="submit" className="text-[#1b6b50] hover:scale-110 transition-transform cursor-pointer" aria-label="Send message">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <button
+                  type="submit"
+                  className="ml-1.5 text-[#155b41] hover:text-[#0e4430] hover:scale-105 transition-all cursor-pointer shrink-0"
+                  aria-label="Send message"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
                   </svg>
                 </button>
               </form>
             </div>
           </div>
-
           {/* 4 Feature Cards Grid — 4 Columns matching screenshot */}
-          <div className="grid grid-cols-4 gap-2">
+          <div className="grid grid-cols-4 gap-2 sm:gap-2.5">
             {/* 1. Weekly Planner */}
-            <div className="flex flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-2.5 shadow-2xs">
+            <div
+              onClick={openSignup}
+              className="flex flex-col justify-between rounded-2xl border border-[#ded6c9] bg-white p-2.5 sm:p-3 shadow-2xs hover:border-[#215945]/40 transition-all cursor-pointer group"
+            >
               <div>
-                <div className="mb-2 flex h-6 w-6 items-center justify-center rounded-full bg-[#215945] text-white">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <div className="mb-2.5 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#215945] text-white">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                     <line x1="16" y1="2" x2="16" y2="6" />
                     <line x1="8" y1="2" x2="8" y2="6" />
                     <line x1="3" y1="10" x2="21" y2="10" />
                   </svg>
                 </div>
-                <h4 className="font-serif text-sm sm:text-[14.5px] font-bold text-[#172b30] leading-snug">Weekly Planner</h4>
-                <ul className="my-2 space-y-1 text-[10.5px] sm:text-[11px] leading-tight text-[#37474c]">
+                <h4 className="text-xs sm:text-[13px] font-bold text-[#172b30] leading-tight mb-2">Weekly Planner</h4>
+                <ul className="space-y-1.5 text-[9.5px] sm:text-[10px] leading-snug text-[#37474c]">
                   <li className="flex items-start gap-1">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Day-by-day scheduling</span>
                   </li>
                   <li className="flex items-start gap-1">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Lesson details & duration</span>
                   </li>
                   <li className="flex items-start gap-1">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Real-time progress tracking</span>
                   </li>
                   <li className="flex items-start gap-1">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Adjust with one click</span>
                   </li>
                 </ul>
               </div>
-              <button className="flex items-center gap-0.5 text-[11.5px] sm:text-xs font-semibold text-[#ba633f] hover:gap-1 transition-all cursor-pointer mt-1.5" onClick={openSignup}>
+              <div className="flex items-center gap-1 text-[11px] sm:text-[11.5px] font-semibold text-[#ba633f] group-hover:gap-1.5 transition-all mt-3 pt-1">
                 <span>Learn more</span>
                 <span>→</span>
-              </button>
+              </div>
             </div>
 
             {/* 2. Student Profile */}
-            <div className="flex flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-2.5 shadow-2xs">
+            <div
+              onClick={openSignup}
+              className="flex flex-col justify-between rounded-2xl border border-[#ded6c9] bg-white p-2.5 sm:p-3 shadow-2xs hover:border-[#215945]/40 transition-all cursor-pointer group"
+            >
               <div>
-                <div className="mb-2 flex h-6 w-6 items-center justify-center rounded-full bg-[#215945] text-white">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <div className="mb-2.5 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#215945] text-white">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
                     <path d="M6 12v5c3 3 9 3 12 0v-5" />
                   </svg>
                 </div>
-                <h4 className="font-serif text-sm sm:text-[14.5px] font-bold text-[#172b30] leading-snug">Student Profile</h4>
-                <ul className="my-2 space-y-1 text-[10.5px] sm:text-[11px] leading-tight text-[#37474c]">
+                <h4 className="text-xs sm:text-[13px] font-bold text-[#172b30] leading-tight mb-2">Student Profile</h4>
+                <ul className="space-y-1.5 text-[9.5px] sm:text-[10px] leading-snug text-[#37474c]">
                   <li className="flex items-start gap-1">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Multiple students</span>
                   </li>
                   <li className="flex items-start gap-1">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Strengths & challenges</span>
                   </li>
                   <li className="flex items-start gap-1">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Interests & learning style</span>
                   </li>
                   <li className="flex items-start gap-1">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Independent curriculum per student</span>
                   </li>
                 </ul>
               </div>
-              <button className="flex items-center gap-0.5 text-[11.5px] sm:text-xs font-semibold text-[#ba633f] hover:gap-1 transition-all cursor-pointer mt-1.5" onClick={openSignup}>
+              <div className="flex items-center gap-1 text-[11px] sm:text-[11.5px] font-semibold text-[#ba633f] group-hover:gap-1.5 transition-all mt-3 pt-1">
                 <span>Learn more</span>
                 <span>→</span>
-              </button>
+              </div>
             </div>
 
             {/* 3. Resource Library */}
-            <div className="flex flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-2.5 shadow-2xs">
+            <div
+              onClick={openSignup}
+              className="flex flex-col justify-between rounded-2xl border border-[#ded6c9] bg-white p-2.5 sm:p-3 shadow-2xs hover:border-[#215945]/40 transition-all cursor-pointer group"
+            >
               <div>
-                <div className="mb-2 flex h-6 w-6 items-center justify-center rounded-full bg-[#215945] text-white">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                <div className="mb-2.5 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#215945] text-white">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 14a3 3 0 0 0-3-3H2z" />
+                    <path d="M22 3h-6a4 4 0 0 0-4 14a3 3 0 0 1 3-3h7z" />
                   </svg>
                 </div>
-                <h4 className="font-serif text-sm sm:text-[14.5px] font-bold text-[#172b30] leading-snug">Resource Library</h4>
-                <ul className="my-2 space-y-1 text-[10.5px] sm:text-[11px] leading-tight text-[#37474c]">
+                <h4 className="text-xs sm:text-[13px] font-bold text-[#172b30] leading-tight mb-2">Resource Library</h4>
+                <ul className="space-y-1.5 text-[9.5px] sm:text-[10px] leading-snug text-[#37474c]">
                   <li className="flex items-start gap-1">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Filter by philosophy</span>
                   </li>
                   <li className="flex items-start gap-1">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Faith-based & traditional options</span>
                   </li>
                   <li className="flex items-start gap-1">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Secular & Christian options</span>
                   </li>
                   <li className="flex items-start gap-1">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Free & paid resources</span>
                   </li>
                 </ul>
               </div>
-              <button className="flex items-center gap-0.5 text-[11.5px] sm:text-xs font-semibold text-[#ba633f] hover:gap-1 transition-all cursor-pointer mt-1.5" onClick={openSignup}>
+              <div className="flex items-center gap-1 text-[11px] sm:text-[11.5px] font-semibold text-[#ba633f] group-hover:gap-1.5 transition-all mt-3 pt-1">
                 <span>Learn more</span>
                 <span>→</span>
-              </button>
+              </div>
             </div>
 
             {/* 4. Privacy & Control */}
-            <div className="flex flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-2.5 shadow-2xs">
+            <div
+              onClick={openSignup}
+              className="flex flex-col justify-between rounded-2xl border border-[#ded6c9] bg-white p-2.5 sm:p-3 shadow-2xs hover:border-[#215945]/40 transition-all cursor-pointer group"
+            >
               <div>
-                <div className="mb-2 flex h-6 w-6 items-center justify-center rounded-full bg-[#215945] text-white">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <div className="mb-2.5 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#215945] text-white">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   </svg>
                 </div>
-                <h4 className="font-serif text-sm sm:text-[14.5px] font-bold text-[#172b30] leading-snug">Privacy & Control</h4>
-                <ul className="my-2 space-y-1 text-[10.5px] sm:text-[11px] leading-tight text-[#37474c]">
+                <h4 className="text-xs sm:text-[13px] font-bold text-[#172b30] leading-tight mb-2">Privacy & Control</h4>
+                <ul className="space-y-1.5 text-[9.5px] sm:text-[10px] leading-snug text-[#37474c]">
                   <li className="flex items-start gap-1">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Your data stays yours</span>
                   </li>
                   <li className="flex items-start gap-1">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>You control what AI sees</span>
                   </li>
                   <li className="flex items-start gap-1">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Delete everything anytime</span>
                   </li>
                   <li className="flex items-start gap-1">
-                    <span className="font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>No data selling ever</span>
                   </li>
                 </ul>
               </div>
-              <button className="flex items-center gap-0.5 text-[11.5px] sm:text-xs font-semibold text-[#ba633f] hover:gap-1 transition-all cursor-pointer mt-1.5" onClick={openSignup}>
+              <div className="flex items-center gap-1 text-[11px] sm:text-[11.5px] font-semibold text-[#ba633f] group-hover:gap-1.5 transition-all mt-3 pt-1">
                 <span>Learn more</span>
                 <span>→</span>
-              </button>
+              </div>
             </div>
           </div>
         </section>
-
         {/* ================================================================
             5. PRICING SECTION
             ================================================================ */}
@@ -555,63 +594,78 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-3.5 items-stretch">
+          <div className="grid grid-cols-2 gap-3.5 sm:gap-4 items-stretch">
             {/* Monthly Card (First Card) */}
             <div
               onClick={() => {
                 setSelectedPlan('monthly');
-                openSignup('monthly');
+                onSelectPlan?.('monthly');
               }}
-              className={`flex flex-col justify-between rounded-xl p-4 transition-all cursor-pointer ${selectedPlan === 'monthly'
-                ? 'border-2 border-[#215945] bg-[#fbfdfc] shadow-xs ring-1 ring-[#215945]/10'
-                : 'border border-[#e9e2d5] bg-white hover:border-[#215945]/40 shadow-2xs'
+              className={`flex flex-col justify-between rounded-2xl p-4 sm:p-5 transition-all cursor-pointer ${selectedPlan === 'monthly'
+                ? 'border-2 border-[#215945] bg-white shadow-xs'
+                : 'border border-[#ded6c9] bg-white hover:border-[#215945]/40 shadow-2xs'
                 }`}
             >
-              <div>
-                <div className="flex items-center justify-center">
-                  <h3 className="font-serif text-center text-sm sm:text-base font-bold text-[#172b30]">Monthly</h3>
+              <div className="flex-1 flex flex-col">
+                <h3 className="text-center text-sm sm:text-base font-bold text-[#172b30]">Monthly</h3>
+
+                <div className="mt-1 text-center text-2xl sm:text-2xl font-bold text-[#172b30]">
+                  $8
+                </div>
+                <div className="mt-0.5 text-center text-xs sm:text-[13px] text-[#526068]">
+                  Per month
                 </div>
 
-                <div className="mt-1 flex items-baseline justify-center gap-0.5">
-                  <span className="text-3xl sm:text-4xl font-bold text-[#172b30]">$8</span>
-                  <span className="text-xs sm:text-sm font-normal text-[#526068]">/mo</span>
-                </div>
-                <div className="mt-0.5 h-5 flex items-center justify-center text-center text-xs sm:text-[12.5px] text-[#526068]">
-                  Billed monthly
-                </div>
-
-                <div className="my-3 border-t border-[#f0eae0]" />
-
-                <ul className="space-y-2 text-xs sm:text-[13px] text-[#27373c]">
+                <ul className="mt-4 sm:mt-5 space-y-2 text-xs sm:text-[13px] text-[#27373c]">
                   <li className="flex items-center gap-2">
-                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50]/12 text-[11px] font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs sm:text-sm shrink-0">✓</span>
                     <span className="leading-snug">Unlimited students</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50]/12 text-[11px] font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs sm:text-sm shrink-0">✓</span>
                     <span className="leading-snug">AI coaching</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50]/12 text-[11px] font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs sm:text-sm shrink-0">✓</span>
                     <span className="leading-snug">Full planner & tracking</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50]/12 text-[11px] font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs sm:text-sm shrink-0">✓</span>
                     <span className="leading-snug">Resource library</span>
                   </li>
                 </ul>
               </div>
+
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (selectedPlan === 'monthly') {
+                    openSignup('monthly');
+                  } else {
+                    setSelectedPlan('monthly');
+                    onSelectPlan?.('monthly');
+                  }
+                }}
+                className={`mt-5 sm:mt-6 w-full py-2 sm:py-2.5 px-3 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${selectedPlan === 'monthly'
+                  ? 'bg-[#215945] hover:bg-[#184636] text-white shadow-xs'
+                  : 'border border-[#ded6c9] bg-white text-[#172b30] hover:bg-[#faf7f0] hover:border-[#172b30]/30 shadow-2xs'
+                  }`}
+              >
+                <span>Choose Monthly</span>
+                <span>→</span>
+              </button>
             </div>
 
             {/* Annual Card */}
             <div
               onClick={() => {
                 setSelectedPlan('annual');
-                openSignup('annual');
+                onSelectPlan?.('annual');
               }}
-              className={`relative flex flex-col justify-between rounded-xl p-4 transition-all cursor-pointer ${selectedPlan === 'annual'
-                ? 'border-2 border-[#215945] bg-[#fbfdfc] shadow-xs ring-1 ring-[#215945]/10'
-                : 'border border-[#e9e2d5] bg-white hover:border-[#215945]/40 shadow-2xs'
+              className={`relative flex flex-col justify-between rounded-2xl p-4 sm:p-5 transition-all cursor-pointer ${selectedPlan === 'annual'
+                ? 'border-2 border-[#215945] bg-white shadow-xs'
+                : 'border border-[#ded6c9] hover:border-[#215945]/60 bg-white shadow-2xs'
                 }`}
             >
               {/* BEST VALUE - SAVE $24! Centered Badge */}
@@ -619,40 +673,51 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                 BEST VALUE - SAVE $24!
               </div>
 
-              <div>
-                <div className="flex items-center justify-center">
-                  <h3 className="font-serif text-center text-sm sm:text-base font-bold text-[#172b30]">Annual</h3>
+              <div className="flex-1 flex flex-col">
+                <h3 className="text-center text-sm sm:text-base font-bold text-[#172b30]">Annual</h3>
+
+                <div className="mt-1 text-center text-2xl sm:text-2xl font-bold text-[#172b30]">
+                  $6
+                </div>
+                <div className="mt-0.5 text-center text-xs sm:text-[13px] text-[#526068]">
+                  Per month - $72/year
                 </div>
 
-                <div className="mt-1 flex items-baseline justify-center gap-0.5">
-                  <span className="text-3xl sm:text-4xl font-bold text-[#172b30]">$6</span>
-                  <span className="text-xs sm:text-sm font-normal text-[#526068]">/mo</span>
-                </div>
-                <div className="mt-0.5 h-5 flex items-center justify-center text-center text-xs sm:text-[12.5px] text-[#526068]">
-                  $72 billed annually
-                </div>
-
-                <div className="my-3 border-t border-[#f0eae0]" />
-
-                <ul className="space-y-2 text-xs sm:text-[13px] text-[#27373c]">
+                <ul className="mt-4 sm:mt-5 space-y-2 text-xs sm:text-[13px] text-[#27373c]">
                   <li className="flex items-center gap-2">
-                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50]/12 text-[11px] font-bold text-[#1b6b50]">✓</span>
+                    <span className="font-bold text-[#1b6b50] text-xs sm:text-sm shrink-0">✓</span>
                     <span className="leading-snug">Everything in monthly</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50]/12 text-[11px] font-bold text-[#1b6b50]">✓</span>
-                    <span className="leading-snug font-medium text-[#1b6b50]">2 Months free ($24 off)</span>
+                    <span className="font-bold text-[#1b6b50] text-xs sm:text-sm shrink-0">✓</span>
+                    <span className="leading-snug">2 Months free</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50]/12 text-[11px] font-bold text-[#1b6b50]">✓</span>
-                    <span className="leading-snug">Priority coach support</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#1b6b50]/12 text-[11px] font-bold text-[#1b6b50]">✓</span>
-                    <span className="leading-snug">Full planner & tracking</span>
+                    <span className="font-bold text-[#1b6b50] text-xs sm:text-sm shrink-0">✓</span>
+                    <span className="leading-snug">Priority support</span>
                   </li>
                 </ul>
               </div>
+
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (selectedPlan === 'annual') {
+                    openSignup('annual');
+                  } else {
+                    setSelectedPlan('annual');
+                    onSelectPlan?.('annual');
+                  }
+                }}
+                className={`mt-5 sm:mt-6 w-full py-2 sm:py-2.5 px-3 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${selectedPlan === 'annual'
+                  ? 'bg-[#215945] hover:bg-[#184636] text-white shadow-xs'
+                  : 'border border-[#ded6c9] bg-white text-[#172b30] hover:bg-[#faf7f0] hover:border-[#172b30]/30 shadow-2xs'
+                  }`}
+              >
+                <span>Choose Annual</span>
+                <span>→</span>
+              </button>
             </div>
           </div>
         </section>
@@ -661,7 +726,7 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             6. COMMON QUESTIONS (FAQ)
             ================================================================ */}
         <section className="mb-11">
-          <h2 className="font-serif mb-5 text-center text-xl sm:text-2xl font-bold text-[#172b30]">
+          <h2 className="font-serif mb-5 text-center text-bs sm:text-2xl font-bold text-[#172b30]">
             Common questions
           </h2>
 
@@ -713,43 +778,47 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
         {/* ================================================================
             7. BOTTOM CTA CARD
             ================================================================ */}
-        <section className="flex flex-col items-center rounded-xl border border-[#e9e2d5] bg-white px-6 py-8 text-center shadow-2xs">
+        {/* ================================================================
+            7. BOTTOM CTA CARD (Figma Matched)*/}
+        <section className="flex flex-col items-center rounded-xl border border-[#e9e2d5] bg-white px-6 py-10 text-center shadow-2xs">
           <h2
             style={{ fontFamily: 'Lora, serif' }}
-            className="text-[20px] font-semibold leading-[120%] tracking-[0%] text-center text-[#172b30]"
+            className="text-[22px] sm:text-[24px] font-semibold leading-[120%] tracking-[0%] text-center text-[#172b30]"
           >
             Ready to simplify your homeschool?
           </h2>
+
           <p
-            className="text-[12px] font-medium leading-[140%] tracking-[0%] text-center text-[#526068] mt-2 max-w-[370px]"
+            className="text-[13px] sm:text-[14px] font-normal leading-[150%] tracking-[0%] text-center text-[#526068] mt-2.5 max-w-[500px]"
           >
-            Join families who use Tabula to plan with confidence, teach with purpose, and stop reinventing the wheel every week.
+            Join families who use Tabula to plan with confidence, <br className="hidden sm:inline" />
+            teach with purpose, and stop reinventing the wheel every week.
           </p>
+
           <button
             onClick={openSignup}
-            className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-[#215945] hover:bg-[#184636] px-5 py-2.5 text-sm sm:text-base font-bold text-white shadow-sm transition-all cursor-pointer"
+            className="mt-5 inline-flex items-center gap-1.5 rounded-lg bg-[#215945] hover:bg-[#184636] px-6 py-3 text-sm sm:text-base font-bold text-white shadow-sm transition-all cursor-pointer"
           >
             <span>Start Your Free Trial</span>
             <span>→</span>
           </button>
 
-          <div className="mt-3 flex flex-wrap justify-center items-center gap-3.5 text-xs sm:text-[13px] font-medium text-[#526068]">
-            <div className="inline-flex items-center gap-1">
+          <div className="mt-4 flex flex-wrap justify-center items-center gap-6 text-xs sm:text-[13px] font-medium text-[#526068]">
+            <div className="inline-flex items-center gap-1.5">
               <span className="font-bold text-[#1b6b50]">✓</span>
               <span>14 days free</span>
             </div>
-            <div className="inline-flex items-center gap-1">
+            <div className="inline-flex items-center gap-1.5">
               <span className="font-bold text-[#1b6b50]">✓</span>
               <span>$8/month after trial</span>
             </div>
-            <div className="inline-flex items-center gap-1">
+            <div className="inline-flex items-center gap-1.5">
               <span className="font-bold text-[#1b6b50]">✓</span>
               <span>Cancel anytime</span>
             </div>
           </div>
         </section>
-
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }

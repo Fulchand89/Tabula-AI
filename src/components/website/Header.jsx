@@ -37,7 +37,7 @@ export default function Header({
           <div className="flex items-baseline">
             <span
               style={{ fontFamily: 'Lora, serif' }}
-              className="text-[48px] font-semibold leading-[100%] tracking-[0%] text-[#172b30]"
+              className="text-[30px] font-semibold leading-[100%] tracking-[0%] text-[#172b30]"
             >
               Tabula
             </span>
