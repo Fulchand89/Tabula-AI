@@ -244,12 +244,12 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
             ================================================================ */}
       <div className="mb-4 flex flex-col justify-between gap-1.5 sm:flex-row sm:items-start">
         <div>
-          <span className="text-[10px] font-extrabold tracking-wider text-[#356F58] uppercase">
+          <span className="text-[10px] font-extrabold tracking-wider text-[#4E7A5B] uppercase">
             YOUR HOMESCHOOL
           </span>
           <h1
             style={{ fontFamily: 'Lora, serif' }}
-            className="text-[36px] font-bold leading-[100%] tracking-[0px] align-middle text-[#172b30] mt-1"
+            className="text-[36px] font-bold leading-[100%] tracking-[0px] align-middle text-[#212C3E] mt-1"
           >
             Good afternoon
           </h1>
