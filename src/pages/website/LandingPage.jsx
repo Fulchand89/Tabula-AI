@@ -582,7 +582,7 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             >
               Simple pricing. No surprises.
             </h2>
-            <p className="mt-1 text-xs sm:text-sm text-[#526068]">
+            <p className="mt-1 text-[11px] font-medium text-[#685949]">
               Start with 14 days completely free.
             </p>
           </div>
@@ -595,8 +595,8 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                 onSelectPlan?.('monthly');
               }}
               className={`flex flex-col justify-between rounded-2xl p-4 sm:p-5 transition-all cursor-pointer ${selectedPlan === 'monthly'
-                  ? 'border-2 border-[#356F58] bg-white shadow-xs'
-                  : 'border border-[#ded6c9] bg-white hover:border-[#356F58]/40 shadow-2xs'
+                ? 'border-2 border-[#356F58] bg-white shadow-xs'
+                : 'border border-[#ded6c9] bg-white hover:border-[#356F58]/40 shadow-2xs'
                 }`}
             >
               <div className="flex-1 flex flex-col">
@@ -641,8 +641,8 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                   }
                 }}
                 className={`mt-5 sm:mt-6 w-full py-2.5 sm:py-2.5 px-3 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${selectedPlan === 'monthly'
-                    ? 'bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] hover:bg-[#126041] text-white shadow-xs'
-                    : 'border border-[#ded6c9] bg-white text-[#172b30] hover:bg-[#faf7f0] hover:border-[#172b30]/30 shadow-2xs'
+                  ? 'bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] hover:bg-[#126041] text-white shadow-xs'
+                  : 'border border-[#ded6c9] bg-white text-[#172b30] hover:bg-[#faf7f0] hover:border-[#172b30]/30 shadow-2xs'
                   }`}
               >
                 <span>Choose Monthly</span>
@@ -657,8 +657,8 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                 onSelectPlan?.('annual');
               }}
               className={`relative flex flex-col justify-between rounded-2xl p-4 sm:p-5 transition-all cursor-pointer ${selectedPlan === 'annual'
-                  ? 'border-2 border-[#356F58] bg-white shadow-xs'
-                  : 'border border-[#ded6c9] hover:border-[#356F58]/60 bg-white shadow-2xs'
+                ? 'border-2 border-[#356F58] bg-white shadow-xs'
+                : 'border border-[#ded6c9] hover:border-[#356F58]/60 bg-white shadow-2xs'
                 }`}
             >
               <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-sm bg-[#f4a123] px-2.5 py-0.5 text-[9.5px] sm:text-[10px] font-extrabold tracking-wider text-[#4d2c00] uppercase shadow-2xs text-center z-10">
@@ -703,8 +703,8 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                   }
                 }}
                 className={`mt-5 sm:mt-6 w-full py-2.5 sm:py-2.5 px-3 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${selectedPlan === 'annual'
-                    ? 'bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] hover:bg-[#126041] text-white shadow-xs'
-                    : 'border border-[#ded6c9] bg-white text-[#172b30] hover:bg-[#faf7f0] hover:border-[#172b30]/30 shadow-2xs'
+                  ? 'bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] hover:bg-[#126041] text-white shadow-xs'
+                  : 'border border-[#ded6c9] bg-white text-[#172b30] hover:bg-[#faf7f0] hover:border-[#172b30]/30 shadow-2xs'
                   }`}
               >
                 <span>Choose Annual</span>
