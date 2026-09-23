@@ -141,18 +141,19 @@ export default function TrialCheckoutPage({
                 </button>
               )}
 
-              <h1 className="font-serif text-2xl sm:text-4xl font-bold tracking-tight text-[#172b30]">
+              <h1 className="font-Lora text-[42px] weight-600 font-semibold tracking-tight text-[#212C3E]">
                 Start your free trial
               </h1>
 
-              <p className="mt-1.5 text-xs sm:text-sm font-semibold text-[#ba633f]">
+              <p className="mt-1.5 text-[19px] weight-500  font-medium text-[#BD7451]">
+
                 14 days free - No charge today
               </p>
             </header>
 
             {/* ── WELCOME CARD ── */}
             <div className="mt-6 mb-7 rounded-2xl border border-[#e9e2d5] bg-white p-4 sm:p-6 shadow-2xs">
-              <h2 className="font-serif text-sm sm:text-base font-bold text-[#172b30]">
+              <h2 className="font-lora text-[19px] font-semibold text-[#212C3E]">
                 Welcome, {userName || 'shiva'}! Here's what you get:
               </h2>
 
@@ -166,9 +167,9 @@ export default function TrialCheckoutPage({
                 ].map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-2.5 text-xs sm:text-[13px] text-[#ba633f] font-medium"
+                    className="flex items-start gap-2.5 text-[15px] text-[#BD7451] font-medium"
                   >
-                    <span className="flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-white mt-0.5">
+                    <span className="flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-white mt-0.5">
                       <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
                         <polyline
                           points="2,6 5,9 10,3"
@@ -187,7 +188,7 @@ export default function TrialCheckoutPage({
 
             {/* ── CHOOSE YOUR PLAN ── */}
             <div className="mb-7">
-              <h3 className="text-xs sm:text-sm font-bold text-[#172b30] text-center mb-3.5">
+              <h3 className="text-[15px] font-inter font-semibold text-[#212C3E] text-center mb-3.5">
                 Choose your plan
               </h3>
 
@@ -200,15 +201,21 @@ export default function TrialCheckoutPage({
                     : 'border-[#e9e2d5] hover:border-[#ba633f] shadow-2xs'
                     }`}
                 >
-                  <div>
-                    <h4 className="font-serif text-sm font-bold text-[#172b30]">
+                  <div className="text-center flex-1">
+                    <h4 className="font-inter text-[19px] font-semibold text-[#212C3E]">
                       Monthly
                     </h4>
+
                     {/* Click/Select par Green, warna Red */}
-                    <div className={`text-xl sm:text-2xl font-bold mt-0.5 transition-colors ${selectedPlan === 'monthly' ? 'text-[#356F58]' : 'text-[#FF6A00]'
-                      }`}>
+                    <div
+                      className={`text-xl sm:text-2xl font-bold mt-0.5 transition-colors ${selectedPlan === 'monthly'
+                        ? 'text-[#356F58]'
+                        : 'text-[#FF6A00]'
+                        }`}
+                    >
                       $8/mo
                     </div>
+
                     <div className="text-[10.5px] text-[#ba633f] font-medium">
                       Billed monthly
                     </div>
@@ -233,15 +240,21 @@ export default function TrialCheckoutPage({
                     BEST VALUE
                   </div>
 
-                  <div>
-                    <h4 className="font-serif text-sm font-bold text-[#172b30]">
+                  <div className="text-center flex-1">
+                    <h4 className="font-inter text-[19px] font-semibold text-[#212C3E]">
                       Annual
                     </h4>
+
                     {/* Click/Select par Green, warna Red */}
-                    <div className={`text-xl sm:text-2xl font-bold mt-0.5 transition-colors ${selectedPlan === 'annual' ? 'text-[#356F58]' : 'text-[#FF6A00]'
-                      }`}>
+                    <div
+                      className={`text-xl sm:text-2xl font-bold mt-0.5 transition-colors ${selectedPlan === 'annual'
+                        ? 'text-[#356F58]'
+                        : 'text-[#FF6A00]'
+                        }`}
+                    >
                       $6/mo
                     </div>
+
                     <div className="text-[10.5px] text-[#ba633f] font-medium">
                       $72/yr - Save $24
                     </div>
@@ -255,17 +268,16 @@ export default function TrialCheckoutPage({
                 </div>
               </div>
             </div>
-
             {/* ── PAYMENT DETAILS FORM ── */}
             <form onSubmit={handleStartTrial}>
               <div className="mb-4">
-                <h3 className="text-xs sm:text-[12.5px] font-bold text-[#526068] text-center mb-3">
+                <h3 className="text-[15px] font-inter font-semibold text-[#685949] text-center mb-3">
                   Payment details (saved for after trial)
                 </h3>
 
                 {/* NAME ON CARD */}
                 <div className="mb-3.5">
-                  <label className="block text-[11px] font-bold tracking-wider text-[#1e282d] uppercase text-center mb-1.5">
+                  <label className="block text-[15px] font-semibold tracking-wider text-[#212C3E] uppercase text-center mb-1.5">
                     NAME ON CARD
                   </label>
                   <input
@@ -280,7 +292,7 @@ export default function TrialCheckoutPage({
 
                 {/* CARD NUMBER */}
                 <div className="mb-3.5">
-                  <label className="block text-[11px] font-bold tracking-wider text-[#1e282d] uppercase text-center mb-1.5">
+                  <label className="block text-[15px] font-semibold tracking-wider text-[#212C3E] uppercase text-center mb-1.5">
                     CARD NUMBER
                   </label>
                   <input
@@ -300,7 +312,7 @@ export default function TrialCheckoutPage({
                 <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-5">
                   {/* EXPIRY */}
                   <div>
-                    <label className="block text-xs font-bold text-[#1e282d] text-center mb-1.5">
+                    <label className="block text-[15px] font-semibold text-[#212C3E] text-center mb-1.5">
                       Expiration
                     </label>
                     <input
@@ -318,7 +330,7 @@ export default function TrialCheckoutPage({
 
                   {/* CVV */}
                   <div>
-                    <label className="block text-xs font-bold text-[#1e282d] text-center mb-1.5">
+                    <label className="block text-[15px] font-semibold text-[#212C3E] text-center mb-1.5">
                       CVV
                     </label>
                     <input
@@ -338,7 +350,7 @@ export default function TrialCheckoutPage({
 
                   {/* ZIP */}
                   <div>
-                    <label className="block text-xs font-bold text-[#1e282d] text-center mb-1.5">
+                    <label className="block text-[15px] font-semibold text-[#212C3E] text-center mb-1.5">
                       ZIP
                     </label>
                     <input

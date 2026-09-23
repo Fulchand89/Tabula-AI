@@ -79,13 +79,13 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
             </div>
           </div>
 
-          <h1 className="font-serif text-xl sm:text-2xl font-semibold text-[#ba633f] mt-1">
+          <h1 className="font-serif text-[23px] font-semibold text-[#BD7451] mt-1">
             Your AI homeschool planning coach
           </h1>
 
           {/* 3 Dark Green Pills */}
           <div className="mt-4 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 w-full">
-            <div className="flex items-center gap-1.5 rounded-lg bg-[#356F58] px-2.5 sm:px-3 py-1.5 text-[10px] sm:text-[12px] font-medium text-white shadow-xs">
+            <div className="flex items-center gap-1.5 rounded-lg bg-[#136041] px-2.5 sm:px-3 py-1.5 text-[10px] sm:text-[12px] font-medium text-white shadow-xs">
               <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
@@ -93,7 +93,7 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
               <span>You choose the curriculum</span>
             </div>
 
-            <div className="flex items-center gap-1.5 rounded-lg bg-[#356F58] px-2.5 sm:px-3 py-1.5 text-[10px] sm:text-[12px] font-medium text-white shadow-xs">
+            <div className="flex items-center gap-1.5 rounded-lg bg-[#136041] px-2.5 sm:px-3 py-1.5 text-[10px] sm:text-[12px] font-medium text-white shadow-xs">
               <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
@@ -101,7 +101,7 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
               <span>AI helps you implement it</span>
             </div>
 
-            <div className="flex items-center gap-1.5 rounded-lg bg-[#356F58] px-2.5 sm:px-3 py-1.5 text-[10px] sm:text-[12px] font-medium text-white shadow-xs">
+            <div className="flex items-center gap-1.5 rounded-lg bg-[#136041] px-2.5 sm:px-3 py-1.5 text-[10px] sm:text-[12px] font-medium text-white shadow-xs">
               <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
@@ -123,10 +123,10 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
             </svg>
           </div>
           <div className="flex flex-col text-left">
-            <h2 className="text-[14.5px] font-bold text-[#b2613d] leading-snug">
+            <h2 className="text-[14.5px] font-bold text-[#BD7451] leading-snug">
               14-day free trial
             </h2>
-            <p className="text-[12px] font-semibold text-[#356F58] mt-0.5">
+            <p className="text-[12px] font-bold text-[#4E7A5B] mt-0.5">
               Full access - $8/month after trial
             </p>
           </div>
@@ -274,13 +274,21 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
         </div>
 
         {/* Disclaimer Text */}
-        <div className="w-full max-w-[430px] mx-auto mb-6 text-center text-[11px] text-[#55636a] leading-relaxed">
+        <div className="w-full max-w-[600px] mx-auto mt-6 mb-6 px-2 text-center text-[10px] text-[#66584c] leading-[1.6]">
           <p>
             By creating an account you agree to our{' '}
-            <a href="#terms" className="underline text-[#b86b46]">terms of service</a>. Your 14-day free trial begins today.
+            <a href="#terms" className="underline text-[#b86b46]">
+              terms of service
+            </a>
+            . Your 14-day free trial begins today.
           </p>
-          <p className="mt-0.5">No payment required until your trial ends.</p>
+
+          <p className="mt-0.5">
+            No payment required until your trial ends.
+          </p>
         </div>
+
+
 
         {/* ── 3 Value Props Card ── */}
         <div className="mb-5 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-[#f0eae0] rounded-2xl border border-[#e9e2d5] bg-white p-4 sm:p-5 text-center shadow-2xs gap-4 sm:gap-0">
@@ -290,10 +298,10 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
               </svg>
             </div>
-            <h3 className="flex sm:h-9 items-center justify-center text-center text-xs sm:text-sm font-bold text-[#172a2f] leading-tight">
+            <h3 className="flex sm:h-9 items-center justify-center text-center text-xs sm:text-sm font-bold text-[#212C3E] leading-tight">
               No credit card today
             </h3>
-            <p className="mt-1 flex-1 text-center text-[10.5px] sm:text-[11px] leading-snug text-[#65757a]">
+            <p className="mt-1 flex-1 text-center text-[10.5px] sm:text-[11px] leading-snug text-[#65706B]">
               Start free, pay only after 14 days if you love it.
             </p>
           </div>
@@ -305,10 +313,10 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
                 <path d="M7 11V7a5 5 0 0 1 10 0v4" />
               </svg>
             </div>
-            <h3 className="flex sm:h-9 items-center justify-center text-center text-xs sm:text-sm font-bold text-[#172a2f] leading-tight">
+            <h3 className="flex sm:h-9 items-center justify-center text-center text-xs sm:text-sm font-bold text-[#212C3E] leading-tight">
               Cancel anytime
             </h3>
-            <p className="mt-1 flex-1 text-center text-[10.5px] sm:text-[11px] leading-snug text-[#65757a]">
+            <p className="mt-1 flex-1 text-center text-[10.5px] sm:text-[11px] leading-snug text-[#65706B]">
               Full access during trial, cancel anytime with no fees.
             </p>
           </div>
@@ -322,10 +330,10 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
                 <path d="M16 3.13a4 4 0 0 1 0 7.75" />
               </svg>
             </div>
-            <h3 className="flex sm:h-9 items-center justify-center text-center text-xs sm:text-sm font-bold text-[#172a2f] leading-tight">
+            <h3 className="flex sm:h-9 items-center justify-center text-center text-xs sm:text-sm font-bold text-[#212C3E] leading-tight">
               Built for homeschoolers
             </h3>
-            <p className="mt-1 flex-1 text-center text-[10.5px] sm:text-[11px] leading-snug text-[#65757a]">
+            <p className="mt-1 flex-1 text-center text-[10.5px] sm:text-[11px] leading-snug text-[#65706B]">
               Designed by parents who homeschool too.
             </p>
           </div>
