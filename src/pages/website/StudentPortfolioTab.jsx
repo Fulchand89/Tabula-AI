@@ -38,7 +38,7 @@ export default function StudentPortfolioTab({
           <button
             type="button"
             onClick={() => setIsAddingPortfolio(true)}
-            className="mb-8 flex w-full items-center justify-center gap-2 rounded-2xl bg-[#356F58] hover:bg-[#2a5946] active:scale-[0.99] py-4 px-6 text-sm font-bold text-white shadow-xs transition-all cursor-pointer"
+            className="mb-8 flex w-full items-center justify-center gap-2 rounded-2xl bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] hover:bg-[#126041] active:scale-[0.99] py-4 px-6 text-sm font-bold text-white shadow-xs transition-all cursor-pointer"
           >
             <svg
               width="18"
@@ -158,11 +158,10 @@ export default function StudentPortfolioTab({
                         setPortfolioSubject(subj);
                         setIsPortfolioSubjectOpen(false);
                       }}
-                      className={`flex w-full items-center px-4 py-2 text-left text-xs font-medium transition-colors cursor-pointer ${
-                        portfolioSubject === subj
-                          ? 'bg-[#edf5f0] text-[#356F58] font-bold'
-                          : 'text-[#1e282d] hover:bg-[#faf5eb]'
-                      }`}
+                      className={`flex w-full items-center px-4 py-2 text-left text-xs font-medium transition-colors cursor-pointer ${portfolioSubject === subj
+                        ? 'bg-[#edf5f0] text-[#356F58] font-bold'
+                        : 'text-[#1e282d] hover:bg-[#faf5eb]'
+                        }`}
                     >
                       {subj}
                     </button>

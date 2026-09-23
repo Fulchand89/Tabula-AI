@@ -381,7 +381,7 @@ export default function TrialCheckoutPage({
               <div className="mt-5">
                 <button
                   type="submit"
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#356F58] hover:bg-[#2a5946] py-3.5 text-xs sm:text-sm font-bold text-white shadow-sm transition-all cursor-pointer"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] hover:bg-[#126041] py-3.5 text-xs sm:text-sm font-bold text-white shadow-sm transition-all cursor-pointer"
                 >
                   <span>Start Your Free Trial</span>
                   <span>→</span>

@@ -243,11 +243,10 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
                           setStateSearch('');
                           showToast(`State set to ${state}`);
                         }}
-                        className={`flex w-full items-center px-4 py-2 text-left text-xs sm:text-sm font-medium transition-colors cursor-pointer ${
-                          selectedState === state
+                        className={`flex w-full items-center px-4 py-2 text-left text-xs sm:text-sm font-medium transition-colors cursor-pointer ${selectedState === state
                             ? 'bg-[#edf5f0] text-[#356F58] font-bold'
                             : 'text-[#1e282d] hover:bg-[#faf5eb]'
-                        }`}
+                          }`}
                       >
                         {state}
                       </button>
@@ -499,7 +498,7 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
         <button
           type="button"
           onClick={onBackToHome}
-          className="mt-6 flex w-full items-center justify-center rounded-2xl bg-[#356F58] hover:bg-[#2a5946] active:scale-[0.99] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-md transition-all cursor-pointer"
+          className="mt-6 flex w-full items-center justify-center rounded-2xl bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] hover:bg-[#126041] active:scale-[0.99] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-md transition-all cursor-pointer"
         >
           Done
         </button>

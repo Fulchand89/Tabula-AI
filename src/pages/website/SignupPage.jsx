@@ -264,7 +264,7 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
             <div className="pt-2">
               <button
                 type="submit"
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#356F58] py-3 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#2a5946] transition-all cursor-pointer"
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] py-3 text-xs sm:text-sm font-semibold text-white shadow-xs hover:bg-[#126041] transition-all cursor-pointer"
               >
                 <span>{activeTab === 'create' ? 'Start Your Free Trial' : 'Sign In to Tabula'}</span>
                 <span>→</span>

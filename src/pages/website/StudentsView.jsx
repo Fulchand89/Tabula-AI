@@ -523,7 +523,7 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
               </button>
               <button
                 type="submit"
-                className="flex-1 rounded-xl bg-[#356F58] py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-[#2a5946] transition-colors cursor-pointer"
+                className="flex-1 rounded-xl bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-[#126041] transition-colors cursor-pointer"
               >
                 Add Student & View Curriculum →
               </button>

@@ -117,7 +117,7 @@ export default function ResourceCommunityView({ searchQuery = '', onSearchChange
           <button
             type="button"
             onClick={() => setIsWritingReview(true)}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#356F58] py-3.5 text-xs font-bold text-white shadow-sm hover:bg-[#2a5946] active:scale-[0.99] transition-all cursor-pointer"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] py-3.5 text-xs font-bold text-white shadow-sm hover:bg-[#126041] active:scale-[0.99] transition-all cursor-pointer"
           >
             <span>Write a Review</span>
             <span className="text-sm">→</span>

@@ -129,7 +129,7 @@ export default function ResourceReviewForm({ onSubmit, onCancel }) {
           </button>
           <button
             type="submit"
-            className="flex-1 rounded-xl bg-[#356F58] py-2.5 text-xs font-bold text-white hover:bg-[#2a5946] transition-colors cursor-pointer text-center shadow-sm active:scale-[0.99]"
+            className="flex-1 rounded-xl bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] py-2.5 text-xs font-bold text-white hover:bg-[#126041] transition-colors cursor-pointer text-center shadow-sm active:scale-[0.99]"
           >
             Submit
           </button>

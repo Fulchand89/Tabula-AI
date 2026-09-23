@@ -165,7 +165,7 @@ export default function AddCurriculumModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-3.5 sm:p-4 backdrop-blur-xs">
-      <div 
+      <div
         className="relative w-full max-w-[480px] rounded-2xl border border-[#e9e2d5] bg-[#faf6ee] p-4 sm:p-5 shadow-2xl transition-all max-h-[92vh] overflow-y-auto no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
         onClick={(e) => e.stopPropagation()}
         role="dialog"
@@ -174,7 +174,7 @@ export default function AddCurriculumModal({
         <div className="mx-auto mb-2.5 h-1 w-12 rounded-full bg-[#bf643e]" />
 
         {/* Close Button */}
-        <button 
+        <button
           onClick={onClose}
           className="absolute top-4 right-4 flex h-7 w-7 items-center justify-center rounded-full text-xl text-[#1e282d] hover:bg-[#e9e2d5]/60 transition-colors cursor-pointer"
           aria-label="Close"
@@ -214,7 +214,7 @@ export default function AddCurriculumModal({
             <label className="block text-[10.5px] font-bold tracking-wider text-[#1e282d] uppercase">
               CURRICULUM TITLE *
             </label>
-            <input 
+            <input
               type="text"
               required
               className="mt-1 w-full rounded-xl border border-[#e2d8cb] bg-white px-3 py-2 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-hidden"
@@ -237,11 +237,10 @@ export default function AddCurriculumModal({
                     type="button"
                     key={choice}
                     onClick={() => handleSelectChoice(choice)}
-                    className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-all cursor-pointer ${
-                      isSelected
+                    className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-all cursor-pointer ${isSelected
                         ? 'bg-[#356F58] text-white'
                         : 'border border-[#e2d8cb] bg-white text-[#33444a] hover:bg-[#faf6ee]'
-                    }`}
+                      }`}
                   >
                     {isSelected ? `+ ${choice}` : choice}
                   </button>
@@ -255,7 +254,7 @@ export default function AddCurriculumModal({
             <label className="block text-[10.5px] font-bold tracking-wider text-[#1e282d] uppercase">
               PACING / WHERE YOU ARE (OPTIONAL)
             </label>
-            <input 
+            <input
               type="text"
               className="mt-1 w-full rounded-xl border border-[#e2d8cb] bg-white px-3 py-2 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-hidden"
               placeholder="e.g. Lesson 45, Chapter 3, Week 12 of 36"
@@ -269,7 +268,7 @@ export default function AddCurriculumModal({
             <label className="block text-[10.5px] font-bold tracking-wider text-[#1e282d] uppercase">
               NOTES (OPTIONAL)
             </label>
-            <textarea 
+            <textarea
               rows={2}
               className="mt-1 w-full resize-none rounded-xl border border-[#e2d8cb] bg-white px-3 py-2 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-hidden"
               placeholder="Any context about how you use this curriculum, modifications you make, etc."
@@ -289,7 +288,7 @@ export default function AddCurriculumModal({
             </button>
             <button
               type="submit"
-              className="flex-1 rounded-xl bg-[#356F58] py-2 text-xs font-semibold text-white shadow-sm hover:bg-[#2a5946] transition-colors cursor-pointer"
+              className="flex-1 rounded-xl bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] py-2 text-xs font-semibold text-white shadow-sm hover:bg-[#126041] transition-colors cursor-pointer"
             >
               {isEditing ? 'Save Changes →' : 'Add Curriculum →'}
             </button>

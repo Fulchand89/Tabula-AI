@@ -56,22 +56,20 @@ export default function StudentReportTab({
         <button
           type="button"
           onClick={() => setReportSubTab('transcript')}
-          className={`flex-1 rounded-full py-2.5 text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${
-            reportSubTab === 'transcript'
-              ? 'bg-[#b8704a] text-white shadow-xs'
-              : 'text-[#2b3c42] hover:text-[#16272b]'
-          }`}
+          className={`flex-1 rounded-full py-2.5 text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${reportSubTab === 'transcript'
+            ? 'bg-[#b8704a] text-white shadow-xs'
+            : 'text-[#2b3c42] hover:text-[#16272b]'
+            }`}
         >
           TRANSCRIPT & GPA
         </button>
         <button
           type="button"
           onClick={() => setReportSubTab('progress')}
-          className={`flex-1 rounded-full py-2.5 text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${
-            reportSubTab === 'progress'
-              ? 'bg-[#b8704a] text-white shadow-xs'
-              : 'text-[#2b3c42] hover:text-[#16272b]'
-          }`}
+          className={`flex-1 rounded-full py-2.5 text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${reportSubTab === 'progress'
+            ? 'bg-[#b8704a] text-white shadow-xs'
+            : 'text-[#2b3c42] hover:text-[#16272b]'
+            }`}
         >
           PROGRESS REPORT
         </button>
@@ -109,9 +107,9 @@ export default function StudentReportTab({
 
               {isSchoolYearOpen && (
                 <>
-                  <div 
-                    className="fixed inset-0 z-20" 
-                    onClick={() => setIsSchoolYearOpen(false)} 
+                  <div
+                    className="fixed inset-0 z-20"
+                    onClick={() => setIsSchoolYearOpen(false)}
                   />
                   <div className="absolute left-0 right-0 top-full z-30 mt-1 max-h-64 overflow-y-auto rounded-xl border border-[#d5dcd8] bg-white py-1 shadow-xl">
                     {SCHOOL_YEAR_OPTIONS.map((yr) => (
@@ -122,11 +120,10 @@ export default function StudentReportTab({
                           setSchoolYear(yr);
                           setIsSchoolYearOpen(false);
                         }}
-                        className={`flex w-full items-center justify-center px-4 py-2.5 text-xs font-semibold transition-colors cursor-pointer ${
-                          schoolYear === yr
-                            ? 'bg-[#edf5f0] text-[#356F58] font-bold'
-                            : 'text-[#1e282d] hover:bg-[#faf5eb]'
-                        }`}
+                        className={`flex w-full items-center justify-center px-4 py-2.5 text-xs font-semibold transition-colors cursor-pointer ${schoolYear === yr
+                          ? 'bg-[#edf5f0] text-[#356F58] font-bold'
+                          : 'text-[#1e282d] hover:bg-[#faf5eb]'
+                          }`}
                       >
                         {yr}
                       </button>
@@ -207,11 +204,10 @@ export default function StudentReportTab({
                           setMathGrade(g);
                           setIsMathGradeOpen(false);
                         }}
-                        className={`flex w-full items-center px-4 py-2 text-left text-xs font-medium transition-colors cursor-pointer ${
-                          mathGrade === g
-                            ? 'bg-[#edf5f0] text-[#356F58] font-bold'
-                            : 'text-[#1e282d] hover:bg-[#faf5eb]'
-                        }`}
+                        className={`flex w-full items-center px-4 py-2 text-left text-xs font-medium transition-colors cursor-pointer ${mathGrade === g
+                          ? 'bg-[#edf5f0] text-[#356F58] font-bold'
+                          : 'text-[#1e282d] hover:bg-[#faf5eb]'
+                          }`}
                       >
                         {g}
                       </button>
@@ -313,9 +309,9 @@ export default function StudentReportTab({
 
               {isProgressSchoolYearOpen && (
                 <>
-                  <div 
-                    className="fixed inset-0 z-20" 
-                    onClick={() => setIsProgressSchoolYearOpen(false)} 
+                  <div
+                    className="fixed inset-0 z-20"
+                    onClick={() => setIsProgressSchoolYearOpen(false)}
                   />
                   <div className="absolute left-0 right-0 top-full z-30 mt-1 max-h-64 overflow-y-auto rounded-xl border border-[#d5dcd8] bg-white py-1 shadow-xl">
                     {SCHOOL_YEAR_OPTIONS.map((yr) => (
@@ -326,11 +322,10 @@ export default function StudentReportTab({
                           setSchoolYear(yr);
                           setIsProgressSchoolYearOpen(false);
                         }}
-                        className={`flex w-full items-center justify-center px-4 py-2.5 text-xs font-semibold transition-colors cursor-pointer ${
-                          schoolYear === yr
-                            ? 'bg-[#edf5f0] text-[#356F58] font-bold'
-                            : 'text-[#1e282d] hover:bg-[#faf5eb]'
-                        }`}
+                        className={`flex w-full items-center justify-center px-4 py-2.5 text-xs font-semibold transition-colors cursor-pointer ${schoolYear === yr
+                          ? 'bg-[#edf5f0] text-[#126041] font-bold'
+                          : 'text-[#1e282d] hover:bg-[#faf5eb]'
+                          }`}
                       >
                         {yr}
                       </button>
@@ -367,7 +362,7 @@ export default function StudentReportTab({
           <button
             type="button"
             onClick={() => setIsWorkSampleModalOpen(true)}
-            className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#356F58] px-6 py-4 text-sm font-bold text-white shadow-xs hover:bg-[#2a5946] active:scale-[0.99] transition-all cursor-pointer"
+            className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] px-6 py-4 text-sm font-bold text-white shadow-xs hover:bg-[#126041] active:scale-[0.99] transition-all cursor-pointer"
           >
             <svg
               width="18"
