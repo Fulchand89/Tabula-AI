@@ -34,11 +34,11 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
 
     // 3. Password length validation (6 se 30 characters)
     if (password.length < 6) {
-      setErrorMessage('Password kam se kam 6 characters ka hona chahiye.');
+      setErrorMessage('Password .');
       return;
     }
     if (password.length > 30) {
-      setErrorMessage('Password 30 characters se zyada nahi ho sakta.');
+      setErrorMessage('Password.');
       return;
     }
 
