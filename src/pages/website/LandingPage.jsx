@@ -155,7 +155,6 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
         <header className="mb-9 text-left">
           <div className="mb-2.5 flex items-center justify-between">
             <div className="inline-flex items-baseline cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-
               <span className="font-['Lora'] font-semibold text-[42px] leading-[100%] tracking-normal text-[#212C3E]">
                 Tabula
               </span>
@@ -319,32 +318,22 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             4. SECTION: Everything you need to homeschool with confidence
             ================================================================ */}
         <section className="mb-11">
-          <div className="mb-5 text-center">
-            <h2 className="font-serif text-base sm:text-lg font-bold tracking-tight text-[#172b30]">
-              Everything you need to homeschool with <span className="text-[#356F58]">confidence</span>
-            </h2>
-          </div>
-
-          {/* AI Homeschool Coach Card */}
           <div className="mb-4 grid grid-cols-1 sm:grid-cols-[1.1fr_0.9fr] items-center gap-4 rounded-2xl border border-[#ded7ca] bg-white p-4 sm:p-5 shadow-xs">
             {/* LEFT SIDE: Info & Feature List */}
             <div className="flex flex-col">
-              {/* Heading & Badge */}
-              <div className="flex flex-wrap items-center gap-2">
+              <div className="flex flex-col items-start gap-2">
                 <h3 className="font-serif text-[15px] sm:text-base font-bold text-[#1c2930]">
                   AI Homeschool Coach
                 </h3>
-                <span className="inline-flex items-center rounded-md bg-[#fef3c7] px-2 py-0.5 text-[9px] sm:text-[9.5px] font-extrabold tracking-wider text-[#b45309]">
+                <span className="inline-flex items-center rounded-md bg-[#F2B83F26] px-2 py-0.5 text-[9px] font-medium tracking-wider text-[#E09800]">
                   POWERED BY CLAUDE
                 </span>
               </div>
 
-
-              <p className="mt-1 text-[11.5px] sm:text-xs text-[#55636a]">
+              <p className="mt-3 text-[11.5px] sm:text-xs text-[#55636a]">
                 Your personal planning partner, every week.
               </p>
 
-              {/* Checklist */}
               <ul className="mt-3 space-y-2">
                 <li className="flex items-center gap-2 text-[11px] sm:text-xs font-medium text-[#203036]">
                   <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-[8px] text-white font-bold">
@@ -352,21 +341,18 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                   </span>
                   <span>Plans around your real progress</span>
                 </li>
-
                 <li className="flex items-center gap-2 text-[11px] sm:text-xs font-medium text-[#203036]">
                   <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-[8px] text-white font-bold">
                     ✓
                   </span>
                   <span>Suggest lessons and adjustments</span>
                 </li>
-
                 <li className="flex items-center gap-2 text-[11px] sm:text-xs font-medium text-[#203036]">
                   <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-[8px] text-white font-bold">
                     ✓
                   </span>
                   <span>Helps when a child is struggling</span>
                 </li>
-
                 <li className="flex items-center gap-2 text-[11px] sm:text-xs font-medium text-[#203036]">
                   <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-[8px] text-white font-bold">
                     ✓
@@ -378,12 +364,10 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
 
             {/* RIGHT SIDE — Chat Mockup */}
             <div className="flex flex-col justify-between rounded-2xl border border-[#ded7ca] bg-white p-3.5 sm:p-4 shadow-xs">
-              {/* Header */}
               <div className="mb-2 text-xs sm:text-[13px] font-bold text-[#1c2930]">
                 AI Coach
               </div>
 
-              {/* Chat Message Area */}
               <div
                 ref={chatContainerRef}
                 className="h-[135px] overflow-y-auto space-y-2 pr-1 custom-scrollbar"
@@ -406,7 +390,6 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                 ))}
               </div>
 
-              {/* Chat Input Field */}
               <form
                 className="mt-3 flex items-center rounded-xl border border-[#cbd3d6] bg-white px-3 py-1.5 focus-within:border-[#159446] transition-colors"
                 onSubmit={handleSendMessage}
@@ -430,7 +413,8 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
               </form>
             </div>
           </div>
-          {/* 4 Feature Cards Grid — Responsive 1-col on mobile, 2-col on small tablet, 4-col on desktop */}
+
+          {/* 4 Feature Cards Grid */}
           <div className="grid grid-cols-1 min-[440px]:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-2.5">
             {/* 1. Weekly Planner */}
             <div
@@ -586,6 +570,7 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             </div>
           </div>
         </section>
+
         {/* ================================================================
             5. PRICING SECTION
             ================================================================ */}
@@ -603,15 +588,15 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
-            {/* Monthly Card (First Card) */}
+            {/* Monthly Card */}
             <div
               onClick={() => {
                 setSelectedPlan('monthly');
                 onSelectPlan?.('monthly');
               }}
               className={`flex flex-col justify-between rounded-2xl p-4 sm:p-5 transition-all cursor-pointer ${selectedPlan === 'monthly'
-                ? 'border-2 border-[#356F58] bg-white shadow-xs'
-                : 'border border-[#ded6c9] bg-white hover:border-[#356F58]/40 shadow-2xs'
+                  ? 'border-2 border-[#356F58] bg-white shadow-xs'
+                  : 'border border-[#ded6c9] bg-white hover:border-[#356F58]/40 shadow-2xs'
                 }`}
             >
               <div className="flex-1 flex flex-col">
@@ -656,8 +641,8 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                   }
                 }}
                 className={`mt-5 sm:mt-6 w-full py-2.5 sm:py-2.5 px-3 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${selectedPlan === 'monthly'
-                  ? 'bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] hover:bg-[#126041] text-white shadow-xs'
-                  : 'border border-[#ded6c9] bg-white text-[#172b30] hover:bg-[#faf7f0] hover:border-[#172b30]/30 shadow-2xs'
+                    ? 'bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] hover:bg-[#126041] text-white shadow-xs'
+                    : 'border border-[#ded6c9] bg-white text-[#172b30] hover:bg-[#faf7f0] hover:border-[#172b30]/30 shadow-2xs'
                   }`}
               >
                 <span>Choose Monthly</span>
@@ -672,11 +657,10 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                 onSelectPlan?.('annual');
               }}
               className={`relative flex flex-col justify-between rounded-2xl p-4 sm:p-5 transition-all cursor-pointer ${selectedPlan === 'annual'
-                ? 'border-2 border-[#356F58] bg-white shadow-xs'
-                : 'border border-[#ded6c9] hover:border-[#356F58]/60 bg-white shadow-2xs'
+                  ? 'border-2 border-[#356F58] bg-white shadow-xs'
+                  : 'border border-[#ded6c9] hover:border-[#356F58]/60 bg-white shadow-2xs'
                 }`}
             >
-              {/* BEST VALUE - SAVE $24! Centered Badge */}
               <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-sm bg-[#f4a123] px-2.5 py-0.5 text-[9.5px] sm:text-[10px] font-extrabold tracking-wider text-[#4d2c00] uppercase shadow-2xs text-center z-10">
                 BEST VALUE - SAVE $24!
               </div>
@@ -719,8 +703,8 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                   }
                 }}
                 className={`mt-5 sm:mt-6 w-full py-2.5 sm:py-2.5 px-3 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${selectedPlan === 'annual'
-                  ? 'bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] hover:bg-[#126041] text-white shadow-xs'
-                  : 'border border-[#ded6c9] bg-white text-[#172b30] hover:bg-[#faf7f0] hover:border-[#172b30]/30 shadow-2xs'
+                    ? 'bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] hover:bg-[#126041] text-white shadow-xs'
+                    : 'border border-[#ded6c9] bg-white text-[#172b30] hover:bg-[#faf7f0] hover:border-[#172b30]/30 shadow-2xs'
                   }`}
               >
                 <span>Choose Annual</span>
@@ -756,15 +740,12 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                       {faq.question}
                     </span>
 
-                    {/* Circle container with SVG icon for 100% precise centering */}
                     <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#b2ddc8] bg-white text-[#356F58]">
                       {isOpen ? (
-                        // Minus SVG
                         <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
                         </svg>
                       ) : (
-                        // Plus SVG
                         <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
                         </svg>
@@ -786,9 +767,6 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
         {/* ================================================================
             7. BOTTOM CTA CARD
             ================================================================ */}
-        {/* ================================================================
-            7. BOTTOM CTA CARD (Responsive Mobile Matched)
-            ================================================================ */}
         <section className="flex flex-col items-center rounded-xl border border-[#e9e2d5] bg-white px-4 sm:px-6 py-8 sm:py-10 text-center shadow-2xs">
           <h2
             style={{ fontFamily: 'Lora, serif' }}
@@ -797,9 +775,7 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             Ready to simplify your homeschool?
           </h2>
 
-          <p
-            className="text-[12.5px] sm:text-[14px] font-normal leading-[150%] tracking-[0%] text-center text-[#685949] mt-2.5 max-w-[500px]"
-          >
+          <p className="text-[12.5px] sm:text-[14px] font-normal leading-[150%] tracking-[0%] text-center text-[#685949] mt-2.5 max-w-[500px]">
             Join families who use Tabula to plan with confidence, <br className="hidden sm:inline" />
             teach with purpose, and stop reinventing the wheel every week.
           </p>
@@ -827,7 +803,8 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             </div>
           </div>
         </section>
-      </div >
-    </div >
+
+      </div>
+    </div>
   );
 }
