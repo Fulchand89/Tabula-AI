@@ -172,19 +172,19 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
             <polyline points="12 19 5 12 12 5" />
           </svg>
         </button>
-        <h1 className="font-serif text-2xl font-bold tracking-tight text-[#172b30]">
+        <h1 className="font-lora text-[30px] font-semibold tracking-tight text-[#212C3E]">
           Student
         </h1>
       </div>
 
       {/* Section Subtitle */}
       <div className="mb-3">
-        <h2 className="font-serif text-lg font-bold text-[#172b30]">
+        <h2 className="font-lora text-[23px] font-semibold font-bold text-[#212C3E]">
           Students
         </h2>
         <p
           style={{ fontFamily: 'Inter, sans-serif' }}
-          className="text-[16px] font-medium leading-[100%] tracking-[0%] text-[#526068]"
+          className="text-[15px] font-medium leading-[100%] tracking-[0%] text-[#685949]"
         >
           Tap a student to manage their curriculum and profile.
         </p>
@@ -209,13 +209,13 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
 
               {/* Student Details */}
               <div className="min-w-0">
-                <h3 className="text-xs font-bold text-[#172b30] truncate">
+                <h3 className="text-[15px] font-semibold text-[#212C3E] truncate">
                   {student.name}
                 </h3>
-                <p className="text-[10px] text-[#526068] truncate">
+                <p className="text-[11px] text-[#685949] truncate">
                   {student.details}
                 </p>
-                <p className="text-[10px] text-[#526068] truncate">
+                <p className="text-[11px] text-[#685949] truncate">
                   {student.desc}
                 </p>
               </div>

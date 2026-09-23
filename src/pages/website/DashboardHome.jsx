@@ -152,7 +152,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
             <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#dce9e1] text-[#356F58]">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                <path d="M22 3h-6a4 4 0 0 0-4 14a3 3 0 0 1 3-3h7z" />
               </svg>
             </div>
             <div className="min-w-0">
@@ -257,12 +257,9 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
             Classical • 1 student
           </p>
         </div>
-
-        <div className="sm:max-w-[240px] sm:text-right pt-0.5">
-          <p className="font-serif text-xs sm:text-[13px] font-medium italic leading-snug text-[#ba633f]">
-            “Small, faithful steps add up to extraordinary learning.”
-          </p>
-        </div>
+        <p className="font-['Lora'] italic font-semibold text-[16px] leading-[20px] text-[#BD7451] sm:text-right max-w-[260px]">
+          “Small, faithful steps add up to extraordinary learning.”
+        </p>
       </div>
 
       {/* ================================================================
@@ -291,7 +288,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
 
                 <p
                   style={{ fontFamily: 'Inter, sans-serif' }}
-                  className="text-[12px] font-medium leading-[16.5px] tracking-[0px] align-middle text-[#637278]"
+                  className="text-[11px] font-medium leading-[16.5px] tracking-[0px] align-middle text-[#685949]"
                 >
                   Ask your coach anything about your homeschool journey.
                 </p>
@@ -359,6 +356,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
               <span className="text-[10px] font-bold tracking-wider text-[#3d4b50] uppercase">
                 GETTING STARTED
               </span>
+
               <span className="text-[10.5px] font-semibold text-[#ba633f]">
                 {activeStep ? `${activeStep} of 4 done` : '0 of 4 done'}
               </span>
@@ -367,7 +365,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
             {/* Progress Bar */}
             <div className="mb-2.5 h-1.5 w-full overflow-hidden rounded-full bg-[#e3ded4]">
               <div
-                className="h-full rounded-full bg-[#356F58] transition-all duration-300"
+                className="h-full rounded-full bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] transition-all duration-300"
                 style={{ width: `${((activeStep || 0) / 4) * 100}%` }}
               />
             </div>
@@ -378,15 +376,15 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
               <div
                 onClick={() => setActiveStep(1)}
                 className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 1
-                  ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
-                  : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                    ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                    : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
                   }`}
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <div
                     className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 1
-                      ? 'bg-[#356F58] text-white'
-                      : 'border border-[#d5cbbe] text-[#526068]'
+                        ? 'bg-[#356F58] text-white'
+                        : 'border border-[#d5cbbe] text-[#526068]'
                       }`}
                   >
                     {activeStep === 1 ? (
@@ -432,15 +430,15 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
               <div
                 onClick={() => setActiveStep(2)}
                 className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 2
-                  ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
-                  : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                    ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                    : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
                   }`}
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <div
                     className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 2
-                      ? 'bg-[#356F58] text-white'
-                      : 'border border-[#d5cbbe] text-[#526068]'
+                        ? 'bg-[#356F58] text-white'
+                        : 'border border-[#d5cbbe] text-[#526068]'
                       }`}
                   >
                     {activeStep === 2 ? (
@@ -486,15 +484,15 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
               <div
                 onClick={() => setActiveStep(3)}
                 className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 3
-                  ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
-                  : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                    ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                    : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
                   }`}
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <div
                     className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 3
-                      ? 'bg-[#356F58] text-white'
-                      : 'border border-[#d5cbbe] text-[#526068]'
+                        ? 'bg-[#356F58] text-white'
+                        : 'border border-[#d5cbbe] text-[#526068]'
                       }`}
                   >
                     {activeStep === 3 ? (
@@ -540,15 +538,15 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
               <div
                 onClick={() => setActiveStep(4)}
                 className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 4
-                  ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
-                  : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                    ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                    : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
                   }`}
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <div
                     className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 4
-                      ? 'bg-[#356F58] text-white'
-                      : 'border border-[#d5cbbe] text-[#526068]'
+                        ? 'bg-[#356F58] text-white'
+                        : 'border border-[#d5cbbe] text-[#526068]'
                       }`}
                   >
                     {activeStep === 4 ? (
@@ -731,8 +729,8 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                     type="button"
                     onClick={() => setSelectedDayDate(d.date)}
                     className={`flex flex-col items-center py-1 px-0.5 rounded-lg transition-all cursor-pointer ${isSelected
-                      ? 'bg-[#edf5f0]'
-                      : 'hover:bg-[#faf5eb]'
+                        ? 'bg-[#edf5f0]'
+                        : 'hover:bg-[#faf5eb]'
                       }`}
                   >
                     <span className={`block text-[9px] mb-0.5 transition-colors ${isSelected ? 'font-bold text-[#356F58]' : 'text-[#798790]'

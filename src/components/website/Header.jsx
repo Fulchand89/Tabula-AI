@@ -37,7 +37,7 @@ export default function Header({
           <div className="flex items-baseline">
             <span
               style={{ fontFamily: 'Lora, serif' }}
-              className="text-[30px] font-semibold leading-[100%] tracking-[0%] text-[#172b30]"
+              className="text-[30px] font-semibold leading-[100%] tracking-[0%] text-[#212C3E]"
             >
               Tabula
             </span>
@@ -58,14 +58,14 @@ export default function Header({
           <button
             type="button"
             onClick={() => handleAction(onAccountClick)}
-            className="rounded-lg border border-[#d5ccc0] bg-white px-3 py-1 text-xs font-semibold text-[#172b30] hover:bg-[#faf6ee] transition-colors shadow-2xs cursor-pointer"
+            className="rounded-lg border border-[#d5ccc0] bg-white px-3 py-1 text-[15px] font-semibold text-[#4E7A5B] hover:bg-[#faf6ee] transition-colors shadow-2xs cursor-pointer"
           >
             Account
           </button>
           <button
             type="button"
             onClick={() => handleAction(onPrivacyClick)}
-            className="rounded-lg border border-[#d5ccc0] bg-white px-3 py-1 text-xs font-semibold text-[#172b30] hover:bg-[#faf6ee] transition-colors shadow-2xs cursor-pointer"
+            className="rounded-lg border border-[#d5ccc0] bg-white px-3 py-1 text-[15px] font-semibold text-[#4E7A5B] hover:bg-[#faf6ee] transition-colors shadow-2xs cursor-pointer"
           >
             Privacy
           </button>

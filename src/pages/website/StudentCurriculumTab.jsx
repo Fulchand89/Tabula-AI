@@ -171,7 +171,7 @@ export default function StudentCurriculumTab({
       <h2 className="text-[11px] font-extrabold tracking-wider text-[#1e282d] uppercase mb-1">
         ADD A SUBJECT
       </h2>
-      <p className="text-[11px] text-[#526068] mb-4">
+      <p className="text-[11px] text-[#685949] text-inter  font-medium mb-4">
         Enter the curriculum Student is using. You can add multiple resources per subject.
       </p>
 
@@ -181,13 +181,13 @@ export default function StudentCurriculumTab({
           const isSelected =
             selectedSubject === subject ||
             selectedSubject?.replace(/^\+\s*/, '').toLowerCase() ===
-              subject.replace(/^\+\s*/, '').toLowerCase();
+            subject.replace(/^\+\s*/, '').toLowerCase();
 
           const hasCurriculum = curriculums.some(
             (c) =>
               c.subject === subject ||
               c.subject?.replace(/^\+\s*/, '').toLowerCase() ===
-                subject.replace(/^\+\s*/, '').toLowerCase()
+              subject.replace(/^\+\s*/, '').toLowerCase()
           );
 
           return (
@@ -195,13 +195,12 @@ export default function StudentCurriculumTab({
               key={subject}
               type="button"
               onClick={() => setSelectedSubject?.(subject)}
-              className={`rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-all cursor-pointer ${
-                isSelected
+              className={`rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-all cursor-pointer ${isSelected
                   ? 'border-transparent bg-[#356F58] text-white shadow-2xs'
                   : hasCurriculum
-                  ? 'border-[#356F58] bg-[#f0faf5] text-[#356F58] hover:bg-[#e4f4ec]'
-                  : 'border-[#d5cbbe] bg-white text-[#1e282d] hover:border-[#356F58] hover:text-[#356F58]'
-              }`}
+                    ? 'border-[#356F58] bg-[#f0faf5] text-[#356F58] hover:bg-[#e4f4ec]'
+                    : 'border-[#d5cbbe] bg-white text-[#1e282d] hover:border-[#356F58] hover:text-[#356F58]'
+                }`}
             >
               {hasCurriculum && !subject.startsWith('+') ? `+ ${subject}` : subject}
             </button>
