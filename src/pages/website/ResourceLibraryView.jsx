@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ResourceDirectoryView  from './ResourceDirectoryView';
-import ResourceCommunityView  from './ResourceCommunityView';
+import ResourceDirectoryView from './ResourceDirectoryView';
+import ResourceCommunityView from './ResourceCommunityView';
 
 /**
  * ResourceLibraryView — shell component.
@@ -16,8 +16,8 @@ import ResourceCommunityView  from './ResourceCommunityView';
  *  • ResourceCommunityView  — Community Reviews tab
  */
 export default function ResourceLibraryView({ onBackToHome, onUpgradeClick }) {
-  const [activeTab,    setActiveTab]    = useState('community');
-  const [searchQuery,  setSearchQuery]  = useState('');
+  const [activeTab, setActiveTab] = useState('community');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const isDirectory = activeTab === 'directory';
 
@@ -62,10 +62,10 @@ export default function ResourceLibraryView({ onBackToHome, onUpgradeClick }) {
             ←
           </button>
           <div>
-            <h1 className="font-serif text-2xl font-bold text-[#172b30] leading-tight">
+            <h1 className="font-lora text-[23px] font-semibold text-[#212C3E] leading-tight">
               Resource Library
             </h1>
-            <p className="text-[11.5px] text-[#526068]">
+            <p className="text-[13px] font-semibold  text-[#685949]">
               135+ curated resources plus community curriculum reviews.
             </p>
           </div>
@@ -78,22 +78,20 @@ export default function ResourceLibraryView({ onBackToHome, onUpgradeClick }) {
           <button
             type="button"
             onClick={() => handleTabChange('directory')}
-            className={`flex-1 rounded-xl py-2.5 text-xs font-semibold transition-all cursor-pointer ${
-              isDirectory
-                ? 'bg-[#bf643e] text-white shadow-sm'
-                : 'text-[#526068] hover:text-[#172b30]'
-            }`}
+            className={`flex-1 rounded-xl py-2.5 text-xs font-semibold transition-all cursor-pointer ${isDirectory
+              ? 'bg-[#bf643e] text-white shadow-sm'
+              : 'text-[#526068] hover:text-[#172b30]'
+              }`}
           >
             Directory
           </button>
           <button
             type="button"
             onClick={() => handleTabChange('community')}
-            className={`flex-1 rounded-xl py-2.5 text-xs font-semibold transition-all cursor-pointer ${
-              !isDirectory
-                ? 'bg-[#bf643e] text-white shadow-sm'
-                : 'text-[#526068] hover:text-[#172b30]'
-            }`}
+            className={`flex-1 rounded-xl py-2.5 text-xs font-semibold transition-all cursor-pointer ${!isDirectory
+              ? 'bg-[#bf643e] text-white shadow-sm'
+              : 'text-[#526068] hover:text-[#172b30]'
+              }`}
           >
             Community Reviews
           </button>

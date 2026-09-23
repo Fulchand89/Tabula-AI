@@ -16,11 +16,11 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
     if (activeTab === 'create') {
       const trimmedName = name.trim();
       if (!trimmedName) {
-        setErrorMessage('Kripya apna naam darj karein.');
+        setErrorMessage('.....');
         return;
       }
       if (trimmedName.length > 30) {
-        setErrorMessage('Naam 30 characters se zyada nahi ho sakta.');
+        setErrorMessage('.....');
         return;
       }
     }
@@ -28,7 +28,7 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
     // 2. Strict Gmail validation (sirf @gmail.com allow karega, gmil.com reject hoga)
     const gmailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/i;
     if (!gmailRegex.test(email.trim())) {
-      setErrorMessage('Kripya ek valid Gmail address likhein (jaise: name@gmail.com).');
+      setErrorMessage(' ( name@gmail.com).');
       return;
     }
 

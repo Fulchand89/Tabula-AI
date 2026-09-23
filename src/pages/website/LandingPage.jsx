@@ -322,7 +322,7 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             {/* LEFT SIDE: Info & Feature List */}
             <div className="flex flex-col">
               <div className="flex flex-col items-start gap-2">
-                <h3 className="font-serif text-[15px] sm:text-base font-bold text-[#1c2930]">
+                <h3 className="font-lora text-[19px]  font-semibold text-[#212C3E]">
                   AI Homeschool Coach
                 </h3>
                 <span className="inline-flex items-center rounded-md bg-[#F2B83F26] px-2 py-0.5 text-[9px] font-medium tracking-wider text-[#E09800]">
