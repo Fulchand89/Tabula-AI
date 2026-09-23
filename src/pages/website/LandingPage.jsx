@@ -347,28 +347,28 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
               {/* Checklist */}
               <ul className="mt-3 space-y-2">
                 <li className="flex items-center gap-2 text-[11px] sm:text-xs font-medium text-[#203036]">
-                  <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-[8px] text-white font-bold">
+                  <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-[8px] text-white font-bold">
                     ✓
                   </span>
                   <span>Plans around your real progress</span>
                 </li>
 
                 <li className="flex items-center gap-2 text-[11px] sm:text-xs font-medium text-[#203036]">
-                  <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-[8px] text-white font-bold">
+                  <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-[8px] text-white font-bold">
                     ✓
                   </span>
                   <span>Suggest lessons and adjustments</span>
                 </li>
 
                 <li className="flex items-center gap-2 text-[11px] sm:text-xs font-medium text-[#203036]">
-                  <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-[8px] text-white font-bold">
+                  <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-[8px] text-white font-bold">
                     ✓
                   </span>
                   <span>Helps when a child is struggling</span>
                 </li>
 
                 <li className="flex items-center gap-2 text-[11px] sm:text-xs font-medium text-[#203036]">
-                  <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-[8px] text-white font-bold">
+                  <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-[8px] text-white font-bold">
                     ✓
                   </span>
                   <span>Shares teaching ideas that fit your philosophy</span>
@@ -408,7 +408,7 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
 
               {/* Chat Input Field */}
               <form
-                className="mt-3 flex items-center rounded-xl border border-[#cbd3d6] bg-white px-3 py-1.5 focus-within:border-[#356F58] transition-colors"
+                className="mt-3 flex items-center rounded-xl border border-[#cbd3d6] bg-white px-3 py-1.5 focus-within:border-[#159446] transition-colors"
                 onSubmit={handleSendMessage}
               >
                 <input
