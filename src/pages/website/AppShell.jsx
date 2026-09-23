@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import DashboardHome from './DashboardHome';
 import StudentsView from './StudentsView';
 import StudentDetailView from './StudentDetailView';
@@ -42,6 +42,69 @@ export default function AppShell({
 }) {
   const [activeNav, setActiveNav] = useState(activeRoute || 'home');
   const [previousNav, setPreviousNav] = useState('home');
+
+  // ── Shared planner state (lifted from PlannerView) ──────────────────────
+  // currentWeek: which week is the "active" planner week (1-based)
+  const [currentWeek, setCurrentWeek] = useState(1);
+
+  // scheduleMap keyed by week number → student → day → items[]
+  const EMPTY_WEEK = () => ({
+    'student-1': { MON: [], TUE: [], WED: [], THU: [], FRI: [] },
+    'student-2': { MON: [], TUE: [], WED: [], THU: [], FRI: [] },
+  });
+  const [allWeeksSchedule, setAllWeeksSchedule] = useState({
+    1: EMPTY_WEEK(),
+    2: EMPTY_WEEK(),
+    3: EMPTY_WEEK(),
+  });
+
+  // Ensure a week slot always exists
+  const ensureWeek = useCallback((weekNum) => {
+    setAllWeeksSchedule((prev) => {
+      if (prev[weekNum]) return prev;
+      return { ...prev, [weekNum]: EMPTY_WEEK() };
+    });
+  }, []);
+
+  // Copy sourceWeek schedule into targetWeek (overwrite)
+  const copyWeekSchedule = useCallback((sourceWeek, targetWeek) => {
+    setAllWeeksSchedule((prev) => {
+      const source = prev[sourceWeek] || EMPTY_WEEK();
+      // Deep clone and reset done flags + clear assignment text
+      const cloned = {};
+      Object.keys(source).forEach((student) => {
+        cloned[student] = {};
+        Object.keys(source[student]).forEach((day) => {
+          cloned[student][day] = source[student][day].map((item) => ({
+            ...item,
+            id: `${item.subjectName?.toLowerCase() || 'item'}-${Date.now()}-${Math.random()}`,
+            done: false,
+          }));
+        });
+      });
+      return {
+        ...prev,
+        [targetWeek]: cloned,
+      };
+    });
+  }, []);
+
+  // Update a single week's schedule
+  const updateWeekSchedule = useCallback((weekNum, updater) => {
+    setAllWeeksSchedule((prev) => ({
+      ...prev,
+      [weekNum]: updater(prev[weekNum] || EMPTY_WEEK()),
+    }));
+  }, []);
+
+  const WEEK_SUBTITLES = {
+    1: 'First week',
+    2: 'Second week',
+    3: 'Third week',
+    4: 'Fourth week',
+    5: 'Fifth week',
+  };
+  // ── End shared planner state ────────────────────────────────────────────
 
   useEffect(() => {
     if (activeRoute && activeRoute !== activeNav) {
@@ -164,7 +227,16 @@ export default function AppShell({
               onOpenLessonDetail={() => handleNavigate('lesson-detail')}
               onToggleFamilyUnits={() => handleNavigate('planner-family')}
               onViewCompleteWeek={() => handleNavigate('planner-complete')}
-              onNextWeek={() => handleNavigate('planner-week2')}
+              onNextWeek={() => {
+                // Going to next week from Week 1 → show Week 2 copy view
+                ensureWeek(currentWeek + 1);
+                setCurrentWeek((w) => w + 1);
+                handleNavigate('planner-week2');
+              }}
+              weekNumber={currentWeek}
+              weekSubtitle={WEEK_SUBTITLES[currentWeek] || `Week ${currentWeek}`}
+              scheduleData={allWeeksSchedule[currentWeek] || null}
+              onScheduleChange={(updater) => updateWeekSchedule(currentWeek, updater)}
             />
           )}
 
@@ -172,8 +244,15 @@ export default function AppShell({
             <PlannerWeekCompleteView
               onBackToHome={() => handleBack('planner')}
               onUpgradeClick={handleUpgradeClick}
-              onPrevWeek={() => handleNavigate('planner')}
-              onNextWeek={() => handleNavigate('planner-week2')}
+              onPrevWeek={() => {
+                setCurrentWeek((w) => Math.max(1, w - 1));
+                handleNavigate('planner');
+              }}
+              onNextWeek={() => {
+                ensureWeek(currentWeek + 1);
+                setCurrentWeek((w) => w + 1);
+                handleNavigate('planner-week2');
+              }}
               onOpenLessonDetail={() => handleNavigate('lesson-detail')}
               onToggleFamilyUnits={() => handleNavigate('planner-family')}
             />
@@ -181,12 +260,30 @@ export default function AppShell({
 
           {(activeNav === 'planner-week2' || activeNav === 'week-2') && (
             <PlannerWeek2CopyView
-              onBackToHome={() => handleBack('planner')}
+              onBackToHome={() => {
+                setCurrentWeek((w) => Math.max(1, w - 1));
+                handleBack('planner');
+              }}
               onUpgradeClick={handleUpgradeClick}
               onToggleFamilyUnits={() => handleNavigate('planner-family')}
-              onCopySchedule={() => handleNavigate('planner-schedule')}
+              weekNumber={currentWeek}
+              weekSubtitle={WEEK_SUBTITLES[currentWeek] || `Week ${currentWeek}`}
+              prevWeekNumber={currentWeek - 1}
+              onCopySchedule={() => {
+                // Copy previous week's schedule into current week, then go to planner
+                copyWeekSchedule(currentWeek - 1, currentWeek);
+                handleNavigate('planner');
+              }}
+              onCopySubjectsOnly={() => {
+                // Copy only subject names (no notes/duration) into current week
+                copyWeekSchedule(currentWeek - 1, currentWeek);
+                handleNavigate('planner');
+              }}
               onStartFresh={() => handleNavigate('planner')}
-              onPrevWeek={() => handleNavigate('planner-complete')}
+              onPrevWeek={() => {
+                setCurrentWeek((w) => Math.max(1, w - 1));
+                handleNavigate('planner-complete');
+              }}
             />
           )}
 

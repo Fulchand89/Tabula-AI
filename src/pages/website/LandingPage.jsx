@@ -147,7 +147,7 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
   return (
     <div className="min-h-screen w-full bg-[#f3ede4] text-[#1e282d] antialiased py-0 sm:py-6 md:py-8 flex justify-center">
       {/* ── Balanced Page Container matching screenshot width & border ── */}
-      <div className="w-full max-w-[640px] bg-[#faf7f0] border border-[#ded5c7] shadow-sm px-5 sm:px-6 py-6 sm:py-9">
+      <div className="w-full max-w-[640px] bg-[#faf7f0] border-x sm:border border-[#ded5c7] shadow-sm px-4 sm:px-6 py-6 sm:py-9">
 
         {/* ================================================================
             1. HERO SECTION
@@ -156,7 +156,7 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
           <div className="mb-2.5 flex items-center justify-between">
             <div className="inline-flex items-baseline cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
 
-              <span className="font-['Lora'] font-semibold text-[30px] leading-[100%] tracking-normal text-[#212C3E]">
+              <span className="font-['Lora'] font-semibold text-[42px] leading-[100%] tracking-normal text-[#212C3E]">
                 Tabula
               </span>
               <span className="font-['Lora'] font-semibold text-[48px] leading-[100%] tracking-normal text-[#126041]">
@@ -174,34 +174,34 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
           </div>
 
           <h1
-            style={{ fontFamily: 'Lora, serif' }}
-            className="text-[24px] font-semibold leading-[100%] tracking-[0%] text-[#ba633f]"
+            style={{ fontFamily: 'lora, serif' }}
+            className="text-[22px] sm:text-[24px] font-semibold leading-[115%] tracking-[0%] text-[#ba633f]"
           >
             Your AI homeschool planning coach
           </h1>
 
-          <p className="mt-2 text-sm sm:text-[15px] leading-relaxed text-[#526068]">
-            You choose the curriculum. Tabula helps you<br />
+          <p className="mt-2 text-sm sm:text-[15px] leading-relaxed text-[#685949]">
+            You choose the curriculum. Tabula helps you <br className="hidden sm:inline" />
             implement it - week by week, child by child
           </p>
 
           <div className="mt-4">
             <button
               onClick={openSignup}
-              className="inline-flex items-center gap-1.5 rounded-lg bg-[#356F58] hover:bg-[#2a5946] px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-white shadow-sm transition-all cursor-pointer"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-[#356F58] hover:bg-[#2a5946] px-4 py-2 sm:py-1.5 text-xs sm:text-sm font-semibold text-white shadow-sm transition-all cursor-pointer"
             >
               <span>Start Your Free Trial</span>
               <span>→</span>
             </button>
           </div>
 
-          <div className="mt-3 flex flex-wrap items-center gap-3.5 text-xs sm:text-[13px] font-medium text-[#526068]">
+          <div className="mt-3 flex flex-wrap items-center gap-2.5 sm:gap-3.5 text-xs sm:text-[13px] font-medium text-[#526068]">
             <div className="inline-flex items-center gap-1">
               <span className="font-bold text-[#356F58]">✓</span>
               <span>14 days free</span>
             </div>
             <div className="inline-flex items-center gap-1">
-              <span className="font-bold text-#FF6A00">✓</span>
+              <span className="font-bold text-[#ba633f]">✓</span>
               <span>$8/month after trial</span>
             </div>
             <div className="inline-flex items-center gap-1">
@@ -215,12 +215,12 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             2. QUOTE SECTION
             ================================================================ */}
         <section className="my-9 text-center">
-          <div className="flex items-center justify-center gap-3">
-            <div className="h-px w-20 sm:w-28 bg-[#dcd4c6]" />
-            <h2 className="font-serif text-[17px] sm:text-xl font-bold tracking-tight text-[#172b30]">
+          <div className="flex items-center justify-center gap-2 sm:gap-3">
+            <div className="h-px w-8 sm:w-28 bg-[#dcd4c6]" />
+            <h2 className="font-serif text-[16px] sm:text-xl font-bold tracking-tight text-[#172b30] whitespace-nowrap">
               “A GPS for homeschooling”
             </h2>
-            <div className="h-px w-20 sm:w-28 bg-[#dcd4c6]" />
+            <div className="h-px w-8 sm:w-28 bg-[#dcd4c6]" />
           </div>
           <p className="mt-1 text-[11px] sm:text-[12.5px] font-medium text-[#ba633f]">
             Tabula doesn't replace your curriculum - it helps you use it better.
@@ -228,13 +228,13 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
         </section>
 
         {/* ================================================================
-            3. PROCESS STEPS (01 Plan, 02 Adapt, 03 Progress) - Exact Figma Match
+            3. PROCESS STEPS (01 Plan, 02 Adapt, 03 Progress) - Responsive Flow
             ================================================================ */}
-        <section className="mb-11 grid grid-cols-[1fr_auto_1fr_auto_1fr] items-center gap-2">
+        <section className="mb-11 flex flex-col sm:grid sm:grid-cols-[1fr_auto_1fr_auto_1fr] items-stretch sm:items-center gap-2 sm:gap-2">
           {/* 01 Plan */}
-          <div className="flex h-full flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-3.5 sm:p-4 shadow-2xs">
+          <div className="flex flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-3.5 sm:p-4 shadow-2xs">
             <div>
-              <div className="mb-2.5 text-[#21353a]">
+              <div className="mb-2 text-[#21353a]">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                   <line x1="16" y1="2" x2="16" y2="6" />
@@ -255,14 +255,15 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             </div>
           </div>
 
-          <div className="flex items-center justify-center text-sm text-[#8c9b9f]">
-            →
+          <div className="flex items-center justify-center text-sm text-[#8c9b9f] py-0.5 sm:py-0">
+            <span className="hidden sm:inline">→</span>
+            <span className="sm:hidden text-base text-[#356F58]">↓</span>
           </div>
 
           {/* 02 Adapt */}
-          <div className="flex h-full flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-3.5 sm:p-4 shadow-2xs">
+          <div className="flex flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-3.5 sm:p-4 shadow-2xs">
             <div>
-              <div className="mb-2.5 text-[#21353a]">
+              <div className="mb-2 text-[#21353a]">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <line x1="4" y1="21" x2="4" y2="14" />
                   <line x1="4" y1="10" x2="4" y2="3" />
@@ -287,14 +288,15 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             </div>
           </div>
 
-          <div className="flex items-center justify-center text-sm text-[#8c9b9f]">
-            →
+          <div className="flex items-center justify-center text-sm text-[#8c9b9f] py-0.5 sm:py-0">
+            <span className="hidden sm:inline">→</span>
+            <span className="sm:hidden text-base text-[#356F58]">↓</span>
           </div>
 
           {/* 03 Progress */}
-          <div className="flex h-full flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-3.5 sm:p-4 shadow-2xs">
+          <div className="flex flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-3.5 sm:p-4 shadow-2xs">
             <div>
-              <div className="mb-2.5 text-[#21353a]">
+              <div className="mb-2 text-[#21353a]">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
                   <polyline points="16 7 22 7 22 13" />
@@ -428,12 +430,12 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
               </form>
             </div>
           </div>
-          {/* 4 Feature Cards Grid — 4 Columns matching screenshot */}
-          <div className="grid grid-cols-4 gap-2 sm:gap-2.5">
+          {/* 4 Feature Cards Grid — Responsive 1-col on mobile, 2-col on small tablet, 4-col on desktop */}
+          <div className="grid grid-cols-1 min-[440px]:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-2.5">
             {/* 1. Weekly Planner */}
             <div
               onClick={openSignup}
-              className="flex flex-col justify-between rounded-2xl border border-[#ded6c9] bg-white p-2.5 sm:p-3 shadow-2xs hover:border-[#356F58]/40 transition-all cursor-pointer group"
+              className="flex flex-col justify-between rounded-2xl border border-[#ded6c9] bg-white p-3.5 sm:p-3 shadow-2xs hover:border-[#356F58]/40 transition-all cursor-pointer group"
             >
               <div>
                 <div className="mb-2.5 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#356F58] text-white">
@@ -444,27 +446,27 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                     <line x1="3" y1="10" x2="21" y2="10" />
                   </svg>
                 </div>
-                <h4 className="text-xs sm:text-[13px] font-bold text-[#172b30] leading-tight mb-2">Weekly Planner</h4>
-                <ul className="space-y-1.5 text-[9.5px] sm:text-[10px] leading-snug text-[#37474c]">
-                  <li className="flex items-start gap-1">
+                <h4 className="text-sm sm:text-[13px] font-bold text-[#172b30] leading-tight mb-2">Weekly Planner</h4>
+                <ul className="space-y-1.5 text-xs sm:text-[10px] leading-snug text-[#37474c]">
+                  <li className="flex items-start gap-1.5 sm:gap-1">
                     <span className="font-bold text-[#356F58] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Day-by-day scheduling</span>
                   </li>
-                  <li className="flex items-start gap-1">
+                  <li className="flex items-start gap-1.5 sm:gap-1">
                     <span className="font-bold text-[#356F58] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Lesson details & duration</span>
                   </li>
-                  <li className="flex items-start gap-1">
+                  <li className="flex items-start gap-1.5 sm:gap-1">
                     <span className="font-bold text-[#356F58] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Real-time progress tracking</span>
                   </li>
-                  <li className="flex items-start gap-1">
+                  <li className="flex items-start gap-1.5 sm:gap-1">
                     <span className="font-bold text-[#356F58] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Adjust with one click</span>
                   </li>
                 </ul>
               </div>
-              <div className="flex items-center gap-1 text-[11px] sm:text-[11.5px] font-semibold text-[#ba633f] group-hover:gap-1.5 transition-all mt-3 pt-1">
+              <div className="flex items-center gap-1 text-xs sm:text-[11.5px] font-semibold text-[#ba633f] group-hover:gap-1.5 transition-all mt-3 pt-1">
                 <span>Learn more</span>
                 <span>→</span>
               </div>
@@ -473,7 +475,7 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             {/* 2. Student Profile */}
             <div
               onClick={openSignup}
-              className="flex flex-col justify-between rounded-2xl border border-[#ded6c9] bg-white p-2.5 sm:p-3 shadow-2xs hover:border-[#356F58]/40 transition-all cursor-pointer group"
+              className="flex flex-col justify-between rounded-2xl border border-[#ded6c9] bg-white p-3.5 sm:p-3 shadow-2xs hover:border-[#356F58]/40 transition-all cursor-pointer group"
             >
               <div>
                 <div className="mb-2.5 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#356F58] text-white">
@@ -482,27 +484,27 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                     <path d="M6 12v5c3 3 9 3 12 0v-5" />
                   </svg>
                 </div>
-                <h4 className="text-xs sm:text-[13px] font-bold text-[#172b30] leading-tight mb-2">Student Profile</h4>
-                <ul className="space-y-1.5 text-[9.5px] sm:text-[10px] leading-snug text-[#37474c]">
-                  <li className="flex items-start gap-1">
+                <h4 className="text-sm sm:text-[13px] font-bold text-[#172b30] leading-tight mb-2">Student Profile</h4>
+                <ul className="space-y-1.5 text-xs sm:text-[10px] leading-snug text-[#37474c]">
+                  <li className="flex items-start gap-1.5 sm:gap-1">
                     <span className="font-bold text-[#356F58] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Multiple students</span>
                   </li>
-                  <li className="flex items-start gap-1">
+                  <li className="flex items-start gap-1.5 sm:gap-1">
                     <span className="font-bold text-[#356F58] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Strengths & challenges</span>
                   </li>
-                  <li className="flex items-start gap-1">
+                  <li className="flex items-start gap-1.5 sm:gap-1">
                     <span className="font-bold text-[#356F58] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Interests & learning style</span>
                   </li>
-                  <li className="flex items-start gap-1">
+                  <li className="flex items-start gap-1.5 sm:gap-1">
                     <span className="font-bold text-[#356F58] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Independent curriculum per student</span>
                   </li>
                 </ul>
               </div>
-              <div className="flex items-center gap-1 text-[11px] sm:text-[11.5px] font-semibold text-[#ba633f] group-hover:gap-1.5 transition-all mt-3 pt-1">
+              <div className="flex items-center gap-1 text-xs sm:text-[11.5px] font-semibold text-[#ba633f] group-hover:gap-1.5 transition-all mt-3 pt-1">
                 <span>Learn more</span>
                 <span>→</span>
               </div>
@@ -511,7 +513,7 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             {/* 3. Resource Library */}
             <div
               onClick={openSignup}
-              className="flex flex-col justify-between rounded-2xl border border-[#ded6c9] bg-white p-2.5 sm:p-3 shadow-2xs hover:border-[#356F58]/40 transition-all cursor-pointer group"
+              className="flex flex-col justify-between rounded-2xl border border-[#ded6c9] bg-white p-3.5 sm:p-3 shadow-2xs hover:border-[#356F58]/40 transition-all cursor-pointer group"
             >
               <div>
                 <div className="mb-2.5 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#356F58] text-white">
@@ -520,27 +522,27 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                     <path d="M22 3h-6a4 4 0 0 0-4 14a3 3 0 0 1 3-3h7z" />
                   </svg>
                 </div>
-                <h4 className="text-xs sm:text-[13px] font-bold text-[#172b30] leading-tight mb-2">Resource Library</h4>
-                <ul className="space-y-1.5 text-[9.5px] sm:text-[10px] leading-snug text-[#37474c]">
-                  <li className="flex items-start gap-1">
+                <h4 className="text-sm sm:text-[13px] font-bold text-[#172b30] leading-tight mb-2">Resource Library</h4>
+                <ul className="space-y-1.5 text-xs sm:text-[10px] leading-snug text-[#37474c]">
+                  <li className="flex items-start gap-1.5 sm:gap-1">
                     <span className="font-bold text-[#356F58] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Filter by philosophy</span>
                   </li>
-                  <li className="flex items-start gap-1">
+                  <li className="flex items-start gap-1.5 sm:gap-1">
                     <span className="font-bold text-[#356F58] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Faith-based & traditional options</span>
                   </li>
-                  <li className="flex items-start gap-1">
+                  <li className="flex items-start gap-1.5 sm:gap-1">
                     <span className="font-bold text-[#356F58] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Secular & Christian options</span>
                   </li>
-                  <li className="flex items-start gap-1">
+                  <li className="flex items-start gap-1.5 sm:gap-1">
                     <span className="font-bold text-[#356F58] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Free & paid resources</span>
                   </li>
                 </ul>
               </div>
-              <div className="flex items-center gap-1 text-[11px] sm:text-[11.5px] font-semibold text-[#ba633f] group-hover:gap-1.5 transition-all mt-3 pt-1">
+              <div className="flex items-center gap-1 text-xs sm:text-[11.5px] font-semibold text-[#ba633f] group-hover:gap-1.5 transition-all mt-3 pt-1">
                 <span>Learn more</span>
                 <span>→</span>
               </div>
@@ -549,7 +551,7 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             {/* 4. Privacy & Control */}
             <div
               onClick={openSignup}
-              className="flex flex-col justify-between rounded-2xl border border-[#ded6c9] bg-white p-2.5 sm:p-3 shadow-2xs hover:border-[#356F58]/40 transition-all cursor-pointer group"
+              className="flex flex-col justify-between rounded-2xl border border-[#ded6c9] bg-white p-3.5 sm:p-3 shadow-2xs hover:border-[#356F58]/40 transition-all cursor-pointer group"
             >
               <div>
                 <div className="mb-2.5 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#356F58] text-white">
@@ -557,27 +559,27 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   </svg>
                 </div>
-                <h4 className="text-xs sm:text-[13px] font-bold text-[#172b30] leading-tight mb-2">Privacy & Control</h4>
-                <ul className="space-y-1.5 text-[9.5px] sm:text-[10px] leading-snug text-[#37474c]">
-                  <li className="flex items-start gap-1">
+                <h4 className="text-sm sm:text-[13px] font-bold text-[#172b30] leading-tight mb-2">Privacy & Control</h4>
+                <ul className="space-y-1.5 text-xs sm:text-[10px] leading-snug text-[#37474c]">
+                  <li className="flex items-start gap-1.5 sm:gap-1">
                     <span className="font-bold text-[#356F58] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Your data stays yours</span>
                   </li>
-                  <li className="flex items-start gap-1">
+                  <li className="flex items-start gap-1.5 sm:gap-1">
                     <span className="font-bold text-[#356F58] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>You control what AI sees</span>
                   </li>
-                  <li className="flex items-start gap-1">
+                  <li className="flex items-start gap-1.5 sm:gap-1">
                     <span className="font-bold text-[#356F58] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>Delete everything anytime</span>
                   </li>
-                  <li className="flex items-start gap-1">
+                  <li className="flex items-start gap-1.5 sm:gap-1">
                     <span className="font-bold text-[#356F58] text-xs leading-none shrink-0 mt-0.5">✓</span>
                     <span>No data selling ever</span>
                   </li>
                 </ul>
               </div>
-              <div className="flex items-center gap-1 text-[11px] sm:text-[11.5px] font-semibold text-[#ba633f] group-hover:gap-1.5 transition-all mt-3 pt-1">
+              <div className="flex items-center gap-1 text-xs sm:text-[11.5px] font-semibold text-[#ba633f] group-hover:gap-1.5 transition-all mt-3 pt-1">
                 <span>Learn more</span>
                 <span>→</span>
               </div>
@@ -600,7 +602,7 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-3.5 sm:gap-4 items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
             {/* Monthly Card (First Card) */}
             <div
               onClick={() => {
@@ -653,8 +655,8 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                     onSelectPlan?.('monthly');
                   }
                 }}
-                className={`mt-5 sm:mt-6 w-full py-2 sm:py-2.5 px-3 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${selectedPlan === 'monthly'
-                  ? 'bg-[#356F58] hover:bg-[#2a5946] text-white shadow-xs'
+                className={`mt-5 sm:mt-6 w-full py-2.5 sm:py-2.5 px-3 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${selectedPlan === 'monthly'
+                  ? 'bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] hover:bg-[#126041] text-white shadow-xs'
                   : 'border border-[#ded6c9] bg-white text-[#172b30] hover:bg-[#faf7f0] hover:border-[#172b30]/30 shadow-2xs'
                   }`}
               >
@@ -716,8 +718,8 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                     onSelectPlan?.('annual');
                   }
                 }}
-                className={`mt-5 sm:mt-6 w-full py-2 sm:py-2.5 px-3 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${selectedPlan === 'annual'
-                  ? 'bg-[#356F58] hover:bg-[#2a5946] text-white shadow-xs'
+                className={`mt-5 sm:mt-6 w-full py-2.5 sm:py-2.5 px-3 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${selectedPlan === 'annual'
+                  ? 'bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] hover:bg-[#126041] text-white shadow-xs'
                   : 'border border-[#ded6c9] bg-white text-[#172b30] hover:bg-[#faf7f0] hover:border-[#172b30]/30 shadow-2xs'
                   }`}
               >
@@ -785,17 +787,18 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             7. BOTTOM CTA CARD
             ================================================================ */}
         {/* ================================================================
-            7. BOTTOM CTA CARD (Figma Matched)*/}
-        <section className="flex flex-col items-center rounded-xl border border-[#e9e2d5] bg-white px-6 py-10 text-center shadow-2xs">
+            7. BOTTOM CTA CARD (Responsive Mobile Matched)
+            ================================================================ */}
+        <section className="flex flex-col items-center rounded-xl border border-[#e9e2d5] bg-white px-4 sm:px-6 py-8 sm:py-10 text-center shadow-2xs">
           <h2
             style={{ fontFamily: 'Lora, serif' }}
-            className="text-[22px] sm:text-[24px] font-semibold leading-[120%] tracking-[0%] text-center text-[#172b30]"
+            className="text-[20px] sm:text-[24px] font-semibold leading-[120%] tracking-[0%] text-center text-[#172b30]"
           >
             Ready to simplify your homeschool?
           </h2>
 
           <p
-            className="text-[13px] sm:text-[14px] font-normal leading-[150%] tracking-[0%] text-center text-[#526068] mt-2.5 max-w-[500px]"
+            className="text-[12.5px] sm:text-[14px] font-normal leading-[150%] tracking-[0%] text-center text-[#685949] mt-2.5 max-w-[500px]"
           >
             Join families who use Tabula to plan with confidence, <br className="hidden sm:inline" />
             teach with purpose, and stop reinventing the wheel every week.
@@ -803,13 +806,13 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
 
           <button
             onClick={openSignup}
-            className="mt-5 inline-flex items-center gap-1.5 rounded-lg bg-[#356F58] hover:bg-[#2a5946] px-6 py-3 text-sm sm:text-base font-bold text-white shadow-sm transition-all cursor-pointer"
+            className="mt-5 w-full sm:w-auto inline-flex items-center justify-center gap-1.5 rounded-lg bg-[#356F58] hover:bg-[#2a5946] px-6 py-3 text-sm sm:text-base font-bold text-white shadow-sm transition-all cursor-pointer"
           >
             <span>Start Your Free Trial</span>
             <span>→</span>
           </button>
 
-          <div className="mt-4 flex flex-wrap justify-center items-center gap-6 text-xs sm:text-[13px] font-medium text-[#526068]">
+          <div className="mt-4 flex flex-wrap justify-center items-center gap-3 sm:gap-6 text-xs sm:text-[13px] font-medium text-[#526068]">
             <div className="inline-flex items-center gap-1.5">
               <span className="font-bold text-[#356F58]">✓</span>
               <span>14 days free</span>

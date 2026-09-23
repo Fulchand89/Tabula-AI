@@ -298,8 +298,8 @@ export default function PlannerScheduleView({
           type="button"
           onClick={() => setPlannerMode('individual')}
           className={`flex-1 py-2.5 px-4 sm:px-6 rounded-full text-xs sm:text-[14px] font-semibold transition-all cursor-pointer text-center ${plannerMode === 'individual'
-              ? 'bg-[#ba704f] text-white shadow-xs'
-              : 'text-[#1e282d] hover:text-[#ba704f]'
+            ? 'bg-[#ba704f] text-white shadow-xs'
+            : 'text-[#1e282d] hover:text-[#ba704f]'
             }`}
         >
           Individual
@@ -311,8 +311,8 @@ export default function PlannerScheduleView({
             onToggleFamilyUnits?.();
           }}
           className={`flex-1 py-2.5 px-4 sm:px-6 rounded-full text-xs sm:text-[14px] font-semibold transition-all cursor-pointer text-center ${plannerMode === 'family'
-              ? 'bg-[#ba704f] text-white shadow-xs'
-              : 'text-[#1e282d] hover:text-[#ba704f]'
+            ? 'bg-[#ba704f] text-white shadow-xs'
+            : 'text-[#1e282d] hover:text-[#ba704f]'
             }`}
         >
           Family Units
@@ -327,8 +327,8 @@ export default function PlannerScheduleView({
           type="button"
           onClick={() => setSelectedStudent('student-1')}
           className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${selectedStudent === 'student-1'
-              ? 'border-2 border-[#356F58] bg-[#f0f6f3] text-[#356F58] font-bold'
-              : 'border border-[#cf805d] bg-[#fbf6f1] text-[#ba6644] hover:bg-[#f7ece4]'
+            ? 'border-2 border-[#356F58] bg-[#f0f6f3] text-[#356F58] font-bold'
+            : 'border border-[#cf805d] bg-[#fbf6f1] text-[#ba6644] hover:bg-[#f7ece4]'
             }`}
         >
           Student 1
@@ -338,8 +338,8 @@ export default function PlannerScheduleView({
           type="button"
           onClick={() => setSelectedStudent('student-2')}
           className={`rounded-full px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all cursor-pointer shadow-2xs ${selectedStudent === 'student-2'
-              ? 'border-2 border-[#356F58] bg-[#f0f6f3] text-[#356F58] font-bold'
-              : 'border border-[#cf805d] bg-[#fbf6f1] text-[#ba6644] hover:bg-[#f7ece4]'
+            ? 'border-2 border-[#356F58] bg-[#f0f6f3] text-[#356F58] font-bold'
+            : 'border border-[#cf805d] bg-[#fbf6f1] text-[#ba6644] hover:bg-[#f7ece4]'
             }`}
         >
           Student 2
@@ -365,8 +365,8 @@ export default function PlannerScheduleView({
               type="button"
               onClick={() => setSelectedDay(day.id)}
               className={`flex flex-col justify-start rounded-2xl p-2 sm:p-2.5 transition-all cursor-pointer shadow-2xs text-left min-h-[145px] sm:min-h-[155px] ${isSelected
-                  ? 'border-2 border-[#356F58] bg-[#fdfefd] ring-1 ring-[#356F58]/20'
-                  : 'border border-[#e9e1d5] bg-[#faf6ee]/90 hover:bg-white'
+                ? 'border-2 border-[#356F58] bg-[#fdfefd] ring-1 ring-[#356F58]/20'
+                : 'border border-[#e9e1d5] bg-[#faf6ee]/90 hover:bg-white'
                 }`}
             >
               {/* Day title & task counter */}
@@ -426,8 +426,8 @@ export default function PlannerScheduleView({
             <div
               key={card.id}
               className={`rounded-2xl bg-white p-4 sm:p-5 shadow-2xs transition-all ${card.isHighlighted
-                  ? 'border-2 border-[#356F58]'
-                  : 'border border-[#e9e1d5]'
+                ? 'border-2 border-[#356F58]'
+                : 'border border-[#e9e1d5]'
                 }`}
             >
               {/* Top row */}
@@ -450,8 +450,8 @@ export default function PlannerScheduleView({
                     type="button"
                     onClick={() => handleToggleComplete(card.id)}
                     className={`h-5 w-5 sm:h-5.5 sm:w-5.5 rounded-full border-2 transition-all flex items-center justify-center cursor-pointer ${card.isCompleted
-                        ? 'border-[#356F58] bg-[#356F58] text-white'
-                        : `${card.checkboxColor} bg-white hover:bg-[#faf5eb]`
+                      ? 'border-[#356F58] bg-[#356F58] text-white'
+                      : `${card.checkboxColor} bg-white hover:bg-[#faf5eb]`
                       }`}
                     aria-label={`Mark ${card.title} complete`}
                   >
@@ -606,8 +606,8 @@ export default function PlannerScheduleView({
                 type="button"
                 onClick={() => handleTogglePill(subject)}
                 className={`rounded-full border px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-[13px] font-medium shadow-2xs active:scale-95 transition-all cursor-pointer ${isActive
-                    ? 'border-[#356F58] bg-[#eef5f1] text-[#356F58] font-semibold'
-                    : 'border-[#d5cbbe] bg-white text-[#2d3f45] hover:bg-[#faf5eb] hover:border-[#356F58]'
+                  ? 'border-[#356F58] bg-[#eef5f1] text-[#356F58] font-semibold'
+                  : 'border-[#d5cbbe] bg-white text-[#2d3f45] hover:bg-[#faf5eb] hover:border-[#356F58]'
                   }`}
               >
                 {subject}

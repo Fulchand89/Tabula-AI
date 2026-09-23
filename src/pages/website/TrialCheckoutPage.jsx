@@ -90,7 +90,7 @@ export default function TrialCheckoutPage({
 
   return (
     <div className="min-h-screen w-full bg-[#f3ede4] text-[#1e282d] antialiased py-0 sm:py-6 md:py-8 flex justify-center">
-      <div className="w-full max-w-[640px] bg-[#faf7f0] border border-[#ded5c7] shadow-sm px-5 sm:px-8 py-8 sm:py-10">
+      <div className="w-full max-w-[640px] bg-[#faf7f0] border-x sm:border border-[#ded5c7] shadow-sm px-4 sm:px-8 py-6 sm:py-10">
         {isSuccess ? (
           <div className="py-12 text-center">
             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#356F58] text-2xl text-white shadow-sm">
@@ -141,7 +141,7 @@ export default function TrialCheckoutPage({
                 </button>
               )}
 
-              <h1 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-[#172b30]">
+              <h1 className="font-serif text-2xl sm:text-4xl font-bold tracking-tight text-[#172b30]">
                 Start your free trial
               </h1>
 
@@ -151,7 +151,7 @@ export default function TrialCheckoutPage({
             </header>
 
             {/* ── WELCOME CARD ── */}
-            <div className="mt-6 mb-7 rounded-2xl border border-[#e9e2d5] bg-white p-5 sm:p-6 shadow-2xs">
+            <div className="mt-6 mb-7 rounded-2xl border border-[#e9e2d5] bg-white p-4 sm:p-6 shadow-2xs">
               <h2 className="font-serif text-sm sm:text-base font-bold text-[#172b30]">
                 Welcome, {userName || 'shiva'}! Here's what you get:
               </h2>
@@ -166,9 +166,9 @@ export default function TrialCheckoutPage({
                 ].map((item) => (
                   <li
                     key={item}
-                    className="flex items-center gap-2.5 text-xs sm:text-[13px] text-[#ba633f] font-medium"
+                    className="flex items-start gap-2.5 text-xs sm:text-[13px] text-[#ba633f] font-medium"
                   >
-                    <span className="flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-white">
+                    <span className="flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-white mt-0.5">
                       <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
                         <polyline
                           points="2,6 5,9 10,3"
@@ -191,7 +191,7 @@ export default function TrialCheckoutPage({
                 Choose your plan
               </h3>
 
-              <div className="grid grid-cols-2 gap-3.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
                 {/* Monthly Plan */}
                 <div
                   onClick={() => setSelectedPlan('monthly')}
@@ -297,11 +297,11 @@ export default function TrialCheckoutPage({
                 </div>
 
                 {/* EXPIRY, CVV, ZIP */}
-                <div className="grid grid-cols-3 gap-3 mb-5">
+                <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-5">
                   {/* EXPIRY */}
                   <div>
                     <label className="block text-xs font-bold text-[#1e282d] text-center mb-1.5">
-                      Expiry
+                      Expiration
                     </label>
                     <input
                       type="text"
@@ -312,7 +312,7 @@ export default function TrialCheckoutPage({
                       maxLength={5}
                       inputMode="numeric"
                       autoComplete="cc-exp"
-                      className="w-full rounded-xl border border-[#d5cdc0] bg-white px-3 py-3 text-xs sm:text-sm text-[#172b30] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-none transition-colors text-center"
+                      className="w-full rounded-xl border border-[#d5cdc0] bg-white px-2 sm:px-3 py-3 text-xs sm:text-sm text-[#172b30] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-none transition-colors text-center"
                     />
                   </div>
 
@@ -332,7 +332,7 @@ export default function TrialCheckoutPage({
                       maxLength={3}
                       inputMode="numeric"
                       autoComplete="cc-csc"
-                      className="w-full rounded-xl border border-[#d5cdc0] bg-white px-3 py-3 text-xs sm:text-sm text-[#172b30] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-none transition-colors text-center"
+                      className="w-full rounded-xl border border-[#d5cdc0] bg-white px-2 sm:px-3 py-3 text-xs sm:text-sm text-[#172b30] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-none transition-colors text-center"
                     />
                   </div>
 
@@ -352,7 +352,7 @@ export default function TrialCheckoutPage({
                       maxLength={5}
                       inputMode="numeric"
                       autoComplete="postal-code"
-                      className="w-full rounded-xl border border-[#d5cdc0] bg-white px-3 py-3 text-xs sm:text-sm text-[#172b30] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-none transition-colors text-center"
+                      className="w-full rounded-xl border border-[#d5cdc0] bg-white px-2 sm:px-3 py-3 text-xs sm:text-sm text-[#172b30] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-none transition-colors text-center"
                     />
                   </div>
                 </div>

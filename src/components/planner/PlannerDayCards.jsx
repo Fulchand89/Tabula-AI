@@ -52,7 +52,7 @@ export default function PlannerDayCards({
                 </div>
 
                 <div className="w-full mt-1 space-y-1">
-                  {dayItems.slice(0, 3).map((item) => {
+                  {dayItems.map((item) => {
                     const badgeBg = item.badgeBg || item.color || 'bg-[#ba704f]';
                     const badgeText = item.badgeText || item.textColor || 'text-white';
                     return (

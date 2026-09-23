@@ -16,6 +16,7 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
   const [coachName, setCoachName] = useState('');
   const [selectedState, setSelectedState] = useState('');
   const [isStateDropdownOpen, setIsStateDropdownOpen] = useState(false);
+  const [stateSearch, setStateSearch] = useState('');
   const [selectedPlan, setSelectedPlan] = useState('annual'); // 'monthly' | 'annual'
   const [userName, setUserName] = useState('Student');
   const [userEmail, setUserEmail] = useState('student@gmail.com');
@@ -51,7 +52,7 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
   };
 
   return (
-    <div className="mx-auto w-full max-w-[640px] pb-32 pt-4 px-3.5 sm:px-4 transition-all">
+    <div className="mx-auto w-full max-w-[640px] pb-28 pt-4 px-3.5 sm:px-4 transition-all">
       {/* Toast Feedback */}
       {toastMessage && (
         <div className="fixed top-20 right-6 z-50 flex items-center gap-2 rounded-xl bg-[#356F58] px-4 py-3 text-xs font-bold text-white shadow-xl animate-fade-in">
@@ -61,8 +62,8 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
       )}
 
       {/* ================================================================
-          1. PAGE HEADER (Circle Back Arrow + Title + User Email)
-          ================================================================ */}
+          1. PAGE HEADER (Circle Back Arrow + Title + User Email)
+          ================================================================ */}
       <div className="border-b border-[#e8ded0] pb-3.5 mb-5">
         <div className="flex items-center gap-2.5">
           <button
@@ -89,8 +90,8 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
 
       <div className="space-y-7">
         {/* ================================================================
-            2. FREE TRIAL STATUS CARD
-            ================================================================ */}
+            2. FREE TRIAL STATUS CARD
+            ================================================================ */}
         <div className="rounded-2xl sm:rounded-3xl border border-[#e8dfd3] bg-white p-5 sm:p-6 shadow-2xs">
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-start gap-4 flex-1">
@@ -130,8 +131,8 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
         </div>
 
         {/* ================================================================
-            3. YOUR COACH'S NAME SECTION
-            ================================================================ */}
+            3. YOUR COACH'S NAME SECTION
+            ================================================================ */}
         <div>
           <h2 className="text-[11px] sm:text-[12px] font-extrabold uppercase tracking-[0.08em] text-[#24373e] mb-1">
             YOUR COACH'S NAME
@@ -166,8 +167,8 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
         </div>
 
         {/* ================================================================
-            4. STATE OF RESIDENCE SECTION
-            ================================================================ */}
+            4. STATE OF RESIDENCE SECTION
+            ================================================================ */}
         <div>
           <h2 className="text-[11px] sm:text-[12px] font-extrabold uppercase tracking-[0.08em] text-[#24373e] mb-1">
             STATE OF RESIDENCE
@@ -207,33 +208,60 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
             </button>
 
             {isStateDropdownOpen && (
-              <div className="absolute left-0 right-0 top-full z-20 mt-1.5 max-h-56 overflow-y-auto rounded-2xl border border-[#d5dcd8] bg-white py-1.5 shadow-xl">
-                {states.map((state) => (
-                  <button
-                    key={state}
-                    type="button"
-                    onClick={() => {
-                      setSelectedState(state);
-                      setIsStateDropdownOpen(false);
-                      showToast(`State set to ${state}`);
-                    }}
-                    className={`flex w-full items-center px-4 py-2 text-left text-xs sm:text-sm font-medium transition-colors cursor-pointer ${
-                      selectedState === state
-                        ? 'bg-[#edf5f0] text-[#356F58] font-bold'
-                        : 'text-[#1e282d] hover:bg-[#faf5eb]'
-                    }`}
-                  >
-                    {state}
-                  </button>
-                ))}
+              <div className="absolute left-0 right-0 top-full z-20 mt-1.5 rounded-2xl border border-[#d5dcd8] bg-white shadow-xl overflow-hidden">
+                {/* Search Input */}
+                <div className="px-3 pt-2.5 pb-1.5 border-b border-[#f0eae0]">
+                  <div className="relative">
+                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-[#718086]">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                      </svg>
+                    </div>
+                    <input
+                      type="text"
+                      value={stateSearch}
+                      onChange={(e) => setStateSearch(e.target.value)}
+                      placeholder="Search state..."
+                      autoFocus
+                      className="w-full rounded-xl border border-[#d5dcd8] bg-[#fafaf8] pl-8 pr-3 py-2 text-xs sm:text-sm text-[#16272b] placeholder-[#8a989f] focus:border-[#356F58] focus:outline-none transition-colors"
+                    />
+                  </div>
+                </div>
+                {/* State List */}
+                <div className="max-h-48 overflow-y-auto py-1.5">
+                  {states.filter((s) => s.toLowerCase().includes(stateSearch.toLowerCase())).length === 0 ? (
+                    <p className="px-4 py-3 text-xs text-[#8a989f] text-center">No state found</p>
+                  ) : (
+                    states.filter((s) => s.toLowerCase().includes(stateSearch.toLowerCase())).map((state) => (
+                      <button
+                        key={state}
+                        type="button"
+                        onClick={() => {
+                          setSelectedState(state);
+                          setIsStateDropdownOpen(false);
+                          setStateSearch('');
+                          showToast(`State set to ${state}`);
+                        }}
+                        className={`flex w-full items-center px-4 py-2 text-left text-xs sm:text-sm font-medium transition-colors cursor-pointer ${
+                          selectedState === state
+                            ? 'bg-[#edf5f0] text-[#356F58] font-bold'
+                            : 'text-[#1e282d] hover:bg-[#faf5eb]'
+                        }`}
+                      >
+                        {state}
+                      </button>
+                    ))
+                  )}
+                </div>
               </div>
             )}
           </div>
         </div>
 
         {/* ================================================================
-            5. SUBSCRIPTION PLAN SECTION
-            ================================================================ */}
+            5. SUBSCRIPTION PLAN SECTION
+            ================================================================ */}
         <div>
           <h2 className="text-[11px] sm:text-[12px] font-extrabold uppercase tracking-[0.08em] text-[#24373e] mb-3">
             SUBSCRIPTION PLAN
@@ -241,13 +269,12 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
 
           <div className="space-y-3">
             {/* Monthly Card */}
-            <div 
+            <div
               onClick={() => setSelectedPlan('monthly')}
-              className={`rounded-2xl border p-4 flex items-center justify-between shadow-2xs transition-all cursor-pointer ${
-                selectedPlan === 'monthly'
-                  ? 'border-2 border-[#356F58] bg-[#f2f8f5]'
-                  : 'border-[#e8dfd3] bg-white hover:border-[#b8c2bc]'
-              }`}
+              className={`rounded-2xl border p-4 flex items-center justify-between shadow-2xs transition-all cursor-pointer ${selectedPlan === 'monthly'
+                ? 'border-2 border-[#356F58] bg-[#f2f8f5]'
+                : 'border-[#e8dfd3] bg-white hover:border-[#b8c2bc]'
+                }`}
             >
               <div className="flex items-center gap-3.5">
                 <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-[#b8c2bc] bg-white">
@@ -276,13 +303,12 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
             </div>
 
             {/* Annual Card (Best Value / Current) */}
-            <div 
+            <div
               onClick={() => setSelectedPlan('annual')}
-              className={`rounded-2xl border-2 p-4 flex items-center justify-between shadow-2xs transition-all cursor-pointer ${
-                selectedPlan === 'annual'
-                  ? 'border-[#356F58] bg-[#f2f8f5]'
-                  : 'border-[#e8dfd3] bg-white hover:border-[#b8c2bc]'
-              }`}
+              className={`rounded-2xl border-2 p-4 flex items-center justify-between shadow-2xs transition-all cursor-pointer ${selectedPlan === 'annual'
+                ? 'border-[#356F58] bg-[#f2f8f5]'
+                : 'border-[#e8dfd3] bg-white hover:border-[#b8c2bc]'
+                }`}
             >
               <div className="flex items-center gap-3.5">
                 <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-[#356F58] bg-white">
@@ -325,8 +351,8 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
         </div>
 
         {/* ================================================================
-            6. ACCOUNT SECTION
-            ================================================================ */}
+            6. ACCOUNT SECTION
+            ================================================================ */}
         <div>
           <h2 className="text-[11px] sm:text-[12px] font-extrabold uppercase tracking-[0.08em] text-[#24373e] mb-3">
             ACCOUNT
@@ -436,8 +462,8 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
         </div>
 
         {/* ================================================================
-            7. TRIAL SECTION
-            ================================================================ */}
+            7. TRIAL SECTION
+            ================================================================ */}
         <div>
           <h2 className="text-[11px] sm:text-[12px] font-extrabold uppercase tracking-[0.08em] text-[#24373e] mb-3">
             TRIAL
@@ -468,12 +494,12 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
         </div>
 
         {/* ================================================================
-            8. DONE BUTTON
-            ================================================================ */}
+            8. DONE BUTTON
+            ================================================================ */}
         <button
           type="button"
           onClick={onBackToHome}
-          className="flex w-full items-center justify-center rounded-2xl bg-[#356F58] hover:bg-[#2a5946] active:scale-[0.99] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-md transition-all cursor-pointer"
+          className="mt-6 flex w-full items-center justify-center rounded-2xl bg-[#356F58] hover:bg-[#2a5946] active:scale-[0.99] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-md transition-all cursor-pointer"
         >
           Done
         </button>

@@ -37,6 +37,11 @@ export default function PlannerView({
   onViewCompleteWeek,
   onPrevWeek,
   onNextWeek,
+  // Shared state from AppShell
+  weekNumber = 1,
+  weekSubtitle = 'First week',
+  scheduleData = null,
+  onScheduleChange,
 }) {
   // Mode: 'individual' vs 'family'
   const [plannerMode, setPlannerMode] = useState('individual');
@@ -47,23 +52,26 @@ export default function PlannerView({
   // Selected Day (MON is default matching screenshots)
   const [selectedDay, setSelectedDay] = useState('MON');
 
-  // Schedule data per student and day
-  const [scheduleMap, setScheduleMap] = useState({
-    'student-1': {
-      MON: [],
-      TUE: [],
-      WED: [],
-      THU: [],
-      FRI: [],
-    },
-    'student-2': {
-      MON: [],
-      TUE: [],
-      WED: [],
-      THU: [],
-      FRI: [],
-    },
-  });
+  const EMPTY_SCHEDULE = {
+    'student-1': { MON: [], TUE: [], WED: [], THU: [], FRI: [] },
+    'student-2': { MON: [], TUE: [], WED: [], THU: [], FRI: [] },
+  };
+
+  // If parent provides scheduleData, use it; otherwise local state
+  const [localScheduleMap, setLocalScheduleMap] = useState(EMPTY_SCHEDULE);
+
+  // The actual schedule map: prefer prop-driven data
+  const scheduleMap = scheduleData || localScheduleMap;
+
+  // Unified setter: update local AND notify parent
+  const setScheduleMap = (updater) => {
+    if (onScheduleChange) {
+      // Parent manages state — pass updater up
+      onScheduleChange(updater);
+    } else {
+      setLocalScheduleMap(updater);
+    }
+  };
 
   const studentSchedule = scheduleMap[selectedStudent] || {
     MON: [],
@@ -162,8 +170,8 @@ export default function PlannerView({
       <div className="space-y-4 pt-1">
         {/* 2. Week Title & Controls (Week 1, Individual / Family, Student 1 / 2) */}
         <PlannerWeekNav
-          weekNumber={1}
-          weekSubtitle="First week"
+          weekNumber={weekNumber}
+          weekSubtitle={weekSubtitle}
           plannerMode={plannerMode}
           onModeChange={setPlannerMode}
           selectedStudent={selectedStudent}

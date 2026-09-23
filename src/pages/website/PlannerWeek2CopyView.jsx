@@ -35,8 +35,13 @@ export default function PlannerWeek2CopyView({
   onUpgradeClick,
   onToggleFamilyUnits,
   onCopySchedule,
+  onCopySubjectsOnly,
   onStartFresh,
   onPrevWeek,
+  // Dynamic week info from AppShell
+  weekNumber = 2,
+  weekSubtitle = 'Second week',
+  prevWeekNumber = 1,
 }) {
   const [plannerMode, setPlannerMode] = useState('individual');
   const [selectedStudent, setSelectedStudent] = useState('student-1');
@@ -88,14 +93,14 @@ export default function PlannerWeek2CopyView({
       </div>
 
       {/* ================================================================
-          3. WEEK 2 HEADER (Week 2 + Second week)
+          3. WEEK HEADER (dynamic week number + subtitle)
           ================================================================ */}
       <div className="mb-5">
         <h2 className="font-serif text-[22px] sm:text-[24px] font-bold text-[#16272b] tracking-tight">
-          Week 2
+          Week {weekNumber}
         </h2>
         <p className="mt-0.5 text-xs sm:text-[13px] font-medium text-[#526068]">
-          Second week
+          {weekSubtitle}
         </p>
       </div>
 
@@ -190,14 +195,13 @@ export default function PlannerWeek2CopyView({
 
       {/* ================================================================
           8. HERO CARD: "Start from last week?"
-          Matching user screenshot exactly
           ================================================================ */}
       <div className="mb-7 rounded-2xl border border-[#eedfd6] bg-white p-6 shadow-2xs">
         <h3 className="font-serif text-[18px] sm:text-[20px] font-bold text-[#ba704f] leading-tight">
           Start from last week?
         </h3>
         <p className="mt-2 text-xs sm:text-[13px] text-[#526068] leading-relaxed">
-          Week 2 is empty. Copy your Week 1 schedule so you only need to update the specific lessons — everything else stays the same.
+          Week {weekNumber} is empty. Copy your Week {prevWeekNumber} schedule so you only need to update the specific lessons — everything else stays the same.
         </p>
 
         {/* Buttons Row */}
@@ -213,7 +217,7 @@ export default function PlannerWeek2CopyView({
 
           <button
             type="button"
-            onClick={onCopySchedule}
+            onClick={onCopySubjectsOnly || onCopySchedule}
             className="flex-1 rounded-xl border border-[#d5cbbe] bg-white py-3 px-5 text-center text-xs sm:text-sm font-bold text-[#1e282d] hover:bg-[#faf5eb] transition-all cursor-pointer shadow-2xs"
           >
             Subjects Only
