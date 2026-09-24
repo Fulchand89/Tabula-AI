@@ -83,7 +83,7 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
     }
   }, [initialTab, student?.id]);
 
-  const [birthDate, setBirthDate] = useState('12/05/2015');
+  const [birthDate, setBirthDate] = useState('');
 
   useEffect(() => {
     if (student) {
@@ -104,10 +104,14 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
                 setBirthDate(bornText);
               }
             } catch {
-              setBirthDate('12/05/2015');
+              setBirthDate('');
             }
           }
+        } else {
+          setBirthDate('');
         }
+      } else {
+        setBirthDate('');
       }
       if (student.desc) {
         setInterests(student.desc);
@@ -224,7 +228,7 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
             {student?.name || 'Student Name'}
           </h1>
           <p className="text-xs font-semibold text-[#54646b] mt-0.5">
-            {selectedGrade} • Born {birthDate || '12/05/2015'}
+            {selectedGrade}{birthDate ? ` • Born ${birthDate}` : ''}
           </p>
         </div>
       </div>

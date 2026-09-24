@@ -400,6 +400,13 @@ export default function AppShell({
         isOpen={isCurriculumModalOpen}
         onClose={() => setIsCurriculumModalOpen(false)}
         onAddCurriculum={(curriculum) => {
+          try {
+            const savedSteps = JSON.parse(localStorage.getItem('tabula_getting_started_steps') || '{}');
+            savedSteps[2] = true;
+            localStorage.setItem('tabula_getting_started_steps', JSON.stringify(savedSteps));
+            window.dispatchEvent(new Event('storage'));
+            window.dispatchEvent(new CustomEvent('tabula_step_completed', { detail: { step: 2 } }));
+          } catch {}
           alert(`Added curriculum: ${curriculum.title}`);
         }}
       />

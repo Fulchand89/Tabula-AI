@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const WEEK_DAYS = [
   {
@@ -74,7 +74,48 @@ const WEEK_DAYS = [
 ];
 
 export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudents, onNavigateToCoach, onNavigateToPlanner }) {
-  const [activeStep, setActiveStep] = useState(1);
+  const [completedSteps, setCompletedSteps] = useState(() => {
+    try {
+      const saved = localStorage.getItem('tabula_getting_started_steps');
+      return saved ? JSON.parse(saved) : { 1: false, 2: false, 3: false, 4: false };
+    } catch {
+      return { 1: false, 2: false, 3: false, 4: false };
+    }
+  });
+
+  useEffect(() => {
+    const handleSync = () => {
+      try {
+        const saved = localStorage.getItem('tabula_getting_started_steps');
+        if (saved) {
+          setCompletedSteps(JSON.parse(saved));
+        }
+      } catch {}
+    };
+    window.addEventListener('storage', handleSync);
+    window.addEventListener('tabula_step_completed', handleSync);
+    return () => {
+      window.removeEventListener('storage', handleSync);
+      window.removeEventListener('tabula_step_completed', handleSync);
+    };
+  }, []);
+
+  const markStepComplete = (stepNum, isComplete = true) => {
+    setCompletedSteps(prev => {
+      const updated = { ...prev, [stepNum]: isComplete };
+      try {
+        localStorage.setItem('tabula_getting_started_steps', JSON.stringify(updated));
+      } catch {}
+      return updated;
+    });
+  };
+
+  const toggleStep = (stepNum, e) => {
+    e?.stopPropagation();
+    markStepComplete(stepNum, !completedSteps[stepNum]);
+  };
+
+  const doneCount = Object.values(completedSteps).filter(Boolean).length;
   const [selectedDayDate, setSelectedDayDate] = useState(15);
   const [coachQuestion, setCoachQuestion] = useState('');
   const [coachAnswer, setCoachAnswer] = useState(null);
@@ -105,6 +146,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
     if (!questionToAsk.trim()) return;
     setCoachAnswer(`Great question! For "${questionToAsk}", I recommend breaking lessons into 20-minute focused blocks and alternating between math and creative reading.`);
     setCoachQuestion('');
+    markStepComplete(4, true);
   };
 
   const currentSelectedDayObj = WEEK_DAYS.find(d => d.date === selectedDayDate) || WEEK_DAYS[1];
@@ -358,7 +400,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
               </span>
 
               <span className="text-[10.5px] font-semibold text-[#ba633f]">
-                {activeStep ? `${activeStep} of 4 done` : '0 of 4 done'}
+                {doneCount === 4 ? 'All 4 of 4 done!' : `${doneCount} of 4 done`}
               </span>
             </div>
 
@@ -366,7 +408,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
             <div className="mb-2.5 h-1.5 w-full overflow-hidden rounded-full bg-[#e3ded4]">
               <div
                 className="h-full rounded-full bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] transition-all duration-300"
-                style={{ width: `${((activeStep || 0) / 4) * 100}%` }}
+                style={{ width: `${(doneCount / 4) * 100}%` }}
               />
             </div>
 
@@ -374,20 +416,22 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
             <div className="space-y-2">
               {/* Step 1: Add your students */}
               <div
-                onClick={() => setActiveStep(1)}
-                className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 1
+                onClick={() => onNavigateToStudents?.()}
+                className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${completedSteps[1]
                   ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
                   : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
                   }`}
               >
                 <div className="flex items-center gap-2.5 min-w-0 flex-1">
                   <div
-                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 1
-                      ? 'bg-[#356F58] text-white'
-                      : 'border border-[#d5cbbe] text-[#526068]'
+                    onClick={(e) => toggleStep(1, e)}
+                    title={completedSteps[1] ? 'Step completed! Click to undo' : 'Click to mark as done'}
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-all cursor-pointer ${completedSteps[1]
+                      ? 'bg-[#159446] text-white shadow-2xs'
+                      : 'border border-[#d5cbbe] text-[#526068] hover:border-[#159446] hover:text-[#159446]'
                       }`}
                   >
-                    {activeStep === 1 ? (
+                    {completedSteps[1] ? (
                       <svg
                         width="11"
                         height="11"
@@ -416,10 +460,9 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                 <span
                   onClick={(e) => {
                     e.stopPropagation();
-                    setActiveStep(1);
                     onNavigateToStudents?.();
                   }}
-                  className={`text-xs pl-1 shrink-0 transition-colors ${activeStep === 1 ? 'text-[#356F58] font-bold' : 'text-[#798790]'
+                  className={`text-xs pl-1 shrink-0 transition-colors ${completedSteps[1] ? 'text-[#159446] font-bold' : 'text-[#798790]'
                     }`}
                 >
                   ›
@@ -428,20 +471,22 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
 
               {/* Step 2: Enter your curriculum */}
               <div
-                onClick={() => setActiveStep(2)}
-                className={`flex cursor-pointer items-center justify-between gap-2 rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 2
+                onClick={() => onOpenAddCurriculum?.()}
+                className={`flex cursor-pointer items-center justify-between gap-2 rounded-xl border p-2.5 shadow-2xs transition-all ${completedSteps[2]
                   ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
                   : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
                   }`}
               >
                 <div className="flex items-center gap-2.5 min-w-0 flex-1">
                   <div
-                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 2
-                      ? 'bg-[#356F58] text-white'
-                      : 'border border-[#d5cbbe] text-[#526068]'
+                    onClick={(e) => toggleStep(2, e)}
+                    title={completedSteps[2] ? 'Step completed! Click to undo' : 'Click to mark as done'}
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-all cursor-pointer ${completedSteps[2]
+                      ? 'bg-[#159446] text-white shadow-2xs'
+                      : 'border border-[#d5cbbe] text-[#526068] hover:border-[#159446] hover:text-[#159446]'
                       }`}
                   >
-                    {activeStep === 2 ? (
+                    {completedSteps[2] ? (
                       <svg
                         width="11"
                         height="11"
@@ -471,31 +516,35 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                   type="button"
                   onClick={(e) => {
                     e.stopPropagation();
-                    setActiveStep(2);
                     onOpenAddCurriculum?.();
                   }}
-                  className="shrink-0 rounded-md bg-[#356F58] px-2 py-1 text-[10px] font-semibold text-white shadow-2xs hover:bg-[#2a5946] transition-colors cursor-pointer"
+                  className={`shrink-0 rounded-md px-2 py-1 text-[10px] font-semibold text-white shadow-2xs transition-colors cursor-pointer ${completedSteps[2]
+                    ? 'bg-[#159446] hover:bg-[#12803b]'
+                    : 'bg-[#356F58] hover:bg-[#2a5946]'
+                    }`}
                 >
-                  Add curriculum →
+                  {completedSteps[2] ? 'Curriculum added ✓' : 'Add curriculum →'}
                 </button>
               </div>
 
               {/* Step 3: Build your weekly plan */}
               <div
-                onClick={() => setActiveStep(3)}
-                className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 3
+                onClick={() => onNavigateToPlanner?.()}
+                className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${completedSteps[3]
                   ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
                   : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
                   }`}
               >
                 <div className="flex items-center gap-2.5 min-w-0 flex-1">
                   <div
-                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 3
-                      ? 'bg-[#356F58] text-white'
-                      : 'border border-[#d5cbbe] text-[#526068]'
+                    onClick={(e) => toggleStep(3, e)}
+                    title={completedSteps[3] ? 'Step completed! Click to undo' : 'Click to mark as done'}
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-all cursor-pointer ${completedSteps[3]
+                      ? 'bg-[#159446] text-white shadow-2xs'
+                      : 'border border-[#d5cbbe] text-[#526068] hover:border-[#159446] hover:text-[#159446]'
                       }`}
                   >
-                    {activeStep === 3 ? (
+                    {completedSteps[3] ? (
                       <svg
                         width="11"
                         height="11"
@@ -524,10 +573,9 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                 <span
                   onClick={(e) => {
                     e.stopPropagation();
-                    setActiveStep(3);
                     onNavigateToPlanner?.();
                   }}
-                  className={`text-xs pl-1 shrink-0 transition-colors ${activeStep === 3 ? 'text-[#356F58] font-bold' : 'text-[#798790]'
+                  className={`text-xs pl-1 shrink-0 transition-colors ${completedSteps[3] ? 'text-[#159446] font-bold' : 'text-[#798790]'
                     }`}
                 >
                   ›
@@ -536,20 +584,22 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
 
               {/* Step 4: Ask the AI coach */}
               <div
-                onClick={() => setActiveStep(4)}
-                className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 4
+                onClick={() => onNavigateToCoach?.()}
+                className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${completedSteps[4]
                   ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
                   : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
                   }`}
               >
                 <div className="flex items-center gap-2.5 min-w-0 flex-1">
                   <div
-                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 4
-                      ? 'bg-[#356F58] text-white'
-                      : 'border border-[#d5cbbe] text-[#526068]'
+                    onClick={(e) => toggleStep(4, e)}
+                    title={completedSteps[4] ? 'Step completed! Click to undo' : 'Click to mark as done'}
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-all cursor-pointer ${completedSteps[4]
+                      ? 'bg-[#159446] text-white shadow-2xs'
+                      : 'border border-[#d5cbbe] text-[#526068] hover:border-[#159446] hover:text-[#159446]'
                       }`}
                   >
-                    {activeStep === 4 ? (
+                    {completedSteps[4] ? (
                       <svg
                         width="11"
                         height="11"
@@ -578,10 +628,9 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                 <span
                   onClick={(e) => {
                     e.stopPropagation();
-                    setActiveStep(4);
                     onNavigateToCoach?.();
                   }}
-                  className={`text-xs pl-1 shrink-0 transition-colors ${activeStep === 4 ? 'text-[#356F58] font-bold' : 'text-[#798790]'
+                  className={`text-xs pl-1 shrink-0 transition-colors ${completedSteps[4] ? 'text-[#159446] font-bold' : 'text-[#798790]'
                     }`}
                 >
                   ›

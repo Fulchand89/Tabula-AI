@@ -76,6 +76,14 @@ Everything else is on pause without falling behind!`,
     setInputText('');
     setIsTyping(true);
 
+    try {
+      const savedSteps = JSON.parse(localStorage.getItem('tabula_getting_started_steps') || '{}');
+      savedSteps[4] = true;
+      localStorage.setItem('tabula_getting_started_steps', JSON.stringify(savedSteps));
+      window.dispatchEvent(new Event('storage'));
+      window.dispatchEvent(new CustomEvent('tabula_step_completed', { detail: { step: 4 } }));
+    } catch {}
+
     setTimeout(() => {
       const replyText =
         sampleResponses[query] ||
