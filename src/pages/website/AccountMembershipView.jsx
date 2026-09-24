@@ -13,7 +13,14 @@ import React, { useState } from 'react';
  * - Section 7: Large "Done" green button
  */
 export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) {
-  const [coachName, setCoachName] = useState('');
+  const [coachName, setCoachName] = useState(() => {
+    try {
+      return localStorage.getItem('tabula_coach_name') || '';
+    } catch (e) {
+      return '';
+    }
+  });
+  const [isCoachSaved, setIsCoachSaved] = useState(false);
   const [selectedState, setSelectedState] = useState('');
   const [isStateDropdownOpen, setIsStateDropdownOpen] = useState(false);
   const [stateSearch, setStateSearch] = useState('');
@@ -42,7 +49,16 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
 
   const handleSaveCoachName = (e) => {
     e?.preventDefault();
-    showToast(coachName.trim() ? `Coach name set to "${coachName}"` : 'Using default coach name "Coach"');
+    const trimmed = coachName.trim();
+    try {
+      if (trimmed) {
+        localStorage.setItem('tabula_coach_name', trimmed);
+      } else {
+        localStorage.removeItem('tabula_coach_name');
+      }
+    } catch (err) {}
+    setIsCoachSaved(true);
+    setTimeout(() => setIsCoachSaved(false), 2000);
   };
 
   const handleCancelTrial = () => {
@@ -141,27 +157,32 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
             Give your AI coach a name. It'll be used throughout the app and the coach will introduce itself this way. Leave blank to use "Coach."
           </p>
 
-          <form onSubmit={handleSaveCoachName} className="flex items-center gap-3">
-            <div className="relative flex-1">
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-[#718086]">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
-              </div>
-              <input
-                type="text"
-                value={coachName}
-                onChange={(e) => setCoachName(e.target.value)}
-                placeholder="e.g. Coach Maple, Ms. Rivera, Sunny"
-                className="w-full rounded-2xl border border-[#d5dcd8] bg-white pl-10 pr-4 py-3 text-xs sm:text-sm text-[#16272b] placeholder-[#8a989f] focus:border-[#356F58] focus:outline-none transition-colors"
-              />
+          <form onSubmit={handleSaveCoachName} className="relative flex items-center w-full">
+            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-[#718086]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
             </div>
+            <input
+              type="text"
+              value={coachName}
+              onChange={(e) => {
+                setCoachName(e.target.value);
+                setIsCoachSaved(false);
+              }}
+              placeholder="e.g. Coach Maple, Ms. Rivera, Sunny"
+              className="w-full rounded-2xl border border-[#d5dcd8] bg-white pl-10 pr-24 py-3 text-xs sm:text-sm text-[#16272b] placeholder-[#8a989f] focus:border-[#356F58] focus:outline-none transition-colors shadow-2xs"
+            />
             <button
               type="submit"
-              className="rounded-xl sm:rounded-2xl bg-[#356F58] hover:bg-[#2a5946] text-white px-5 sm:px-6 py-3 text-xs sm:text-sm font-bold shadow-xs transition-colors cursor-pointer"
+              className={`absolute right-2 top-1/2 -translate-y-1/2 rounded-xl px-4 py-1.5 text-xs font-bold transition-all cursor-pointer shadow-xs ${
+                isCoachSaved
+                  ? 'bg-[#2a5946] text-white'
+                  : 'bg-[#356F58] hover:bg-[#2a5946] text-white active:scale-95'
+              }`}
             >
-              Save
+              {isCoachSaved ? 'Saved ✓' : 'Save'}
             </button>
           </form>
         </div>

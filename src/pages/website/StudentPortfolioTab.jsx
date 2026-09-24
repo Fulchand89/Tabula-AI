@@ -27,7 +27,7 @@ export default function StudentPortfolioTab({
   return (
     <div className="space-y-5">
       {/* Descriptive text */}
-      <p className="text-[13px] leading-relaxed text-[#526068] font-medium">
+      <p className="text-[15px] font-[inter]  leading-relaxed text-[#685949] font-medium">
         Document student work samples, projects, and milestones. Portfolio-review states (PA, NY, and others) require records like these.
       </p>
 

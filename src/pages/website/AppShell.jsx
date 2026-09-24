@@ -161,13 +161,33 @@ export default function AppShell({
   const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
   const [isTrialModalOpen, setIsTrialModalOpen] = useState(false);
 
+  // Active selected lesson / assignment for PlannerLessonDetailView
+  const [selectedLessonItem, setSelectedLessonItem] = useState(() => {
+    try {
+      const saved = localStorage.getItem('tabula_selected_lesson_item');
+      return saved ? JSON.parse(saved) : null;
+    } catch (e) {
+      return null;
+    }
+  });
+
+  const handleOpenLessonDetail = (item) => {
+    if (item) {
+      setSelectedLessonItem(item);
+      try {
+        localStorage.setItem('tabula_selected_lesson_item', JSON.stringify(item));
+      } catch (e) {}
+    }
+    handleNavigate('lesson-detail');
+  };
+
   // Container width: max-w-[640px] for all views matching Dashboard page styling
   const containerMaxWidth = 'max-w-[640px]';
 
   return (
-    <div className="min-h-screen w-full bg-[#f3ede4] text-[#1e282d] antialiased py-0 sm:py-6 md:py-8 flex justify-center px-0 sm:px-4">
+    <div className={`min-h-screen w-full bg-[#f3ede4] text-[#1e282d] antialiased ${activeNav === 'coach' ? 'py-0 sm:py-2' : 'py-0 sm:py-6 md:py-8'} flex justify-center px-0 sm:px-4`}>
       {/* ── Single Unified Page Container with Border, Shadow & Rounded Corners ── */}
-      <div className={`w-full ${containerMaxWidth} bg-[#faf7f0] border-x sm:border border-[#ded5c7] sm:rounded-2xl shadow-sm flex flex-col min-h-[92vh] overflow-hidden transition-all`}>
+      <div className={`w-full ${containerMaxWidth} bg-[#faf7f0] border-x sm:border border-[#ded5c7] sm:rounded-2xl shadow-sm flex flex-col ${activeNav === 'coach' ? 'h-screen sm:h-[96vh] sm:min-h-[840px] max-h-screen sm:max-h-[98vh]' : 'min-h-[92vh]'} overflow-hidden transition-all`}>
 
         {/* ================================================================
             TOP REUSABLE HEADER COMPONENT (Inside Page Container)
@@ -189,7 +209,7 @@ export default function AppShell({
         {/* ================================================================
             MAIN VIEW CONTAINER
             ================================================================ */}
-        <main className="flex-1 flex flex-col">
+        <main className={`flex-1 flex flex-col ${activeNav === 'coach' ? 'min-h-0 overflow-hidden' : ''}`}>
           {activeNav === 'home' && (
             <DashboardHome
               onOpenAddCurriculum={() => setIsCurriculumModalOpen(true)}
@@ -224,7 +244,7 @@ export default function AppShell({
             <PlannerView
               onBackToHome={() => handleBack('home')}
               onUpgradeClick={handleUpgradeClick}
-              onOpenLessonDetail={() => handleNavigate('lesson-detail')}
+              onOpenLessonDetail={handleOpenLessonDetail}
               onToggleFamilyUnits={() => handleNavigate('planner-family')}
               onViewCompleteWeek={() => handleNavigate('planner-complete')}
               onNextWeek={() => {
@@ -253,7 +273,7 @@ export default function AppShell({
                 setCurrentWeek((w) => w + 1);
                 handleNavigate('planner-week2');
               }}
-              onOpenLessonDetail={() => handleNavigate('lesson-detail')}
+              onOpenLessonDetail={handleOpenLessonDetail}
               onToggleFamilyUnits={() => handleNavigate('planner-family')}
             />
           )}
@@ -309,7 +329,7 @@ export default function AppShell({
             <PlannerScheduleView
               onBackToHome={() => handleBack('planner')}
               onUpgradeClick={handleUpgradeClick}
-              onOpenLessonDetail={() => handleNavigate('lesson-detail')}
+              onOpenLessonDetail={handleOpenLessonDetail}
               onToggleFamilyUnits={() => handleNavigate('planner-family')}
             />
           )}
@@ -318,12 +338,14 @@ export default function AppShell({
             <PlannerView
               onBackToHome={() => handleBack('planner')}
               onUpgradeClick={handleUpgradeClick}
+              onOpenLessonDetail={handleOpenLessonDetail}
               onToggleFamilyUnits={() => handleNavigate('planner-family')}
             />
           )}
 
           {activeNav === 'lesson-detail' && (
             <PlannerLessonDetailView
+              lessonItem={selectedLessonItem}
               onCancel={() => handleBack('planner')}
               onAddCurriculum={(data) => {
                 handleNavigate('planner');

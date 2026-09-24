@@ -241,8 +241,8 @@ export default function StudentDetailView({ student, initialTab = 'curriculum', 
               setActiveTab(tab.id);
             }}
             className={`flex-1 rounded-full py-1.5 text-xs font-bold transition-all cursor-pointer ${activeTab === tab.id
-                ? 'bg-[#356F58] text-white shadow-xs'
-                : 'text-[#23353b] hover:text-[#16272b]'
+              ? 'bg-[#159446] text-white shadow-xs'
+              : 'text-[#23353b] hover:text-[#16272b]'
               }`}
           >
             {tab.label}

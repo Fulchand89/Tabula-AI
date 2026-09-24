@@ -19,20 +19,57 @@ const TYPE_OPTIONS = [
   'Free Study',
 ];
 
-export default function PlannerLessonDetailView({ onCancel, onAddCurriculum }) {
-  const [isDone, setIsDone] = useState(false);
-  const [workingOnText, setWorkingOnText] = useState('e.g. Lesson 45, Chapter 3, Week 12 of 36');
-  const [startTime, setStartTime] = useState('');
-  const [selectedDuration, setSelectedDuration] = useState('+ 15 min');
+const getSampleLessonInfo = (subject, curriculum) => {
+  const s = (subject || '').toLowerCase();
+  const c = (curriculum || '').toLowerCase();
+  if (s.includes('math') || c.includes('math')) return 'Lesson 45, Chapter 3, Week 12 of 36';
+  if (s.includes('history') || c.includes('history') || c.includes('world')) return 'Chapter 4, Ancient Egypt, Week 12 of 36';
+  if (s.includes('science') || c.includes('science') || c.includes('bio')) return 'Unit 2, Ecosystems & Biology, Week 12 of 36';
+  if (s.includes('phonics') || s.includes('reading') || c.includes('reading')) return 'Lesson 18, Vowel Blends, Week 12 of 36';
+  if (s.includes('writing') || c.includes('writing')) return 'Lesson 12, Narrative Structure, Week 12 of 36';
+  if (s.includes('language') || c.includes('grammar') || c.includes('language')) return 'Lesson 10, Parts of Speech, Week 12 of 36';
+  if (s.includes('code') || s.includes('ai') || c.includes('coding')) return 'Module 3, Logic & Loops, Week 12 of 36';
+  if (s.includes('art') || c.includes('art')) return 'Project 4, Perspective & Watercolor, Week 12 of 36';
+  if (s.includes('music') || c.includes('music')) return 'Lesson 6, Rhythm & Notation, Week 12 of 36';
+  if (s.includes('latin') || s.includes('foreign') || c.includes('latin')) return 'Chapter 5, First Declension Nouns, Week 12 of 36';
+  if (s.includes('bible') || s.includes('character') || c.includes('god')) return 'Lesson 14, Proverbs & Wisdom, Week 12 of 36';
+  return 'Lesson 12, Chapter 3, Week 12 of 36';
+};
+
+export default function PlannerLessonDetailView({ onCancel, onAddCurriculum, lessonItem }) {
+  // Resolve subject and curriculum dynamically from props or localStorage
+  const resolvedItem = lessonItem || (() => {
+    try {
+      const saved = localStorage.getItem('tabula_selected_lesson_item');
+      return saved ? JSON.parse(saved) : null;
+    } catch (e) {
+      return null;
+    }
+  })();
+
+  const rawSubject = resolvedItem?.subjectName || resolvedItem?.subject || resolvedItem?.title || 'Math';
+  const displaySubject = rawSubject.toUpperCase();
+  const curriculumTitle = resolvedItem?.curriculum || resolvedItem?.curriculumTitle || `${rawSubject} Curriculum`;
+  const titleColor = resolvedItem?.titleColor || 'text-[#356F58]';
+  const sampleLessonInfo = getSampleLessonInfo(rawSubject, curriculumTitle);
+  const lessonInfo = resolvedItem?.lessonInfo || sampleLessonInfo;
+
+  const [isDone, setIsDone] = useState(resolvedItem?.done || false);
+  const [workingOnText, setWorkingOnText] = useState(resolvedItem?.workingOn || '');
+  const [startTime, setStartTime] = useState(resolvedItem?.startTime || '');
+  const [selectedDuration, setSelectedDuration] = useState(resolvedItem?.duration || '+ 15 min');
   const [customDuration, setCustomDuration] = useState('');
-  const [teachingNotes, setTeachingNotes] = useState('');
-  const [selectedType, setSelectedType] = useState('+ Lesson');
+  const [teachingNotes, setTeachingNotes] = useState(resolvedItem?.notes || '');
+  const [selectedType, setSelectedType] = useState(resolvedItem?.type || '+ Lesson');
 
   const handleSubmit = (e) => {
     e?.preventDefault?.();
     onAddCurriculum?.({
-      curriculum: 'Saxon Math',
-      workingOn: workingOnText,
+      ...(resolvedItem || {}),
+      subject: displaySubject,
+      subjectName: rawSubject,
+      curriculum: curriculumTitle,
+      workingOn: workingOnText || lessonInfo,
       startTime,
       duration: selectedDuration === 'Custom' ? customDuration : selectedDuration,
       notes: teachingNotes,
@@ -72,13 +109,13 @@ export default function PlannerLessonDetailView({ onCancel, onAddCurriculum }) {
           </button>
         </div>
 
-        {/* 3. Centered Header (MATH + Saxon Math) */}
+        {/* 3. Centered Header (Subject + Curriculum Title) */}
         <div className="text-center mb-5 -mt-2">
-          <span className="block text-[11px] font-extrabold tracking-widest text-[#356F58] uppercase">
-            MATH
+          <span className={`block text-[11px] font-extrabold tracking-widest uppercase ${titleColor}`}>
+            {displaySubject}
           </span>
           <h1 className="font-serif text-[24px] sm:text-[28px] font-bold text-[#16272b] tracking-tight mt-0.5">
-            Saxon Math
+            {curriculumTitle}
           </h1>
         </div>
 
@@ -92,10 +129,10 @@ export default function PlannerLessonDetailView({ onCancel, onAddCurriculum }) {
             </label>
             <div className="rounded-2xl border border-[#e8dfd5] bg-white p-3.5 sm:p-4 shadow-2xs">
               <h4 className="text-xs sm:text-[13px] font-bold text-[#16272b]">
-                Saxon Math
+                {curriculumTitle}
               </h4>
               <p className="text-[11px] sm:text-xs text-[#526068] mt-0.5">
-                Lesson 45, Chapter 3, Week 12 of 36
+                {lessonInfo}
               </p>
             </div>
           </div>
@@ -112,10 +149,10 @@ export default function PlannerLessonDetailView({ onCancel, onAddCurriculum }) {
               value={workingOnText}
               onChange={(e) => setWorkingOnText(e.target.value)}
               className="w-full rounded-2xl border border-[#e8dfd5] bg-white px-4 py-3 text-xs sm:text-[13px] text-[#1e282d] placeholder-[#9ca3af] focus:border-[#356F58] focus:outline-hidden shadow-2xs"
-              placeholder="e.g. Lesson 45, Chapter 3, Week 12 of 36"
+              placeholder={`e.g. ${lessonInfo}`}
             />
             <p className="text-[11px] text-[#788890] mt-1.5">
-              Last recorded: Lesson 45, Chapter 3, Week 12 of 36
+              Last recorded: {lessonInfo}
             </p>
           </div>
 

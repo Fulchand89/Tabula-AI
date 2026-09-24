@@ -24,7 +24,9 @@ export default function Header({
   };
 
   return (
-    <header className={`w-full border-b border-[#e8ded0] bg-[#faf7f0] px-3.5 sm:px-4 py-2.5 sm:py-3 transition-all ${className}`}>
+    <header
+      className={`w-full max-w-[768px] h-[88px] border-b border-[#e8ded0] bg-[#faf7f0] px-6 py-4 transition-all ${className}`}
+    >
       <div className="flex w-full items-center justify-between transition-all">
         {/* Left: Tabula Brand & Subtitle */}
         <div
@@ -58,19 +60,19 @@ export default function Header({
           <button
             type="button"
             onClick={() => handleAction(onAccountClick)}
-            className="rounded-lg border border-[#d5ccc0] bg-white px-3 py-1 text-[15px] font-semibold text-[#4E7A5B] hover:bg-[#faf6ee] transition-colors shadow-2xs cursor-pointer"
+            className="rounded-lg border border-[#d5ccc0] bg-white px-3 py-1 text-[13px] font-semibold text-[#4E7A5B] hover:bg-[#faf6ee] transition-colors shadow-2xs cursor-pointer"
           >
             Account
           </button>
           <button
             type="button"
             onClick={() => handleAction(onPrivacyClick)}
-            className="rounded-lg border border-[#d5ccc0] bg-white px-3 py-1 text-[15px] font-semibold text-[#4E7A5B] hover:bg-[#faf6ee] transition-colors shadow-2xs cursor-pointer"
+            className="rounded-lg border border-[#d5ccc0] bg-white px-3 py-1 text-[13px] font-semibold text-[#4E7A5B] hover:bg-[#faf6ee] transition-colors shadow-2xs cursor-pointer"
           >
             Privacy
           </button>
         </div>
       </div>
-    </header>
+    </ header>
   );
 }

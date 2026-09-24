@@ -11,7 +11,7 @@ import React, { useState } from 'react';
 export default function ResourceReviewForm({ onSubmit, onCancel }) {
   const [curriculumName, setCurriculumName] = useState('');
   const [subject, setSubject] = useState('');
-  const [rating, setRating] = useState(5); // Default 5 stars as shown in screenshot
+  const [rating, setRating] = useState(0); // Default 5 stars as shown in screenshot
   const [hoverRating, setHoverRating] = useState(0);
   const [reviewText, setReviewText] = useState('');
 

@@ -39,14 +39,6 @@ export default function PrivacySettingsView({ onBackToHome }) {
 
   return (
     <div className="mx-auto w-full max-w-[640px] pb-32 pt-4 px-3.5 sm:px-4 transition-all">
-      {/* Saved Toast Notification */}
-      {savedNotification && (
-        <div className="fixed top-20 right-6 z-50 flex items-center gap-2 rounded-xl bg-[#356F58] px-4 py-3 text-xs font-bold text-white shadow-xl animate-fade-in">
-          <span>✓</span>
-          <span>Privacy settings saved successfully!</span>
-        </div>
-      )}
-
       {/* ================================================================
           1. PAGE HEADER (Circle Back Arrow + Privacy Settings Title)
           ================================================================ */}
@@ -77,47 +69,47 @@ export default function PrivacySettingsView({ onBackToHome }) {
             2. HOW TABULA HANDLES YOUR DATA CARD
             ================================================================ */}
         <div className="rounded-2xl sm:rounded-3xl border border-[#e8dfd3] bg-white p-5 sm:p-6 shadow-2xs">
-          <h2 className="font-serif text-lg sm:text-xl font-bold text-[#be5f39] mb-4">
+          <h2 className="font-lora text-[19px] font-semibold text-[#BD7451] mb-4">
             How Tabula handles your data
           </h2>
 
           <div className="space-y-3.5">
             {/* Bullet 1 */}
             <div className="flex items-start gap-3">
-              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-white text-[11px] font-bold mt-0.5 shadow-2xs">
+              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-white text-[11px] font-bold mt-0.5 shadow-2xs">
                 ✓
               </div>
-              <p className="text-xs sm:text-[13.5px] font-semibold text-[#16272b] leading-relaxed">
+              <p className="text-[15px] font-medium text-[#16272b] leading-relaxed">
                 Your family profile, student info, curriculum, and planner all stay on this device only.
               </p>
             </div>
 
             {/* Bullet 2 */}
             <div className="flex items-start gap-3">
-              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-white text-[11px] font-bold mt-0.5 shadow-2xs">
+              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-white text-[11px] font-bold mt-0.5 shadow-2xs">
                 ✓
               </div>
-              <p className="text-xs sm:text-[13.5px] font-semibold text-[#16272b] leading-relaxed">
+              <p className="text-[15px] font-medium text-[#16272b] leading-relaxed">
                 When you ask the AI coach a question, we send context to Claude (by Anthropic) to generate your answer. That data is not stored or used to train AI models.
               </p>
             </div>
 
             {/* Bullet 3 */}
             <div className="flex items-start gap-3">
-              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-white text-[11px] font-bold mt-0.5 shadow-2xs">
+              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-white text-[11px] font-bold mt-0.5 shadow-2xs">
                 ✓
               </div>
-              <p className="text-xs sm:text-[13.5px] font-semibold text-[#16272b] leading-relaxed">
+              <p className="text-[15px] font-medium text-[#16272b] leading-relaxed">
                 We never sell your data. No third-party advertising. No profiling.
               </p>
             </div>
 
             {/* Bullet 4 */}
             <div className="flex items-start gap-3">
-              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-white text-[11px] font-bold mt-0.5 shadow-2xs">
+              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-white text-[11px] font-bold mt-0.5 shadow-2xs">
                 ✓
               </div>
-              <p className="text-xs sm:text-[13.5px] font-semibold text-[#16272b] leading-relaxed">
+              <p className="text-[15px] font-medium text-[#16272b] leading-relaxed">
                 You can delete everything instantly at any time.
               </p>
             </div>
@@ -128,10 +120,10 @@ export default function PrivacySettingsView({ onBackToHome }) {
             3. WHAT GETS SENT TO THE AI COACH SECTION
             ================================================================ */}
         <div>
-          <h2 className="text-[11px] sm:text-[12px] font-extrabold uppercase tracking-[0.08em] text-[#24373e] mb-1">
+          <h2 className="text-[13px] font-bold uppercase tracking-[0.08em] text-[#212C3E] mb-1">
             WHAT GETS SENT TO THE AI COACH
           </h2>
-          <p className="text-xs text-[#607077] mb-3.5">
+          <p className="text-[11px] font-[inter] font-medium text-[#685949] mb-3.5">
             The more context you share, the more personalized your coaching. Choose what you're comfortable with.
           </p>
 
@@ -146,15 +138,14 @@ export default function PrivacySettingsView({ onBackToHome }) {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xs sm:text-[13.5px] font-bold text-[#16272b]">
+                  <h3 className="text-[13px] font-[inter] font-semibold text-[#212C3E]">
                     Teaching philosophy & faith tradition
                   </h3>
-                  <p className="text-[11px] sm:text-xs text-[#607077]">
+                  <p className="text-[12px] font-[inter] font-medium text-[#685949]">
                     Allows the AI to match your coaching style and values.
                   </p>
                 </div>
               </div>
-              {/* Toggle Switch */}
               <button
                 type="button"
                 onClick={() => toggleSetting('teachingPhilosophy')}
@@ -181,10 +172,10 @@ export default function PrivacySettingsView({ onBackToHome }) {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xs sm:text-[13.5px] font-bold text-[#16272b]">
+                  <h3 className="text-[13px] font-[inter] font-semibold text-[#212C3E]">
                     Student names
                   </h3>
-                  <p className="text-[11px] sm:text-xs text-[#607077]">
+                  <p className="text-[12px] font-[inter] font-medium text-[#685949]">
                     Off = students are referred to as Student A, Student B, etc.
                   </p>
                 </div>
@@ -214,10 +205,10 @@ export default function PrivacySettingsView({ onBackToHome }) {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xs sm:text-[13.5px] font-bold text-[#16272b]">
+                  <h3 className="text-[13px] font-[inter] font-semibold text-[#212C3E]">
                     Learning strengths & challenges
                   </h3>
-                  <p className="text-[11px] sm:text-xs text-[#607077]">
+                  <p className="text-[12px] font-[inter] font-medium text-[#685949]">
                     Helps the AI give targeted support for your child's needs.
                   </p>
                 </div>
@@ -249,10 +240,10 @@ export default function PrivacySettingsView({ onBackToHome }) {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xs sm:text-[13.5px] font-bold text-[#16272b]">
+                  <h3 className="text-[13px] font-[inter] font-semibold text-[#212C3E]">
                     Curriculum resources & pacing
                   </h3>
-                  <p className="text-[11px] sm:text-xs text-[#607077]">
+                  <p className="text-[12px] font-[inter] font-medium text-[#685949]">
                     Required for the AI to give curriculum-specific guidance.
                   </p>
                 </div>
@@ -283,10 +274,10 @@ export default function PrivacySettingsView({ onBackToHome }) {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xs sm:text-[13.5px] font-bold text-[#16272b]">
+                  <h3 className="text-[13px] font-[inter] font-semibold text-[#212C3E]">
                     Weekly schedule & assignments
                   </h3>
-                  <p className="text-[11px] sm:text-xs text-[#607077]">
+                  <p className="text-[12px] font-[inter] font-medium text-[#685949]">
                     Required for weekly planning and pacing advice.
                   </p>
                 </div>
@@ -327,10 +318,10 @@ export default function PrivacySettingsView({ onBackToHome }) {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xs sm:text-[13.5px] font-bold text-[#16272b]">
+                  <h3 className="text-[13px] font-semibold text-[#212C3E]">
                     All data stored on this device
                   </h3>
-                  <p className="text-[11px] sm:text-xs text-[#607077]">
+                  <p className="text-[11px] font-medium text-[#685949]">
                     Family profile, students, curriculum, planner, and coaching history
                   </p>
                 </div>
@@ -344,8 +335,8 @@ export default function PrivacySettingsView({ onBackToHome }) {
               className="p-4 flex items-center justify-between hover:bg-[#fff9f6] transition-colors cursor-pointer"
             >
               <div className="flex items-center gap-3.5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#faece3] text-[#bf643e]">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#FEF2F2] text-[#DC2626]">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="3 6 5 6 21 6" />
                     <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
                     <line x1="10" y1="11" x2="10" y2="17" />
@@ -353,7 +344,7 @@ export default function PrivacySettingsView({ onBackToHome }) {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xs sm:text-[13.5px] font-bold text-[#bf643e] hover:underline">
+                  <h3 className="text-[12px] font-semibold text-[#DC2626] hover:underline">
                     Delete all my data →
                   </h3>
                 </div>
@@ -367,31 +358,41 @@ export default function PrivacySettingsView({ onBackToHome }) {
             5. ABOUT AI PROCESSING SECTION
             ================================================================ */}
         <div>
-          <h2 className="text-[11px] sm:text-[12px] font-extrabold uppercase tracking-[0.08em] text-[#24373e] mb-3">
+          <h2 className="text-[10px] font-bold uppercase tracking-[0.08em] text-[#212C3E] mb-3">
             ABOUT AI PROCESSING
           </h2>
 
           <div className="rounded-2xl sm:rounded-3xl border border-[#e8dfd3] bg-white p-5 sm:p-6 shadow-2xs">
-            <h2 className="font-serif text-lg sm:text-xl font-bold text-[#be5f39] mb-3">
+            <h2 className="font-lora text-[19px] font-semibold text-[#BD7451] mb-3">
               About AI processing
             </h2>
-            <p className="text-xs sm:text-[13.5px] font-medium leading-relaxed text-[#22333b]">
+            <p className="text-[15px] font-medium leading-relaxed text-[#212C3E]">
               Tabula uses Claude, an AI made by Anthropic. When you ask the coach a question, your selected context is sent to Anthropic's API to generate a response. Anthropic does not use API data to train their models. You can read Anthropic's privacy policy at <a href="https://anthropic.com/privacy" target="_blank" rel="noreferrer" className="underline hover:text-[#be5f39]">anthropic.com/privacy</a>.
             </p>
           </div>
         </div>
 
         {/* ================================================================
-            6. SAVE PRIVACY SETTINGS BUTTON
+            6. SAVE PRIVACY SETTINGS BUTTON & SUCCESS MESSAGE BELOW IT
             ================================================================ */}
-        <button
-          type="button"
-          onClick={handleSave}
-          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] hover:bg-[#126041] active:scale-[0.99] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-md transition-all cursor-pointer"
-        >
-          <span>Save Privacy Settings</span>
-          <span>→</span>
-        </button>
+        <div className="space-y-3">
+          <button
+            type="button"
+            onClick={handleSave}
+            className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] hover:bg-[#126041] active:scale-[0.99] py-4 px-6 text-sm sm:text-base font-bold text-white shadow-md transition-all cursor-pointer"
+          >
+            <span>Save Privacy Settings</span>
+            <span>→</span>
+          </button>
+
+          {/* Notification banner displayed right below the button */}
+          {savedNotification && (
+            <div className="flex items-center justify-center gap-2 rounded-xl bg-[#356F58] px-4 py-3 text-xs font-bold text-white shadow-md animate-fade-in transition-all">
+              <span>✓</span>
+              <span>Privacy settings saved successfully!</span>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

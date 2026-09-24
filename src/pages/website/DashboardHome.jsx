@@ -122,12 +122,12 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
       </div>
 
       {/* Timeline List */}
-      <div className="relative pl-5 space-y-3 before:absolute before:left-[8px] before:top-2 before:bottom-2 before:w-[2px] before:bg-[#356F58]">
+      <div className="relative pl-5 space-y-3 before:absolute before:left-[9px] before:top-3 before:bottom-3 before:w-[2px] before:-translate-x-1/2 before:bg-[#356F58]">
         {/* 8:30 AM Math */}
         <div className="relative flex items-center justify-between">
-          <span className="absolute -left-[15px] top-2 h-2 w-2 rounded-full bg-[#356F58] ring-2 ring-white" />
+          <span className="absolute -left-[11px] top-1/2 -translate-x-1/2 -translate-y-1/2 h-2.5 w-2.5 rounded-full bg-[#356F58] ring-2 ring-white" />
           <div className="flex items-center gap-2 min-w-0">
-            <span className="w-12 text-[10px] font-bold text-[#637278] shrink-0">8:30 AM</span>
+            <span className="w-14 text-[10px] font-bold text-[#637278] shrink-0 whitespace-nowrap">8:30 AM</span>
             <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#dce9e1] text-[#356F58]">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="4" y="2" width="16" height="20" rx="2" />
@@ -146,9 +146,9 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
 
         {/* 9:30 AM Language Arts */}
         <div className="relative flex items-center justify-between">
-          <span className="absolute -left-[15px] top-2 h-2 w-2 rounded-full bg-[#356F58] ring-2 ring-white" />
+          <span className="absolute -left-[11px] top-1/2 -translate-x-1/2 -translate-y-1/2 h-2.5 w-2.5 rounded-full bg-[#356F58] ring-2 ring-white" />
           <div className="flex items-center gap-2 min-w-0">
-            <span className="w-12 text-[10px] font-bold text-[#637278] shrink-0">9:30 AM</span>
+            <span className="w-14 text-[10px] font-bold text-[#637278] shrink-0 whitespace-nowrap">9:30 AM</span>
             <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#dce9e1] text-[#356F58]">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
@@ -165,9 +165,9 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
 
         {/* 10:30 AM Break */}
         <div className="relative flex items-center justify-between">
-          <span className="absolute -left-[15px] top-2 h-2 w-2 rounded-full bg-[#ba633f] ring-2 ring-white" />
+          <span className="absolute -left-[11px] top-1/2 -translate-x-1/2 -translate-y-1/2 h-2.5 w-2.5 rounded-full bg-[#ba633f] ring-2 ring-white" />
           <div className="flex items-center gap-2 min-w-0">
-            <span className="w-12 text-[10px] font-bold text-[#637278] shrink-0">10:30 AM</span>
+            <span className="w-14 text-[10px] font-bold text-[#637278] shrink-0 whitespace-nowrap">10:30 AM</span>
             <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#faeee6] text-[#ba633f]">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
@@ -187,9 +187,9 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
 
         {/* 11:00 AM Science */}
         <div className="relative flex items-center justify-between">
-          <span className="absolute -left-[15px] top-2 h-2 w-2 rounded-full bg-[#356F58] ring-2 ring-white" />
+          <span className="absolute -left-[11px] top-1/2 -translate-x-1/2 -translate-y-1/2 h-2.5 w-2.5 rounded-full bg-[#356F58] ring-2 ring-white" />
           <div className="flex items-center gap-2 min-w-0">
-            <span className="w-12 text-[10px] font-bold text-[#637278] shrink-0">11:00 AM</span>
+            <span className="w-14 text-[10px] font-bold text-[#637278] shrink-0 whitespace-nowrap">11:00 AM</span>
             <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#dce9e1] text-[#356F58]">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M10 2v7.31L4.2 19.5A2 2 0 0 0 5.92 22h12.16a2 2 0 0 0 1.72-2.5L14 9.31V2" />
@@ -206,9 +206,9 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
 
         {/* 12:00 PM Lunch */}
         <div className="relative flex items-center justify-between">
-          <span className="absolute -left-[15px] top-2 h-2 w-2 rounded-full bg-[#356F58] ring-2 ring-white" />
+          <span className="absolute -left-[11px] top-1/2 -translate-x-1/2 -translate-y-1/2 h-2.5 w-2.5 rounded-full bg-[#356F58] ring-2 ring-white" />
           <div className="flex items-center gap-2 min-w-0">
-            <span className="w-12 text-[10px] font-bold text-[#637278] shrink-0">12:00 PM</span>
+            <span className="w-14 text-[10px] font-bold text-[#637278] shrink-0 whitespace-nowrap">12:00 PM</span>
             <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#dce9e1] text-[#356F58]">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 11h18a9 9 0 0 1-18 0Z" />
@@ -244,7 +244,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
             ================================================================ */}
       <div className="mb-4 flex flex-col justify-between gap-1.5 sm:flex-row sm:items-start">
         <div>
-          <span className="text-[10px] font-extrabold tracking-wider text-[#4E7A5B] uppercase">
+          <span className="text-[12px] font-bold tracking-wider text-[#4E7A5B] uppercase">
             YOUR HOMESCHOOL
           </span>
           <h1
@@ -257,7 +257,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
             Classical • 1 student
           </p>
         </div>
-        <p className="font-['Lora'] italic font-semibold text-[16px] leading-[20px] text-[#BD7451] sm:text-right max-w-[260px]">
+        <p className="font-lora italic font-semibold text-[16px] leading-[20px] text-[#BD7451] sm:text-right max-w-[260px]">
           “Small, faithful steps add up to extraordinary learning.”
         </p>
       </div>
@@ -267,7 +267,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
             Left: Coach card + Getting Started + To-Do list
             Right: Schedule card + This Week
             ================================================================ */}
-      <div className="grid grid-cols-1 min-[520px]:grid-cols-[1.18fr_1fr] gap-3 sm:gap-3.5 items-start">
+      <div className="grid grid-cols-1 min-[520px]:grid-cols-[1.22fr_1fr] gap-3 sm:gap-3.5 items-start">
 
         {/* ──────── LEFT COLUMN ──────── */}
         <div className="w-full space-y-3.5">
@@ -376,15 +376,15 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
               <div
                 onClick={() => setActiveStep(1)}
                 className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 1
-                    ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
-                    : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                  ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                  : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
                   }`}
               >
-                <div className="flex items-center gap-2.5 min-w-0">
+                <div className="flex items-center gap-2.5 min-w-0 flex-1">
                   <div
                     className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 1
-                        ? 'bg-[#356F58] text-white'
-                        : 'border border-[#d5cbbe] text-[#526068]'
+                      ? 'bg-[#356F58] text-white'
+                      : 'border border-[#d5cbbe] text-[#526068]'
                       }`}
                   >
                     {activeStep === 1 ? (
@@ -404,11 +404,11 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                       '1'
                     )}
                   </div>
-                  <div className="min-w-0">
-                    <h4 className="text-[11.5px] font-bold text-[#172b30] truncate">
+                  <div className="min-w-0 flex-1">
+                    <h4 className="text-[11.5px] font-bold text-[#172b30] leading-tight">
                       Add your students
                     </h4>
-                    <p className="text-[9.5px] font-inter text-[#637278] truncate">
+                    <p className="text-[9.5px] font-inter text-[#637278] leading-normal mt-0.5">
                       Tell us about the children you're teaching.
                     </p>
                   </div>
@@ -429,16 +429,16 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
               {/* Step 2: Enter your curriculum */}
               <div
                 onClick={() => setActiveStep(2)}
-                className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 2
-                    ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
-                    : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                className={`flex cursor-pointer items-center justify-between gap-2 rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 2
+                  ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                  : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
                   }`}
               >
-                <div className="flex items-center gap-2.5 min-w-0">
+                <div className="flex items-center gap-2.5 min-w-0 flex-1">
                   <div
                     className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 2
-                        ? 'bg-[#356F58] text-white'
-                        : 'border border-[#d5cbbe] text-[#526068]'
+                      ? 'bg-[#356F58] text-white'
+                      : 'border border-[#d5cbbe] text-[#526068]'
                       }`}
                   >
                     {activeStep === 2 ? (
@@ -458,11 +458,11 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                       '2'
                     )}
                   </div>
-                  <div className="min-w-0">
-                    <h4 className="text-[11.5px] font-bold text-[#172b30] truncate">
+                  <div className="min-w-0 flex-1">
+                    <h4 className="text-[11.5px] font-bold text-[#172b30] leading-tight">
                       Enter your curriculum
                     </h4>
-                    <p className="text-[9.5px] font-inter text-[#637278] truncate">
+                    <p className="text-[9.5px] font-inter text-[#637278] leading-tight mt-0.5">
                       Tell us what books and programs you use.
                     </p>
                   </div>
@@ -484,15 +484,15 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
               <div
                 onClick={() => setActiveStep(3)}
                 className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 3
-                    ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
-                    : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                  ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                  : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
                   }`}
               >
-                <div className="flex items-center gap-2.5 min-w-0">
+                <div className="flex items-center gap-2.5 min-w-0 flex-1">
                   <div
                     className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 3
-                        ? 'bg-[#356F58] text-white'
-                        : 'border border-[#d5cbbe] text-[#526068]'
+                      ? 'bg-[#356F58] text-white'
+                      : 'border border-[#d5cbbe] text-[#526068]'
                       }`}
                   >
                     {activeStep === 3 ? (
@@ -512,11 +512,11 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                       '3'
                     )}
                   </div>
-                  <div className="min-w-0">
-                    <h4 className="text-[11.5px] font-bold text-[#172b30] truncate">
+                  <div className="min-w-0 flex-1">
+                    <h4 className="text-[11.5px] font-bold text-[#172b30] leading-tight">
                       Build your weekly plan
                     </h4>
-                    <p className="text-[9.5px] font-inter text-[#637278] truncate">
+                    <p className="text-[9.5px] font-inter text-[#637278] leading-normal mt-0.5">
                       Set which subjects you do each day.
                     </p>
                   </div>
@@ -538,15 +538,15 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
               <div
                 onClick={() => setActiveStep(4)}
                 className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${activeStep === 4
-                    ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
-                    : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                  ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                  : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
                   }`}
               >
-                <div className="flex items-center gap-2.5 min-w-0">
+                <div className="flex items-center gap-2.5 min-w-0 flex-1">
                   <div
                     className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-colors ${activeStep === 4
-                        ? 'bg-[#356F58] text-white'
-                        : 'border border-[#d5cbbe] text-[#526068]'
+                      ? 'bg-[#356F58] text-white'
+                      : 'border border-[#d5cbbe] text-[#526068]'
                       }`}
                   >
                     {activeStep === 4 ? (
@@ -566,11 +566,11 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                       '4'
                     )}
                   </div>
-                  <div className="min-w-0">
-                    <h4 className="text-[11.5px] font-bold text-[#172b30] truncate">
+                  <div className="min-w-0 flex-1">
+                    <h4 className="text-[11.5px] font-bold text-[#172b30] leading-tight">
                       Ask the AI coach
                     </h4>
-                    <p className="text-[9.5px] font-inter text-[#637278] truncate">
+                    <p className="text-[9.5px] font-inter text-[#637278] leading-normal mt-0.5">
                       Get your first personalized guidance.
                     </p>
                   </div>
@@ -729,8 +729,8 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                     type="button"
                     onClick={() => setSelectedDayDate(d.date)}
                     className={`flex flex-col items-center py-1 px-0.5 rounded-lg transition-all cursor-pointer ${isSelected
-                        ? 'bg-[#edf5f0]'
-                        : 'hover:bg-[#faf5eb]'
+                      ? 'bg-[#edf5f0]'
+                      : 'hover:bg-[#faf5eb]'
                       }`}
                   >
                     <span className={`block text-[9px] mb-0.5 transition-colors ${isSelected ? 'font-bold text-[#356F58]' : 'text-[#798790]'

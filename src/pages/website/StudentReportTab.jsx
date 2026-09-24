@@ -135,10 +135,9 @@ export default function StudentReportTab({
           </div>
 
           {/* Explanatory text */}
-          <p className="mx-auto mb-6 max-w-[430px] text-center text-[12.5px] leading-relaxed text-[#5a6a70]">
-            Assign a grade and credit value to each subject. GPA is calculated automatically.
-            <br />
-            Leave a grade as “–” or “P” (Pass) to exclude it from GPA.
+          <p className="mx-auto mb-6 font-medium font-[inter] text-center text-[15px] leading-relaxed text-[#685949]">
+            <span className="inline-block whitespace-nowrap">Assign a grade and credit value to each subject. GPA is calculated automatically.</span><br />
+            <span className="inline-block whitespace-nowrap">Leave a grade as “–” or “P” (Pass) to exclude it from GPA.</span>
           </p>
 
           {/* Subject Card: MATH */}

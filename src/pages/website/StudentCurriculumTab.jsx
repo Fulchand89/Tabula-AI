@@ -103,9 +103,21 @@ export default function StudentCurriculumTab({
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-sm font-bold text-[#172b30] truncate">
+                    <h3 className="text-sm font-bold text-[#172b30] leading-snug">
                       {item.title}
                     </h3>
+                    {item.selectedChoices && item.selectedChoices.length > 1 && (
+                      <div className="mt-1 flex flex-wrap gap-1">
+                        {item.selectedChoices.map((choice) => (
+                          <span
+                            key={choice}
+                            className="rounded-md bg-[#edf5f0] border border-[#cbe3d6] px-1.5 py-0.5 text-[10px] font-semibold text-[#1e5842]"
+                          >
+                            {choice}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                     {item.pacing && (
                       <p className="mt-0.5 text-[11px] font-medium text-[#526068]">
                         {item.pacing}

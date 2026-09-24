@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const COMMON_CHOICES_BY_SUBJECT = {
   Math: [
@@ -106,6 +106,10 @@ const COMMON_CHOICES_BY_SUBJECT = {
   ],
 };
 
+const ALL_CHOICES_WITH_SUBJECT = Object.entries(COMMON_CHOICES_BY_SUBJECT).flatMap(
+  ([subj, list]) => list.map((item) => ({ choice: item, subject: subj }))
+);
+
 export default function AddCurriculumModal({
   isOpen,
   onClose,
@@ -114,41 +118,104 @@ export default function AddCurriculumModal({
   subjectName = 'Math',
 }) {
   const cleanSubject = subjectName.replace(/^\+\s*/, '').trim() || 'Math';
-  const commonChoices =
+  const defaultSubjectChoices =
     COMMON_CHOICES_BY_SUBJECT[cleanSubject] ||
     COMMON_CHOICES_BY_SUBJECT[cleanSubject.toLowerCase()] ||
     COMMON_CHOICES_BY_SUBJECT.Math;
 
-  const [title, setTitle] = useState('');
-  const [selectedChoice, setSelectedChoice] = useState('');
+  const [selectedChoices, setSelectedChoices] = useState([]);
+  const [customInput, setCustomInput] = useState('');
   const [pacing, setPacing] = useState('');
   const [notes, setNotes] = useState('');
+  const inputRef = useRef(null);
 
   useEffect(() => {
     if (editItem) {
-      setTitle(editItem.title || '');
+      if (Array.isArray(editItem.selectedChoices) && editItem.selectedChoices.length > 0) {
+        setSelectedChoices(editItem.selectedChoices);
+        const remaining = (editItem.title || '')
+          .split(',')
+          .map((s) => s.trim())
+          .filter((s) => s && !editItem.selectedChoices.includes(s))
+          .join(', ');
+        setCustomInput(remaining);
+      } else {
+        const parts = (editItem.title || '')
+          .split(',')
+          .map((s) => s.trim())
+          .filter(Boolean);
+        const matched = defaultSubjectChoices.filter((c) => parts.includes(c));
+        const unmatched = parts.filter((p) => !defaultSubjectChoices.includes(p)).join(', ');
+        setSelectedChoices(matched);
+        setCustomInput(unmatched || (matched.length === 0 ? editItem.title || '' : ''));
+      }
       setPacing(editItem.pacing || '');
       setNotes(editItem.notes || '');
-      setSelectedChoice(editItem.title || '');
     } else {
-      setTitle('');
+      setSelectedChoices([]);
+      setCustomInput('');
       setPacing('');
       setNotes('');
-      setSelectedChoice(commonChoices[0] || '');
     }
   }, [editItem, isOpen, cleanSubject]);
 
   if (!isOpen) return null;
 
+  const handleToggleChoice = (choice) => {
+    setSelectedChoices((prev) => {
+      if (prev.includes(choice)) {
+        return prev.filter((c) => c !== choice);
+      } else {
+        return [...prev, choice];
+      }
+    });
+    setCustomInput('');
+  };
+
+  const handleRemoveChoice = (choice) => {
+    setSelectedChoices((prev) => prev.filter((c) => c !== choice));
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ',') {
+      if (customInput.trim()) {
+        e.preventDefault();
+        const trimmed = customInput.trim();
+        if (!selectedChoices.includes(trimmed)) {
+          setSelectedChoices((prev) => [...prev, trimmed]);
+        }
+        setCustomInput('');
+      }
+    } else if (e.key === 'Backspace' && !customInput && selectedChoices.length > 0) {
+      setSelectedChoices((prev) => prev.slice(0, -1));
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const finalTitle = title.trim() || selectedChoice;
+    const allTitles = [...selectedChoices];
+    if (customInput.trim() && !allTitles.includes(customInput.trim())) {
+      allTitles.push(customInput.trim());
+    }
+    const finalTitle = allTitles.join(', ');
     if (!finalTitle) return;
+
+    let detectedSubject = cleanSubject;
+    for (const title of allTitles) {
+      for (const [subj, list] of Object.entries(COMMON_CHOICES_BY_SUBJECT)) {
+        if (list.includes(title)) {
+          detectedSubject = subj;
+          break;
+        }
+      }
+    }
 
     if (onAddCurriculum) {
       onAddCurriculum({
         id: editItem?.id || `curr-${Date.now()}`,
+        subject: detectedSubject,
         title: finalTitle,
+        selectedChoices: allTitles,
         pacing: pacing.trim(),
         notes: notes.trim(),
       });
@@ -156,12 +223,30 @@ export default function AddCurriculumModal({
     onClose();
   };
 
-  const handleSelectChoice = (choice) => {
-    setSelectedChoice(choice);
-    setTitle(choice);
-  };
-
   const isEditing = Boolean(editItem);
+
+  const allSelectedTitles = [...selectedChoices];
+  if (customInput.trim() && !allSelectedTitles.includes(customInput.trim())) {
+    allSelectedTitles.push(customInput.trim());
+  }
+
+  const displayHeadingSubject =
+    allSelectedTitles.length > 0
+      ? allSelectedTitles.join(', ')
+      : cleanSubject;
+
+  // Filter choices when typing: "likhe to hi aa jana chahiye"
+  const query = customInput.trim().toLowerCase();
+  const displayedChoices = query
+    ? ALL_CHOICES_WITH_SUBJECT.filter(
+        ({ choice, subject }) =>
+          choice.toLowerCase().includes(query) ||
+          subject.toLowerCase().includes(query)
+      )
+    : defaultSubjectChoices.map((choice) => ({
+        choice,
+        subject: cleanSubject,
+      }));
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-3.5 sm:p-4 backdrop-blur-xs">
@@ -199,54 +284,117 @@ export default function AddCurriculumModal({
         {/* Header Text */}
         <div className="text-center">
           <h2 className="font-serif text-lg sm:text-xl font-bold tracking-tight text-[#172b30] uppercase">
-            {isEditing ? `EDIT ${cleanSubject} CURRICULUM` : `ADD ${cleanSubject} CURRICULUM`}
+            {isEditing ? `EDIT ${displayHeadingSubject} CURRICULUM` : `ADD ${displayHeadingSubject} CURRICULUM`}
           </h2>
           <p className="mt-0.5 text-[11px] text-[#526068]">
             {isEditing
               ? 'Update the curriculum details below.'
-              : 'Add a curriculum resource for this subject. You can add multiple.'}
+              : 'Add a curriculum resource for this subject. You can select multiple choices.'}
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="mt-3.5 space-y-3">
           {/* CURRICULUM TITLE * */}
           <div>
-            <label className="block text-[10.5px] font-bold tracking-wider text-[#1e282d] uppercase">
-              CURRICULUM TITLE *
-            </label>
-            <input
-              type="text"
-              required
-              className="mt-1 w-full rounded-xl border border-[#e2d8cb] bg-white px-3 py-2 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#356F58] focus:outline-hidden"
-              placeholder={`e.g. ${commonChoices[0] || 'Curriculum Title'}`}
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
+            <div className="flex items-center justify-between">
+              <label className="block text-[10.5px] font-bold tracking-wider text-[#1e282d] uppercase">
+                CURRICULUM TITLE *
+              </label>
+              {selectedChoices.length > 1 && (
+                <span className="text-[10px] text-[#356F58] font-semibold">
+                  {selectedChoices.length} selected
+                </span>
+              )}
+            </div>
+
+            <div
+              onClick={() => inputRef.current?.focus()}
+              className="mt-1 flex min-h-[42px] w-full flex-wrap items-center gap-1.5 rounded-xl border border-[#e2d8cb] bg-white px-2.5 py-1.5 text-xs text-[#1e282d] focus-within:border-[#356F58] focus-within:ring-2 focus-within:ring-[#356F58]/15 transition-all cursor-text"
+            >
+              {selectedChoices.map((choice) => (
+                <span
+                  key={choice}
+                  className="inline-flex items-center gap-1 rounded-lg bg-[#e8f3ed] px-2 py-0.5 text-[11px] font-semibold text-[#1f5641] border border-[#c4e1d2] shadow-2xs"
+                >
+                  <span>{choice}</span>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleRemoveChoice(choice);
+                    }}
+                    className="ml-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full text-[#356F58] hover:bg-[#cbe3d6] hover:text-[#ba633f] text-xs font-bold leading-none cursor-pointer transition-colors"
+                    aria-label={`Remove ${choice}`}
+                    title={`Remove ${choice}`}
+                  >
+                    ×
+                  </button>
+                </span>
+              ))}
+
+              <input
+                ref={inputRef}
+                type="text"
+                required={selectedChoices.length === 0}
+                className="min-w-[120px] flex-1 bg-transparent text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:outline-hidden py-1"
+                placeholder={
+                  selectedChoices.length === 0
+                    ? `e.g. ${defaultSubjectChoices[0] || 'Curriculum Title'} or type to search...`
+                    : 'Type custom or search more...'
+                }
+                value={customInput}
+                onChange={(e) => setCustomInput(e.target.value)}
+                onKeyDown={handleKeyDown}
+              />
+            </div>
           </div>
 
           {/* COMMON CHOICES */}
           <div>
-            <label className="block text-[10.5px] font-bold tracking-wider text-[#1e282d] uppercase">
-              COMMON CHOICES:
-            </label>
-            <div className="mt-1.5 flex flex-wrap gap-1.5">
-              {commonChoices.map((choice) => {
-                const isSelected = selectedChoice === choice || title === choice;
-                return (
-                  <button
-                    type="button"
-                    key={choice}
-                    onClick={() => handleSelectChoice(choice)}
-                    className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-all cursor-pointer ${isSelected
-                        ? 'bg-[#356F58] text-white'
-                        : 'border border-[#e2d8cb] bg-white text-[#33444a] hover:bg-[#faf6ee]'
-                      }`}
-                  >
-                    {isSelected ? `+ ${choice}` : choice}
-                  </button>
-                );
-              })}
+            <div className="flex items-center justify-between">
+              <label className="block text-[10.5px] font-bold tracking-wider text-[#1e282d] uppercase">
+                {query ? `COMMON CHOICES (MATCHING "${customInput.trim()}"):` : 'COMMON CHOICES:'}
+              </label>
+              {selectedChoices.length > 0 && (
+                <button
+                  type="button"
+                  onClick={() => setSelectedChoices([])}
+                  className="text-[10.5px] font-semibold text-[#bf643e] hover:underline cursor-pointer"
+                >
+                  Clear all
+                </button>
+              )}
             </div>
+            {displayedChoices.length > 0 ? (
+              <div className="mt-1.5 flex flex-wrap gap-1.5 max-h-[140px] overflow-y-auto pr-1 no-scrollbar">
+                {displayedChoices.map(({ choice, subject }) => {
+                  const isSelected = selectedChoices.includes(choice);
+                  return (
+                    <button
+                      type="button"
+                      key={choice}
+                      onClick={() => handleToggleChoice(choice)}
+                      className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-all cursor-pointer ${
+                        isSelected
+                          ? 'bg-[#356F58] text-white shadow-2xs font-semibold'
+                          : 'border border-[#e2d8cb] bg-white text-[#33444a] hover:bg-[#faf6ee]'
+                      }`}
+                    >
+                      {isSelected ? `+ ${choice}` : choice}
+                      {query && subject !== cleanSubject && (
+                        <span className={`ml-1 text-[9.5px] ${isSelected ? 'text-white/80' : 'text-[#8d9b9f]'}`}>
+                          ({subject})
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            ) : (
+              <p className="mt-1.5 text-xs text-[#798790]">
+                No matching choices found. Press <span className="font-semibold text-[#1e282d]">Enter</span> to add "{customInput.trim()}" as a custom title.
+              </p>
+            )}
           </div>
 
           {/* PACING / WHERE YOU ARE (OPTIONAL) */}

@@ -318,13 +318,15 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             4. SECTION: Everything you need to homeschool with confidence
             ================================================================ */}
         <section className="mb-11">
-          <div className="mb-4 grid grid-cols-1 sm:grid-cols-[1.1fr_0.9fr] items-center gap-4 rounded-2xl border border-[#ded7ca] bg-white p-4 sm:p-5 shadow-xs">
+          <div className="mb-4 grid grid-cols-1 sm:grid-cols-[1.1fr_0.9fr] items-start gap-4 rounded-2xl border border-[#ded7ca] bg-white p-4 sm:p-5 shadow-xs">
+
             {/* LEFT SIDE: Info & Feature List */}
             <div className="flex flex-col">
               <div className="flex flex-col items-start gap-2">
-                <h3 className="font-lora text-[19px]  font-semibold text-[#212C3E]">
+                <h3 className="font-lora text-[19px] font-semibold text-[#212C3E]">
                   AI Homeschool Coach
                 </h3>
+
                 <span className="inline-flex items-center rounded-md bg-[#F2B83F26] px-2 py-0.5 text-[9px] font-medium tracking-wider text-[#E09800]">
                   POWERED BY CLAUDE
                 </span>
@@ -341,23 +343,28 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                   </span>
                   <span>Plans around your real progress</span>
                 </li>
+
                 <li className="flex items-center gap-2 text-[11px] sm:text-xs font-medium text-[#203036]">
                   <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-[8px] text-white font-bold">
                     ✓
                   </span>
                   <span>Suggest lessons and adjustments</span>
                 </li>
+
                 <li className="flex items-center gap-2 text-[11px] sm:text-xs font-medium text-[#203036]">
                   <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-[8px] text-white font-bold">
                     ✓
                   </span>
                   <span>Helps when a child is struggling</span>
                 </li>
+
                 <li className="flex items-center gap-2 text-[11px] sm:text-xs font-medium text-[#203036]">
                   <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-[8px] text-white font-bold">
                     ✓
                   </span>
-                  <span>Shares teaching ideas that fit your philosophy</span>
+                  <span>
+                    Shares teaching ideas that fit your philosophy
+                  </span>
                 </li>
               </ul>
             </div>
@@ -372,7 +379,7 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                 ref={chatContainerRef}
                 className="h-[135px] overflow-y-auto space-y-2 pr-1 custom-scrollbar"
               >
-                {chatMessages.map((msg, idx) => (
+                {chatMessages.map((msg, idx) =>
                   msg.sender === 'ai' ? (
                     <div
                       key={idx}
@@ -387,7 +394,7 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                       </span>
                     </div>
                   )
-                ))}
+                )}
               </div>
 
               <form
@@ -401,12 +408,18 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
                   value={chatInput}
                   onChange={(e) => setChatInput(e.target.value)}
                 />
+
                 <button
                   type="submit"
                   className="ml-1.5 text-[#356F58] hover:text-[#2a5946] hover:scale-105 transition-all cursor-pointer shrink-0"
                   aria-label="Send message"
                 >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
                     <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
                   </svg>
                 </button>
