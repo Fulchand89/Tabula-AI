@@ -460,16 +460,16 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                     </p>
                   </div>
                 </div>
-                <span
+                <button
+                  type="button"
                   onClick={(e) => {
                     e.stopPropagation();
                     onNavigateToStudents?.();
                   }}
-                  className={`text-xs pl-1 shrink-0 transition-colors ${completedSteps[1] ? 'text-[#159446] font-bold' : 'text-[#798790]'
-                    }`}
+                  className={`shrink-0 rounded-md px-2 py-1 text-[10px] font-semibold text-white shadow-2xs transition-colors cursor-pointer bg-[#356F58] hover:bg-[#2a5946]`}
                 >
-                  ›
-                </span>
+                  {completedSteps[1] ? 'Student added ✓' : 'Add student →'}
+                </button>
               </div>
 
               {/* Step 2: Enter your curriculum */}
@@ -521,10 +521,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                     e.stopPropagation();
                     onOpenAddCurriculum?.();
                   }}
-                  className={`shrink-0 rounded-md px-2 py-1 text-[10px] font-semibold text-white shadow-2xs transition-colors cursor-pointer ${completedSteps[2]
-                    ? 'bg-[#159446] hover:bg-[#12803b]'
-                    : 'bg-[#356F58] hover:bg-[#2a5946]'
-                    }`}
+                  className={`shrink-0 rounded-md px-2 py-1 text-[10px] font-semibold text-white shadow-2xs transition-colors cursor-pointer bg-[#356F58] hover:bg-[#2a5946]`}
                 >
                   {completedSteps[2] ? 'Curriculum added ✓' : 'Add curriculum →'}
                 </button>
@@ -579,10 +576,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                     e.stopPropagation();
                     onNavigateToPlanner?.();
                   }}
-                  className={`shrink-0 rounded-md px-2 py-1 text-[10px] font-semibold text-white shadow-2xs transition-colors cursor-pointer ${completedSteps[3]
-                    ? 'bg-[#159446] hover:bg-[#12803b]'
-                    : 'bg-[#356F58] hover:bg-[#2a5946]'
-                    }`}
+                  className={`shrink-0 rounded-md px-2 py-1 text-[10px] font-semibold text-white shadow-2xs transition-colors cursor-pointer bg-[#356F58] hover:bg-[#2a5946]`}
                 >
                   {completedSteps[3] ? 'Plan built ✓' : 'Build plan →'}
                 </button>
@@ -637,10 +631,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                     e.stopPropagation();
                     onNavigateToCoach?.();
                   }}
-                  className={`shrink-0 rounded-md px-2 py-1 text-[10px] font-semibold text-white shadow-2xs transition-colors cursor-pointer ${completedSteps[4]
-                    ? 'bg-[#159446] hover:bg-[#12803b]'
-                    : 'bg-[#356F58] hover:bg-[#2a5946]'
-                    }`}
+                  className={`shrink-0 rounded-md px-2 py-1 text-[10px] font-semibold text-white shadow-2xs transition-colors cursor-pointer bg-[#356F58] hover:bg-[#2a5946]`}
                 >
                   {completedSteps[4] ? 'Coach asked ✓' : 'Ask coach →'}
                 </button>
