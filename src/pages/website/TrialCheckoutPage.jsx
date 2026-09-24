@@ -167,7 +167,7 @@ export default function TrialCheckoutPage({
                 ].map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-2.5 text-[15px] text-[#BD7451] font-medium"
+                    className="flex items-start gap-2.5 text-[14.5px] text-[#BD7451] font-medium"
                   >
                     <span className="flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-white mt-0.5">
                       <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
