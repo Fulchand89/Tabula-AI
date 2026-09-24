@@ -28,7 +28,7 @@ export default function PlannerDayCards({
   };
 
   return (
-    <div className="grid grid-cols-5 gap-1.5 sm:gap-2.5 h-[190px] sm:h-[210px] w-full">
+    <div className="grid grid-cols-5 gap-1.5 sm:gap-2.5 h-[150px] sm:h-[170px] w-full">
       {days.map((day) => {
         const isSelected = selectedDay === day.id;
         const dayItems = scheduleMap[day.id] || [];
@@ -42,16 +42,16 @@ export default function PlannerDayCards({
             type="button"
             onClick={() => onSelectDay?.(day.id)}
             className={`h-full flex flex-col justify-start rounded-xl sm:rounded-2xl p-1 sm:p-2 transition-all cursor-pointer shadow-2xs text-center overflow-hidden ${hasItems
-                ? isSelected
-                  ? 'border-2 border-[#356F58] bg-white' // Has items + Selected (Background White)
-                  : 'border-2 border-[#356F58] bg-[#fcf8f2]' // Has items + Normal
-                : isSelected
-                  ? 'border-2 border-[#356F58] bg-white' // Empty + Selected (Background White)
-                  : 'border border-[#e9e1d5] bg-[#fcf8f2] hover:bg-white' // Empty + Normal
+              ? isSelected
+                ? 'border-2 border-[#356F58] bg-white' // Has items + Selected (Background White)
+                : 'border-2 border-[#356F58] bg-[#fcf8f2]' // Has items + Normal
+              : isSelected
+                ? 'border-2 border-[#356F58] bg-white' // Empty + Selected (Background White)
+                : 'border border-[#e9e1d5] bg-[#fcf8f2] hover:bg-white' // Empty + Normal
               }`}
           >
             {/* Day Header - Fixed uniform height across all day boxes */}
-            <div className="h-8 sm:h-10 shrink-0 w-full flex flex-col items-center justify-center">
+            <div className="h-7 sm:h-8 shrink-0 w-full flex flex-col items-center justify-center">
               <span className="text-[11px] sm:text-xs font-bold text-[#16272b] leading-tight">
                 {day.label}
               </span>
