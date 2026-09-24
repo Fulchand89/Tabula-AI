@@ -82,9 +82,9 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
     setEditInterests('');
 
     try {
-      const savedSteps = JSON.parse(localStorage.getItem('tabula_getting_started_steps') || '{}');
+      const savedSteps = JSON.parse(sessionStorage.getItem('tabula_getting_started_steps') || '{}');
       savedSteps[1] = true;
-      localStorage.setItem('tabula_getting_started_steps', JSON.stringify(savedSteps));
+      sessionStorage.setItem('tabula_getting_started_steps', JSON.stringify(savedSteps));
       window.dispatchEvent(new Event('storage'));
       window.dispatchEvent(new CustomEvent('tabula_step_completed', { detail: { step: 1 } }));
     } catch {}
@@ -129,9 +129,9 @@ export default function StudentsView({ onBackToHome, onSelectStudent, onUpgradeC
     setIsAdding(false);
 
     try {
-      const savedSteps = JSON.parse(localStorage.getItem('tabula_getting_started_steps') || '{}');
+      const savedSteps = JSON.parse(sessionStorage.getItem('tabula_getting_started_steps') || '{}');
       savedSteps[1] = true;
-      localStorage.setItem('tabula_getting_started_steps', JSON.stringify(savedSteps));
+      sessionStorage.setItem('tabula_getting_started_steps', JSON.stringify(savedSteps));
       window.dispatchEvent(new Event('storage'));
       window.dispatchEvent(new CustomEvent('tabula_step_completed', { detail: { step: 1 } }));
     } catch {}

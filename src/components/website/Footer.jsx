@@ -25,7 +25,7 @@ export default function Footer({
 
   return (
     <nav className={`w-full border-t border-[#e8ded0] bg-[#faf7f0] py-2.5 sm:py-3 mt-auto transition-all ${className}`}>
-      <div className="flex w-full items-center justify-between px-6 sm:px-10 transition-all">
+      <div className="flex w-full items-center justify-between px-3 sm:px-10 transition-all">
         {/* 1. Home */}
         <button
           type="button"

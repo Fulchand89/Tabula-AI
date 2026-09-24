@@ -93,6 +93,15 @@ export default function PlannerScheduleView({
 
   // Day cards data
   const [daysData, setDaysData] = useState(INITIAL_DAYS_DATA);
+  const [expandedCodes, setExpandedCodes] = useState({});
+
+  const toggleCode = (itemId, e) => {
+    e.stopPropagation();
+    setExpandedCodes((prev) => ({
+      ...prev,
+      [itemId]: !prev[itemId],
+    }));
+  };
 
   // Assignment cards for the active day (Wednesday)
   const [assignments, setAssignments] = useState([
@@ -182,9 +191,9 @@ export default function PlannerScheduleView({
       return c;
     }));
     try {
-      const savedSteps = JSON.parse(localStorage.getItem('tabula_getting_started_steps') || '{}');
+      const savedSteps = JSON.parse(sessionStorage.getItem('tabula_getting_started_steps') || '{}');
       savedSteps[3] = true;
-      localStorage.setItem('tabula_getting_started_steps', JSON.stringify(savedSteps));
+      sessionStorage.setItem('tabula_getting_started_steps', JSON.stringify(savedSteps));
       window.dispatchEvent(new Event('storage'));
       window.dispatchEvent(new CustomEvent('tabula_step_completed', { detail: { step: 3 } }));
     } catch {}
@@ -362,7 +371,7 @@ export default function PlannerScheduleView({
           - THU (0/2): Reading, History
           - FRI (0/2): Review, Music
           ================================================================ */}
-      <div className="mb-5 grid grid-cols-5 gap-2 sm:gap-3">
+      <div className="mb-5 grid grid-cols-5 gap-1.5 sm:gap-3 h-[190px] sm:h-[210px] w-full">
         {daysData.map((day) => {
           const isSelected = selectedDay === day.id;
 
@@ -371,38 +380,43 @@ export default function PlannerScheduleView({
               key={day.id}
               type="button"
               onClick={() => setSelectedDay(day.id)}
-              className={`flex flex-col justify-start rounded-2xl p-2 sm:p-2.5 transition-all cursor-pointer shadow-2xs text-left min-h-[145px] sm:min-h-[155px] ${isSelected
+              className={`h-full flex flex-col justify-start rounded-xl sm:rounded-2xl p-1 sm:p-2 transition-all cursor-pointer shadow-2xs text-left overflow-hidden ${isSelected
                 ? 'border-2 border-[#356F58] bg-[#fdfefd] ring-1 ring-[#356F58]/20'
                 : 'border border-[#e9e1d5] bg-[#faf6ee]/90 hover:bg-white'
                 }`}
             >
-              {/* Day title & task counter */}
-              <div className="text-center w-full mb-2">
-                <span className="block text-xs sm:text-[13px] font-extrabold tracking-wider text-[#16272b] uppercase">
+              {/* Day title & task counter - Fixed uniform height */}
+              <div className="h-8 sm:h-10 shrink-0 w-full flex flex-col items-center justify-center text-center">
+                <span className="block text-[11px] sm:text-[13px] font-extrabold tracking-wider text-[#16272b] uppercase leading-tight">
                   {day.label}
                 </span>
-                <span className="block text-[11px] sm:text-xs font-bold text-[#16272b] leading-tight mt-0.5">
+                <span className="block text-[9.5px] sm:text-xs font-bold text-[#16272b] leading-tight mt-0.5">
                   {day.count}
                 </span>
               </div>
 
-              {/* Subject pill badges */}
-              <div className="w-full space-y-1">
-                {day.items.map((item) => (
-                  <div
-                    key={item.id}
-                    className={`rounded-lg px-2 py-1 text-left ${item.color} ${item.textColor} shadow-2xs`}
-                  >
-                    <span className="block text-[10px] sm:text-[11px] font-bold leading-tight">
-                      {item.title}
-                    </span>
-                    {item.code && (
-                      <span className="block text-[9px] font-medium leading-tight opacity-90">
-                        {item.code}
+              {/* Subject pill badges - flex-1 min-h-0 overflow-y-auto no-scrollbar */}
+              <div className="flex-1 min-h-0 w-full overflow-y-auto no-scrollbar space-y-1 mt-0.5 sm:mt-1">
+                {day.items.map((item) => {
+                  const isCodeVisible = !!expandedCodes[item.id];
+                  return (
+                    <div
+                      key={item.id}
+                      onClick={(e) => toggleCode(item.id, e)}
+                      title={item.code ? (isCodeVisible ? 'Click to hide code' : 'Click to show code') : undefined}
+                      className={`rounded-md sm:rounded-lg px-1 py-0.5 sm:px-2 sm:py-1 text-left ${item.color} ${item.textColor} shadow-2xs shrink-0 cursor-pointer select-none transition-all`}
+                    >
+                      <span className="block text-[9.5px] sm:text-[11px] font-bold leading-tight truncate">
+                        {item.title}
                       </span>
-                    )}
-                  </div>
-                ))}
+                      {item.code && isCodeVisible && (
+                        <span className="block text-[8px] sm:text-[9px] font-medium leading-tight opacity-90 truncate mt-0.5">
+                          {item.code}
+                        </span>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </button>
           );

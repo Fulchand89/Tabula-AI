@@ -43,7 +43,7 @@ export default function PlannerWeekNav({
             <button
               type="button"
               onClick={onViewCompleteWeek}
-              className="flex items-center gap-1 rounded-lg border border-[#c2decb] bg-[#eef7f1] px-2.5 py-1 text-[11px] font-bold text-[#356F58] hover:bg-[#e2f2e7] transition-colors shadow-2xs cursor-pointer"
+              className="flex items-center gap-1 rounded-lg border border-[#c2decb] bg-[#eef7f1] px-2 sm:px-2.5 py-1 text-[10.5px] sm:text-[11px] font-bold text-[#356F58] hover:bg-[#e2f2e7] transition-colors shadow-2xs cursor-pointer whitespace-nowrap"
               title="View completed week"
             >
               <span>Week Complete</span>
@@ -78,7 +78,7 @@ export default function PlannerWeekNav({
         <button
           type="button"
           onClick={() => onModeChange?.('individual')}
-          className={`flex-1 py-2 px-4 rounded-full text-xs font-semibold transition-all cursor-pointer text-center ${
+          className={`flex-1 py-1.5 sm:py-2 px-3 sm:px-4 rounded-full text-xs font-semibold transition-all cursor-pointer text-center ${
             plannerMode === 'individual'
               ? 'bg-[#ba704f] text-white shadow-xs'
               : 'text-[#16272b] hover:text-[#ba704f]'
@@ -89,7 +89,7 @@ export default function PlannerWeekNav({
         <button
           type="button"
           onClick={handleFamilyClick}
-          className={`flex-1 py-2 px-4 rounded-full text-xs font-semibold transition-all cursor-pointer text-center ${
+          className={`flex-1 py-1.5 sm:py-2 px-3 sm:px-4 rounded-full text-xs font-semibold transition-all cursor-pointer text-center ${
             plannerMode === 'family'
               ? 'bg-[#ba704f] text-white shadow-xs'
               : 'text-[#16272b] hover:text-[#ba704f]'

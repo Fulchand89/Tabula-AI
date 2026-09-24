@@ -401,9 +401,9 @@ export default function AppShell({
         onClose={() => setIsCurriculumModalOpen(false)}
         onAddCurriculum={(curriculum) => {
           try {
-            const savedSteps = JSON.parse(localStorage.getItem('tabula_getting_started_steps') || '{}');
+            const savedSteps = JSON.parse(sessionStorage.getItem('tabula_getting_started_steps') || '{}');
             savedSteps[2] = true;
-            localStorage.setItem('tabula_getting_started_steps', JSON.stringify(savedSteps));
+            sessionStorage.setItem('tabula_getting_started_steps', JSON.stringify(savedSteps));
             window.dispatchEvent(new Event('storage'));
             window.dispatchEvent(new CustomEvent('tabula_step_completed', { detail: { step: 2 } }));
           } catch {}

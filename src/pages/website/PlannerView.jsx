@@ -121,6 +121,13 @@ export default function PlannerView({
           done: false,
         };
         updatedList = [...currentList, newItem];
+        try {
+          const savedSteps = JSON.parse(sessionStorage.getItem('tabula_getting_started_steps') || '{}');
+          savedSteps[3] = true;
+          sessionStorage.setItem('tabula_getting_started_steps', JSON.stringify(savedSteps));
+          window.dispatchEvent(new Event('storage'));
+          window.dispatchEvent(new CustomEvent('tabula_step_completed', { detail: { step: 3 } }));
+        } catch {}
       }
 
       return {

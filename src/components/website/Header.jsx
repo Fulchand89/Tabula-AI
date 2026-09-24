@@ -25,7 +25,7 @@ export default function Header({
 
   return (
     <header
-      className={`w-full max-w-[768px] h-[88px] border-b border-[#e8ded0] bg-[#faf7f0] px-6 py-4 transition-all ${className}`}
+      className={`w-full max-w-[768px] h-auto min-h-[70px] sm:h-[88px] border-b border-[#e8ded0] bg-[#faf7f0] px-4 sm:px-6 py-2.5 sm:py-4 transition-all ${className}`}
     >
       <div className="flex w-full items-center justify-between transition-all">
         {/* Left: Tabula Brand & Subtitle */}
@@ -39,40 +39,40 @@ export default function Header({
           <div className="flex items-baseline">
             <span
               style={{ fontFamily: 'Lora, serif' }}
-              className="text-[30px] font-semibold leading-[100%] tracking-[0%] text-[#212C3E]"
+              className="text-[24px] sm:text-[30px] font-semibold leading-[100%] tracking-[0%] text-[#212C3E]"
             >
               Tabula
             </span>
             <span
               style={{ fontFamily: 'Lora, serif' }}
-              className="text-[32px] font-bold leading-[100%] tracking-[0%] text-[#126041]"
+              className="text-[26px] sm:text-[32px] font-bold leading-[100%] tracking-[0%] text-[#126041]"
             >
               .
             </span>
           </div>
-          <p className="font-inter text-[14px] font-semibold leading-[16px] tracking-[0.3px] align-middle text-[#685949]">
+          <p className="font-inter text-[12px] sm:text-[14px] font-semibold leading-[15px] sm:leading-[16px] tracking-[0.3px] align-middle text-[#685949]">
             Classical • Secular
           </p>
         </div>
 
         {/* Right: Account & Privacy Action Buttons */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2">
           <button
             type="button"
             onClick={() => handleAction(onAccountClick)}
-            className="rounded-lg border border-[#d5ccc0] bg-white px-3 py-1 text-[13px] font-semibold text-[#4E7A5B] hover:bg-[#faf6ee] transition-colors shadow-2xs cursor-pointer"
+            className="rounded-lg border border-[#d5ccc0] bg-white px-2.5 sm:px-3 py-1.5 sm:py-1 text-xs sm:text-[13px] font-semibold text-[#4E7A5B] hover:bg-[#faf6ee] transition-colors shadow-2xs cursor-pointer min-h-[34px] flex items-center justify-center"
           >
             Account
           </button>
           <button
             type="button"
             onClick={() => handleAction(onPrivacyClick)}
-            className="rounded-lg border border-[#d5ccc0] bg-white px-3 py-1 text-[13px] font-semibold text-[#4E7A5B] hover:bg-[#faf6ee] transition-colors shadow-2xs cursor-pointer"
+            className="rounded-lg border border-[#d5ccc0] bg-white px-2.5 sm:px-3 py-1.5 sm:py-1 text-xs sm:text-[13px] font-semibold text-[#4E7A5B] hover:bg-[#faf6ee] transition-colors shadow-2xs cursor-pointer min-h-[34px] flex items-center justify-center"
           >
             Privacy
           </button>
         </div>
       </div>
-    </ header>
+    </header>
   );
 }

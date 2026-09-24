@@ -76,7 +76,9 @@ const WEEK_DAYS = [
 export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudents, onNavigateToCoach, onNavigateToPlanner }) {
   const [completedSteps, setCompletedSteps] = useState(() => {
     try {
-      const saved = localStorage.getItem('tabula_getting_started_steps');
+      // Clear legacy localStorage data so old testing completed states don't keep it hidden on run
+      localStorage.removeItem('tabula_getting_started_steps');
+      const saved = sessionStorage.getItem('tabula_getting_started_steps');
       return saved ? JSON.parse(saved) : { 1: false, 2: false, 3: false, 4: false };
     } catch {
       return { 1: false, 2: false, 3: false, 4: false };
@@ -86,11 +88,11 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
   useEffect(() => {
     const handleSync = () => {
       try {
-        const saved = localStorage.getItem('tabula_getting_started_steps');
+        const saved = sessionStorage.getItem('tabula_getting_started_steps');
         if (saved) {
           setCompletedSteps(JSON.parse(saved));
         }
-      } catch {}
+      } catch { }
     };
     window.addEventListener('storage', handleSync);
     window.addEventListener('tabula_step_completed', handleSync);
@@ -104,8 +106,8 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
     setCompletedSteps(prev => {
       const updated = { ...prev, [stepNum]: isComplete };
       try {
-        localStorage.setItem('tabula_getting_started_steps', JSON.stringify(updated));
-      } catch {}
+        sessionStorage.setItem('tabula_getting_started_steps', JSON.stringify(updated));
+      } catch { }
       return updated;
     });
   };
@@ -115,7 +117,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
     markStepComplete(stepNum, !completedSteps[stepNum]);
   };
 
-  const doneCount = Object.values(completedSteps).filter(Boolean).length;
+  const doneCount = [1, 2, 3, 4].filter((step) => !!completedSteps[step]).length;
   const [selectedDayDate, setSelectedDayDate] = useState(15);
   const [coachQuestion, setCoachQuestion] = useState('');
   const [coachAnswer, setCoachAnswer] = useState(null);
@@ -392,8 +394,9 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
             </div>
           </div>
 
-          {/* Section: GETTING STARTED (Interactive Steps) */}
-          <div>
+          {/* Section: GETTING STARTED (Interactive Steps) - Hides when all 4 steps are completed */}
+          {doneCount < 4 && (
+            <div>
             <div className="mb-1.5 flex items-center justify-between">
               <span className="text-[10px] font-bold tracking-wider text-[#3d4b50] uppercase">
                 GETTING STARTED
@@ -570,16 +573,19 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                     </p>
                   </div>
                 </div>
-                <span
+                <button
+                  type="button"
                   onClick={(e) => {
                     e.stopPropagation();
                     onNavigateToPlanner?.();
                   }}
-                  className={`text-xs pl-1 shrink-0 transition-colors ${completedSteps[3] ? 'text-[#159446] font-bold' : 'text-[#798790]'
+                  className={`shrink-0 rounded-md px-2 py-1 text-[10px] font-semibold text-white shadow-2xs transition-colors cursor-pointer ${completedSteps[3]
+                    ? 'bg-[#159446] hover:bg-[#12803b]'
+                    : 'bg-[#356F58] hover:bg-[#2a5946]'
                     }`}
                 >
-                  ›
-                </span>
+                  {completedSteps[3] ? 'Plan built ✓' : 'Build plan →'}
+                </button>
               </div>
 
               {/* Step 4: Ask the AI coach */}
@@ -625,19 +631,23 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
                     </p>
                   </div>
                 </div>
-                <span
+                <button
+                  type="button"
                   onClick={(e) => {
                     e.stopPropagation();
                     onNavigateToCoach?.();
                   }}
-                  className={`text-xs pl-1 shrink-0 transition-colors ${completedSteps[4] ? 'text-[#159446] font-bold' : 'text-[#798790]'
+                  className={`shrink-0 rounded-md px-2 py-1 text-[10px] font-semibold text-white shadow-2xs transition-colors cursor-pointer ${completedSteps[4]
+                    ? 'bg-[#159446] hover:bg-[#12803b]'
+                    : 'bg-[#356F58] hover:bg-[#2a5946]'
                     }`}
                 >
-                  ›
-                </span>
+                  {completedSteps[4] ? 'Coach asked ✓' : 'Ask coach →'}
+                </button>
               </div>
             </div>
           </div>
+        )}
 
           {/* Section: TO-DO LIST */}
           <div>
