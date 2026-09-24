@@ -127,6 +127,8 @@ export default function AddCurriculumModal({
   const [customInput, setCustomInput] = useState('');
   const [pacing, setPacing] = useState('');
   const [notes, setNotes] = useState('');
+  const [subjectDescription, setSubjectDescription] = useState('');
+  const [customChoiceInput, setCustomChoiceInput] = useState('');
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -156,6 +158,8 @@ export default function AddCurriculumModal({
       setCustomInput('');
       setPacing('');
       setNotes('');
+      setSubjectDescription('');
+      setCustomChoiceInput('');
     }
   }, [editItem, isOpen, cleanSubject]);
 
@@ -169,7 +173,6 @@ export default function AddCurriculumModal({
         return [...prev, choice];
       }
     });
-    setCustomInput('');
   };
 
   const handleRemoveChoice = (choice) => {
@@ -177,45 +180,22 @@ export default function AddCurriculumModal({
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter' || e.key === ',') {
-      if (customInput.trim()) {
-        e.preventDefault();
-        const trimmed = customInput.trim();
-        if (!selectedChoices.includes(trimmed)) {
-          setSelectedChoices((prev) => [...prev, trimmed]);
-        }
-        setCustomInput('');
-      }
-    } else if (e.key === 'Backspace' && !customInput && selectedChoices.length > 0) {
-      setSelectedChoices((prev) => prev.slice(0, -1));
+    if (e.key === 'Enter') {
+      // allow form submit
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const allTitles = [...selectedChoices];
-    if (customInput.trim() && !allTitles.includes(customInput.trim())) {
-      allTitles.push(customInput.trim());
-    }
-    const finalTitle = allTitles.join(', ');
+    const finalTitle = customInput.trim();
     if (!finalTitle) return;
-
-    let detectedSubject = cleanSubject;
-    for (const title of allTitles) {
-      for (const [subj, list] of Object.entries(COMMON_CHOICES_BY_SUBJECT)) {
-        if (list.includes(title)) {
-          detectedSubject = subj;
-          break;
-        }
-      }
-    }
 
     if (onAddCurriculum) {
       onAddCurriculum({
         id: editItem?.id || `curr-${Date.now()}`,
-        subject: detectedSubject,
+        subject: cleanSubject,
         title: finalTitle,
-        selectedChoices: allTitles,
+        selectedChoices: selectedChoices,
         pacing: pacing.trim(),
         notes: notes.trim(),
       });
@@ -296,57 +276,18 @@ export default function AddCurriculumModal({
         <form onSubmit={handleSubmit} className="mt-3.5 space-y-3">
           {/* CURRICULUM TITLE * */}
           <div>
-            <div className="flex items-center justify-between">
-              <label className="block text-[10.5px] font-bold tracking-wider text-[#1e282d] uppercase">
-                CURRICULUM TITLE *
-              </label>
-              {selectedChoices.length > 1 && (
-                <span className="text-[10px] text-[#356F58] font-semibold">
-                  {selectedChoices.length} selected
-                </span>
-              )}
-            </div>
-
-            <div
-              onClick={() => inputRef.current?.focus()}
-              className="mt-1 flex min-h-[42px] w-full flex-wrap items-center gap-1.5 rounded-xl border border-[#e2d8cb] bg-white px-2.5 py-1.5 text-xs text-[#1e282d] focus-within:border-[#356F58] focus-within:ring-2 focus-within:ring-[#356F58]/15 transition-all cursor-text"
-            >
-              {selectedChoices.map((choice) => (
-                <span
-                  key={choice}
-                  className="inline-flex items-center gap-1 rounded-lg bg-[#e8f3ed] px-2 py-0.5 text-[11px] font-semibold text-[#1f5641] border border-[#c4e1d2] shadow-2xs"
-                >
-                  <span>{choice}</span>
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleRemoveChoice(choice);
-                    }}
-                    className="ml-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full text-[#356F58] hover:bg-[#cbe3d6] hover:text-[#ba633f] text-xs font-bold leading-none cursor-pointer transition-colors"
-                    aria-label={`Remove ${choice}`}
-                    title={`Remove ${choice}`}
-                  >
-                    ×
-                  </button>
-                </span>
-              ))}
-
-              <input
-                ref={inputRef}
-                type="text"
-                required={selectedChoices.length === 0}
-                className="min-w-[120px] flex-1 bg-transparent text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:outline-hidden py-1"
-                placeholder={
-                  selectedChoices.length === 0
-                    ? `e.g. ${defaultSubjectChoices[0] || 'Curriculum Title'} or type to search...`
-                    : 'Type custom or search more...'
-                }
-                value={customInput}
-                onChange={(e) => setCustomInput(e.target.value)}
-                onKeyDown={handleKeyDown}
-              />
-            </div>
+            <label className="block text-[10.5px] font-bold tracking-wider text-[#1e282d] uppercase">
+              CURRICULUM TITLE *
+            </label>
+            <input
+              ref={inputRef}
+              type="text"
+              required
+              className="mt-1 w-full rounded-xl border border-[#e2d8cb] bg-white px-3 py-2 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#356F58] focus:ring-2 focus:ring-[#356F58]/15 focus:outline-hidden transition-all"
+              placeholder={`e.g. ${defaultSubjectChoices[0] || 'Curriculum Title'}...`}
+              value={customInput}
+              onChange={(e) => setCustomInput(e.target.value)}
+            />
           </div>
 
           {/* COMMON CHOICES */}
@@ -380,7 +321,7 @@ export default function AddCurriculumModal({
                           : 'border border-[#e2d8cb] bg-white text-[#33444a] hover:bg-[#faf6ee]'
                       }`}
                     >
-                      {isSelected ? `+ ${choice}` : choice}
+                      {isSelected ? `✓ ${choice}` : choice}
                       {query && subject !== cleanSubject && (
                         <span className={`ml-1 text-[9.5px] ${isSelected ? 'text-white/80' : 'text-[#8d9b9f]'}`}>
                           ({subject})
@@ -392,7 +333,7 @@ export default function AddCurriculumModal({
               </div>
             ) : (
               <p className="mt-1.5 text-xs text-[#798790]">
-                No matching choices found. Press <span className="font-semibold text-[#1e282d]">Enter</span> to add "{customInput.trim()}" as a custom title.
+                No matching choices found for "<span className="font-semibold text-[#1e282d]">{customInput.trim()}</span>".
               </p>
             )}
           </div>
