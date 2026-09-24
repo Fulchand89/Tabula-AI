@@ -28,7 +28,7 @@ export default function PlannerDayCards({
   };
 
   return (
-    <div className="grid grid-cols-5 gap-1.5 sm:gap-2.5 h-[150px] sm:h-[170px] w-full">
+    <div className="grid grid-cols-5 gap-1.5 sm:gap-2.5 h-[140px] sm:h-[170px] w-full">
       {days.map((day) => {
         const isSelected = selectedDay === day.id;
         const dayItems = scheduleMap[day.id] || [];
