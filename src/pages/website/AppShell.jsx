@@ -33,12 +33,12 @@ export const NAV_PATHS = {
   privacy: '/privacy',
 };
 
-export default function AppShell({ 
+export default function AppShell({
   activeRoute = 'home',
   currentPath = '/dashboard',
   onNavigate,
   onBack,
-  onNavigateToLanding 
+  onNavigateToLanding
 }) {
   const [activeNav, setActiveNav] = useState(activeRoute || 'home');
   const [previousNav, setPreviousNav] = useState('home');
@@ -176,7 +176,7 @@ export default function AppShell({
       setSelectedLessonItem(item);
       try {
         localStorage.setItem('tabula_selected_lesson_item', JSON.stringify(item));
-      } catch (e) {}
+      } catch (e) { }
     }
     handleNavigate('lesson-detail');
   };
@@ -184,10 +184,23 @@ export default function AppShell({
   // Container width: max-w-[640px] for all views matching Dashboard page styling
   const containerMaxWidth = 'max-w-[640px]';
 
+  const isCoach = activeNav === 'coach';
+
   return (
-    <div className={`min-h-screen w-full bg-[#f3ede4] text-[#1e282d] antialiased ${activeNav === 'coach' ? 'py-0 sm:py-2' : 'py-0 sm:py-6 md:py-8'} flex justify-center px-0 sm:px-4`}>
+    <div
+      style={isCoach ? { height: '100dvh', maxHeight: '100dvh' } : { paddingTop: '0.5px' }}
+      className={`w-full bg-[#f3ede4] text-[#1e282d] antialiased flex justify-center px-0 sm:px-4 ${
+        isCoach
+          ? 'h-screen h-[100dvh] max-h-screen max-h-[100dvh] overflow-hidden py-0'
+          : 'min-h-screen pt-[0.5px] pb-0 sm:pb-6 md:pb-8'
+      }`}
+    >
       {/* ── Single Unified Page Container with Border, Shadow & Rounded Corners ── */}
-      <div className={`w-full ${containerMaxWidth} bg-[#faf7f0] border-x sm:border border-[#ded5c7] sm:rounded-2xl shadow-sm flex flex-col ${activeNav === 'coach' ? 'h-screen sm:h-[96vh] sm:min-h-[840px] max-h-screen sm:max-h-[98vh]' : 'min-h-[92vh]'} overflow-hidden transition-all`}>
+      <div
+        className={`w-full ${containerMaxWidth} bg-[#faf7f0] border-x sm:border-x sm:border-b sm:border-t-0 border-[#ded5c7] sm:rounded-b-2xl sm:rounded-t-none shadow-sm flex flex-col ${
+          isCoach ? 'h-full max-h-full overflow-hidden' : 'min-h-screen'
+        } overflow-hidden transition-all`}
+      >
 
         {/* ================================================================
             TOP REUSABLE HEADER COMPONENT (Inside Page Container)
@@ -209,7 +222,7 @@ export default function AppShell({
         {/* ================================================================
             MAIN VIEW CONTAINER
             ================================================================ */}
-        <main className={`flex-1 flex flex-col ${activeNav === 'coach' ? 'min-h-0 overflow-hidden' : ''}`}>
+        <main className={`flex-1 flex flex-col min-h-0 ${isCoach ? 'overflow-hidden pb-[60px] sm:pb-[66px]' : 'pb-20 sm:pb-24'}`}>
           {activeNav === 'home' && (
             <DashboardHome
               onOpenAddCurriculum={() => setIsCurriculumModalOpen(true)}
@@ -380,17 +393,17 @@ export default function AppShell({
             />
           )}
         </main>
-
-        {/* ================================================================
-          BOTTOM REUSABLE FOOTER / NAVIGATION COMPONENT (Inside Page Container)
-          ================================================================ */}
-        {activeNav !== 'lesson-detail' && (
-          <Footer
-            activeNav={activeNav}
-            onNavigate={(navKey) => handleNavigate(navKey)}
-          />
-        )}
       </div>
+
+      {/* ================================================================
+        BOTTOM FIXED FOOTER / NAVIGATION COMPONENT
+        ================================================================ */}
+      {activeNav !== 'lesson-detail' && (
+        <Footer
+          activeNav={activeNav}
+          onNavigate={(navKey) => handleNavigate(navKey)}
+        />
+      )}
 
       {/* ================================================================
           MODALS
@@ -406,7 +419,7 @@ export default function AppShell({
             sessionStorage.setItem('tabula_getting_started_steps', JSON.stringify(savedSteps));
             window.dispatchEvent(new Event('storage'));
             window.dispatchEvent(new CustomEvent('tabula_step_completed', { detail: { step: 2 } }));
-          } catch {}
+          } catch { }
           alert(`Added curriculum: ${curriculum.title}`);
         }}
       />

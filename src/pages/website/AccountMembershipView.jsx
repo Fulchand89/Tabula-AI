@@ -71,9 +71,11 @@ export default function AccountMembershipView({ onBackToHome, onUpgradeClick }) 
     <div className="mx-auto w-full max-w-[640px] pb-28 pt-4 px-3.5 sm:px-4 transition-all">
       {/* Toast Feedback */}
       {toastMessage && (
-        <div className="fixed top-20 right-6 z-50 flex items-center gap-2 rounded-xl bg-[#356F58] px-4 py-3 text-xs font-bold text-white shadow-xl animate-fade-in">
-          <span>✓</span>
-          <span>{toastMessage}</span>
+        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 animate-toast-in pointer-events-none">
+          <div className="flex items-center gap-2.5 rounded-full bg-[#1a3d2e] px-5 py-3 text-[13px] font-semibold text-white shadow-2xl">
+            <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#356F58] text-[10px] font-bold">✓</span>
+            <span>{toastMessage}</span>
+          </div>
         </div>
       )}
 

@@ -16,7 +16,7 @@ import ResourceCommunityView from './ResourceCommunityView';
  *  • ResourceCommunityView  — Community Reviews tab
  */
 export default function ResourceLibraryView({ onBackToHome, onUpgradeClick }) {
-  const [activeTab, setActiveTab] = useState('community');
+  const [activeTab, setActiveTab] = useState('directory');
   const [searchQuery, setSearchQuery] = useState('');
 
   const isDirectory = activeTab === 'directory';

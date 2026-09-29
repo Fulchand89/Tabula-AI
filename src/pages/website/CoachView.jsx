@@ -108,7 +108,7 @@ Everything else is on pause without falling behind!`,
   }, [chatMessages, isTyping]);
 
   return (
-    <div className="flex h-full w-full flex-col justify-between pt-3 pb-3 px-3.5 sm:px-4 overflow-hidden">
+    <div className="flex h-full w-full flex-col justify-between pt-2 pb-1.5 px-3.5 sm:px-4 overflow-hidden">
       {/* ================================================================
           1. TOP FIXED HEADER SECTION (Trial banner + Coach title + Students)
           ================================================================ */}
@@ -187,7 +187,7 @@ Everything else is on pause without falling behind!`,
       {/* ================================================================
           2. SCROLLABLE MIDDLE CHAT AREA (Welcome + Suggested Questions + Chat)
           ================================================================ */}
-      <div className="flex-1 min-h-0 overflow-y-auto custom-scrollbar pr-0.5 space-y-4 py-1">
+      <div className="flex-1 min-h-0 overflow-y-auto no-scrollbar space-y-4 pt-1 pb-3">
         {/* Coach Welcome Speech Bubble (Hero Message) */}
         <div className="flex items-start gap-3">
           {/* Avatar Circle */}
@@ -212,116 +212,108 @@ Everything else is on pause without falling behind!`,
           </div>
         </div>
 
-        {/* Suggested Questions Section */}
-        <div>
-          <h2 className="mb-2.5 text-[11.5px] font-extrabold uppercase tracking-[0.06em] text-[#22353c]">
-            SUGGESTED QUESTIONS
-          </h2>
-          <div className="flex flex-wrap gap-2 sm:gap-2.5">
-            {suggestions.map((suggestion) => {
-              const isSelected = selectedSuggestion === suggestion.text;
-              return (
-                <button
-                  key={suggestion.text}
-                  type="button"
-                  onClick={() => handleSelectSuggestion(suggestion.text)}
-                  className={`rounded-full px-4 py-2 text-[12.5px] sm:text-[13px] transition-all cursor-pointer ${isSelected
-                      ? 'bg-[#156e48] text-white font-semibold shadow-2xs border border-transparent'
-                      : 'bg-white border border-[#ded5c8] text-[#203138] font-medium shadow-2xs hover:bg-[#faf7f0] hover:border-[#cfc6b8]'
-                    }`}
-                >
-                  {suggestion.text}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Dynamic Chat Messages Stream (Same size box as the hero message above) */}
-        {chatMessages.length > 0 && (
-          <div className="space-y-4 pt-2">
-            {chatMessages.map((msg, index) => (
-              <div
-                key={index}
-                className={`flex items-start gap-3 ${msg.sender === 'user' ? 'flex-row-reverse' : ''
-                  }`}
-              >
-                {msg.sender === 'coach' ? (
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#156e48] text-lg font-bold text-white shadow-2xs font-serif select-none">
-                    C
-                  </div>
-                ) : (
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#203137] text-sm font-bold text-white shadow-2xs select-none">
-                    You
-                  </div>
-                )}
-
-                <div
-                  className={`relative w-[82%] sm:w-[78%] max-w-[430px] rounded-[18px] p-4 sm:p-5 shadow-[0_2px_10px_rgba(0,0,0,0.04)] text-[13px] sm:text-[13.5px] font-medium leading-relaxed whitespace-pre-line ${msg.sender === 'user'
-                      ? 'bg-[#156e48] text-white'
-                      : 'bg-[#fedebb] text-[#22333b]'
-                    }`}
-                >
-                  {/* Triangular pointer notch */}
-                  {msg.sender === 'coach' ? (
-                    <div
-                      className="absolute -left-2 top-4 h-0 w-0 border-y-[6px] border-y-transparent border-r-[8px] border-r-[#fedebb]"
-                      aria-hidden="true"
-                    />
-                  ) : (
-                    <div
-                      className="absolute -right-2 top-4 h-0 w-0 border-y-[6px] border-y-transparent border-l-[8px] border-l-[#156e48]"
-                      aria-hidden="true"
-                    />
-                  )}
-
-                  {msg.text}
-                  <div
-                    className={`mt-2 text-[10px] font-medium ${msg.sender === 'user' ? 'text-white/70 text-right' : 'text-[#8b5536]'
-                      }`}
-                  >
-                    {msg.time}
-                  </div>
-                </div>
-              </div>
-            ))}
-
-            {/* Coach typing indicator */}
-            {isTyping && (
-              <div className="flex items-start gap-3">
+        {/* Dynamic Chat Messages Stream */}
+        <div className="space-y-4 pt-2">
+          {chatMessages.map((msg, index) => (
+            <div
+              key={index}
+              className={`flex items-start gap-3 ${msg.sender === 'user' ? 'flex-row-reverse' : ''}`}
+            >
+              {msg.sender === 'coach' ? (
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#156e48] text-lg font-bold text-white shadow-2xs font-serif select-none">
                   C
                 </div>
-                <div className="relative rounded-[18px] bg-[#fedebb] px-5 py-4 shadow-[0_2px_10px_rgba(0,0,0,0.04)] flex items-center gap-1.5">
+              ) : (
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#203137] text-sm font-bold text-white shadow-2xs select-none">
+                  You
+                </div>
+              )}
+
+              <div
+                className={`relative w-[82%] sm:w-[78%] max-w-[430px] rounded-[18px] p-4 sm:p-5 shadow-[0_2px_10px_rgba(0,0,0,0.04)] text-[13px] sm:text-[13.5px] font-medium leading-relaxed whitespace-pre-line ${
+                  msg.sender === 'user'
+                    ? 'bg-[#156e48] text-white'
+                    : 'bg-[#fedebb] text-[#22333b]'
+                }`}
+              >
+                {msg.sender === 'coach' ? (
                   <div
                     className="absolute -left-2 top-4 h-0 w-0 border-y-[6px] border-y-transparent border-r-[8px] border-r-[#fedebb]"
                     aria-hidden="true"
                   />
-                  <span
-                    className="h-2 w-2 rounded-full bg-[#b85b37] animate-bounce"
-                    style={{ animationDelay: '0ms' }}
+                ) : (
+                  <div
+                    className="absolute -right-2 top-4 h-0 w-0 border-y-[6px] border-y-transparent border-l-[8px] border-l-[#156e48]"
+                    aria-hidden="true"
                   />
-                  <span
-                    className="h-2 w-2 rounded-full bg-[#b85b37] animate-bounce"
-                    style={{ animationDelay: '150ms' }}
-                  />
-                  <span
-                    className="h-2 w-2 rounded-full bg-[#b85b37] animate-bounce"
-                    style={{ animationDelay: '300ms' }}
-                  />
+                )}
+
+                {msg.text}
+                <div
+                  className={`mt-2 text-[10px] font-medium ${
+                    msg.sender === 'user' ? 'text-white/70 text-right' : 'text-[#8b5536]'
+                  }`}
+                >
+                  {msg.time}
                 </div>
               </div>
-            )}
+            </div>
+          ))}
 
-            <div ref={chatEndRef} />
-          </div>
-        )}
+          {/* Coach typing indicator */}
+          {isTyping && (
+            <div className="flex items-start gap-3">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#156e48] text-lg font-bold text-white shadow-2xs font-serif select-none">
+                C
+              </div>
+              <div className="relative rounded-[18px] bg-[#fedebb] px-5 py-4 shadow-[0_2px_10px_rgba(0,0,0,0.04)] flex items-center gap-1.5">
+                <div
+                  className="absolute -left-2 top-4 h-0 w-0 border-y-[6px] border-y-transparent border-r-[8px] border-r-[#fedebb]"
+                  aria-hidden="true"
+                />
+                <span className="h-2 w-2 rounded-full bg-[#b85b37] animate-bounce" style={{ animationDelay: '0ms' }} />
+                <span className="h-2 w-2 rounded-full bg-[#b85b37] animate-bounce" style={{ animationDelay: '150ms' }} />
+                <span className="h-2 w-2 rounded-full bg-[#b85b37] animate-bounce" style={{ animationDelay: '300ms' }} />
+              </div>
+            </div>
+          )}
+
+          {/* SUGGESTED QUESTIONS — always after last coach message */}
+          {!isTyping && (
+            <div className="pt-1">
+              <h2 className="mb-2.5 text-[11.5px] font-extrabold uppercase tracking-[0.06em] text-[#22353c]">
+                SUGGESTED QUESTIONS
+              </h2>
+              <div className="flex flex-wrap gap-2 sm:gap-2.5">
+                {suggestions.map((suggestion) => {
+                  const isSelected = selectedSuggestion === suggestion.text;
+                  return (
+                    <button
+                      key={suggestion.text}
+                      type="button"
+                      onClick={() => handleSelectSuggestion(suggestion.text)}
+                      className={`rounded-full px-4 py-2 text-[12.5px] sm:text-[13px] transition-all cursor-pointer ${
+                        isSelected
+                          ? 'bg-[#156e48] text-white font-semibold shadow-2xs border border-transparent'
+                          : 'bg-white border border-[#ded5c8] text-[#203138] font-medium shadow-2xs hover:bg-[#faf7f0] hover:border-[#cfc6b8]'
+                      }`}
+                    >
+                      {suggestion.text}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          <div ref={chatEndRef} />
+        </div>
       </div>
 
       {/* ================================================================
-          3. BOTTOM FIXED INPUT CARD (Exact match to Figma reference)
+          3. BOTTOM FIXED INPUT CARD (Always visible & pinned at bottom)
           ================================================================ */}
-      <div className="shrink-0 pt-2">
+      <div className="shrink-0 pt-2 pb-1 bg-[#faf7f0] z-10">
         <div className="rounded-[22px] border border-[#ded5c8] bg-white p-3 sm:p-3.5 shadow-sm">
           <form onSubmit={handleSendMessage} className="flex items-center gap-3">
             <div className="flex-1">

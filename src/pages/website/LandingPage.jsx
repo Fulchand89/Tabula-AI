@@ -152,9 +152,9 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
   }
 
   return (
-    <div className="min-h-screen w-full bg-[#f3ede4] text-[#1e282d] antialiased py-0 sm:py-6 md:py-8 flex justify-center">
+    <div style={{ paddingTop: '0.5px' }} className="min-h-screen w-full bg-[#f3ede4] text-[#1e282d] antialiased pt-[0.5px] pb-0 sm:pb-6 md:pb-8 flex justify-center">
       {/* ── Balanced Page Container matching screenshot width & border ── */}
-      <div className="w-full max-w-[640px] bg-[#faf7f0] border-x sm:border border-[#ded5c7] shadow-sm px-4 sm:px-6 py-6 sm:py-9">
+      <div className="w-full max-w-[640px] bg-[#faf7f0] border-x sm:border-x sm:border-b sm:border-t-0 border-[#ded5c7] shadow-sm px-4 sm:px-6 py-6 sm:py-9">
 
         {/* ================================================================
             1. HERO SECTION
@@ -220,87 +220,6 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
         {/* ================================================================
             2. QUOTE SECTION
             ================================================================ */}
-        <section className="my-9 text-center">
-          <div className="flex items-center justify-center gap-2 sm:gap-3">
-            <div className="h-px w-8 sm:w-28 bg-[#dcd4c6]" />
-            <h2 className="font-serif text-[16px] sm:text-xl font-bold tracking-tight text-[#172b30] whitespace-nowrap">
-              “A GPS for homeschooling”
-            </h2>
-            <div className="h-px w-8 sm:w-28 bg-[#dcd4c6]" />
-          </div>
-          <p className="mt-1 text-[11px] sm:text-[12.5px] font-medium text-[#ba633f]">
-            Tabula doesn't replace your curriculum - it helps you use it better.
-          </p>
-        </section>
-
-        {/* ================================================================
-            3. PROCESS STEPS (01 Plan, 02 Adapt, 03 Progress) - Responsive Flow
-            ================================================================ */}
-        <section className="mb-11 flex flex-col sm:grid sm:grid-cols-[1fr_auto_1fr_auto_1fr] items-stretch sm:items-center gap-2 sm:gap-2">
-          {/* 01 Plan */}
-          <div className="flex flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-3.5 sm:p-4 shadow-2xs">
-            <div>
-              <div className="mb-2 text-[#21353a]">
-                <img src={planIcon} alt="Plan Icon" className="w-[18px] h-[18px] object-contain" />
-              </div>
-              <div className="mb-1.5 flex items-center gap-2">
-                <span className="flex h-[22px] w-[22px] items-center justify-center rounded-full bg-[#356F58] text-[10.5px] font-bold text-white shrink-0">
-                  01
-                </span>
-                <h3 className="font-serif text-sm sm:text-[15px] font-bold text-[#172b30]">Plan</h3>
-              </div>
-              <p className="text-xs sm:text-[12.5px] leading-snug text-[#526068]">
-                Turn your curriculum in to a realistic weekly plan.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-center text-sm text-[#8c9b9f] py-0.5 sm:py-0">
-            <span className="hidden sm:inline">→</span>
-            <span className="sm:hidden text-base text-[#356F58]">↓</span>
-          </div>
-
-          {/* 02 Adapt */}
-          <div className="flex flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-3.5 sm:p-4 shadow-2xs">
-            <div>
-              <div className="mb-2 text-[#21353a]">
-                <img src={adaptIcon} alt="Adapt Icon" className="w-[18px] h-[18px] object-contain" />
-              </div>
-              <div className="mb-1.5 flex items-center gap-2">
-                <span className="flex h-[22px] w-[22px] items-center justify-center rounded-full bg-[#356F58] text-[10.5px] font-bold text-white shrink-0">
-                  02
-                </span>
-                <h3 className="font-serif text-sm sm:text-[15px] font-bold text-[#172b30]">Adapt</h3>
-              </div>
-              <p className="text-xs sm:text-[12.5px] leading-snug text-[#526068]">
-                Adjust lesson when life or your child's needs change.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-center text-sm text-[#8c9b9f] py-0.5 sm:py-0">
-            <span className="hidden sm:inline">→</span>
-            <span className="sm:hidden text-base text-[#356F58]">↓</span>
-          </div>
-
-          {/* 03 Progress */}
-          <div className="flex flex-col justify-between rounded-xl border border-[#e9e2d5] bg-white p-3.5 sm:p-4 shadow-2xs">
-            <div>
-              <div className="mb-2 text-[#21353a]">
-                <img src={progressIcon} alt="Progress Icon" className="w-[18px] h-[18px] object-contain" />
-              </div>
-              <div className="mb-1.5 flex items-center gap-2">
-                <span className="flex h-[22px] w-[22px] items-center justify-center rounded-full bg-[#356F58] text-[10.5px] font-bold text-white shrink-0">
-                  03
-                </span>
-                <h3 className="font-serif text-sm sm:text-[15px] font-bold text-[#172b30]">Progress</h3>
-              </div>
-              <p className="text-xs sm:text-[12.5px] leading-snug text-[#526068]">
-                Know what's completed, what's next, and where support is needed.
-              </p>
-            </div>
-          </div>
-        </section>
 
         {/* ================================================================
             4. SECTION: Everything you need to homeschool with confidence

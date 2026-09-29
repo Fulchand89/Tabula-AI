@@ -16,11 +16,11 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
     if (activeTab === 'create') {
       const trimmedName = name.trim();
       if (!trimmedName) {
-        setErrorMessage('.....');
+        setErrorMessage('Please enter your name to continue.');
         return;
       }
       if (trimmedName.length > 30) {
-        setErrorMessage('.....');
+        setErrorMessage('Name must be 30 characters or fewer.');
         return;
       }
     }
@@ -28,17 +28,17 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
     // 2. Strict Gmail validation (sirf @gmail.com allow karega, gmil.com reject hoga)
     const gmailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/i;
     if (!gmailRegex.test(email.trim())) {
-      setErrorMessage(' ( name@gmail.com).');
+      setErrorMessage('Please enter a valid Gmail address (e.g. name@gmail.com).');
       return;
     }
 
     // 3. Password length validation (6 se 30 characters)
     if (password.length < 6) {
-      setErrorMessage('Password .');
+      setErrorMessage('Password must be at least 6 characters long.');
       return;
     }
     if (password.length > 30) {
-      setErrorMessage('Password.');
+      setErrorMessage('Password must be 30 characters or fewer.');
       return;
     }
 
@@ -49,9 +49,9 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#f3ede4] text-[#1e282d] antialiased py-0 sm:py-6 md:py-8 flex justify-center">
+    <div style={{ paddingTop: '0.5px' }} className="min-h-screen w-full bg-[#f3ede4] text-[#1e282d] antialiased pt-[0.5px] pb-0 sm:pb-6 md:pb-8 flex justify-center">
       {/* ── Page Container matching Landing Page width (max-w-[640px]), border & styling ── */}
-      <div className="w-full max-w-[640px] bg-[#faf7f0] border-x sm:border border-[#ded5c7] shadow-sm px-4 sm:px-8 py-6 sm:py-10">
+      <div className="w-full max-w-[640px] bg-[#faf7f0] border-x sm:border-x sm:border-b sm:border-t-0 border-[#ded5c7] shadow-sm px-4 sm:px-8 py-6 sm:py-10">
 
         {/* ── HEADER SECTION ── */}
         <header className="mb-6 text-center">
@@ -193,7 +193,7 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
                     type="text"
                     maxLength={30}
                     className="w-full rounded-xl border border-[#cbd3d6] bg-white py-2.5 pr-3 pl-9 text-xs sm:text-sm text-[#1c2930] placeholder-[#78888e] focus:border-[#356F58] focus:outline-none transition-colors"
-                    placeholder="First name or family name (max 30 chars)"
+                    placeholder="First name or Last name (max 30 chars)"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
@@ -348,4 +348,4 @@ export default function SignupPage({ onProceedToCheckout, onBackToLanding }) {
       </div>
     </div>
   );
-}
+} 

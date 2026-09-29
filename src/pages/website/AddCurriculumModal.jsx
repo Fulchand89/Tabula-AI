@@ -106,10 +106,6 @@ const COMMON_CHOICES_BY_SUBJECT = {
   ],
 };
 
-const ALL_CHOICES_WITH_SUBJECT = Object.entries(COMMON_CHOICES_BY_SUBJECT).flatMap(
-  ([subj, list]) => list.map((item) => ({ choice: item, subject: subj }))
-);
-
 export default function AddCurriculumModal({
   isOpen,
   onClose,
@@ -127,8 +123,6 @@ export default function AddCurriculumModal({
   const [customInput, setCustomInput] = useState('');
   const [pacing, setPacing] = useState('');
   const [notes, setNotes] = useState('');
-  const [subjectDescription, setSubjectDescription] = useState('');
-  const [customChoiceInput, setCustomChoiceInput] = useState('');
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -158,30 +152,22 @@ export default function AddCurriculumModal({
       setCustomInput('');
       setPacing('');
       setNotes('');
-      setSubjectDescription('');
-      setCustomChoiceInput('');
     }
   }, [editItem, isOpen, cleanSubject]);
 
   if (!isOpen) return null;
 
   const handleToggleChoice = (choice) => {
-    setSelectedChoices((prev) => {
-      if (prev.includes(choice)) {
-        return prev.filter((c) => c !== choice);
-      } else {
-        return [...prev, choice];
-      }
-    });
-  };
+    const isCurrentlySelected =
+      selectedChoices.includes(choice) ||
+      customInput.trim().toLowerCase() === choice.toLowerCase();
 
-  const handleRemoveChoice = (choice) => {
-    setSelectedChoices((prev) => prev.filter((c) => c !== choice));
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      // allow form submit
+    if (isCurrentlySelected) {
+      setSelectedChoices([]);
+      setCustomInput('');
+    } else {
+      setSelectedChoices([choice]);
+      setCustomInput(choice);
     }
   };
 
@@ -195,7 +181,7 @@ export default function AddCurriculumModal({
         id: editItem?.id || `curr-${Date.now()}`,
         subject: cleanSubject,
         title: finalTitle,
-        selectedChoices: selectedChoices,
+        selectedChoices: selectedChoices.length > 0 ? selectedChoices : [finalTitle],
         pacing: pacing.trim(),
         notes: notes.trim(),
       });
@@ -204,29 +190,6 @@ export default function AddCurriculumModal({
   };
 
   const isEditing = Boolean(editItem);
-
-  const allSelectedTitles = [...selectedChoices];
-  if (customInput.trim() && !allSelectedTitles.includes(customInput.trim())) {
-    allSelectedTitles.push(customInput.trim());
-  }
-
-  const displayHeadingSubject =
-    allSelectedTitles.length > 0
-      ? allSelectedTitles.join(', ')
-      : cleanSubject;
-
-  // Filter choices when typing: "likhe to hi aa jana chahiye"
-  const query = customInput.trim().toLowerCase();
-  const displayedChoices = query
-    ? ALL_CHOICES_WITH_SUBJECT.filter(
-        ({ choice, subject }) =>
-          choice.toLowerCase().includes(query) ||
-          subject.toLowerCase().includes(query)
-      )
-    : defaultSubjectChoices.map((choice) => ({
-        choice,
-        subject: cleanSubject,
-      }));
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-3.5 sm:p-4 backdrop-blur-xs">
@@ -264,7 +227,7 @@ export default function AddCurriculumModal({
         {/* Header Text */}
         <div className="text-center">
           <h2 className="font-serif text-lg sm:text-xl font-bold tracking-tight text-[#172b30] uppercase">
-            {isEditing ? `EDIT ${displayHeadingSubject} CURRICULUM` : `ADD ${displayHeadingSubject} CURRICULUM`}
+            {isEditing ? 'EDIT CURRICULUM' : 'ADD CURRICULUM'}
           </h2>
           <p className="mt-0.5 text-[11px] text-[#526068]">
             {isEditing
@@ -283,59 +246,60 @@ export default function AddCurriculumModal({
               ref={inputRef}
               type="text"
               required
-              className="mt-1 w-full rounded-xl border border-[#e2d8cb] bg-white px-3 py-2 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#356F58] focus:ring-2 focus:ring-[#356F58]/15 focus:outline-hidden transition-all"
+              className="mt-1 block w-full min-w-0 rounded-xl border border-[#e2d8cb] bg-white px-3 py-2 text-xs text-[#1e282d] placeholder-[#8d9b9f] focus:border-[#356F58] focus:ring-2 focus:ring-[#356F58]/15 focus:outline-hidden transition-all"
               placeholder={`e.g. ${defaultSubjectChoices[0] || 'Curriculum Title'}...`}
               value={customInput}
-              onChange={(e) => setCustomInput(e.target.value)}
+              onChange={(e) => {
+                const val = e.target.value;
+                setCustomInput(val);
+                const matched = defaultSubjectChoices.filter(
+                  (c) => c.toLowerCase() === val.trim().toLowerCase()
+                );
+                setSelectedChoices(matched);
+              }}
             />
           </div>
 
           {/* COMMON CHOICES */}
           <div>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between min-h-[18px]">
               <label className="block text-[10.5px] font-bold tracking-wider text-[#1e282d] uppercase">
-                {query ? `COMMON CHOICES (MATCHING "${customInput.trim()}"):` : 'COMMON CHOICES:'}
+                COMMON CHOICES:
               </label>
-              {selectedChoices.length > 0 && (
+              {(selectedChoices.length > 0 || customInput.trim()) && (
                 <button
                   type="button"
-                  onClick={() => setSelectedChoices([])}
+                  onClick={() => {
+                    setSelectedChoices([]);
+                    setCustomInput('');
+                  }}
                   className="text-[10.5px] font-semibold text-[#bf643e] hover:underline cursor-pointer"
                 >
                   Clear all
                 </button>
               )}
             </div>
-            {displayedChoices.length > 0 ? (
-              <div className="mt-1.5 flex flex-wrap gap-1.5 max-h-[140px] overflow-y-auto pr-1 no-scrollbar">
-                {displayedChoices.map(({ choice, subject }) => {
-                  const isSelected = selectedChoices.includes(choice);
-                  return (
-                    <button
-                      type="button"
-                      key={choice}
-                      onClick={() => handleToggleChoice(choice)}
-                      className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-all cursor-pointer ${
-                        isSelected
-                          ? 'bg-[#356F58] text-white shadow-2xs font-semibold'
-                          : 'border border-[#e2d8cb] bg-white text-[#33444a] hover:bg-[#faf6ee]'
-                      }`}
-                    >
-                      {isSelected ? `✓ ${choice}` : choice}
-                      {query && subject !== cleanSubject && (
-                        <span className={`ml-1 text-[9.5px] ${isSelected ? 'text-white/80' : 'text-[#8d9b9f]'}`}>
-                          ({subject})
-                        </span>
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
-            ) : (
-              <p className="mt-1.5 text-xs text-[#798790]">
-                No matching choices found for "<span className="font-semibold text-[#1e282d]">{customInput.trim()}</span>".
-              </p>
-            )}
+            <div className="mt-1.5 flex flex-wrap gap-1.5">
+              {defaultSubjectChoices.map((choice) => {
+                const isSelected =
+                  selectedChoices.includes(choice) ||
+                  customInput.trim().toLowerCase() === choice.toLowerCase();
+                return (
+                  <button
+                    type="button"
+                    key={choice}
+                    onClick={() => handleToggleChoice(choice)}
+                    className={`rounded-full border px-2.5 py-1 text-[11px] font-medium transition-colors cursor-pointer ${
+                      isSelected
+                        ? 'border-[#356F58] bg-[#356F58] text-white shadow-2xs'
+                        : 'border-[#e2d8cb] bg-white text-[#33444a] hover:bg-[#faf6ee]'
+                    }`}
+                  >
+                    {choice}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* PACING / WHERE YOU ARE (OPTIONAL) */}

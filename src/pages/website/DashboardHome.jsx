@@ -301,8 +301,11 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
             Classical • 1 student
           </p>
         </div>
-        <p className="font-lora italic font-semibold text-[16px] leading-[20px] text-[#BD7451] sm:text-right max-w-[260px]">
-          “Small, faithful steps add up to extraordinary learning.”
+        <p
+          style={{ fontFamily: 'Lora, serif', fontStyle: 'italic' }}
+          className="font-serif italic font-medium sm:font-semibold text-[16px] sm:text-[16.5px] leading-[22px] sm:leading-[23px] text-[#BD7451] text-left max-w-[250px] mt-1 sm:mt-0 sm:self-center"
+        >
+          “Small, faithful steps add up to<br className="hidden sm:inline" /> extraordinary learning.”
         </p>
       </div>
 
@@ -311,13 +314,13 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
             Left: Coach card + Getting Started + To-Do list
             Right: Schedule card + This Week
             ================================================================ */}
-      <div className="grid grid-cols-1 min-[520px]:grid-cols-[1.22fr_1fr] gap-3 sm:gap-3.5 items-start">
+      <div className="flex flex-col min-[520px]:grid min-[520px]:grid-cols-[1.22fr_1fr] gap-3 sm:gap-3.5 min-[520px]:items-start">
 
         {/* ──────── LEFT COLUMN ──────── */}
-        <div className="w-full space-y-3.5">
+        <div className="contents min-[520px]:block min-[520px]:w-full min-[520px]:space-y-3.5">
 
           {/* Card: What can I help you with today? */}
-          <div className="rounded-2xl border border-[#ebdcca] bg-white p-3.5 shadow-2xs">
+          <div className="rounded-2xl border border-[#ebdcca] bg-white p-3.5 shadow-2xs order-1 min-[520px]:order-none">
             <div className="flex items-start gap-2.5">
               <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#d7e7dc] text-xs font-bold text-[#356F58]">
                 T
@@ -396,252 +399,252 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
 
           {/* Section: GETTING STARTED (Interactive Steps) - Hides when all 4 steps are completed */}
           {doneCount < 4 && (
-            <div>
-            <div className="mb-1.5 flex items-center justify-between">
-              <span className="text-[10px] font-bold tracking-wider text-[#3d4b50] uppercase">
-                GETTING STARTED
-              </span>
+            <div className="order-2 min-[520px]:order-none">
+              <div className="mb-1.5 flex items-center justify-between">
+                <span className="text-[10px] font-bold tracking-wider text-[#3d4b50] uppercase">
+                  GETTING STARTED
+                </span>
 
-              <span className="text-[10.5px] font-semibold text-[#ba633f]">
-                {doneCount === 4 ? 'All 4 of 4 done!' : `${doneCount} of 4 done`}
-              </span>
+                <span className="text-[10.5px] font-semibold text-[#ba633f]">
+                  {doneCount === 4 ? 'All 4 of 4 done!' : `${doneCount} of 4 done`}
+                </span>
+              </div>
+
+              {/* Progress Bar */}
+              <div className="mb-2.5 h-1.5 w-full overflow-hidden rounded-full bg-[#e3ded4]">
+                <div
+                  className="h-full rounded-full bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] transition-all duration-300"
+                  style={{ width: `${(doneCount / 4) * 100}%` }}
+                />
+              </div>
+
+              {/* 4 Steps */}
+              <div className="space-y-2">
+                {/* Step 1: Add your students */}
+                <div
+                  onClick={() => onNavigateToStudents?.()}
+                  className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${completedSteps[1]
+                    ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                    : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                    }`}
+                >
+                  <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                    <div
+                      onClick={(e) => toggleStep(1, e)}
+                      title={completedSteps[1] ? 'Step completed! Click to undo' : 'Click to mark as done'}
+                      className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-all cursor-pointer ${completedSteps[1]
+                        ? 'bg-[#159446] text-white shadow-2xs'
+                        : 'border border-[#d5cbbe] text-[#526068] hover:border-[#159446] hover:text-[#159446]'
+                        }`}
+                    >
+                      {completedSteps[1] ? (
+                        <svg
+                          width="11"
+                          height="11"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      ) : (
+                        '1'
+                      )}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="text-[11.5px] font-bold text-[#172b30] leading-tight">
+                        Add your students
+                      </h4>
+                      <p className="text-[9.5px] font-inter text-[#637278] leading-normal mt-0.5">
+                        Tell us about the children you're teaching.
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onNavigateToStudents?.();
+                    }}
+                    className={`shrink-0 rounded-md px-2 py-1 text-[10px] font-semibold text-white shadow-2xs transition-colors cursor-pointer bg-[#356F58] hover:bg-[#2a5946]`}
+                  >
+                    {completedSteps[1] ? 'Student added ✓' : 'Add student →'}
+                  </button>
+                </div>
+
+                {/* Step 2: Enter your curriculum */}
+                <div
+                  onClick={() => onOpenAddCurriculum?.()}
+                  className={`flex cursor-pointer items-center justify-between gap-2 rounded-xl border p-2.5 shadow-2xs transition-all ${completedSteps[2]
+                    ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                    : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                    }`}
+                >
+                  <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                    <div
+                      onClick={(e) => toggleStep(2, e)}
+                      title={completedSteps[2] ? 'Step completed! Click to undo' : 'Click to mark as done'}
+                      className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-all cursor-pointer ${completedSteps[2]
+                        ? 'bg-[#159446] text-white shadow-2xs'
+                        : 'border border-[#d5cbbe] text-[#526068] hover:border-[#159446] hover:text-[#159446]'
+                        }`}
+                    >
+                      {completedSteps[2] ? (
+                        <svg
+                          width="11"
+                          height="11"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      ) : (
+                        '2'
+                      )}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="text-[11.5px] font-bold text-[#172b30] leading-tight">
+                        Enter your curriculum
+                      </h4>
+                      <p className="text-[9.5px] font-inter text-[#637278] leading-tight mt-0.5">
+                        Tell us what books and programs you use.
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onOpenAddCurriculum?.();
+                    }}
+                    className={`shrink-0 rounded-md px-2 py-1 text-[10px] font-semibold text-white shadow-2xs transition-colors cursor-pointer bg-[#356F58] hover:bg-[#2a5946]`}
+                  >
+                    {completedSteps[2] ? 'Curriculum added ✓' : 'Add curriculum →'}
+                  </button>
+                </div>
+
+                {/* Step 3: Build your weekly plan */}
+                <div
+                  onClick={() => onNavigateToPlanner?.()}
+                  className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${completedSteps[3]
+                    ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                    : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                    }`}
+                >
+                  <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                    <div
+                      onClick={(e) => toggleStep(3, e)}
+                      title={completedSteps[3] ? 'Step completed! Click to undo' : 'Click to mark as done'}
+                      className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-all cursor-pointer ${completedSteps[3]
+                        ? 'bg-[#159446] text-white shadow-2xs'
+                        : 'border border-[#d5cbbe] text-[#526068] hover:border-[#159446] hover:text-[#159446]'
+                        }`}
+                    >
+                      {completedSteps[3] ? (
+                        <svg
+                          width="11"
+                          height="11"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      ) : (
+                        '3'
+                      )}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="text-[11.5px] font-bold text-[#172b30] leading-tight">
+                        Build your weekly plan
+                      </h4>
+                      <p className="text-[9.5px] font-inter text-[#637278] leading-normal mt-0.5">
+                        Set which subjects you do each day.
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onNavigateToPlanner?.();
+                    }}
+                    className={`shrink-0 rounded-md px-2 py-1 text-[10px] font-semibold text-white shadow-2xs transition-colors cursor-pointer bg-[#356F58] hover:bg-[#2a5946]`}
+                  >
+                    {completedSteps[3] ? 'Plan built ✓' : 'Build plan →'}
+                  </button>
+                </div>
+
+                {/* Step 4: Ask the AI coach */}
+                <div
+                  onClick={() => onNavigateToCoach?.()}
+                  className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${completedSteps[4]
+                    ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
+                    : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
+                    }`}
+                >
+                  <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                    <div
+                      onClick={(e) => toggleStep(4, e)}
+                      title={completedSteps[4] ? 'Step completed! Click to undo' : 'Click to mark as done'}
+                      className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-all cursor-pointer ${completedSteps[4]
+                        ? 'bg-[#159446] text-white shadow-2xs'
+                        : 'border border-[#d5cbbe] text-[#526068] hover:border-[#159446] hover:text-[#159446]'
+                        }`}
+                    >
+                      {completedSteps[4] ? (
+                        <svg
+                          width="11"
+                          height="11"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      ) : (
+                        '4'
+                      )}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="text-[11.5px] font-bold text-[#172b30] leading-tight">
+                        Ask the AI coach
+                      </h4>
+                      <p className="text-[9.5px] font-inter text-[#637278] leading-normal mt-0.5">
+                        Get your first personalized guidance.
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onNavigateToCoach?.();
+                    }}
+                    className={`shrink-0 rounded-md px-2 py-1 text-[10px] font-semibold text-white shadow-2xs transition-colors cursor-pointer bg-[#356F58] hover:bg-[#2a5946]`}
+                  >
+                    {completedSteps[4] ? 'Coach asked ✓' : 'Ask coach →'}
+                  </button>
+                </div>
+              </div>
             </div>
+          )}
 
-            {/* Progress Bar */}
-            <div className="mb-2.5 h-1.5 w-full overflow-hidden rounded-full bg-[#e3ded4]">
-              <div
-                className="h-full rounded-full bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] transition-all duration-300"
-                style={{ width: `${(doneCount / 4) * 100}%` }}
-              />
-            </div>
-
-            {/* 4 Steps */}
-            <div className="space-y-2">
-              {/* Step 1: Add your students */}
-              <div
-                onClick={() => onNavigateToStudents?.()}
-                className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${completedSteps[1]
-                  ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
-                  : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
-                  }`}
-              >
-                <div className="flex items-center gap-2.5 min-w-0 flex-1">
-                  <div
-                    onClick={(e) => toggleStep(1, e)}
-                    title={completedSteps[1] ? 'Step completed! Click to undo' : 'Click to mark as done'}
-                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-all cursor-pointer ${completedSteps[1]
-                      ? 'bg-[#159446] text-white shadow-2xs'
-                      : 'border border-[#d5cbbe] text-[#526068] hover:border-[#159446] hover:text-[#159446]'
-                      }`}
-                  >
-                    {completedSteps[1] ? (
-                      <svg
-                        width="11"
-                        height="11"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                    ) : (
-                      '1'
-                    )}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <h4 className="text-[11.5px] font-bold text-[#172b30] leading-tight">
-                      Add your students
-                    </h4>
-                    <p className="text-[9.5px] font-inter text-[#637278] leading-normal mt-0.5">
-                      Tell us about the children you're teaching.
-                    </p>
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onNavigateToStudents?.();
-                  }}
-                  className={`shrink-0 rounded-md px-2 py-1 text-[10px] font-semibold text-white shadow-2xs transition-colors cursor-pointer bg-[#356F58] hover:bg-[#2a5946]`}
-                >
-                  {completedSteps[1] ? 'Student added ✓' : 'Add student →'}
-                </button>
-              </div>
-
-              {/* Step 2: Enter your curriculum */}
-              <div
-                onClick={() => onOpenAddCurriculum?.()}
-                className={`flex cursor-pointer items-center justify-between gap-2 rounded-xl border p-2.5 shadow-2xs transition-all ${completedSteps[2]
-                  ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
-                  : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
-                  }`}
-              >
-                <div className="flex items-center gap-2.5 min-w-0 flex-1">
-                  <div
-                    onClick={(e) => toggleStep(2, e)}
-                    title={completedSteps[2] ? 'Step completed! Click to undo' : 'Click to mark as done'}
-                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-all cursor-pointer ${completedSteps[2]
-                      ? 'bg-[#159446] text-white shadow-2xs'
-                      : 'border border-[#d5cbbe] text-[#526068] hover:border-[#159446] hover:text-[#159446]'
-                      }`}
-                  >
-                    {completedSteps[2] ? (
-                      <svg
-                        width="11"
-                        height="11"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                    ) : (
-                      '2'
-                    )}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <h4 className="text-[11.5px] font-bold text-[#172b30] leading-tight">
-                      Enter your curriculum
-                    </h4>
-                    <p className="text-[9.5px] font-inter text-[#637278] leading-tight mt-0.5">
-                      Tell us what books and programs you use.
-                    </p>
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onOpenAddCurriculum?.();
-                  }}
-                  className={`shrink-0 rounded-md px-2 py-1 text-[10px] font-semibold text-white shadow-2xs transition-colors cursor-pointer bg-[#356F58] hover:bg-[#2a5946]`}
-                >
-                  {completedSteps[2] ? 'Curriculum added ✓' : 'Add curriculum →'}
-                </button>
-              </div>
-
-              {/* Step 3: Build your weekly plan */}
-              <div
-                onClick={() => onNavigateToPlanner?.()}
-                className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${completedSteps[3]
-                  ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
-                  : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
-                  }`}
-              >
-                <div className="flex items-center gap-2.5 min-w-0 flex-1">
-                  <div
-                    onClick={(e) => toggleStep(3, e)}
-                    title={completedSteps[3] ? 'Step completed! Click to undo' : 'Click to mark as done'}
-                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-all cursor-pointer ${completedSteps[3]
-                      ? 'bg-[#159446] text-white shadow-2xs'
-                      : 'border border-[#d5cbbe] text-[#526068] hover:border-[#159446] hover:text-[#159446]'
-                      }`}
-                  >
-                    {completedSteps[3] ? (
-                      <svg
-                        width="11"
-                        height="11"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                    ) : (
-                      '3'
-                    )}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <h4 className="text-[11.5px] font-bold text-[#172b30] leading-tight">
-                      Build your weekly plan
-                    </h4>
-                    <p className="text-[9.5px] font-inter text-[#637278] leading-normal mt-0.5">
-                      Set which subjects you do each day.
-                    </p>
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onNavigateToPlanner?.();
-                  }}
-                  className={`shrink-0 rounded-md px-2 py-1 text-[10px] font-semibold text-white shadow-2xs transition-colors cursor-pointer bg-[#356F58] hover:bg-[#2a5946]`}
-                >
-                  {completedSteps[3] ? 'Plan built ✓' : 'Build plan →'}
-                </button>
-              </div>
-
-              {/* Step 4: Ask the AI coach */}
-              <div
-                onClick={() => onNavigateToCoach?.()}
-                className={`flex cursor-pointer items-center justify-between rounded-xl border p-2.5 shadow-2xs transition-all ${completedSteps[4]
-                  ? 'border-[#b8dbc7] bg-[#edf5f0] hover:bg-[#e4f1e8]'
-                  : 'border-[#ebdcca] bg-white hover:bg-[#faf6ee]'
-                  }`}
-              >
-                <div className="flex items-center gap-2.5 min-w-0 flex-1">
-                  <div
-                    onClick={(e) => toggleStep(4, e)}
-                    title={completedSteps[4] ? 'Step completed! Click to undo' : 'Click to mark as done'}
-                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold transition-all cursor-pointer ${completedSteps[4]
-                      ? 'bg-[#159446] text-white shadow-2xs'
-                      : 'border border-[#d5cbbe] text-[#526068] hover:border-[#159446] hover:text-[#159446]'
-                      }`}
-                  >
-                    {completedSteps[4] ? (
-                      <svg
-                        width="11"
-                        height="11"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                    ) : (
-                      '4'
-                    )}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <h4 className="text-[11.5px] font-bold text-[#172b30] leading-tight">
-                      Ask the AI coach
-                    </h4>
-                    <p className="text-[9.5px] font-inter text-[#637278] leading-normal mt-0.5">
-                      Get your first personalized guidance.
-                    </p>
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onNavigateToCoach?.();
-                  }}
-                  className={`shrink-0 rounded-md px-2 py-1 text-[10px] font-semibold text-white shadow-2xs transition-colors cursor-pointer bg-[#356F58] hover:bg-[#2a5946]`}
-                >
-                  {completedSteps[4] ? 'Coach asked ✓' : 'Ask coach →'}
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-
-          {/* Section: TO-DO LIST */}
-          <div>
+          {/* ──────── TO-DO LIST ──────── */}
+          <div className="order-4 min-[520px]:order-none">
             <div className="mb-2 flex items-center justify-between">
               <span className="text-[10px] font-bold tracking-wider text-[#3d4b50] uppercase">
                 TO-DO LIST
@@ -726,7 +729,7 @@ export default function DashboardHome({ onOpenAddCurriculum, onNavigateToStudent
         </div>
 
         {/* ──────── RIGHT COLUMN ──────── */}
-        <div className="w-full space-y-3.5">
+        <div className="w-full space-y-3.5 order-3 min-[520px]:order-none">
           {/* Today's Schedule Card (Only 1 instance now) */}
           {renderScheduleCard('schedule-1')}
 
