@@ -3,11 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <title>Tabula. - Your AI homeschool planning coach</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <script>
+      // 1. Prevent iOS Safari gesture zooming (pinch and rotate)
+      document.addEventListener('gesturestart', function (e) {
+        e.preventDefault();
+      }, { passive: false });
+      document.addEventListener('gesturechange', function (e) {
+        e.preventDefault();
+      }, { passive: false });
+      document.addEventListener('gestureend', function (e) {
+        e.preventDefault();
+      }, { passive: false });
+
+      // 2. Prevent multi-touch pinch zoom while allowing standard 1-finger scrolling
+      document.addEventListener('touchmove', function (e) {
+        if (e.touches && e.touches.length > 1) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+
+      // 3. Prevent double-tap zoom on non-interactive elements
+      var lastTouchEnd = 0;
+      document.addEventListener('touchend', function (e) {
+        var now = Date.now();
+        if (now - lastTouchEnd <= 300) {
+          var target = e.target;
+          var isInteractive = target && target.closest && target.closest('button, a, input, select, textarea, label, [role="button"]');
+          if (!isInteractive) {
+            e.preventDefault();
+          }
+        }
+        lastTouchEnd = now;
+      }, { passive: false });
+
+      // 4. Prevent trackpad pinch zoom (Ctrl + mouse wheel)
+      document.addEventListener('wheel', function (e) {
+        if (e.ctrlKey) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+    </script>
   </head>
   <body>
     <div id="root"></div>

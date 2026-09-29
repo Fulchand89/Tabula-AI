@@ -42,6 +42,11 @@
   box-sizing: border-box;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -53,6 +58,27 @@ html, body {
   font-size: 16px;
   color: #1e282d;
   -webkit-font-smoothing: antialiased;
+  touch-action: pan-x pan-y;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure interactive elements remove double-tap delay/zoom while allowing normal tapping */
+a, button, input, select, textarea, label {
+  touch-action: manipulation;
+}
+
+/* Disable input focus auto-zoom on mobile (iOS WebKit requires font-size >= 16px) */
+@media screen and (max-width: 1024px) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="button"]):not([type="submit"]):not([type="reset"]),
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
 }
 
 /* ── Increase all small font sizes by 1px for optimal mobile and desktop readability ── */
