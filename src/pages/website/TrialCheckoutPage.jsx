@@ -237,8 +237,8 @@ export default function TrialCheckoutPage({
                   <div
                     onClick={() => setSelectedPlan('monthly')}
                     className={`rounded-2xl border-2 sm:border-[2.5px] p-4 sm:p-5 flex items-center justify-between cursor-pointer transition-all bg-white ${selectedPlan === 'monthly'
-                        ? 'border-[#356F58] ring-1 ring-[#356F58] shadow-sm'
-                        : 'border-[#e9e2d5] hover:border-[#ba633f] shadow-2xs'
+                      ? 'border-[#356F58] ring-1 ring-[#356F58] shadow-sm'
+                      : 'border-[#e9e2d5] hover:border-[#ba633f] shadow-2xs'
                       }`}
                   >
 
@@ -261,8 +261,8 @@ export default function TrialCheckoutPage({
                     {/* RADIO */}
                     <div
                       className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 ${selectedPlan === 'monthly'
-                          ? 'border-[#356F58]'
-                          : 'border-[#ba633f]'
+                        ? 'border-[#356F58]'
+                        : 'border-[#ba633f]'
                         }`}
                     >
                       {selectedPlan === 'monthly' && (
@@ -276,8 +276,8 @@ export default function TrialCheckoutPage({
                   <div
                     onClick={() => setSelectedPlan('annual')}
                     className={`relative rounded-2xl border-2 sm:border-[2.5px] p-4 sm:p-5 flex items-center justify-between cursor-pointer transition-all bg-white ${selectedPlan === 'annual'
-                        ? 'border-[#356F58] ring-1 ring-[#356F58] shadow-sm'
-                        : 'border-[#e9e2d5] hover:border-[#ba633f] shadow-2xs'
+                      ? 'border-[#356F58] ring-1 ring-[#356F58] shadow-sm'
+                      : 'border-[#e9e2d5] hover:border-[#ba633f] shadow-2xs'
                       }`}
                   >
 
@@ -305,8 +305,8 @@ export default function TrialCheckoutPage({
                     {/* RADIO */}
                     <div
                       className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 ${selectedPlan === 'annual'
-                          ? 'border-[#356F58]'
-                          : 'border-[#ba633f]'
+                        ? 'border-[#356F58]'
+                        : 'border-[#ba633f]'
                         }`}
                     >
                       {selectedPlan === 'annual' && (
@@ -505,7 +505,7 @@ export default function TrialCheckoutPage({
                   className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-[linear-gradient(92.26deg,#126041_30.56%,#159446_98.6%)] py-3.5 text-xs sm:text-sm font-bold text-white shadow-sm transition-opacity hover:opacity-95 cursor-pointer"
                 >
                   <span>Start Your Free Trial</span>
-                  <span>arrow</span>
+                  <span>→</span>
                 </button>
 
               </div>
