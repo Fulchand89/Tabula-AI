@@ -16,11 +16,24 @@ import React, { useState, useRef, useEffect } from 'react';
  */
 export default function CoachView({ onBackToHome, onUpgradeClick }) {
   const [selectedStudent, setSelectedStudent] = useState('Student 1');
-  const [selectedSuggestion, setSelectedSuggestion] = useState('What does today look like?');
+  const [selectedSuggestion, setSelectedSuggestion] = useState('');
   const [inputText, setInputText] = useState('');
   const [chatMessages, setChatMessages] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
   const chatEndRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   const coachName = (() => {
     try {
       return localStorage.getItem('tabula_coach_name') || '';
@@ -60,6 +73,7 @@ Everything else is on pause without falling behind!`,
   const handleSelectSuggestion = (text) => {
     setSelectedSuggestion(text);
     setInputText(text);
+    setIsDropdownOpen(false);
   };
 
   const handleSendMessage = (e) => {
@@ -278,30 +292,67 @@ Everything else is on pause without falling behind!`,
             </div>
           )}
 
-          {/* SUGGESTED QUESTIONS — always after last coach message */}
+          {/* SUGGESTED QUESTIONS — Dropdown Menu */}
           {!isTyping && (
-            <div className="pt-1">
-              <h2 className="mb-2.5 text-[11.5px] font-extrabold uppercase tracking-[0.06em] text-[#22353c]">
+            <div className="pt-1 relative" ref={dropdownRef}>
+              <h2 className="mb-2 text-[11.5px] font-extrabold uppercase tracking-[0.06em] text-[#22353c]">
                 SUGGESTED QUESTIONS
               </h2>
-              <div className="flex flex-wrap gap-2 sm:gap-2.5">
-                {suggestions.map((suggestion) => {
-                  const isSelected = selectedSuggestion === suggestion.text;
-                  return (
-                    <button
-                      key={suggestion.text}
-                      type="button"
-                      onClick={() => handleSelectSuggestion(suggestion.text)}
-                      className={`rounded-full px-4 py-2 text-[12.5px] sm:text-[13px] transition-all cursor-pointer ${
-                        isSelected
-                          ? 'bg-[#156e48] text-white font-semibold shadow-2xs border border-transparent'
-                          : 'bg-white border border-[#ded5c8] text-[#203138] font-medium shadow-2xs hover:bg-[#faf7f0] hover:border-[#cfc6b8]'
-                      }`}
-                    >
-                      {suggestion.text}
-                    </button>
-                  );
-                })}
+
+              <div className="relative w-full max-w-[430px]">
+                {/* Dropdown Trigger Button */}
+                <button
+                  type="button"
+                  onClick={() => setIsDropdownOpen((prev) => !prev)}
+                  className="w-full flex items-center justify-between gap-3 rounded-xl border border-[#ded5c8] bg-white px-4 py-3 text-[13px] sm:text-[13.5px] font-medium text-[#203138] shadow-2xs hover:border-[#156e48] hover:text-[#156e48] hover:bg-[#f0f7f3] transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#156e48]/30 group"
+                  aria-expanded={isDropdownOpen}
+                  aria-label="Suggested Questions Dropdown"
+                >
+                  <span className="truncate text-left">
+                    {selectedSuggestion || 'Select a suggested question...'}
+                  </span>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={`shrink-0 transition-transform duration-200 ${
+                      isDropdownOpen ? 'rotate-180 text-[#156e48]' : 'text-[#685949] group-hover:text-[#156e48]'
+                    }`}
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </button>
+
+                {/* Dropdown Menu Options Popup */}
+                {isDropdownOpen && (
+                  <div className="absolute left-0 top-full mt-1.5 w-full z-30 rounded-xl border border-[#ded5c8] bg-white py-1.5 shadow-xl max-h-56 overflow-y-auto no-scrollbar">
+                    {suggestions.map((suggestion) => {
+                      const isSelected = selectedSuggestion === suggestion.text;
+                      return (
+                        <button
+                          key={suggestion.text}
+                          type="button"
+                          onClick={() => handleSelectSuggestion(suggestion.text)}
+                          className={`w-full text-left px-4 py-2.5 text-[12.5px] sm:text-[13px] transition-colors cursor-pointer flex items-center justify-between ${
+                            isSelected
+                              ? 'bg-[#156e48] text-white font-semibold'
+                              : 'text-[#203138] font-medium hover:bg-[#156e48] hover:text-white'
+                          }`}
+                        >
+                          <span className="leading-snug">{suggestion.text}</span>
+                          {isSelected && (
+                            <span className="text-xs shrink-0 ml-2 font-bold">✓</span>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             </div>
           )}

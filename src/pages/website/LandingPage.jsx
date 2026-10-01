@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import SignupPage from './SignupPage';
 import TrialCheckoutPage from './TrialCheckoutPage'
 import planIcon from '../../assets/images/akar-icons_calendar (1).png';
@@ -17,52 +17,6 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
 
   // Interactive FAQ state
   const [openFaq, setOpenFaq] = useState(null);
-
-  // Interactive AI Coach chat state
-  const [chatMessages, setChatMessages] = useState([
-    {
-      sender: 'ai',
-      text: 'Your son seems to be excelling in math, would you like to increase the challenge next week?'
-    },
-    {
-      sender: 'user',
-      text: 'Yes, please'
-    }
-  ]);
-  const [chatInput, setChatInput] = useState('');
-  const chatContainerRef = useRef(null);
-
-  useEffect(() => {
-    if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTo({
-        top: chatContainerRef.current.scrollHeight,
-        behavior: 'smooth'
-      });
-    }
-  }, [chatMessages]);
-
-  const toggleFaq = (index) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
-
-  const handleSendMessage = (e) => {
-    e.preventDefault();
-    if (!chatInput.trim()) return;
-
-    const userText = chatInput;
-    setChatMessages(prev => [...prev, { sender: 'user', text: userText }]);
-    setChatInput('');
-
-    setTimeout(() => {
-      setChatMessages(prev => [
-        ...prev,
-        {
-          sender: 'ai',
-          text: "I've added supplementary problem sets and adjusted the weekly pace to keep him engaged!"
-        }
-      ]);
-    }, 600);
-  };
 
   const openSignup = (plan) => {
     const targetPlan = (plan && typeof plan === 'string') ? plan : selectedPlan;
@@ -231,112 +185,56 @@ export default function LandingPage({ onGoToApp, onSelectPlan, onNavigateToSignu
             </h2>
           </div>
 
-          <div className="mb-4 grid grid-cols-1 sm:grid-cols-[1.1fr_0.9fr] items-start gap-4 rounded-2xl border border-[#ded7ca] bg-white p-4 sm:p-5 shadow-xs">
-
-            {/* LEFT SIDE: Info & Feature List */}
-            <div className="flex flex-col">
-              <div className="flex flex-col items-start gap-2">
-                <h3 className="font-lora text-[19px] font-semibold text-[#212C3E]">
+          {/* AI Homeschool Coach Card */}
+          <div
+            onClick={openSignup}
+            className="mb-3.5 sm:mb-3 flex flex-col justify-between rounded-2xl border border-[#ded6c9] bg-white p-4 sm:p-5 shadow-2xs hover:border-[#356F58]/40 transition-all cursor-pointer group"
+          >
+            <div>
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <h3 className="font-lora text-[19px] font-bold text-[#212C3E]">
                   AI Homeschool Coach
                 </h3>
-
-                <span className="inline-flex items-center rounded-md bg-[#F2B83F26] px-2 py-0.5 text-[9px] font-medium tracking-wider text-[#E09800]">
+                <span className="inline-flex items-center rounded-md bg-[#F2B83F26] px-2.5 py-0.5 text-[9px] sm:text-[9.5px] font-bold tracking-wider text-[#E09800] uppercase">
                   POWERED BY CLAUDE
                 </span>
               </div>
 
-              <p className="mt-3 text-[11.5px] sm:text-xs text-[#55636a]">
+              <p className="mb-3.5 text-xs sm:text-[13px] text-[#55636a]">
                 Your personal planning partner, every week.
               </p>
 
-              <ul className="mt-3 space-y-2">
-                <li className="flex items-center gap-2 text-[11px] sm:text-xs font-medium text-[#203036]">
-                  <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-[8px] text-white font-bold">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-[12.5px] font-medium text-[#203036]">
+                <li className="flex items-center gap-2">
+                  <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#159446] text-[9px] text-white font-bold">
                     ✓
                   </span>
                   <span>Plans around your real progress</span>
                 </li>
-
-                <li className="flex items-center gap-2 text-[11px] sm:text-xs font-medium text-[#203036]">
-                  <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-[8px] text-white font-bold">
+                <li className="flex items-center gap-2">
+                  <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#159446] text-[9px] text-white font-bold">
                     ✓
                   </span>
                   <span>Suggest lessons and adjustments</span>
                 </li>
-
-                <li className="flex items-center gap-2 text-[11px] sm:text-xs font-medium text-[#203036]">
-                  <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-[8px] text-white font-bold">
+                <li className="flex items-center gap-2">
+                  <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#159446] text-[9px] text-white font-bold">
                     ✓
                   </span>
                   <span>Helps when a child is struggling</span>
                 </li>
-
-                <li className="flex items-center gap-2 text-[11px] sm:text-xs font-medium text-[#203036]">
-                  <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#159446] text-[8px] text-white font-bold">
+                <li className="flex items-center gap-2">
+                  <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#159446] text-[9px] text-white font-bold">
                     ✓
                   </span>
-                  <span>
-                    Shares teaching ideas that fit your philosophy
-                  </span>
+                  <span>Shares teaching ideas that fit your philosophy</span>
                 </li>
               </ul>
             </div>
 
-            {/* RIGHT SIDE — Chat Mockup */}
-            <div className="flex flex-col justify-between rounded-2xl border border-[#ded7ca] bg-white p-3.5 sm:p-4 shadow-xs">
-              <div className="mb-2 text-xs sm:text-[13px] font-bold text-[#1c2930]">
-                AI Coach
-              </div>
-
-              <div
-                ref={chatContainerRef}
-                className="h-[135px] overflow-y-auto space-y-2 pr-1 custom-scrollbar"
-              >
-                {chatMessages.map((msg, idx) =>
-                  msg.sender === 'ai' ? (
-                    <div
-                      key={idx}
-                      className="rounded-xl bg-[#f7f2ea] p-2.5 text-[11px] sm:text-xs leading-relaxed text-[#2c3c41]"
-                    >
-                      {msg.text}
-                    </div>
-                  ) : (
-                    <div key={idx} className="flex justify-end">
-                      <span className="rounded-lg bg-[#ede4d7] px-2.5 py-1 text-[10.5px] sm:text-[11.5px] font-medium text-[#203036]">
-                        {msg.text}
-                      </span>
-                    </div>
-                  )
-                )}
-              </div>
-
-              <form
-                className="mt-3 flex items-center rounded-xl border border-[#cbd3d6] bg-white px-3 py-1.5 focus-within:border-[#159446] transition-colors"
-                onSubmit={handleSendMessage}
-              >
-                <input
-                  type="text"
-                  className="w-full bg-transparent text-[11.5px] sm:text-xs text-[#1c2930] placeholder-[#78888e] focus:outline-none"
-                  placeholder="Ask your coach anytime..."
-                  value={chatInput}
-                  onChange={(e) => setChatInput(e.target.value)}
-                />
-
-                <button
-                  type="submit"
-                  className="ml-1.5 text-[#356F58] hover:text-[#2a5946] hover:scale-105 transition-all cursor-pointer shrink-0"
-                  aria-label="Send message"
-                >
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-                  </svg>
-                </button>
-              </form>
+            <div className="flex items-center gap-1 text-xs sm:text-[11.5px] font-semibold text-[#ba633f] group-hover:gap-1.5 transition-all mt-4 pt-1">
+              <span>Learn more</span>
+              <span>→</span>
             </div>
           </div>
 
