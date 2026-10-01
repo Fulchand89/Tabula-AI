@@ -34,6 +34,14 @@ export default function CoachView({ onBackToHome, onUpgradeClick }) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    if (isDropdownOpen && dropdownRef.current) {
+      setTimeout(() => {
+        dropdownRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      }, 50);
+    }
+  }, [isDropdownOpen]);
+
   const coachName = (() => {
     try {
       return localStorage.getItem('tabula_coach_name') || '';
@@ -299,7 +307,7 @@ Everything else is on pause without falling behind!`,
                 SUGGESTED QUESTIONS
               </h2>
 
-              <div className="relative w-full max-w-[430px]">
+              <div className={`relative w-full max-w-[430px] ${isDropdownOpen ? 'z-50' : 'z-10'}`}>
                 {/* Dropdown Trigger Button */}
                 <button
                   type="button"
@@ -328,9 +336,9 @@ Everything else is on pause without falling behind!`,
                   </svg>
                 </button>
 
-                {/* Dropdown Menu Options Popup */}
+                {/* Dropdown Menu Options Popup - Opens Downward with High Z-Index */}
                 {isDropdownOpen && (
-                  <div className="absolute left-0 top-full mt-1.5 w-full z-30 rounded-xl border border-[#ded5c8] bg-white py-1.5 shadow-xl max-h-56 overflow-y-auto no-scrollbar">
+                  <div className="absolute left-0 top-full mt-1.5 w-full z-50 rounded-xl border border-[#ded5c8] bg-white py-1.5 shadow-2xl max-h-56 overflow-y-auto no-scrollbar">
                     {suggestions.map((suggestion) => {
                       const isSelected = selectedSuggestion === suggestion.text;
                       return (
@@ -354,6 +362,9 @@ Everything else is on pause without falling behind!`,
                   </div>
                 )}
               </div>
+
+              {/* Dynamic Spacer when open so dropdown menu never gets hidden behind bottom search bar */}
+              {isDropdownOpen && <div className="h-60 w-full shrink-0" aria-hidden="true" />}
             </div>
           )}
 
